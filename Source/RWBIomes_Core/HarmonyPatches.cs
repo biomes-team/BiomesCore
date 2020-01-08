@@ -16,7 +16,7 @@ namespace RWBIomes_Core
 
         static HarmonyPatches()
         {
-            HarmonyInstance harmony = HarmonyInstance.Create("rimworld.antinium");
+            HarmonyInstance harmony = HarmonyInstance.Create("rimworld.rwb_core");
 
             // find the AddFoodPoisoningHediff method of the class RimWorld.FoodUtility
             MethodInfo targetmethod = AccessTools.Method(typeof(RimWorld.Planet.World), "CoastDirectionAt");
