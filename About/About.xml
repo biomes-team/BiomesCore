@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <ModMetaData>
-  <name>BIOMES! Core</name>
-  <author>Zylle + tba add your name here</author>
+  <name>Biomes! Core</name>
+  <author>The Biomes Mod Team</author>
   <supportedVersions>
-	<li>1.0</li>
+    <li>1.0</li>
   </supportedVersions>
   <description>
-	BIOMES! Core. Required for other BIOMES! modules.
-</description>
+    The core module for the Biomes! mods. Necessary for all of the Biomes! modules.
+  </description>
 </ModMetaData>

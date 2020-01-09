@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29521.150
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RWBIomes_Core", "RWBIomes_Core.csproj", "{736186CB-9BA6-409D-8EE7-5FF8D62D4927}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiomesCore", "BiomesCore/BiomesCore.csproj", "{736186CB-9BA6-409D-8EE7-5FF8D62D4927}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
