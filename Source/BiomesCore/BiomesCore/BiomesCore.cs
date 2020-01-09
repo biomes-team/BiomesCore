@@ -1,8 +1,10 @@
 ﻿using Harmony;
 using System.Reflection;
+using Verse;
 
 namespace BiomesCore
 {
+    [StaticConstructorOnStartup]
     public static class BiomesCore
     {
         public const string Id = "rimworld.biomes.core";
