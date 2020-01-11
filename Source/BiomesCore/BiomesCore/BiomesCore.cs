@@ -1,4 +1,5 @@
 ﻿using Harmony;
+using System;
 using System.Reflection;
 using Verse;
 
@@ -9,7 +10,7 @@ namespace BiomesCore
     {
         public const string Id = "rimworld.biomes.core";
         public const string Name = "Biomes! Core";
-        public static string Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        public static string Version = (Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(AssemblyInformationalVersionAttribute)) as AssemblyInformationalVersionAttribute).InformationalVersion;
 
         static BiomesCore()
         {

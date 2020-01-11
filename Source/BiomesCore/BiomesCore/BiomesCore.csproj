@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BiomesCore.cs" />
+    <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
+    <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\World_NoBeachBiomes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
