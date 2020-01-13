@@ -1,4 +1,5 @@
-﻿using Harmony;
+﻿using BiomesCore.DefModExtensions;
+using Harmony;
 using RimWorld;
 using System.Collections.Generic;
 using Verse;
@@ -8,7 +9,7 @@ namespace BiomesCore.Patches
     [HarmonyPatch(typeof(GenStep_ScatterLumpsMineable), "ScatterAt")]
     internal static class GenStep_ScatterLumpsMineable_OrePreferredBiome
     {
-        static bool Prefix(GenStep_ScatterLumpsMineable __instance, IntVec3 c, Map map, List<IntVec3> ___recentLumpCells)
+        internal static bool Prefix(GenStep_ScatterLumpsMineable __instance, IntVec3 c, Map map, List<IntVec3> ___recentLumpCells)
         {
             ThingDef chosen = null;
             if (__instance.forcedDefToScatter != null)
@@ -27,7 +28,7 @@ namespace BiomesCore.Patches
                     {
                         return 0f;
                     }
-                    var preferred = d.GetModExtension<DefModExtension_OrePreferredBiome>
+                    var preferred = d.GetModExtension<DefModExtension_OrePreferredBiome>();
                     if (preferred != null && !preferred.allowedBiomes.Contains(map.Biome))
                     {
                         return d.building.mineableScatterCommonality * 0.15f;
