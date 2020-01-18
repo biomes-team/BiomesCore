@@ -24,12 +24,12 @@
 		<plant>
 			<fertilityMin>0.5</fertilityMin>
 			<fertilitySensitivity>0.8</fertilitySensitivity>
-			<growDays>18</growDays>
+			<growDays>20</growDays>
 			<harvestYield>10</harvestYield>
 			<harvestWork>400</harvestWork>
 			<harvestTag>Standard</harvestTag>
-			<harvestMinGrowth>0.90</harvestMinGrowth>
-			<harvestAfterGrowth>0.75</harvestAfterGrowth>
+			<harvestMinGrowth>0.80</harvestMinGrowth>
+			<harvestAfterGrowth>0.65</harvestAfterGrowth>
 			<soundHarvesting>Harvest_Tree</soundHarvesting>
 			<soundHarvestFinish>Harvest_Tree_Finish</soundHarvestFinish>
 			<wildClusterRadius>8</wildClusterRadius>
