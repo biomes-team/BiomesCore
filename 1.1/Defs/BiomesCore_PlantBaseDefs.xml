@@ -34,10 +34,7 @@
 			<soundHarvestFinish>Harvest_Tree_Finish</soundHarvestFinish>
 			<wildClusterRadius>8</wildClusterRadius>
 			<wildClusterWeight>70</wildClusterWeight>
-			<visualSizeRange>
-				<min>0.95</min>
-				<max>2</max>
-			</visualSizeRange>
+			<visualSizeRange>0.9~5.2</visualSizeRange>
 			<topWindExposure>0.3</topWindExposure>
 			<wildOrder>2</wildOrder>
 			<purpose>Food</purpose>
