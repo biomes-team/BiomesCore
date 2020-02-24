@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<ThoughtDef>
+    <defName>BiomesIslands_LagoonWater</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>pretty water</label>
+        <description> The nice blue water makes me feel relaxed.</description>
+        <baseMoodEffect>+4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
