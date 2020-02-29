@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using System;
 using System.Reflection;
 using Verse;
@@ -14,7 +14,8 @@ namespace BiomesCore
 
         static BiomesCore()
         {
-            HarmonyInstance.Create(Id).PatchAll();
+            //HarmonyInstance.Create(Id).PatchAll();
+            new Harmony(Id).PatchAll();
             Log("Initialized");
         }
 
