@@ -298,7 +298,7 @@
     <Compile Include="BiomesCore.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
-    <Compile Include="Patches\World_NoBeachBiomes.cs" />
+    <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
