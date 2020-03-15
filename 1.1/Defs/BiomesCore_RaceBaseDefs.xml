@@ -26,11 +26,11 @@
         </li>
         <li>
           <def>AnimalJuvenile</def>
-          <minAge>0.27</minAge>
+          <minAge>0.14</minAge>
         </li>
         <li>
           <def>AnimalAdult</def>
-          <minAge>0.55</minAge>
+          <minAge>0.27</minAge>
         </li>
       </lifeStageAges>
 	  <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
