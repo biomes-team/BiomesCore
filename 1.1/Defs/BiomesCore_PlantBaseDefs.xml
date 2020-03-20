@@ -46,6 +46,7 @@
 				<li>TreeSowing</li>
 			</sowResearchPrerequisites>
 			<mustBeWildToSow>false</mustBeWildToSow>
+			<blockAdjacentSow>true</blockAdjacentSow>
 		</plant>
 	</ThingDef>
 
