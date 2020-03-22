@@ -26,4 +26,29 @@
     </stuffProps>
   </ThingDef>
 
+  <ThingDef ParentName="LeatherBase">
+    <defName>BiomesCore_GreenChitin</defName>
+    <label>green chitin</label>
+    <description>A strong chitinous shell taken from a green insectoid.</description>
+    <graphicData>
+      <color>(134,190,105)</color>
+	  <graphicClass>Graphic_StackCount</graphicClass>
+	  <texPath>Things/Items/Chitin</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>4.5</MarketValue>
+      <StuffPower_Armor_Sharp>1.45</StuffPower_Armor_Sharp>
+	  <StuffPower_Armor_Blunt>0.81</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(134,190,105)</color>
+      <commonality>0.02</commonality>
+	  <statFactors>
+        <Beauty>2.4</Beauty>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+
 </Defs>
