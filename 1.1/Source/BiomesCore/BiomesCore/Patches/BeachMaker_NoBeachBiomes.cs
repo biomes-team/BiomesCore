@@ -2,6 +2,7 @@
 using HarmonyLib;
 using RimWorld.Planet;
 using RimWorld;
+using BiomesCore.DefModExtensions;
 
 namespace BiomesCore.Patches
 {
@@ -11,9 +12,17 @@ namespace BiomesCore.Patches
         // from RF-Archipelagos
         internal static bool Prefix(Map map)
         {
-            if (map.Biome.defName.Contains("NoBeach"))
+            //if (map.Biome.defName.Contains("NoBeach"))
+            //{
+            //    return false;
+            //}
+            //return true;
+            if (map.Biome.HasModExtension<Biomes_NoBeach>())
             {
-                return false;
+                if (!map.Biome.GetModExtension<Biomes_NoBeach>().allowBeach)
+                {
+                    return false;
+                }
             }
             return true;
         }
