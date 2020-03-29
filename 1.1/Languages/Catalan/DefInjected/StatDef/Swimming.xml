@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <!-- EN: swim speed -->
+    <SwimSpeed.label>nedar velocitat</SwimSpeed.label>
+    <!-- EN: Speed of movement in cells per second through water. -->
+    <SwimSpeed.description>Velocitat de moviment en cel·les per segon a través de l'aigua.</SwimSpeed.description>
+    <!-- EN: {0} c/s -->
+    <SwimSpeed.formatString>{0} c/s</SwimSpeed.formatString>
+</LanguageData>
