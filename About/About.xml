@@ -16,6 +16,9 @@
 </modDependencies>
   <description>
 The core module for the Biomes! mods. Necessary for all of the Biomes! modules.
+
+[SwimmingKit](https://steamcommunity.com/sharedfiles/filedetails/?id=1542399915) is included by default.
+This is added in a way that's compatible to having the mod present or not, either way your pawns and animals will be able to swim now!
   </description>
   	
 </ModMetaData>
