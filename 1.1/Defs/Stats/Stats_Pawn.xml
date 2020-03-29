@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <StatDef>
+    <defName>SwimSpeed</defName>
+    <label>swim speed</label>
+    <description>Speed of movement in cells per second through water.</description>
+    <category>BasicsPawn</category>
+    <defaultBaseValue>0</defaultBaseValue>
+    <minValue>0</minValue>
+    <hideAtValue>0</hideAtValue>
+    <toStringStyle>FloatTwo</toStringStyle>
+    <formatString>{0} c/s</formatString>
+    <displayPriorityInCategory>90</displayPriorityInCategory>
+    <capacityFactors>
+      <li>
+        <capacity>Moving</capacity>
+        <weight>1</weight>
+      </li>
+    </capacityFactors>
+    <parts>
+      <li Class="StatPart_Glow">
+        <humanlikeOnly>true</humanlikeOnly>
+        <factorFromGlowCurve>
+          <points>
+            <li>(0,0.80)</li>
+            <li>(0.30,1.00)</li>
+          </points>
+        </factorFromGlowCurve>
+      </li>
+    </parts>
+    <scenarioRandomizable>true</scenarioRandomizable>
+  </StatDef>
+</Defs>
