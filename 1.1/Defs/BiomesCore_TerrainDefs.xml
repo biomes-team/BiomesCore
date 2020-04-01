@@ -4,6 +4,10 @@
   <TerrainDef ParentName="WaterShallowBase">
     <defName>BiomesCore_WaterShallowLagoon</defName>
     <label>lagoon water</label>
+    <tags>
+          <!-- Support for Thanks For All The Fish -->
+          <li>Fishable</li>
+    </tags>
     <texturePath>Terrain/Surfaces/WaterShallowLagoon</texturePath>
 	<traversedThought>BiomesCore_LagoonWater</traversedThought>
     <waterDepthShader>Map/WaterDepth</waterDepthShader>
