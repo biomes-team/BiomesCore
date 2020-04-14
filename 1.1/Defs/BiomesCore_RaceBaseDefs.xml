@@ -7,9 +7,15 @@
     <label>rimcrab</label>
     <description>A crab</description>
     <statBases>
-	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
-      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+		<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+		<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+		<SwimSpeed>8</SwimSpeed>
     </statBases>
+	<modExtensions>
+		<!-- This makes sharks stay in the water -->
+		<li Class="Swimming.AquaticExtension">
+		</li>
+	</modExtensions>
     <race>
 	  <leatherDef>BiomesCore_CrabShell</leatherDef>
 	  <body>BeetleLikeWithClaw</body>
@@ -42,6 +48,54 @@
       <li>AnimalExotic</li>
     </tradeTags>
   </ThingDef>
+  
+  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_FishThingBase" Abstract="true">
+        <defName>BiomesCore_FishThingBase</defName>
+        <label>Fish</label>
+        <description>A tasty fish</description>
+        <statBases>
+            <MoveSpeed>0</MoveSpeed>
+            <SwimSpeed>8</SwimSpeed>
+            <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+            <MarketValue>1500</MarketValue>
+            <MeatAmount>10</MeatAmount>
+            <LeatherAmount>20</LeatherAmount>
+        </statBases>
+		<modExtensions>
+			<!-- This makes sharks stay in the water -->
+			<li Class="Swimming.AquaticExtension">
+			<aquatic>true</aquatic>
+			</li>
+		</modExtensions>
+        <race>
+            <body>Shark</body>
+            <foodType>OmnivoreRoughAnimal</foodType>
+            <gestationPeriodDays>360</gestationPeriodDays>
+            <wildness>1</wildness>
+            <lifeExpectancy>35</lifeExpectancy>
+			<trainability>Intermediate</trainability>
+            <manhunterOnTameFailChance>0.6</manhunterOnTameFailChance>
+            <manhunterOnDamageChance>1</manhunterOnDamageChance>
+            <meatLabel>shark meat</meatLabel>
+            <lifeStageAges>
+                <li>
+                    <def>AnimalBaby</def>
+                    <minAge>0</minAge>
+                </li>
+                <li>
+                    <def>AnimalJuvenile</def>
+                    <minAge>0.4</minAge>
+                </li>
+                <li>
+                    <def>AnimalAdult</def>
+                    <minAge>0.8</minAge>
+                </li>
+            </lifeStageAges>
+            <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+            <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+            <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+        </race>
+    </ThingDef>
 
 
 </Defs>
