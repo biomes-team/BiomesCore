@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.0.0.9, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Lib.Harmony.2.0.0.9\lib\net472\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -295,14 +296,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BiomesCore.cs" />
+    <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="DefModExtensions\Biomes_NoBeach.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
+    <Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />
+    <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflections\NonVirtualDynamicMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

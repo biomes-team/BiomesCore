@@ -16,6 +16,44 @@
 	<statBases>
 		<Beauty>3</Beauty>
 	</statBases>
+  <affordances>
+    <li>BiomesCore_FreshWater_Bridgeable</li>
+  </affordances>
   </TerrainDef>
 
+  <TerrainDef>
+    <defName>Chinampa</defName>
+    <label>chinampa</label>
+    <description>BIOMES DESCRIPTION HERE!</description>
+    <texturePath>Terrain/Surfaces/Chinampa</texturePath>
+    <uiIconPath>Terrain/Bridges/Chinampa_MenuIcon</uiIconPath>
+    <layerable>true</layerable>
+    <affordances>
+      <li>Light</li>
+    </affordances>
+    <modExtensions>
+      <li Class="BiomesCore.DefModExtensions.TerrainDef_Bridge">
+        <loopTexPath>Terrain/Bridges/ChinampaProps_Loop</loopTexPath>
+        <rightTexPath>Terrain/Bridges/ChinampaProps_Right</rightTexPath>
+      </li>
+    </modExtensions>
+    <designationCategory>Structure</designationCategory>
+    <fertility>1.0</fertility>
+    <constructEffect>ConstructWood</constructEffect>
+    <terrainAffordanceNeeded>BiomesCore_FreshWater_Bridgeable</terrainAffordanceNeeded>
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>400</renderPrecedence>
+    <statBases>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>24</WoodLog>
+    </costList>
+    <designationHotKey>Misc4</designationHotKey>
+    <destroyOnBombDamageThreshold>50</destroyOnBombDamageThreshold>
+    <destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+    <destroyEffect>Bridge_Collapse</destroyEffect>
+    <destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+  </TerrainDef>
 </Defs>
