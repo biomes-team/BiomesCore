@@ -8,23 +8,6 @@ using UnityEngine;
 
 namespace BiomesCore.Patches
 {
-    [HarmonyPatch(typeof(GenConstruct), "CanPlaceBlueprintAt")]
-    public class GenConstruct_CanPlaceBlueprintAt_Patch
-    {
-        public static void Postfix(ref AcceptanceReport __result, BuildableDef entDef, IntVec3 center, Map map, bool godMode = false, Thing thingToIgnore = null, Thing thing = null, ThingDef stuffDef = null)
-        {
-            /*TerrainDef terrainDef = entDef as TerrainDef;
-            if (terrainDef == null)
-            {
-                TerrainAffordanceDef neededAffordance = map.terrainGrid.TerrainAt(center).terrainAffordanceNeeded;
-                if (neededAffordance == TerrainAffordanceDefOf.Bridgeable || neededAffordance == TerrainAffordanceDefOf.BridgeableDeep)
-                {
-                    __result = new AcceptanceReport("NoFloorsOnBridges".Translate());
-                }
-            }*/
-        }
-    }
-
     [HarmonyPatch(typeof(Designator_RemoveBridge), "CanDesignateCell")]
     public class Designator_RemoveBridge_CanDesignateCell_Patch
     {
