@@ -11,11 +11,6 @@
 		<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
 		<SwimSpeed>8</SwimSpeed>
     </statBases>
-	<modExtensions>
-		<!-- This makes sharks stay in the water -->
-		<li Class="Swimming.AquaticExtension">
-		</li>
-	</modExtensions>
     <race>
 	  <leatherDef>BiomesCore_CrabShell</leatherDef>
 	  <body>BeetleLikeWithClaw</body>
@@ -62,7 +57,7 @@
             <LeatherAmount>20</LeatherAmount>
         </statBases>
 		<modExtensions>
-			<!-- This makes sharks stay in the water -->
+			<!-- This makes things stay in the water -->
 			<li Class="Swimming.AquaticExtension">
 			<aquatic>true</aquatic>
 			</li>
