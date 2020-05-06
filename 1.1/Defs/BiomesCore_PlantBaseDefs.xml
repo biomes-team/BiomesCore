@@ -1,6 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+
+	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_FruitBase">
+					<thingCategories>
+						<li>FruitFoodRaw</li>
+					</thingCategories>	
+	<!--For VGP compatibility. Don't touch unless you know what you're doing.-->
+	</ThingDef>
+	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_VegBase">
+	<!--For VGP compatibility. Leave empty-->
+	</ThingDef>
+	
 	<ThingDef ParentName="PlantBase" Name="BiomesCore_FruitTreeBase" Abstract="true">
 		<defName>BiomesCore_FruitTreeBase</defName>
 		<label>fruit tree</label>
