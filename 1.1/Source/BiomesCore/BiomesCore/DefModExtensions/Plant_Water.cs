@@ -16,4 +16,9 @@ namespace BiomesCore.DefModExtensions
         public bool allowInDeepWater = false;
         public bool allowOnLand = false;
     }
+
+    public class Biomes_WaterPlantBiome : DefModExtension
+    {
+        public float spawnFertilityMultiplier = 0.33f;
+    }
 }

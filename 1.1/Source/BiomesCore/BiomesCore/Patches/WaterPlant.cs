@@ -43,4 +43,42 @@ namespace BiomesCore.Patches
             return true;
         }
     }
+
+    [HarmonyPatch(typeof(WildPlantSpawner), "GetDesiredPlantsCountAt")]
+    internal static class WildPlantSpawner_GetDesiredPlantsCountAt
+    {
+        internal static void Postfix(ref float __result, IntVec3 c, IntVec3 forCell, float plantDensity, Map ___map)
+        {
+            TerrainDef terrain = ___map.terrainGrid.TerrainAt(forCell);
+            if (terrain.HasTag("Water"))
+            {
+                Biomes_WaterPlantBiome ext = ___map.Biome.GetModExtension<Biomes_WaterPlantBiome>();
+                if (ext == null)
+                {
+                    ext = new Biomes_WaterPlantBiome();
+                }
+                // This needs fertility penalty ^ 2 to be multiplied in the have the same effect as multiplying fertility by the given number
+                __result = Mathf.Min(__result * ext.spawnFertilityMultiplier * ext.spawnFertilityMultiplier, 1f);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(WildPlantSpawner), "GetDesiredPlantsCountIn")]
+    internal static class WildPlantSpawner_GetDesiredPlantsCountIn
+    {
+        internal static void Postfix(ref float __result, Region reg, IntVec3 forCell, float plantDensity, Map ___map)
+        {
+            TerrainDef terrain = ___map.terrainGrid.TerrainAt(forCell);
+            if (terrain.HasTag("Water"))
+            {
+                Biomes_WaterPlantBiome ext = ___map.Biome.GetModExtension<Biomes_WaterPlantBiome>();
+                if (ext == null)
+                {
+                    ext = new Biomes_WaterPlantBiome();
+                }
+                // This needs fertility penalty ^ 2 to be multiplied in the have the same effect as multiplying fertility by the given number
+                __result = Mathf.Min(__result * ext.spawnFertilityMultiplier * ext.spawnFertilityMultiplier, reg.CellCount);
+            }
+        }
+    }
 }
