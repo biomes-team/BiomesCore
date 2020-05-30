@@ -10,7 +10,7 @@ namespace BiomesCore.DefModExtensions
 {
     public class Biomes_WaterPlant : DefModExtension
     {
-        public bool allowInFreshWater = true;
+        public bool allowInFreshWater = false;
         public bool allowInSaltWater = false;
         public bool allowInShallowWater = false;
         public bool allowInDeepWater = false;

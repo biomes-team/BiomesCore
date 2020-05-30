@@ -7,7 +7,10 @@
     <tags>
           <!-- Support for Thanks For All The Fish -->
           <li>Fishable</li>
+		  <!--Define water as salty.-->
+		  <li>Salty</li>
     </tags>
+	<fertility>0.3</fertility>
     <texturePath>Terrain/Surfaces/WaterShallowLagoon</texturePath>
 	<traversedThought>BiomesCore_LagoonWater</traversedThought>
     <waterDepthShader>Map/WaterDepth</waterDepthShader>
