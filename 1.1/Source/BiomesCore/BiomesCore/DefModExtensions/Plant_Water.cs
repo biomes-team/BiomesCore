@@ -16,6 +16,11 @@ namespace BiomesCore.DefModExtensions
         public bool allowInDeepWater = false;
         public bool allowOnLand = false;
     }
+    public class Biomes_SandPlant  : DefModExtension
+    {
+        public bool allowOnSand = false;
+        public bool allowOffSand = false;
+    }
 
     public class Biomes_WaterPlantBiome : DefModExtension
     {

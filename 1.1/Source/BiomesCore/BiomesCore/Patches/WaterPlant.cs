@@ -1,6 +1,5 @@
 ﻿using RimWorld;
 using Verse;
-using HarmonyLib;
 using System.Reflection.Emit;
 using BiomesCore.Reflections;
 using BiomesCore.Bridges;
@@ -8,10 +7,12 @@ using BiomesCore.DefModExtensions;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Reflection;
+using HarmonyLib;
 
 namespace BiomesCore.Patches
 {
-    [HarmonyPatch(typeof(PlantUtility), "CanEverPlantAt")]
+
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt_NewTemp))]
     internal static class PlantUtility_CanEverPlantAt
     {
         internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
@@ -35,6 +36,29 @@ namespace BiomesCore.Patches
             {
                 Biomes_WaterPlant ext = plantDef.GetModExtension<Biomes_WaterPlant>();
                 if (!ext.allowOnLand)
+                {
+                    __result = false;
+                    return false;
+                }
+            }
+            if (terrain.HasTag("Sandy"))
+            {
+                if (!plantDef.HasModExtension<Biomes_SandPlant>())
+                {
+                    __result = false;
+                    return false;
+                }
+                Biomes_SandPlant ext = plantDef.GetModExtension<Biomes_SandPlant>();
+                if (!ext.allowOnSand)
+                {
+                    __result = false;
+                    return false;
+                }
+            }
+            else if (plantDef.HasModExtension<Biomes_SandPlant>())
+            {
+                Biomes_SandPlant ext = plantDef.GetModExtension<Biomes_SandPlant>();
+                if (!ext.allowOffSand)
                 {
                     __result = false;
                     return false;
