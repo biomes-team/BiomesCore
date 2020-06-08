@@ -307,7 +307,7 @@
     <Compile Include="DefModExtensions\Plant_Water.cs" />
     <Compile Include="DefModExtensions\Song_MapRestrictions.cs" />
     <Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />
-    <Compile Include="IslandMap.cs" />
+    <Compile Include="BiomesKit.cs" />
     <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />

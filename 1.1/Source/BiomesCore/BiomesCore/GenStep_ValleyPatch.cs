@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using BiomesCore_BiomeControl;
+using HarmonyLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,12 @@ namespace BiomesIslands.GenSteps
     {
         static void Postfix(Map map, GenStepParams parms)
         {
-            if (!map.Biome.HasModExtension<ValleyMap>())
+            if (!map.Biome.HasModExtension<BiomesMap>())
             {
                 return;
             }
             MapGenFloatGrid elevation = MapGenerator.Elevation;
-            ValleyMap valleyMap = map.Biome.GetModExtension<ValleyMap>();
+            BiomesMap valleyMap = map.Biome.GetModExtension<BiomesMap>();
             IntVec3 center = map.Center;
             int size = map.Size.x / 2;
             foreach (IntVec3 current in map.AllCells)
