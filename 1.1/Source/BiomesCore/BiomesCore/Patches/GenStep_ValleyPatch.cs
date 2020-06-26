@@ -1,4 +1,4 @@
-﻿using BiomesCore_BiomeControl;
+﻿using BiomesCore.DefModExtensions;
 using HarmonyLib;
 using System;
 using System.Collections.Generic;

@@ -301,13 +301,13 @@
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="BiomeDefOf.cs" />
+    <Compile Include="DefModExtensions\Biomes_MapParameters.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\Biomes_NoBeach.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
     <Compile Include="DefModExtensions\Plant_Water.cs" />
     <Compile Include="DefModExtensions\Song_MapRestrictions.cs" />
     <Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />
-    <Compile Include="BiomesKit.cs" />
     <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
