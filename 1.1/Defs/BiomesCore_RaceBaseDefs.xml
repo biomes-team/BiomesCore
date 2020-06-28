@@ -43,72 +43,48 @@
       <li>AnimalExotic</li>
     </tradeTags>
   </ThingDef>
-  
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_FishThingBase" Abstract="true">
-        <defName>BiomesCore_FishThingBase</defName>
-        <label>fish</label>
-        <description>A tasty fish</description>
-        <statBases>
-            <MoveSpeed>0</MoveSpeed>
-            <SwimSpeed>8</SwimSpeed>
-            <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-            <MeatAmount>10</MeatAmount>
-            <LeatherAmount>20</LeatherAmount>
-        </statBases>
-		<modExtensions>
-			<!-- This makes things stay in the water -->
-			<li Class="Swimming.AquaticExtension">
-			<aquatic>true</aquatic>
-			</li>
-		</modExtensions>
-        <race>
-            <body>Shark</body>
-            <foodType>OmnivoreRoughAnimal</foodType>
-            <gestationPeriodDays>360</gestationPeriodDays>
-            <wildness>1</wildness>
-            <lifeExpectancy>35</lifeExpectancy>
-			<trainability>Intermediate</trainability>
-            <manhunterOnTameFailChance>0.6</manhunterOnTameFailChance>
-            <manhunterOnDamageChance>1</manhunterOnDamageChance>
-            <meatLabel>shark meat</meatLabel>
-            <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
-            <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
-            <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
-        </race>
-    </ThingDef>
-  
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_SnailThingBase" Abstract="true">
-        <defName>BiomesCore_SnailThingBase</defName>
-        <label>snail</label>
-        <description>A watery snail</description>
-        <statBases>
-            <MoveSpeed>0</MoveSpeed>
-            <SwimSpeed>8</SwimSpeed>
-            <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-            <MeatAmount>10</MeatAmount>
-            <LeatherAmount>20</LeatherAmount>
-        </statBases>
-		<modExtensions>
-			<!-- This makes things stay in the water -->
-			<li Class="Swimming.AquaticExtension">
-			<aquatic>true</aquatic>
-			</li>
-		</modExtensions>
-        <race>
-            <body>Shark</body>
-            <foodType>OmnivoreRoughAnimal</foodType>
-            <gestationPeriodDays>360</gestationPeriodDays>
-            <wildness>1</wildness>
-            <lifeExpectancy>35</lifeExpectancy>
-			<trainability>Intermediate</trainability>
-            <manhunterOnTameFailChance>0.6</manhunterOnTameFailChance>
-            <manhunterOnDamageChance>1</manhunterOnDamageChance>
-            <meatLabel>shark meat</meatLabel>
-            <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
-            <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
-            <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
-        </race>
-    </ThingDef>
 
+  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_WaterAnimal" Abstract="true">
+    <statBases>
+      <MoveSpeed>0</MoveSpeed>
+      <SwimSpeed>6</SwimSpeed>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+    </statBases>
+    <modExtensions>
+      <!-- This makes things stay in the water -->
+      <li Class="Swimming.AquaticExtension">
+        <aquatic>true</aquatic>
+      </li>
+    </modExtensions>
+  </ThingDef>
 
+  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_SaltWaterAnimal" Abstract="true">
+    <statBases>
+      <MoveSpeed>0</MoveSpeed>
+      <SwimSpeed>6</SwimSpeed>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+    </statBases>
+    <modExtensions>
+      <!-- This makes things stay in the water -->
+      <li Class="Swimming.AquaticExtension">
+        <aquatic>true</aquatic>
+        <saltWaterOnly>true</saltWaterOnly>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
+    <statBases>
+      <MoveSpeed>0</MoveSpeed>
+      <SwimSpeed>6</SwimSpeed>
+      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+    </statBases>
+    <modExtensions>
+      <!-- This makes things stay in the water -->
+      <li Class="Swimming.AquaticExtension">
+        <aquatic>true</aquatic>
+        <freshWaterOnly>true</freshWaterOnly>
+      </li>
+    </modExtensions>
+  </ThingDef>
 </Defs>

@@ -5,10 +5,10 @@
     <defName>BiomesCore_WaterShallowLagoon</defName>
     <label>lagoon water</label>
     <tags>
-          <!-- Support for Thanks For All The Fish -->
-          <li>Fishable</li>
+      <!-- Support for Thanks For All The Fish -->
+      <li>Fishable</li>
 		  <!--Define water as salty.-->
-		  <li>Salty</li>
+		  <li>SaltWater</li>
     </tags>
 	<fertility>0.3</fertility>
     <texturePath>Terrain/Surfaces/WaterShallowLagoon</texturePath>
@@ -20,6 +20,7 @@
 		<Beauty>3</Beauty>
 	</statBases>
   <affordances>
+    <!-- Technically incorrect, but for gameplay we allow it -->
     <li>BiomesCore_FreshWater_Bridgeable</li>
   </affordances>
   </TerrainDef>

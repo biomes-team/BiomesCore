@@ -26,7 +26,7 @@ namespace BiomesCore.Patches
                     return false;
                 }
                 Biomes_WaterPlant ext = plantDef.GetModExtension<Biomes_WaterPlant>();
-                if ((terrain.HasTag("Salty") && !ext.allowInSaltWater) || (!terrain.HasTag("Salty") && !ext.allowInFreshWater) || (terrain.HasTag("Deep") && !ext.allowInDeepWater) || (!terrain.HasTag("Deep") && !ext.allowInShallowWater))
+                if ((terrain.HasTag("SaltWater") && !ext.allowInSaltWater) || (!terrain.HasTag("SaltWater") && !ext.allowInFreshWater) || (terrain.HasTag("DeepWater") && !ext.allowInDeepWater) || (!terrain.HasTag("DeepWater") && !ext.allowInShallowWater))
                 {
                     __result = false;
                     return false;
