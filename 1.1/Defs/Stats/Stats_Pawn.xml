@@ -32,7 +32,7 @@
   </StatDef>
 
   <StatDef>
-    <defName>BiomesCore_WaterfowlFlySpeed</defName>
+    <defName>BiomesCore_FlySpeed</defName>
     <label>fly speed</label>
     <description>Speed of flying in cells per second.</description>
     <category>BasicsPawn</category>
@@ -57,6 +57,18 @@
         </factorFromGlowCurve>
       </li>
     </parts>
+    <!-- Applies to all terrain types by default -->
+    <modExtensions>
+      <li Class="TerrainMovement.TerrainMovementStatDef">
+        <pawnSpeedStat>BiomesCore_FlySpeed</pawnSpeedStat>
+        <terrainPathCostStat>BiomesCore_pathCostFly</terrainPathCostStat>
+        <disallowedLocomotionUrgencies>
+          <li>None</li>
+          <li>Amble</li>
+          <li>Walk</li>
+        </disallowedLocomotionUrgencies>
+      </li>
+    </modExtensions>
     <scenarioRandomizable>true</scenarioRandomizable>
     <displayPriorityInCategory>2500</displayPriorityInCategory>
   </StatDef>
