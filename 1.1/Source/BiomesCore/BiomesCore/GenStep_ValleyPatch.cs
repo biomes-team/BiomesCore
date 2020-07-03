@@ -1,11 +1,6 @@
 ﻿using BiomesCore.DefModExtensions;
-using BiomesKit;
 using HarmonyLib;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace BiomesIslands.GenSteps
