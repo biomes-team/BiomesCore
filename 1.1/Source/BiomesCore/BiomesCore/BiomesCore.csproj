@@ -300,8 +300,10 @@
   <ItemGroup>
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
-    <Compile Include="BiomeDefOf.cs" />
+    <Compile Include="DefOfs\PawnKindDefOf .cs" />
+    <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\Biomes_MapParameters.cs" />
+    <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\Biomes_NoBeach.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
