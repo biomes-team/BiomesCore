@@ -18,6 +18,10 @@ namespace BiomesCore.Patches
         {
             foreach (var thingDef in meatThings)
             {
+                if (thingDef.defName == "Meat_BiomesIslands_WhiteShark")
+                {
+                    thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
+                }
                 if (thingDef.defName == "Meat_BiomesIslands_BlueSeaSnail")
                 {
                     thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
