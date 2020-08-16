@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <!-- Add BiomesCore_FreshWaterBridgeable terrain affordance to all non-ocean water tiles we know about -->
+    <!-- For cross mod support add more terrain types here -->
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]/affordances</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]</xpath>
+                <value>
+                    <affordances />
+                </value>
+            </li>
+        </operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]/affordances</xpath>
+		<value>
+			<li>BiomesCore_FreshWater_Bridgeable</li>
+		</value>
+	</Operation>
+
+
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[defName = "WaterShallow"]/affordances</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[defName = "WaterShallow"]</xpath>
+                <value>
+                    <affordances />
+                </value>
+            </li>
+        </operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[defName = "WaterShallow"]/affordances</xpath>
+		<value>
+			<li>BiomesCore_FreshWater_Bridgeable</li>
+		</value>
+	</Operation>
+
+
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]/affordances</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]</xpath>
+                <value>
+                    <affordances />
+                </value>
+            </li>
+        </operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]/affordances</xpath>
+		<value>
+			<li>BiomesCore_FreshWater_Bridgeable</li>
+		</value>
+	</Operation>
+
+
+	<Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[defName = "Marsh"]/affordances</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[defName = "Marsh"]</xpath>
+                <value>
+                    <affordances />
+                </value>
+            </li>
+        </operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[defName = "Marsh"]/affordances</xpath>
+		<value>
+			<li>BiomesCore_FreshWater_Bridgeable</li>
+		</value>
+	</Operation>
+
+    <!-- Change water fertility -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/TerrainDef[@Name = "WaterBase"]/fertility</xpath>
+		<value>
+			<fertility>0.8</fertility>
+		</value>
+	</Operation>
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[@Name = "WaterDeepBase"]/fertility</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[@Name = "WaterDeepBase"]</xpath>
+                <value>
+                    <fertility>0.3</fertility>
+                </value>
+            </li>
+        </operations>
+	</Operation>
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[@Name = "WaterChestDeepBase"]/fertility</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[@Name = "WaterChestDeepBase"]</xpath>
+                <value>
+                    <fertility>0.5</fertility>
+                </value>
+            </li>
+        </operations>
+	</Operation>
+</Patch>

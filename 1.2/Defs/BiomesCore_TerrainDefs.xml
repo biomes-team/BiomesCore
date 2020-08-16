@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<TerrainDef ParentName="WaterShallowBase">
+		<defName>BiomesCore_WaterShallowLagoon</defName>
+		<label>lagoon water</label>
+		<tags>
+			<!-- Support for Thanks For All The Fish -->
+			<li>Fishable</li>
+			<!--Define water as salty.-->
+			<li>SaltWater</li>
+		</tags>
+		<fertility>0.3</fertility>
+		<texturePath>Terrain/Surfaces/WaterShallowLagoon</texturePath>
+		<traversedThought>BiomesCore_LagoonWater</traversedThought>
+		<waterDepthShader>Map/WaterDepth</waterDepthShader>
+		<renderPrecedence>394</renderPrecedence>
+		<driesTo>Gravel</driesTo>
+		<statBases>
+		<Beauty>3</Beauty>
+		</statBases>
+		<affordances>
+			<!-- Technically incorrect, but for gameplay we allow it -->
+			<li>BiomesCore_FreshWater_Bridgeable</li>
+		</affordances>
+		</TerrainDef>
+
+	<TerrainDef Abstract="True" Name="BiomesCore_FloatingGarden">
+		<label>floating garden</label>
+		<description>A stationary artificial island used to cultivate crops in water.</description>
+		<texturePath>Terrain/Surfaces/Mud</texturePath>
+		<uiIconPath>Terrain/Bridges/Chinampa_MenuIcon</uiIconPath>
+		<layerable>true</layerable>
+		<affordances>
+			<li>Light</li>
+		</affordances>
+		<designatorDropdown>BiomesCore_FloatingGarden</designatorDropdown>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.TerrainDef_Bridge">
+				<loopTexPath>Terrain/Bridges/ChinampaProps_Loop</loopTexPath>
+				<rightTexPath>Terrain/Bridges/ChinampaProps_Right</rightTexPath>
+			</li>
+		</modExtensions>
+		<designationCategory>Structure</designationCategory>
+		<fertility>1.0</fertility>
+		<constructEffect>ConstructWood</constructEffect>
+		<terrainAffordanceNeeded>BiomesCore_FreshWater_Bridgeable</terrainAffordanceNeeded>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>400</renderPrecedence>
+		<statBases>
+			<WorkToBuild>2500</WorkToBuild>
+			<Flammability>0.2</Flammability>
+		</statBases>
+		<costList>
+			<WoodLog>5</WoodLog>
+			<Hay>36</Hay>
+		</costList>
+		<designationHotKey>Misc4</designationHotKey>
+		<destroyOnBombDamageThreshold>50</destroyOnBombDamageThreshold>
+		<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+		<destroyEffect>Bridge_Collapse</destroyEffect>
+		<destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+	</TerrainDef>
+  
+	<TerrainDef ParentName="BiomesCore_FloatingGarden">
+		<defName>FloatinggardenSandstone</defName>
+		<label>sandstone floating garden</label>
+		<costList>
+			<ChunkSandstone>1</ChunkSandstone>
+		</costList>
+	</TerrainDef>
+  
+	<TerrainDef ParentName="BiomesCore_FloatingGarden">
+		<defName>FloatinggardenGranite</defName>
+		<label>Granite floating garden</label>
+		<costList>
+			<ChunkGranite>1</ChunkGranite>
+		</costList>
+	</TerrainDef>
+  
+	<TerrainDef ParentName="BiomesCore_FloatingGarden">
+		<defName>floatinggardenLimestone</defName>
+		<label>Limestone floating garden</label>
+		<costList>
+			<ChunkLimestone>1</ChunkLimestone>
+		</costList>
+	</TerrainDef>
+  
+	<TerrainDef ParentName="BiomesCore_FloatingGarden">
+		<defName>FloatinggardenSlate</defName>
+		<label>Slate floating garden</label>
+		<costList>
+			<Slate>1</Slate>
+		</costList>
+	</TerrainDef>
+  
+	<TerrainDef ParentName="BiomesCore_FloatingGarden">
+		<defName>FloatinggardenMarble</defName>
+		<label>Marble floating garden</label>
+		<costList>
+			<ChunkMarble>1</ChunkMarble>
+		</costList>
+	</TerrainDef>
+  
+</Defs>
