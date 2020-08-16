@@ -1,19 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-
-	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_FruitBase">
-	<!--
-					<thingCategories>
-						<li>FruitFoodRaw</li>
-					</thingCategories>	
-					-->
-	<!--For VGP compatibility. Don't touch unless you know what you're doing.-->
-	</ThingDef>
-	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_VegBase">
-	<!--For VGP compatibility. Leave empty-->
-	</ThingDef>
-	
 	<ThingDef ParentName="PlantBase" Name="BiomesCore_FruitTreeBase" Abstract="true">
 		<defName>BiomesCore_FruitTreeBase</defName>
 		<label>fruit tree</label>
@@ -45,8 +32,8 @@
 			<harvestAfterGrowth>0.65</harvestAfterGrowth>
 			<soundHarvesting>Harvest_Tree</soundHarvesting>
 			<soundHarvestFinish>Harvest_Tree_Finish</soundHarvestFinish>
-			<wildClusterRadius>12</wildClusterRadius>
-			<wildClusterWeight>1</wildClusterWeight>
+			<wildClusterRadius>8</wildClusterRadius>
+			<wildClusterWeight>70</wildClusterWeight>
 			<visualSizeRange>1.3~2.0</visualSizeRange>
 			<topWindExposure>0.3</topWindExposure>
 			<wildOrder>2</wildOrder>

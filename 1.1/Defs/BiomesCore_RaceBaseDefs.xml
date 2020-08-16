@@ -4,12 +4,11 @@
 
   <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_CrabThingBase" Abstract="true">
 	<defName>BiomesCore_CrabThingBase</defName>
-    <label>crab</label>
+    <label>rimcrab</label>
     <description>A crab</description>
     <statBases>
-		<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
-		<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
-		<SwimSpeed>8</SwimSpeed>
+	  <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+      <ArmorRating_Sharp>0.40</ArmorRating_Sharp>
     </statBases>
     <race>
 	  <leatherDef>BiomesCore_CrabShell</leatherDef>
@@ -44,47 +43,5 @@
     </tradeTags>
   </ThingDef>
 
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_WaterAnimal" Abstract="true">
-    <statBases>
-      <MoveSpeed>0</MoveSpeed>
-      <SwimSpeed>6</SwimSpeed>
-      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-    </statBases>
-    <modExtensions>
-      <!-- This makes things stay in the water -->
-      <li Class="Swimming.AquaticExtension">
-        <aquatic>true</aquatic>
-      </li>
-    </modExtensions>
-  </ThingDef>
 
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_SaltWaterAnimal" Abstract="true">
-    <statBases>
-      <MoveSpeed>0</MoveSpeed>
-      <SwimSpeed>6</SwimSpeed>
-      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-    </statBases>
-    <modExtensions>
-      <!-- This makes things stay in the water -->
-      <li Class="Swimming.AquaticExtension">
-        <aquatic>true</aquatic>
-        <saltWaterOnly>true</saltWaterOnly>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
-    <statBases>
-      <MoveSpeed>0</MoveSpeed>
-      <SwimSpeed>6</SwimSpeed>
-      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-    </statBases>
-    <modExtensions>
-      <!-- This makes things stay in the water -->
-      <li Class="Swimming.AquaticExtension">
-        <aquatic>true</aquatic>
-        <freshWaterOnly>true</freshWaterOnly>
-      </li>
-    </modExtensions>
-  </ThingDef>
 </Defs>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<LanguageData>
-    <!-- EN: swim speed -->
-    <SwimSpeed.label>velocidad de natación</SwimSpeed.label>
-    <!-- EN: Speed of movement in cells per second through water. -->
-    <SwimSpeed.description>Velocidad de movimiento en celdas por segundo a través del agua.</SwimSpeed.description>
-    <!-- EN: {0} c/s -->
-    <SwimSpeed.formatString>{0} c/s</SwimSpeed.formatString>
-</LanguageData>
