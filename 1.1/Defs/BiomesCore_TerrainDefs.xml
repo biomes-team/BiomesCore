@@ -5,13 +5,14 @@
     <defName>BiomesCore_WaterShallowLagoon</defName>
     <label>lagoon water</label>
     <texturePath>Terrain/Surfaces/WaterShallowLagoon</texturePath>
-	<traversedThought>BiomesCore_LagoonWater</traversedThought>
-    <waterDepthShader>Map/WaterDepth</waterDepthShader>
-    <renderPrecedence>394</renderPrecedence>
-    <driesTo>Gravel</driesTo>
-	<statBases>
-		<Beauty>3</Beauty>
-	</statBases>
+    <traversedThought>BiomesCore_LagoonWater</traversedThought>
+      <waterDepthShader>Map/WaterDepth</waterDepthShader>
+      <renderPrecedence>394</renderPrecedence>
+      <driesTo>Gravel</driesTo>
+    <statBases>
+      <Beauty>3</Beauty>
+    </statBases>
+    <avoidWander>false</avoidWander>
   </TerrainDef>
 
 </Defs>
