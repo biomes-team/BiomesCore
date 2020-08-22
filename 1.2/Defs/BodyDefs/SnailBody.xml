@@ -36,10 +36,12 @@
           </groups>
         </li>
         <li>
-          <def>RWBSnailHead</def>
+          <!-- Reusing SnakeHead because it has the same attributes as a SnailHead but the hardcoded checks find it in Rimworld -->
+          <def>SnakeHead</def>
           <coverage>0.20</coverage>
           <groups>
             <li>HeadAttackTool</li>
+            <li>FullHead</li>
           </groups>
           <parts>
             <li>
