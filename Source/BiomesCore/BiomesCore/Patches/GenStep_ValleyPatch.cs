@@ -19,6 +19,11 @@ namespace BiomesCore.GenSteps
             {
                 return;
             }
+            BiomesMap biomesMap = map.Biome.GetModExtension<BiomesMap>();
+            if (!biomesMap.isValley)
+            {
+                return;
+            }
             MapGenFloatGrid elevation = MapGenerator.Elevation;
             BiomesMap valleyMap = map.Biome.GetModExtension<BiomesMap>();
             IntVec3 center = map.Center;

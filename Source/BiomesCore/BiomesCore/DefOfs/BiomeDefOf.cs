@@ -16,13 +16,13 @@ namespace BiomesCore
 		public static BiomeDef BiomesIslands_TropicalIsland;
 		[MayRequire("BiomesTeam.ExtraIslands")]
 		public static BiomeDef BiomesIslands_TemperateIsland;
-		[MayRequire("BiomesTeam.ExtraIslands")]
+		[MayRequire("BiomesTeam.BiomesIslands")]
 		public static BiomeDef BiomesIslands_BorealIsland;
-		[MayRequire("BiomesTeam.ExtraIslands")]
+		[MayRequire("BiomesTeam.BiomesIslands")]
 		public static BiomeDef BiomesIslands_TundraIsland;
-		[MayRequire("BiomesTeam.ExtraIslands")]
+		[MayRequire("BiomesTeam.BiomesIslands")]
 		public static BiomeDef BiomesIslands_DesertIsland;
-		[MayRequire("BiomesTeam.ExtraIslands")]
+		[MayRequire("BiomesTeam.BiomesTeam.Oasis")]
 		public static BiomeDef BiomesIslands_Oasis;
 		[MayRequire("BiomesTeam.MinorValleys")]
 		public static BiomeDef BiomesValleys_TemperateForestValley;

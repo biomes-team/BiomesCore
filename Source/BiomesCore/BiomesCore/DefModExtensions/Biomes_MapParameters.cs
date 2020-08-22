@@ -13,6 +13,7 @@ namespace BiomesCore.DefModExtensions
 		public bool hasHilliness = true;
 		//public bool hasRuins = true;
 		public bool hasScatterables = true;
+		public bool isValley = false;
 		public float minHillEncroachment = 1;
 		public float maxHillEncroachment = 1;
 		public float minHillEdgeMultiplier = 1;
