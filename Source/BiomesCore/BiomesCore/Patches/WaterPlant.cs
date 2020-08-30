@@ -105,4 +105,22 @@ namespace BiomesCore.Patches
             }
         }
     }
+
+    /// <summary>
+    /// Prevents ambrosia sprouts from spawning at water
+    /// </summary>
+    [HarmonyPatch(typeof(IncidentWorker_AmbrosiaSprout), "CanSpawnAt")]
+    internal static class AmbrosiaSprout_CanSpawnAt
+    {
+        internal static bool Prefix(IntVec3 c, Map map, ref bool __result)
+        {
+            if (!PlantUtility.CanEverPlantAt_NewTemp(ThingDefOf.Plant_Ambrosia, c, map))
+            {
+                __result = false;
+                return false;
+            }
+            return true;
+        }
+    }
+
 }
