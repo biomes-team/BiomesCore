@@ -11,7 +11,7 @@
 			<li>SaltWater</li>
 		</tags>
 		<fertility>0.3</fertility>
-		<texturePath>Terrain/Surfaces/WaterShallowLagoon</texturePath>
+		<texturePath>BiomesCore_Terrain/Surfaces/WaterShallowLagoon</texturePath>
 		<traversedThought>BiomesCore_LagoonWater</traversedThought>
 		<waterDepthShader>Map/WaterDepth</waterDepthShader>
 		<renderPrecedence>394</renderPrecedence>
@@ -29,7 +29,7 @@
 		<label>floating garden</label>
 		<description>A stationary artificial island used to cultivate crops in water.</description>
 		<texturePath>Terrain/Surfaces/Mud</texturePath>
-		<uiIconPath>Terrain/Bridges/Chinampa_MenuIcon</uiIconPath>
+		<uiIconPath>BiomesCore_Terrain/Bridges/Chinampa_MenuIcon</uiIconPath>
 		<layerable>true</layerable>
 		<affordances>
 			<li>Light</li>
