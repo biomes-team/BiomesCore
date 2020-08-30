@@ -123,4 +123,22 @@ namespace BiomesCore.Patches
         }
     }
 
+
+    /// <summary>
+    /// Prevent normal growing zones from being placed in water
+    /// </summary>
+    [HarmonyPatch(typeof(RimWorld.Designator_ZoneAdd_Growing), "CanDesignateCell")]
+    internal static class DesignatorZoneGrowing_CanDesignateCell
+    {
+        static bool Prefix(IntVec3 c, ref AcceptanceReport __result)
+        {
+            if (Find.CurrentMap.terrainGrid.TerrainAt(c).IsWater)
+            {
+                __result = false;
+                return false;
+            }
+            return true;
+        }
+    }
+
 }
