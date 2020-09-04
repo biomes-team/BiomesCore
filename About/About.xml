@@ -19,6 +19,8 @@
     <li>Ludeon.RimWorld</li>
     <li>Ludeon.RimWorld.Royalty</li>
     <li>brrainz.harmony</li>
+    <li>pyrce.terrain.movement.modkit</li>
+    <li>pyrce.swimming.modkit</li>
   </loadAfter>
   <description>
 The core module for the Biomes! mods. Necessary for all of the Biomes! modules.
