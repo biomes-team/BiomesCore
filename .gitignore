@@ -354,6 +354,4 @@ MigrationBackup/
 
 # Localized install script
 install.sh
-copyswimmingkit.sh
 copybiomeskit.sh
-1.1/Source/BiomesCore/BiomesCore/Patches/GenStep_RichRiverPatch.cs

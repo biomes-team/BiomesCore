@@ -43,48 +43,4 @@
       <li>AnimalExotic</li>
     </tradeTags>
   </ThingDef>
-
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_WaterAnimal" Abstract="true">
-    <statBases>
-      <MoveSpeed>0</MoveSpeed>
-      <SwimSpeed>6</SwimSpeed>
-      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-    </statBases>
-    <modExtensions>
-      <!-- This makes things stay in the water -->
-      <li Class="Swimming.AquaticExtension">
-        <aquatic>true</aquatic>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_SaltWaterAnimal" Abstract="true">
-    <statBases>
-      <MoveSpeed>0</MoveSpeed>
-      <SwimSpeed>6</SwimSpeed>
-      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-    </statBases>
-    <modExtensions>
-      <!-- This makes things stay in the water -->
-      <li Class="Swimming.AquaticExtension">
-        <aquatic>true</aquatic>
-        <saltWaterOnly>true</saltWaterOnly>
-      </li>
-    </modExtensions>
-  </ThingDef>
-
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
-    <statBases>
-      <MoveSpeed>0</MoveSpeed>
-      <SwimSpeed>6</SwimSpeed>
-      <ComfyTemperatureMin>-10</ComfyTemperatureMin>
-    </statBases>
-    <modExtensions>
-      <!-- This makes things stay in the water -->
-      <li Class="Swimming.AquaticExtension">
-        <aquatic>true</aquatic>
-        <freshWaterOnly>true</freshWaterOnly>
-      </li>
-    </modExtensions>
-  </ThingDef>
 </Defs>
