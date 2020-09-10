@@ -32,6 +32,13 @@ namespace BiomesCore.Patches
                     thingDef.description = "Raw butchered crab flesh. Delicious when cooked into meals, but can also be eaten raw.";
                     thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BiomesIslands_Crab");
                 }
+                if (thingDef.defName == "Meat_BiomesIslands_Whale")
+                {
+                    thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
+                    thingDef.description = "Raw fat from an aquatic mammal. Not as tasty as meat, but nutrient dense.";
+                    thingDef.stackLimit = 150;
+                    thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BiomesIslands_Whale");
+                }
                 yield return thingDef;
             }
         }

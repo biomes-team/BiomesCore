@@ -18,6 +18,14 @@ namespace BiomesCore.Patches
         internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
         {
             TerrainDef terrain = map.terrainGrid.TerrainAt(c);
+            List<Thing> list = map.thingGrid.ThingsListAt(c);
+            foreach (Thing thing in list)
+            {
+                if (thing != null && thing.def.building != null)
+                {
+                    return plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
+                }
+            }
             if (terrain.HasTag("Water"))
             {
                 if (!plantDef.HasModExtension<Biomes_WaterPlant>())
