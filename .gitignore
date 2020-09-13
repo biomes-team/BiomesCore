@@ -355,3 +355,4 @@ MigrationBackup/
 # Localized install script
 install.sh
 copybiomeskit.sh
+*.csproj

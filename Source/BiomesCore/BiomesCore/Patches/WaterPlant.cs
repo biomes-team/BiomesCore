@@ -23,7 +23,11 @@ namespace BiomesCore.Patches
             {
                 if (thing != null && thing.def.building != null)
                 {
-                    return plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
+                    if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
+                    {
+                        __result = plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
+                        return plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
+                    }
                 }
             }
             if (terrain.HasTag("Water"))
