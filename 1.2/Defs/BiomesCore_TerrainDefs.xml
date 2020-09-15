@@ -37,8 +37,8 @@
 		<designatorDropdown>BiomesCore_FloatingGarden</designatorDropdown>
 		<modExtensions>
 			<li Class="BiomesCore.DefModExtensions.TerrainDef_Bridge">
-				<loopTexPath>Terrain/Bridges/ChinampaProps_Loop</loopTexPath>
-				<rightTexPath>Terrain/Bridges/ChinampaProps_Right</rightTexPath>
+				<loopTexPath>BiomesCore_Terrain/Bridges/ChinampaProps_Loop</loopTexPath>
+				<rightTexPath>BiomesCore_Terrain/Bridges/ChinampaProps_Right</rightTexPath>
 			</li>
 		</modExtensions>
 		<designationCategory>Structure</designationCategory>
