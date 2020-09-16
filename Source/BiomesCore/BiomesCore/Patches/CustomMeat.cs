@@ -37,7 +37,7 @@ namespace BiomesCore.Patches
                     thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
                     thingDef.description = "Raw fat from an aquatic mammal. Not as tasty as meat, but nutrient dense.";
                     thingDef.stackLimit = 150;
-                    thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BiomesIslands_Whale");
+                    //thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BiomesIslands_Whale");
                 }
                 yield return thingDef;
             }
