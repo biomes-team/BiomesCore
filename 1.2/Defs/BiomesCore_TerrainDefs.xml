@@ -8,7 +8,8 @@
 			<!-- Support for Thanks For All The Fish -->
 			<li>Fishable</li>
 			<!--Define water as salty.-->
-			<li>SaltWater</li>
+			<!-- <li>SaltWater</li> -->
+			<li>FreshWater</li>
 		</tags>
 		<fertility>0.3</fertility>
 		<texturePath>BiomesCore_Terrain/Surfaces/WaterShallowLagoon</texturePath>
