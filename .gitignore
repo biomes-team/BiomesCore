@@ -356,3 +356,4 @@ MigrationBackup/
 install.sh
 copybiomeskit.sh
 *.csproj
+Source/BiomesCore/BiomesCore/BiomesCore.csproj
