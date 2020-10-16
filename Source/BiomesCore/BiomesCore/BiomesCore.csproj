@@ -310,6 +310,7 @@
     <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
+    <Compile Include="Patches\NewWaterPlant.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\WaterPlant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
