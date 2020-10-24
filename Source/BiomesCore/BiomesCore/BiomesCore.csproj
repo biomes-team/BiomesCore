@@ -304,7 +304,7 @@
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\Biomes_NoBeach.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
-    <Compile Include="DefModExtensions\Plant_Water.cs" />
+    <Compile Include="DefModExtensions\Plant_Control.cs" />
     <Compile Include="DefModExtensions\Song_MapRestrictions.cs" />
     <Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />
     <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
