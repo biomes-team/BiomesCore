@@ -24,10 +24,10 @@
 			<!-- Technically incorrect, but for gameplay we allow it -->
 			<li>BiomesCore_FreshWater_Bridgeable</li>
 		</affordances>
-		</TerrainDef>
+	</TerrainDef>
 
 	<TerrainDef Abstract="True" Name="BiomesCore_FloatingGarden">
-		<label>floating garden</label>
+		<label>chinampa</label>
 		<description>A stationary artificial island used to cultivate crops in water.</description>
 		<texturePath>Terrain/Surfaces/Mud</texturePath>
 		<uiIconPath>BiomesCore_Terrain/Bridges/Chinampa_MenuIcon</uiIconPath>
@@ -65,7 +65,7 @@
   
 	<TerrainDef ParentName="BiomesCore_FloatingGarden">
 		<defName>FloatinggardenSandstone</defName>
-		<label>sandstone floating garden</label>
+		<label>sandstone chinampa</label>
 		<costList>
 			<ChunkSandstone>1</ChunkSandstone>
 		</costList>
@@ -73,7 +73,7 @@
   
 	<TerrainDef ParentName="BiomesCore_FloatingGarden">
 		<defName>FloatinggardenGranite</defName>
-		<label>Granite floating garden</label>
+		<label>Granite chinampa</label>
 		<costList>
 			<ChunkGranite>1</ChunkGranite>
 		</costList>
@@ -81,7 +81,7 @@
   
 	<TerrainDef ParentName="BiomesCore_FloatingGarden">
 		<defName>floatinggardenLimestone</defName>
-		<label>Limestone floating garden</label>
+		<label>Limestone chinampa</label>
 		<costList>
 			<ChunkLimestone>1</ChunkLimestone>
 		</costList>
@@ -89,7 +89,7 @@
   
 	<TerrainDef ParentName="BiomesCore_FloatingGarden">
 		<defName>FloatinggardenSlate</defName>
-		<label>Slate floating garden</label>
+		<label>Slate chinampa</label>
 		<costList>
 			<Slate>1</Slate>
 		</costList>
@@ -97,7 +97,7 @@
   
 	<TerrainDef ParentName="BiomesCore_FloatingGarden">
 		<defName>FloatinggardenMarble</defName>
-		<label>Marble floating garden</label>
+		<label>Marble chinampa</label>
 		<costList>
 			<ChunkMarble>1</ChunkMarble>
 		</costList>
