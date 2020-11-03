@@ -76,47 +76,4 @@ namespace BiomesCore.Patches
 
         }
     }
-
-
-    //[HarmonyPatch(typeof(WildPlantSpawner), "GetCommonalityOfPlant")]
-    //internal static class WildPlantSpawner_GetCommonalityOfPlant
-    //{
-    //    internal static bool Prefix(ref float __result, ThingDef plant, Map ___map)
-    //    {
-    //        float totalPlants = 0;
-    //        float landPlants = 0;
-    //        float waterPlants = 0;
-    //        float sandPlants = 0;
-    //        foreach (ThingDef plantdef in ___map.Biome.AllWildPlants)
-    //        {
-    //            totalPlants += ___map.Biome.CommonalityOfPlant(plant); ;
-    //            if (plant.HasModExtension<Biomes_WaterPlant>())
-    //            {
-    //                waterPlants += ___map.Biome.CommonalityOfPlant(plant);
-    //                continue;
-    //            }
-    //            if (plant.HasModExtension<Biomes_SandPlant>())
-    //            {
-    //                sandPlants += ___map.Biome.CommonalityOfPlant(plant); ;
-    //                continue;
-    //            }
-    //            Log.Message("This is a land plant " + plant.defName);
-    //            landPlants += ___map.Biome.CommonalityOfPlant(plant); ;
-    //        }
-    //        if (plant.HasModExtension<Biomes_WaterPlant>())
-    //        {
-    //            float test = (___map.Biome.CommonalityOfPlant(plant) * waterPlants) / (totalPlants / 3);
-    //            Log.Message("Setting commonality of " + plant + " to " + test);
-    //            __result = (___map.Biome.CommonalityOfPlant(plant) * waterPlants) / (totalPlants / 3);
-    //            return false;
-    //        }
-    //        if (plant.HasModExtension<Biomes_SandPlant>())
-    //        {
-    //            __result = (___map.Biome.CommonalityOfPlant(plant) * sandPlants) / (totalPlants / 3);
-    //            return false;
-    //        }
-    //        __result = (___map.Biome.CommonalityOfPlant(plant) * landPlants) / (totalPlants / 3);
-    //        return true;
-    //    }
-    //}
 }
