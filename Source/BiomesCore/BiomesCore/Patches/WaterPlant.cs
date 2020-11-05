@@ -55,11 +55,6 @@ namespace BiomesCore.Patches
             }
             if (terrain.HasTag("Sandy"))
             {
-                if (!plantDef.HasModExtension<Biomes_SandPlant>())
-                {
-                    __result = false;
-                    return false;
-                }
                 Biomes_SandPlant ext = plantDef.GetModExtension<Biomes_SandPlant>();
                 if (!ext.allowOnSand)
                 {
