@@ -18,6 +18,7 @@
       <wildness>0.75</wildness>
       <trainability>Intermediate</trainability>
       <lifeExpectancy>9</lifeExpectancy>
+      <nameGenerator>Biomes_NamerCrab</nameGenerator>
       <manhunterOnTameFailChance>0.15</manhunterOnTameFailChance>
       <manhunterOnDamageChance>0.05</manhunterOnDamageChance>
       <lifeStageAges>
