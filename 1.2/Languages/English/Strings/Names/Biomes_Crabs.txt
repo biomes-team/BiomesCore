@@ -10,6 +10,9 @@ Brute
 Bubba
 Bubbles
 Buccaneer
+Big Krusty
+Barnacles
+Cat
 Cancer
 Cantankerous
 Captain
@@ -26,10 +29,16 @@ Coral
 Corsair
 Crabby
 Crawler
+Crayfish
+Cray Cray
+Crawdad
+CrawDaddy
 Crew
 Crusty
 Desperado
 Diver
+Dog
+Doctor Lobster
 Gripper
 Groucho
 Grumpy
@@ -43,13 +52,18 @@ Jabby
 Jaws
 Krusty
 Kvetch
+Krill
+Kriller
 Lago
 Leggy
 Legs
 Lieutenant
+Lobster
 Marauder
 Mate
 Maverick
+Mouse
+Minister Sinister
 Nipper
 Officer
 Oscar
@@ -65,6 +79,7 @@ Recluse
 Ripper
 Riptide
 Rocky
+Robster
 Sailor
 Salty
 Sand Tank
@@ -96,6 +111,9 @@ Surly
 Sushi
 Swagger
 Swash
+Sgt. Snips
+Shrimp
+Shrimpy
 Tank
 Tetchy
 Thief
