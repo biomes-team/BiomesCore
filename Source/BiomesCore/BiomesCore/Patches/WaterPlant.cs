@@ -53,22 +53,16 @@ namespace BiomesCore.Patches
                     return false;
                 }
             }
-            if (terrain.HasTag("Sandy"))
+            if (plantDef.HasModExtension<Biomes_SandPlant>())
             {
                 Biomes_SandPlant ext = plantDef.GetModExtension<Biomes_SandPlant>();
-                if (!ext.allowOnSand)
+                if (!terrain.HasTag("Sandy"))
                 {
-                    __result = false;
-                    return false;
-                }
-            }
-            else if (plantDef.HasModExtension<Biomes_SandPlant>())
-            {
-                Biomes_SandPlant ext = plantDef.GetModExtension<Biomes_SandPlant>();
-                if (!ext.allowOffSand)
-                {
-                    __result = false;
-                    return false;
+                    if (!ext.allowOffSand)
+                    {
+                        __result = false;
+                        return false;
+                    }
                 }
             }
             return true;
