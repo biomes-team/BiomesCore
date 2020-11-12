@@ -21,6 +21,10 @@ namespace BiomesCore.DefModExtensions
         public bool allowOnSand = false;
         public bool allowOffSand = false;
     }
+    public class Biomes_CavePlant : DefModExtension
+    {
+        public bool biomes_CavePlant = false;
+    }
 
     public class Biomes_BiomePlantControl : DefModExtension
     {
