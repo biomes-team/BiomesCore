@@ -32,7 +32,7 @@
 		<tags>
 			<li>Sandy</li>
 		</tags>
-    <texturePath>BiomesIslands_World/Terrain/Pebbles</texturePath>
+    <texturePath>BiomesCore_Terrain/Surfaces/Pebbles</texturePath>
     <edgeType>FadeRough</edgeType>
     <renderPrecedence>350</renderPrecedence>
     <pathCost>4</pathCost>

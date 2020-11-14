@@ -33,6 +33,7 @@
         <li>
           <def>AnimalAdult</def>
           <minAge>0.27</minAge>
+          <soundDeath>Pawn_Rodent_Death</soundDeath>
         </li>
       </lifeStageAges>
 	  <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
