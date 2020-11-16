@@ -49,8 +49,8 @@
 
   <ThingDef ParentName="BiomesCore_ChitinBase">
     <defName>BiomesCore_GreenChitin</defName>
-    <label>green chitin</label>
-    <description>A strong chitinous shell taken from a green insectoid.</description>
+    <label>green shell</label>
+    <description>A strong, green, chitinous shell.</description>
     <graphicData>
       <color>(134,190,105)</color>
     </graphicData>
