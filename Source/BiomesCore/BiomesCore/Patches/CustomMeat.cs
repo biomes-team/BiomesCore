@@ -20,7 +20,7 @@ namespace BiomesCore.Patches
             {
                 if (thingDef.defName == "Meat_BiomesIslands_WhiteShark")
                 {
-                    thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
+                    thingDef.graphicData.texPath = "BiomesIslands_Things/Item/Meat/Meat_Fish";
                 }
                 if (thingDef.defName == "Meat_BiomesIslands_BlueSeaSnail")
                 {
