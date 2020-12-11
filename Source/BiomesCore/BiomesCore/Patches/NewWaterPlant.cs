@@ -43,11 +43,14 @@ namespace BiomesCore.Patches
 
                 }
                 sandCommonality /= landCommonality;
-                commonalitySum.Add(biome + "_SandCommonality", sandCommonality);
+                if (!commonalitySum.ContainsKey(biome + "_SandCommonality"))
+                    commonalitySum.Add(biome + "_SandCommonality", sandCommonality);
                 waterCommonality /= landCommonality;
-                commonalitySum.Add(biome + "_WaterCommonality", waterCommonality);
+                if (!commonalitySum.ContainsKey(biome + "_WaterCommonality"))
+                    commonalitySum.Add(biome + "_WaterCommonality", waterCommonality);
                 landCommonality /= landCommonality;
-                commonalitySum.Add(biome + "_LandCommonality", landCommonality);
+                if (!commonalitySum.ContainsKey(biome + "_LandCommonality"))
+                    commonalitySum.Add(biome + "_LandCommonality", landCommonality);
             }
         }
     }
