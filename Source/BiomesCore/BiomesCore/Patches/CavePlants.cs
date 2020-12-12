@@ -13,6 +13,9 @@ namespace BiomesCore.Patches
         {
             RoofDef roof = map.roofGrid.RoofAt(c);
             TerrainDef terrain = map.terrainGrid.TerrainAt(c);
+            string biome = map.Biome.defName;
+            if (map.Biome.defName != "BiomesCaverns_SurfaceCavern") // quick hack for making sure we're not blocking crops under mountains. Needs to be replaced later.
+                return true;
             if (roof != null)
             {
                 if (roof.isNatural)
