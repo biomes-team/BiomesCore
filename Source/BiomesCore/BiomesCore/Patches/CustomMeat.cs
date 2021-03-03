@@ -43,17 +43,4 @@ namespace BiomesCore.Patches
             }
         }
     }
-
-//    [HarmonyPatch(typeof(Pawn), "ButcherProducts")]
-//    class BiomesCoreBlubberProduct
-//    {
-//        IEnumerable<Thing> Postfix(IEnumerable<Thing> thing)
-//        {
-//            Log.Error("Before or after real error?");
-//            foreach (var thing2 in thing)
-//            {
-//                yield return thing2;
-//            }
-//        }
-//    }
 }

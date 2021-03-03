@@ -20,20 +20,20 @@ namespace BiomesCore.Patches
             {
                 if (roof.isNatural)
                 {
-                    if (!plantDef.HasModExtension<Biomes_CavePlant>() && !plantDef.plant.cavePlant)
+                    if (!plantDef.HasModExtension<Biomes_PlantControl>() && !plantDef.plant.cavePlant)
                     {
                         __result = false;
                         return false;
                     }
                     if (roof.defName == "BiomesCaverns_RockRoofStable")
                     {
-                        if (!plantDef.HasModExtension<Biomes_CavePlant>())
+                        if (!plantDef.HasModExtension<Biomes_PlantControl>())
                         {
                             __result = false;
                             return false;
                         }
-                        Biomes_CavePlant ext = plantDef.GetModExtension<Biomes_CavePlant>();
-                        if (!ext.biomes_CavePlant)
+                        Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
+                        if (!ext.cavePlant)
                         {
                             __result = false;
                             return false;
@@ -43,10 +43,10 @@ namespace BiomesCore.Patches
                     }
                 }
             }
-            if (plantDef.HasModExtension<Biomes_CavePlant>())
+            if (plantDef.HasModExtension<Biomes_PlantControl>())
             {
-                Biomes_CavePlant ext = plantDef.GetModExtension<Biomes_CavePlant>();
-                if (ext.biomes_CavePlant)
+                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
+                if (ext.cavePlant)
                 {
                     __result = false;
                     return false;

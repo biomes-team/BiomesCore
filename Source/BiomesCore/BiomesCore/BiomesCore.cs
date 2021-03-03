@@ -5,14 +5,22 @@ using Verse;
 
 namespace BiomesCore
 {
-    public sealed class BiomesCoreMod : Mod
+    [StaticConstructorOnStartup]
+    public static class starter
     {
-        public BiomesCoreMod(ModContentPack content) : base(content)
+        static starter()
         {
-            new Harmony(BiomesCore.Id).PatchAll();
-            BiomesCore.Log("Initialized");
+            new Harmony("rimworld.biomes.core").PatchAll();
         }
     }
+    //public sealed class BiomesCoreMod : Mod
+    //{
+    //    public BiomesCoreMod(ModContentPack content) : base(content)
+    //    {
+    //        new Harmony(BiomesCore.Id).PatchAll();
+    //        BiomesCore.Log("Initialized");
+    //    }
+    //}
 
     [StaticConstructorOnStartup]
     public static class BiomesCore

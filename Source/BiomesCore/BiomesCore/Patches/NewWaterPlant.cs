@@ -28,19 +28,18 @@ namespace BiomesCore.Patches
             {
                 foreach (ThingDef plant in biome.AllWildPlants)
                 {
-                    if (plant.HasModExtension<Biomes_WaterPlant>())
+                    if (plant.HasModExtension<Biomes_PlantControl>())
                     {
                         waterCommonality += biome.CommonalityOfPlant(plant);
                         continue;
                     }
-                    if (plant.HasModExtension<Biomes_SandPlant>())
+                    if (plant.HasModExtension<Biomes_PlantControl>())
                     {
                         sandCommonality += biome.CommonalityOfPlant(plant);
                         continue;
                     }
                     landCommonality += biome.CommonalityOfPlant(plant);
                     continue;
-
                 }
                 sandCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey(biome + "_SandCommonality"))

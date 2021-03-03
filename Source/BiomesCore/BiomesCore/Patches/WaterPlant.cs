@@ -32,30 +32,30 @@ namespace BiomesCore.Patches
             }
             if (terrain.HasTag("Water"))
             {
-                if (!plantDef.HasModExtension<Biomes_WaterPlant>())
+                if (!plantDef.HasModExtension<Biomes_PlantControl>())
                 {
                     __result = false;
                     return false;
                 }
-                Biomes_WaterPlant ext = plantDef.GetModExtension<Biomes_WaterPlant>();
+                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
                 if ((terrain.HasTag("SaltWater") && !ext.allowInSaltWater) || (!terrain.HasTag("SaltWater") && !ext.allowInFreshWater) || (terrain.HasTag("DeepWater") && !ext.allowInDeepWater) || (!terrain.HasTag("DeepWater") && !ext.allowInShallowWater))
                 {
                     __result = false;
                     return false;
                 }
             }
-            else if (plantDef.HasModExtension<Biomes_WaterPlant>() )
+            else if (plantDef.HasModExtension<Biomes_PlantControl>() )
             {
-                Biomes_WaterPlant ext = plantDef.GetModExtension<Biomes_WaterPlant>();
+                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
                 if (!ext.allowOnLand)
                 {
                     __result = false;
                     return false;
                 }
             }
-            if (plantDef.HasModExtension<Biomes_SandPlant>())
+            if (plantDef.HasModExtension<Biomes_PlantControl>())
             {
-                Biomes_SandPlant ext = plantDef.GetModExtension<Biomes_SandPlant>();
+                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
                 if (!terrain.HasTag("Sandy"))
                 {
                     if (!ext.allowOffSand)
