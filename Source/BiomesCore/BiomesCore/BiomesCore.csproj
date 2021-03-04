@@ -300,6 +300,7 @@
     <Compile Include="DefOfs\PawnKindDefOf .cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\Biomes_MapParameters.cs" />
+    <Compile Include="Derived Classes\PlantClasses.cs" />
     <Compile Include="Patches\CavePlants.cs" />
     <Compile Include="Patches\RestingPeriodPatch.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
@@ -312,7 +313,7 @@
     <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
-    <Compile Include="Patches\NewWaterPlant.cs" />
+    <Compile Include="Patches\CommonalityPatches.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\WaterPlant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
