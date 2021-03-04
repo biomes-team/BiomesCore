@@ -18,6 +18,7 @@ namespace BiomesCore.DefModExtensions
         public bool allowOnSand = true;
         public bool allowOffSand = true;
         public bool cavePlant = false;
-        public bool disableRestingPeriod = false;
+        public bool needsRest = false;
+        public FloatRange growingHours = new FloatRange(0.25f, 0.8f);
     }
 }

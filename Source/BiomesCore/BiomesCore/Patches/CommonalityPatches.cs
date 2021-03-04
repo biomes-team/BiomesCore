@@ -30,13 +30,17 @@ namespace BiomesCore.Patches
                 {
                     if (plant.HasModExtension<Biomes_PlantControl>())
                     {
-                        waterCommonality += biome.CommonalityOfPlant(plant);
-                        continue;
-                    }
-                    if (plant.HasModExtension<Biomes_PlantControl>())
-                    {
-                        sandCommonality += biome.CommonalityOfPlant(plant);
-                        continue;
+                        Biomes_PlantControl ext = plant.GetModExtension<Biomes_PlantControl>();
+                        if (ext.allowInFreshWater || ext.allowInSaltWater)
+                        {
+                            waterCommonality += biome.CommonalityOfPlant(plant);
+                            continue;
+                        }
+                        if (!ext.allowOffSand)
+                        {
+                            sandCommonality += biome.CommonalityOfPlant(plant);
+                            continue;
+                        }
                     }
                     landCommonality += biome.CommonalityOfPlant(plant);
                     continue;
