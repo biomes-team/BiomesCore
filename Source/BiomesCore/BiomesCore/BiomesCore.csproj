@@ -300,10 +300,8 @@
     <Compile Include="DefOfs\PawnKindDefOf .cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\Biomes_MapParameters.cs" />
-    <Compile Include="Derived Classes\PlantClasses.cs" />
-    <Compile Include="Extensions\Thingdef.cs" />
+    <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="Patches\CavePlants.cs" />
-    <Compile Include="Patches\RestingPeriodPatch.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\Biomes_NoBeach.cs" />

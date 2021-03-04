@@ -7,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 
-namespace BMT_Derived_Classes
+namespace BiomesCore.DerivedClasses
 {
-    class BMT_Plant : Plant
+    public class BMT_Plant : Plant
     {
-        protected override bool Resting => needsRest;
-        bool needsRest
+        protected override bool Resting => isResting;
+        bool isResting
         {
             get
             {
@@ -29,11 +29,8 @@ namespace BMT_Derived_Classes
                     }
                     return false;
                 }
-                if (!(GenLocalDate.DayPercent(this) < 0.25f))
-                {
-                    return GenLocalDate.DayPercent(this) > 0.8f;
-                }
-                return true;
+                // returns the default Resting value without having to copy code
+                return base.Resting;
             }
         }
     }
