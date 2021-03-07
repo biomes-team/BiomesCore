@@ -17,9 +17,9 @@ namespace BiomesCore.Patches
             //    return false;
             //}
             //return true;
-            if (map.Biome.HasModExtension<Biomes_NoBeach>())
+            if (map.Biome.HasModExtension<BiomesMap>())
             {
-                if (!map.Biome.GetModExtension<Biomes_NoBeach>().allowBeach)
+                if (!map.Biome.GetModExtension<BiomesMap>().allowBeach)
                 {
                     return false;
                 }

@@ -10,7 +10,9 @@ namespace BiomesCore.DefModExtensions
 	public class BiomesMap : DefModExtension
 	{
 		public bool isIsland = false;
+		public bool isCavern = false;
 		public bool hasHilliness = true;
+		public bool allowBeach = true;
 		//public bool hasRuins = true;
 		public bool hasScatterables = true;
 		public bool isValley = false;

@@ -297,14 +297,15 @@
   <ItemGroup>
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
+    <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefOfs\PawnKindDefOf .cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\Biomes_MapParameters.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
+    <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\CavePlants.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
-    <Compile Include="DefModExtensions\Biomes_NoBeach.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
     <Compile Include="DefModExtensions\Plant_Control.cs" />
     <Compile Include="DefModExtensions\Song_MapRestrictions.cs" />

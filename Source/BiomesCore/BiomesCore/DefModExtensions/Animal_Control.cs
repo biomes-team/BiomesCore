@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Verse;
-using RimWorld;
 
 namespace BiomesCore.DefModExtensions
 {
-    public class Biomes_NoBeach : DefModExtension
+    class Biomes_AnimalControl : DefModExtension
     {
-        public bool allowBeach = true;
+        public List<string> biomesAlternateGraphics = new List<string>();
     }
 }
