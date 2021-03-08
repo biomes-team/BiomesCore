@@ -11,38 +11,45 @@ namespace BiomesCore.Patches
     {
         internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
         {
-            RoofDef roof = map.roofGrid.RoofAt(c);
-            TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-            string biome = map.Biome.defName;
-            if (map.Biome.defName != "BMT_SurfaceCavern") // quick hack for making sure we're not blocking crops under mountains. Needs to be replaced later.
-                return true;
-            if (roof != null)
+            // is it a Biomes! Caverns map
+            if (!map.Biome.HasModExtension<BiomesMap>())
             {
-                if (roof.isNatural)
+                return true;
+            }
+            if (!map.Biome.GetModExtension<BiomesMap>().isCavern)
+            {
+                return true;
+            }
+
+            // if roofed, only Biomes! caveplants are valid
+            RoofDef roof = map.roofGrid.RoofAt(c);
+            if (roof?.isNatural == true)                       // ?. returns null if roof is null
+            {
+                if (!plantDef.HasModExtension<Biomes_PlantControl>()/* && !plantDef.plant.cavePlant*/)
                 {
-                    if (!plantDef.HasModExtension<Biomes_PlantControl>() && !plantDef.plant.cavePlant)
+                    __result = false;
+                    return false;
+                }
+                //if (roof.defName == "BMT_RockRoofStable")
+                //{
+                    if (!plantDef.HasModExtension<Biomes_PlantControl>())
                     {
                         __result = false;
                         return false;
                     }
-                    if (roof.defName == "BiomesCaverns_RockRoofStable")
-                    {
-                        if (!plantDef.HasModExtension<Biomes_PlantControl>())
-                        {
-                            __result = false;
-                            return false;
-                        }
-                        Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
-                        if (!ext.cavePlant)
-                        {
-                            __result = false;
-                            return false;
-                        }
-                        return true;
 
+                    Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
+                    if (!ext.cavePlant)
+                    {
+                        __result = false;
+                        return false;
                     }
-                }
+
+                    return true;
+                //}
             }
+            
+            // if no roof, don't spawn Biomes! cave plants
             if (plantDef.HasModExtension<Biomes_PlantControl>())
             {
                 Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();

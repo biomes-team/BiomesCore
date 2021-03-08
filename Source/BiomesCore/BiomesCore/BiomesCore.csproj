@@ -300,14 +300,14 @@
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefOfs\PawnKindDefOf .cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
-    <Compile Include="DefModExtensions\Biomes_MapParameters.cs" />
+    <Compile Include="DefModExtensions\BiomesMap.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\CavePlants.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
-    <Compile Include="DefModExtensions\Plant_Control.cs" />
+    <Compile Include="DefModExtensions\Biomes_PlantControl.cs" />
     <Compile Include="DefModExtensions\Song_MapRestrictions.cs" />
     <Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />
     <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
