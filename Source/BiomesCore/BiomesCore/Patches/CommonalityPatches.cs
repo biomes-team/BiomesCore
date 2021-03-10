@@ -93,6 +93,7 @@ namespace BiomesCore.Patches
         internal static void Postfix(ref float __result, IntVec3 c, Map ___map)
         {
             var biome = ___map.Biome;
+            var terrain = c.GetTerrain(___map);
             if (!commonalitySum.ContainsKey("WaterCommonality") || !commonalitySum.ContainsKey("SandCommonality") || !commonalitySum.ContainsKey("LandCommonality"))
             {
                 foreach (ThingDef plant in biome.AllWildPlants)
@@ -123,7 +124,6 @@ namespace BiomesCore.Patches
                 landCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey("LandCommonality"))
                     commonalitySum.Add("LandCommonality", landCommonality);
-                var terrain = c.GetTerrain(___map);
                 float fertility = terrain.fertility;
                 if (terrain.HasTag("Water"))
                 {
@@ -140,16 +140,6 @@ namespace BiomesCore.Patches
             }
             else
             {
-                sandCommonality /= landCommonality;
-                if (!commonalitySum.ContainsKey("SandCommonality"))
-                    commonalitySum.Add("SandCommonality", sandCommonality);
-                waterCommonality /= landCommonality;
-                if (!commonalitySum.ContainsKey("WaterCommonality"))
-                    commonalitySum.Add("WaterCommonality", waterCommonality);
-                landCommonality /= landCommonality;
-                if (!commonalitySum.ContainsKey("LandCommonality"))
-                    commonalitySum.Add("LandCommonality", landCommonality);
-                var terrain = c.GetTerrain(___map);
                 float fertility = terrain.fertility;
                 if (terrain.HasTag("Water"))
                 {
