@@ -8,7 +8,7 @@ using Verse.Noise;
 
 namespace BiomesCore.MapGeneration
 {
-    public class GenStep_IslandCrescent : GenStep
+    public class GenStep_IslandShape_Crescent : GenStep
     {
         public override int SeedPart
         {

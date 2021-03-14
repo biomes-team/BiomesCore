@@ -21,15 +21,24 @@ namespace BiomesCore.MapGeneration
             {
                 return;
             }
-            if (map.Biome.GetModExtension<BiomesMap>().isIsland)
+            BiomesMap mapParms = map.Biome.GetModExtension<BiomesMap>();
+
+            // generate map shapes
+            if (mapParms.isIsland)
             {
                 new GenStep_Island().Generate(map, parms);
             }
-            else if (map.Biome.GetModExtension<BiomesMap>().isOasis)
+            else if (mapParms.isOasis)
             {
                 new GenStep_Oasis().Generate(map, parms);
             }
 
+            
+            // generate elevation grid if necessary
+            if(mapParms.addIslandHills)
+            {
+                new GenStep_IslandElevation().Generate(map, parms);
+            }
         }
     }
 }

@@ -42,19 +42,21 @@ namespace BiomesCore.MapGeneration
             switch (shape)
             {
                 case IslandShape.Smooth:
-                    new GenStep_IslandSmooth().Generate(map, parms);
+                    new GenStep_IslandShape_Smooth().Generate(map, parms);
                     break;
                 case IslandShape.Rough:
-                    new GenStep_IslandRough().Generate(map, parms);
+                    new GenStep_IslandShape_Rough().Generate(map, parms);
                     break;
                 case IslandShape.Crescent:
-                    new GenStep_IslandCrescent().Generate(map, parms);
+                    new GenStep_IslandShape_Crescent().Generate(map, parms);
                     break;
                 case IslandShape.Pair:
-                    new GenStep_IslandPair().Generate(map, parms);
+                    new GenStep_IslandShape_Pair().Generate(map, parms);
                     break;
+                    
+                // rough islands are probably the best default island shape
                 default:
-                    new GenStep_IslandSmooth().Generate(map, parms);
+                    new GenStep_IslandShape_Rough().Generate(map, parms);
                     break;
             }
 

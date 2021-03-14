@@ -12,9 +12,8 @@ namespace BiomesCore.DefModExtensions
 		public bool isIsland = false;
 		public List<IslandShape> islandShapes = new List<IslandShape>();
 
-
 		public bool isCavern = false;
-		public bool hasHilliness = true;
+		public bool addIslandHills = true;
 		public bool allowBeach = true;
 		//public bool hasRuins = true;
 		public bool hasScatterables = true;

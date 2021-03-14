@@ -303,10 +303,13 @@
     <Compile Include="DefModExtensions\BiomesMap.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="MapGeneration\GenStep_Island.cs" />
-    <Compile Include="MapGeneration\GenStep_IslandCrescent.cs" />
-    <Compile Include="MapGeneration\GenStep_IslandPair.cs" />
-    <Compile Include="MapGeneration\GenStep_IslandRough.cs" />
-    <Compile Include="MapGeneration\GenStep_IslandSmooth.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Crescent.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandElevation.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Pair.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandRockChunks.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandRocksFromGrid.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Rough.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Smooth.cs" />
     <Compile Include="MapGeneration\GenStep_Oasis.cs" />
     <Compile Include="MapGeneration\MapGenerationPatch.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
@@ -321,6 +324,9 @@
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
     <Compile Include="Patches\CommonalityPatches.cs" />
+    <Compile Include="Patches\IslandGeysers.cs" />
+    <Compile Include="Patches\IslandHilliness.cs" />
+    <Compile Include="Patches\IslandScatterables.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\WaterPlant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

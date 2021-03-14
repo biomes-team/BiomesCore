@@ -12,7 +12,7 @@ namespace BiomesCore.MapGeneration
     /// <summary>
     /// The original island generator. Suitable for atolls.
     /// </summary>
-    public class GenStep_IslandSmooth : GenStep
+    public class GenStep_IslandShape_Smooth : GenStep
     {
         public override int SeedPart
         {
