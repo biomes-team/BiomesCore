@@ -9,6 +9,9 @@ using Verse;
 
 namespace BiomesCore.MapGeneration
 {
+    /// <summary>
+    /// Checks for map tags and runs the appropriate gensteps
+    /// </summary>
     [HarmonyPatch(typeof(RimWorld.GenStep_ElevationFertility), "Generate")]
     static class ElevationFertilityPatch
     {
@@ -18,7 +21,11 @@ namespace BiomesCore.MapGeneration
             {
                 return;
             }
-            if (map.Biome.GetModExtension<BiomesMap>().isOasis)
+            if (map.Biome.GetModExtension<BiomesMap>().isIsland)
+            {
+                new GenStep_Island().Generate(map, parms);
+            }
+            else if (map.Biome.GetModExtension<BiomesMap>().isOasis)
             {
                 new GenStep_Oasis().Generate(map, parms);
             }

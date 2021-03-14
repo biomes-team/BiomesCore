@@ -10,6 +10,9 @@ namespace BiomesCore.DefModExtensions
 	public class BiomesMap : DefModExtension
 	{
 		public bool isIsland = false;
+		public List<IslandShape> islandShapes = new List<IslandShape>();
+
+
 		public bool isCavern = false;
 		public bool hasHilliness = true;
 		public bool allowBeach = true;
@@ -22,4 +25,12 @@ namespace BiomesCore.DefModExtensions
 		public float maxHillEdgeMultiplier = 1;
 		public bool isOasis = false;
 	}
+
+	public enum IslandShape
+    {
+		Smooth,
+		Rough,
+		Crescent,
+		Pair
+    }
 }
