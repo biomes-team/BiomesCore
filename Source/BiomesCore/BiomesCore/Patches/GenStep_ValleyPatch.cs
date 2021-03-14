@@ -9,6 +9,7 @@ using Verse;
 
 namespace BiomesCore.GenSteps
 {
+    
     [HarmonyPatch(typeof(RimWorld.GenStep_ElevationFertility))]
     [HarmonyPatch(nameof(RimWorld.GenStep_ElevationFertility.Generate))]
     internal static class ValleyPatch
@@ -58,4 +59,5 @@ namespace BiomesCore.GenSteps
             }
         }
     }
+    
 }
