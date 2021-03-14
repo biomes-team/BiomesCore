@@ -86,9 +86,6 @@ namespace BiomesCore.Patches
     [HarmonyPatch(typeof(WildPlantSpawner), "GetBaseDesiredPlantsCountAt")]
     internal static class WildPlantSpawner_GetBaseDesiredPlantsCountAt
     {
-        public static float landCommonality = 0;
-        public static float waterCommonality = 0;
-        public static float sandCommonality = 0;
         public static Dictionary<string, float> commonalitySum = new Dictionary<string, float>();
         internal static void Postfix(ref float __result, IntVec3 c, Map ___map)
         {
@@ -96,6 +93,9 @@ namespace BiomesCore.Patches
             var terrain = c.GetTerrain(___map);
             if (!commonalitySum.ContainsKey("WaterCommonality") || !commonalitySum.ContainsKey("SandCommonality") || !commonalitySum.ContainsKey("LandCommonality"))
             {
+                float landCommonality = 0;
+                float waterCommonality = 0;
+                float sandCommonality = 0;
                 foreach (ThingDef plant in biome.AllWildPlants)
                 {
                     if (plant.HasModExtension<Biomes_PlantControl>())
