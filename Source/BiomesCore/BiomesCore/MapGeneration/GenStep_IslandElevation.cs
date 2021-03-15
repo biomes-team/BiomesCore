@@ -35,6 +35,10 @@ namespace BiomesCore.MapGeneration
             {
                 return;
             }
+            if (!map.Biome.GetModExtension<BiomesMap>().isIsland)
+            {
+                return;
+            }
             if (!map.Biome.GetModExtension<BiomesMap>().addIslandHills)
             {
                 return;

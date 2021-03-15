@@ -46,6 +46,10 @@ namespace BiomesCore.MapGeneration
             {
                 return;
             }
+            if (!map.Biome.GetModExtension<BiomesMap>().addIslandHills)
+            {
+                return;
+            }
 
             map.regionAndRoomUpdater.Enabled = false;
             float roofThreshhold = 0.7f;
