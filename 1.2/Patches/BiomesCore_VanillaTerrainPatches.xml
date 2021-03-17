@@ -49,35 +49,60 @@
 
     <!-- Change water fertility -->
 
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[@Name = "Sand"]/fertility</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[@Name = "Sand"]</xpath>
-                <value>
-                    <fertility>0.2</fertility>
-                </value>
-            </li>
-        </operations>
-	</Operation>
 
     <Operation Class="PatchOperationSequence">
         <success>Always</success>
         <operations>
             <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[@Name = "SoftSand"]/fertility</xpath>
+                <xpath>/Defs/TerrainDef[@Name = "WaterChestDeepBase"]/fertility</xpath>
                 <success>Invert</success>
             </li>
             <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[@Name = "SoftSand"]</xpath>
+                <xpath>/Defs/TerrainDef[@Name = "WaterChestDeepBase"]</xpath>
                 <value>
-                    <fertility>0.1</fertility>
+                    <fertility>0.5</fertility>
                 </value>
             </li>
         </operations>
 	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[@Name = "WaterShallowBase"]</xpath>
+		<value>
+			<fertility>0.8</fertility>
+		</value>
+	</Operation>
+
+
+    <!-- <Operation Class="PatchOperationSequence"> -->
+        <!-- <success>Always</success> -->
+        <!-- <operations> -->
+            <!-- <li Class="PatchOperationTest"> -->
+                <!-- <xpath>/Defs/TerrainDef[@Name = "Sand"]/fertility</xpath> -->
+                <!-- <success>Invert</success> -->
+            <!-- </li> -->
+            <!-- <li Class="PatchOperationAdd"> -->
+                <!-- <xpath>/Defs/TerrainDef[@Name = "Sand"]</xpath> -->
+                <!-- <value> -->
+                    <!-- <fertility>0.2</fertility> -->
+                <!-- </value> -->
+            <!-- </li> -->
+        <!-- </operations> -->
+	<!-- </Operation> -->
+
+    <!-- <Operation Class="PatchOperationSequence"> -->
+        <!-- <success>Always</success> -->
+        <!-- <operations> -->
+            <!-- <li Class="PatchOperationTest"> -->
+                <!-- <xpath>/Defs/TerrainDef[@Name = "SoftSand"]/fertility</xpath> -->
+                <!-- <success>Invert</success> -->
+            <!-- </li> -->
+            <!-- <li Class="PatchOperationAdd"> -->
+                <!-- <xpath>/Defs/TerrainDef[@Name = "SoftSand"]</xpath> -->
+                <!-- <value> -->
+                    <!-- <fertility>0.1</fertility> -->
+                <!-- </value> -->
+            <!-- </li> -->
+        <!-- </operations> -->
+	<!-- </Operation> -->
 </Patch>
