@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!--====================	Fruit Trees		=====================-->
+
+	<ThingDef ParentName="BiomesCore_FruitTreeBase">
+		<defName>BiomesIslands_CoconutPalm</defName>
+		<label>coral coconut tree</label>
+		<description>A tropical tree with a tall, naked trunk topped by a cluster of very broad leaves. This variety produces coconuts.</description>
+		<graphicData>
+			<texPath>BiomesCore_Things/Plant/CoconutPalm/CoconutPalm</texPath>
+		</graphicData>
+		<plant>
+			<fertilityMin>0.5</fertilityMin>
+			<fertilitySensitivity>0.5</fertilitySensitivity>
+			<growDays>20</growDays>
+			<immatureGraphicPath>BiomesCore_Things/Plant/CoconutPalm/CoconutPalm_immature</immatureGraphicPath>
+			<harvestYield>10</harvestYield>
+			<harvestWork>400</harvestWork>
+			<harvestedThingDef>BiomesIslands_Coconuts</harvestedThingDef>
+		</plant>
+	</ThingDef>
+
+
+  
+<!-- Coconut fruit -->
+  
+  <ThingDef ParentName="BiomesCore_FruitBase">
+    <defName>BiomesIslands_Coconuts</defName>
+    <label>coral coconuts</label>
+    <description>Big round fruit with a hard shell and a milky center</description>
+    <graphicData>
+      <texPath>BiomesCore_Things/Items/Crops/Coconut</texPath>
+    </graphicData>
+    <statBases>
+      <MarketValue>4.2</MarketValue>
+      <Mass>0.06</Mass>
+      <Nutrition>0.25</Nutrition>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>25</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <ingestible>
+      <preferability>RawTasty</preferability>
+      <foodType>VegetableOrFruit</foodType>
+    </ingestible>
+  </ThingDef>
+
+
+</Defs>
