@@ -30,6 +30,7 @@ namespace BiomesCore.DefModExtensions
 		Smooth,
 		Rough,
 		Crescent,
-		Pair
+		Pair,
+		Cluster
     }
 }

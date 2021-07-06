@@ -53,7 +53,10 @@ namespace BiomesCore.MapGeneration
                 case IslandShape.Pair:
                     new GenStep_IslandShape_Pair().Generate(map, parms);
                     break;
-                    
+                case IslandShape.Cluster:
+                    new GenStep_IslandShape_Cluster().Generate(map, parms);
+                    break;
+
                 // rough islands are probably the best default island shape
                 default:
                     new GenStep_IslandShape_Rough().Generate(map, parms);

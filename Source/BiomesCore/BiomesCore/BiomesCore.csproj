@@ -305,6 +305,7 @@
     <Compile Include="MapGeneration\GenStep_Island.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Crescent.cs" />
     <Compile Include="MapGeneration\GenStep_IslandElevation.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Cluster.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Pair.cs" />
     <Compile Include="MapGeneration\GenStep_IslandRockChunks.cs" />
     <Compile Include="MapGeneration\GenStep_IslandRocksFromGrid.cs" />
