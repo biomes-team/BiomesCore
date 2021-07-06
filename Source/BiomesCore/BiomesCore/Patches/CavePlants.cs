@@ -5,11 +5,13 @@ using Verse;
 
 namespace BiomesCore.Patches
 {
+
+
     // This patch stops normal plants from spawning under natural roofs, and the new cave plants from spawning without an appropriate roof.
-    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt_NewTemp))]
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), new[] { typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool) })]
     internal static class PlantUtility_CanEverPlantAt_CavePlants
     {
-        internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
+        internal static bool Prefix(ThingDef plantDef, IntVec3 c, Map map, ref bool __result)
         {
             // is it a Biomes! Caverns map
             if (!map.Biome.HasModExtension<BiomesMap>())

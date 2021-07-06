@@ -12,7 +12,7 @@ using HarmonyLib;
 namespace BiomesCore.Patches
 {
 
-    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt_NewTemp))]
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), new[] { typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool) })]
     internal static class PlantUtility_CanEverPlantAt
     {
         internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
@@ -115,7 +115,7 @@ namespace BiomesCore.Patches
     {
         internal static bool Prefix(IntVec3 c, Map map, ref bool __result)
         {
-            if (!PlantUtility.CanEverPlantAt_NewTemp(ThingDefOf.Plant_Ambrosia, c, map))
+            if (!PlantUtility.CanEverPlantAt(ThingDefOf.Plant_Ambrosia, c, map))
             {
                 __result = false;
                 return false;
