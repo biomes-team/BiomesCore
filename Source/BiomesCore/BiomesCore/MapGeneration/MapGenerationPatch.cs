@@ -28,6 +28,10 @@ namespace BiomesCore.MapGeneration
             {
                 new GenStep_Island().Generate(map, parms);
             }
+            if (mapParms.isValley)
+            {
+                new GenStep_Valley().Generate(map, parms);
+            }
             else if (mapParms.isOasis)
             {
                 new GenStep_Oasis().Generate(map, parms);

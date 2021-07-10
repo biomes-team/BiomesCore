@@ -11,6 +11,7 @@ namespace BiomesCore.DefModExtensions
 	{
 		public bool isIsland = false;
 		public List<IslandShape> islandShapes = new List<IslandShape>();
+		public List<ValleyShape> valleyShapes = new List<ValleyShape>();
 
 		public bool isCavern = false;
 		public bool addIslandHills = true;
@@ -31,6 +32,12 @@ namespace BiomesCore.DefModExtensions
 		Rough,
 		Crescent,
 		Pair,
-		Cluster
-    }
+		Cluster,
+		Broken
+	}
+
+	public enum ValleyShape
+	{
+		Linear
+	}
 }
