@@ -44,6 +44,7 @@ namespace BiomesCore.DerivedClasses
 					{
 						return base.Map.glowGrid.GameGlowAt(base.Position, ignoreCavePlants: true) > 0f;
 					}
+					return false;
 				}
 				return base.DyingBecauseExposedToLight;
 			}
