@@ -32,8 +32,7 @@ namespace BiomesCore.DefModExtensions
 		Rough,
 		Crescent,
 		Pair,
-		Cluster,
-		Broken
+		Cluster
 	}
 
 	public enum ValleyShape

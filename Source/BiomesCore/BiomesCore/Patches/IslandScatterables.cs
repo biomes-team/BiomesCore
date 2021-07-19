@@ -22,7 +22,7 @@ namespace BiomesCore.Patches
             CodeInstruction[] codeInstructions = instructions as CodeInstruction[] ?? instructions.ToArray();
             foreach (CodeInstruction instruction in codeInstructions)
             {
-                if (instruction.opcode == OpCodes.Ldfld && instruction.operand == waterBiome)
+                if (instruction.opcode == OpCodes.Ldfld && (FieldInfo)instruction.operand == waterBiome)
                 {
                     yield return new CodeInstruction(opcode: OpCodes.Ldarg_1);
                     yield return new CodeInstruction(opcode: OpCodes.Call, operand: AccessTools.Method(type: typeof(IslandScatterables), name: nameof(IslandScatterables.AllowedInWaterBiome)));
