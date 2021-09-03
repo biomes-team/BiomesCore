@@ -35,8 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\Lib.Harmony.2.1.0\lib\net472\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -299,11 +298,13 @@
     <Compile Include="DefModExtensions\BiomesMap.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Broken.cs" />
+    <Compile Include="MapGeneration\GenStep_Cavern.cs" />
     <Compile Include="MapGeneration\GenStep_Valley.cs" />
     <Compile Include="MapGeneration\GenStep_Island.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Crescent.cs" />
     <Compile Include="MapGeneration\GenStep_IslandElevation.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Cluster.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_Tunnels.cs" />
     <Compile Include="MapGeneration\GenStep_ValleyShape_Linear.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Pair.cs" />
     <Compile Include="MapGeneration\GenStep_IslandRockChunks.cs" />

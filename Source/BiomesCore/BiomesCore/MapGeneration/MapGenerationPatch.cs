@@ -28,21 +28,27 @@ namespace BiomesCore.MapGeneration
             {
                 new GenStep_Island().Generate(map, parms);
             }
-            if (mapParms.isValley)
-            {
-                new GenStep_Valley().Generate(map, parms);
-            }
             else if (mapParms.isOasis)
             {
                 new GenStep_Oasis().Generate(map, parms);
             }
-
-            
             // generate elevation grid if necessary
-            if(mapParms.addIslandHills)
+            if (mapParms.addIslandHills)
             {
                 new GenStep_IslandElevation().Generate(map, parms);
             }
+
+            // generate elevation shapes
+            if (mapParms.isValley)
+            {
+                new GenStep_Valley().Generate(map, parms);
+            }
+            else if (mapParms.isCavern)
+            {
+                new GenStep_Cavern().Generate(map, parms);
+            }
+
+            
         }
     }
 }

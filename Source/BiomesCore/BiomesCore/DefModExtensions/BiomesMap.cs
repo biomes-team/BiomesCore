@@ -11,19 +11,22 @@ namespace BiomesCore.DefModExtensions
 	{
 		public bool isIsland = false;
 		public List<IslandShape> islandShapes = new List<IslandShape>();
+		public bool addIslandHills = true;
+		public bool allowBeach = true;
+
+		public bool isValley = false;
 		public List<ValleyShape> valleyShapes = new List<ValleyShape>();
 
 		public bool isCavern = false;
-		public bool addIslandHills = true;
-		public bool allowBeach = true;
+		public List<CavernShape> cavernShapes = new List<CavernShape>();
+
+		public bool isOasis = false;
 		//public bool hasRuins = true;
 		public bool hasScatterables = true;
-		public bool isValley = false;
 		public float minHillEncroachment = 1;
 		public float maxHillEncroachment = 1;
 		public float minHillEdgeMultiplier = 1;
 		public float maxHillEdgeMultiplier = 1;
-		public bool isOasis = false;
 	}
 
 	public enum IslandShape
@@ -40,4 +43,9 @@ namespace BiomesCore.DefModExtensions
 	{
 		Linear
 	}
+
+	public enum CavernShape
+    {
+		Tunnels
+    }
 }
