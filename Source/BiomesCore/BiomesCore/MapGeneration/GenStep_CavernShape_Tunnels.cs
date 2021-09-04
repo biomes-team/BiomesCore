@@ -21,14 +21,16 @@ namespace BiomesCore.MapGeneration
 
 		public override void Generate(Map map, GenStepParams parms)
 		{
-			ModuleBase noise = new Perlin(0.024, 2.2, 0.5, 6, Rand.Range(0, int.MaxValue), QualityMode.High);
-            noise = new ScaleBias(0.5, 0.5, noise);
+			ModuleBase tunnels = new Perlin(0.024, 2.2, 0.5, 6, Rand.Range(0, int.MaxValue), QualityMode.High);
+            tunnels = new ScaleBias(0.5, 0.5, tunnels);
 
-            MapGenFloatGrid elevation = MapGenerator.Elevation;
+			ModuleBase noise = new Perlin(0.02, 1.5, 0.5, 6, Rand.Range(0, int.MaxValue), QualityMode.Medium);
+
+			MapGenFloatGrid elevation = MapGenerator.Elevation;
 
 			foreach (IntVec3 cell in map.AllCells)
 			{
-				elevation[cell] = 0.5f + 2f * Math.Abs(noise.GetValue(cell) - 0.5f);
+                elevation[cell] = 0.53f + 2f * Math.Abs(tunnels.GetValue(cell) - 0.5f) + 0.10f * noise.GetValue(cell);
 			}
 
 		}
