@@ -293,6 +293,7 @@
   <ItemGroup>
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
+    <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefOfs\PawnKindDefOf .cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
@@ -337,5 +338,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
