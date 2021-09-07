@@ -44,6 +44,9 @@ namespace BiomesCore.MapGeneration
                 case CavernShape.Tunnels:
                     new GenStep_CavernShape_Tunnels().Generate(map, parms);
                     break;
+                case CavernShape.FleshChambers:
+                    new GenStep_CavernShape_FleshChambers().Generate(map, parms);
+                    break;
 
                 default:
                     new GenStep_CavernShape_Tunnels().Generate(map, parms);

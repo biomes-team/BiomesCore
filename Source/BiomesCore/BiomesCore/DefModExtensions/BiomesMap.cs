@@ -46,6 +46,7 @@ namespace BiomesCore.DefModExtensions
 
 	public enum CavernShape
     {
-		Tunnels
+		Tunnels,
+		FleshChambers
     }
 }
