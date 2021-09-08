@@ -8,7 +8,7 @@ using Verse.Noise;
 
 namespace BiomesCore.MapGeneration
 {
-	public class GenStep_CavernShape_Tunnels : GenStep
+	public class GenStep_CavernShape_NarrowTunnels : GenStep
 	{
 		public override int SeedPart
 		{

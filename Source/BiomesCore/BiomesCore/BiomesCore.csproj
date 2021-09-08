@@ -300,6 +300,7 @@
     <Compile Include="DefModExtensions\BiomesMap.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_FleshChambers.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_LavaTubes.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Broken.cs" />
     <Compile Include="MapGeneration\GenStep_Cavern.cs" />
     <Compile Include="MapGeneration\GenStep_Valley.cs" />
@@ -307,7 +308,7 @@
     <Compile Include="MapGeneration\GenStep_IslandShape_Crescent.cs" />
     <Compile Include="MapGeneration\GenStep_IslandElevation.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Cluster.cs" />
-    <Compile Include="MapGeneration\GenStep_CavernShape_Tunnels.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_NarrowTunnels.cs" />
     <Compile Include="MapGeneration\GenStep_ValleyShape_Linear.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Pair.cs" />
     <Compile Include="MapGeneration\GenStep_IslandRockChunks.cs" />
