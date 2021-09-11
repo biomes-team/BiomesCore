@@ -295,6 +295,7 @@
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
+    <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\PawnKindDefOf .cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\BiomesMap.cs" />
@@ -317,8 +318,10 @@
     <Compile Include="MapGeneration\GenStep_IslandShape_Smooth.cs" />
     <Compile Include="MapGeneration\GenStep_Oasis.cs" />
     <Compile Include="MapGeneration\MapGenerationPatch.cs" />
+    <Compile Include="MapGeneration\RocksFromGrid_Cavern.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\CavePlants.cs" />
+    <Compile Include="Patches\CavernRoofs.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
@@ -335,7 +338,8 @@
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\WaterPlant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reflections\NonVirtualDynamicMethod.cs" />
+    <Compile Include="Reflections\Reflection.cs" />
+    <Compile Include="RoofExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
