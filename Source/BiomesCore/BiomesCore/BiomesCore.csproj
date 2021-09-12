@@ -300,6 +300,7 @@
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\BiomesMap.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_OpenCaverns.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_FleshChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_LavaTubes.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Broken.cs" />

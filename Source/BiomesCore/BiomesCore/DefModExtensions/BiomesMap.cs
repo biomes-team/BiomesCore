@@ -48,6 +48,7 @@ namespace BiomesCore.DefModExtensions
     {
 		NarrowTunnels,
 		FleshChambers,
-		LavaTubes
+		LavaTubes,
+		OpenCaverns
     }
 }
