@@ -98,6 +98,7 @@ namespace BiomesCore.Patches
                 float landCommonality = 0;
                 float waterCommonality = 0;
                 float sandCommonality = 0;
+                float wetlandCommonality = 0;
                 foreach (ThingDef plant in biome.AllWildPlants)
                 {
                     if (plant.HasModExtension<Biomes_PlantControl>())
@@ -113,10 +114,18 @@ namespace BiomesCore.Patches
                             sandCommonality += biome.CommonalityOfPlant(plant);
                             continue;
                         }
+                        if (!ext.allowOffWetland)
+                        {
+                            wetlandCommonality += biome.CommonalityOfPlant(plant);
+                            continue;
+                        }
                     }
                     landCommonality += biome.CommonalityOfPlant(plant);
                     continue;
                 }
+                wetlandCommonality /= landCommonality;
+                if (!commonalitySum.ContainsKey("WetlandCommonality"))
+                    commonalitySum.Add("SandCommonality", wetlandCommonality);
                 sandCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey("SandCommonality"))
                     commonalitySum.Add("SandCommonality", sandCommonality);
@@ -151,6 +160,11 @@ namespace BiomesCore.Patches
                 if (terrain.HasTag("Sandy"))
                 {
                     __result = fertility * commonalitySum["SandCommonality"];
+                    return;
+                }
+                if (terrain.HasTag("Wetland"))
+                {
+                    __result = fertility * commonalitySum["WetlandCommonality"];
                     return;
                 }
                 __result = fertility * commonalitySum["LandCommonality"];
