@@ -65,6 +65,18 @@ namespace BiomesCore.Patches
                     }
                 }
             }
+            if (plantDef.HasModExtension<Biomes_PlantControl>())
+            {
+                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
+                if (!terrain.HasTag("Wetland"))
+                {
+                    if (!ext.allowOffWetland)
+                    {
+                        __result = false;
+                        return false;
+                    }
+                }
+            }
             return true;
         }
     }

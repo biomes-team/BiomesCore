@@ -15,8 +15,8 @@ namespace BiomesCore.DefModExtensions
         public bool allowInShallowWater = false;
         public bool allowInDeepWater = false;
         public bool allowOnLand = true;
-        public bool allowOnSand = true;
         public bool allowOffSand = true;
+        public bool allowOffWetland = true;
         public bool cavePlant = false;
         public bool needsRest = true;
         public FloatRange lightRange = new FloatRange(0f, 1f);

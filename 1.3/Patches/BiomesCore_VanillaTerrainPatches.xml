@@ -47,6 +47,53 @@
 		</value>
 	</Operation>
 
+    <!-- Add wetland tags to differentiate marshes and bogs from dry soil -->
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]/tags</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]</xpath>
+                <value>
+                    <tags />
+                </value>
+            </li>
+        </operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]/tags</xpath>
+		<value>
+			<li>Wetland</li>
+		</value>
+	</Operation>
+	
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>/Defs/TerrainDef[defName = "Marsh"]/tags</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/TerrainDef[defName = "Marsh"]</xpath>
+                <value>
+                    <tags />
+                </value>
+            </li>
+        </operations>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/TerrainDef[defName = "Marsh"]/tags</xpath>
+		<value>
+			<li>Wetland</li>
+		</value>
+	</Operation>
+	
     <!-- Change water fertility -->
 
 
