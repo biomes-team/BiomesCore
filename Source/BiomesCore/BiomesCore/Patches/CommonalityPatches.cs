@@ -107,25 +107,30 @@ namespace BiomesCore.Patches
                         if (ext.allowInFreshWater || ext.allowInSaltWater)
                         {
                             waterCommonality += biome.CommonalityOfPlant(plant);
-                            continue;
                         }
                         if (!ext.allowOffSand)
                         {
                             sandCommonality += biome.CommonalityOfPlant(plant);
-                            continue;
                         }
                         if (!ext.allowOffWetland)
                         {
                             wetlandCommonality += biome.CommonalityOfPlant(plant);
-                            continue;
                         }
+                        if (ext.allowOnLand)
+                        {
+                            landCommonality += biome.CommonalityOfPlant(plant);
+                        }
+                        continue;
                     }
-                    landCommonality += biome.CommonalityOfPlant(plant);
-                    continue;
+                    else
+                    {
+                        landCommonality += biome.CommonalityOfPlant(plant);
+                        continue;
+                    }
                 }
                 wetlandCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey("WetlandCommonality"))
-                    commonalitySum.Add("SandCommonality", wetlandCommonality);
+                    commonalitySum.Add("WetlandCommonality", wetlandCommonality);
                 sandCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey("SandCommonality"))
                     commonalitySum.Add("SandCommonality", sandCommonality);
@@ -144,6 +149,11 @@ namespace BiomesCore.Patches
                 if (terrain.HasTag("Sandy"))
                 {
                     __result = fertility * commonalitySum["SandCommonality"];
+                    return;
+                }
+                if (terrain.HasTag("Wetland"))
+                {
+                    __result = fertility * commonalitySum["WetlandCommonality"];
                     return;
                 }
                 __result = fertility * commonalitySum["LandCommonality"];
