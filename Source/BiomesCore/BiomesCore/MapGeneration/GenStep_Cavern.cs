@@ -53,6 +53,9 @@ namespace BiomesCore.MapGeneration
                 case CavernShape.OpenCaverns:
                     new GenStep_CavernShape_OpenCaverns().Generate(map, parms);
                     break;
+                case CavernShape.FungalForest:
+                    new GenStep_CavernShape_FungalForest().Generate(map, parms);
+                    break;
 
                 default:
                     new GenStep_CavernShape_NarrowTunnels().Generate(map, parms);
