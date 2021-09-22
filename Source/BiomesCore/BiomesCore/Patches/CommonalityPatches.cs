@@ -99,22 +99,27 @@ namespace BiomesCore.Patches
                 float waterCommonality = 0;
                 float sandCommonality = 0;
                 float wetlandCommonality = 0;
+                float caveCommonality = 0;
                 foreach (ThingDef plant in biome.AllWildPlants)
                 {
                     if (plant.HasModExtension<Biomes_PlantControl>())
                     {
                         Biomes_PlantControl ext = plant.GetModExtension<Biomes_PlantControl>();
-                        if (ext.allowInFreshWater || ext.allowInSaltWater)
+                        if (ext.allowInWater)
                         {
                             waterCommonality += biome.CommonalityOfPlant(plant);
                         }
-                        if (!ext.allowOffSand)
+                        if (!ext.allowInSandy)
                         {
                             sandCommonality += biome.CommonalityOfPlant(plant);
                         }
-                        if (!ext.allowOffWetland)
+                        if (ext.allowInBoggy)
                         {
                             wetlandCommonality += biome.CommonalityOfPlant(plant);
+                        }
+                        if (ext.allowInCave)
+                        {
+                            caveCommonality += biome.CommonalityOfPlant(plant);
                         }
                         if (ext.allowOnLand)
                         {
@@ -128,56 +133,68 @@ namespace BiomesCore.Patches
                         continue;
                     }
                 }
-                wetlandCommonality /= landCommonality;
-                if (!commonalitySum.ContainsKey("WetlandCommonality"))
-                    commonalitySum.Add("WetlandCommonality", wetlandCommonality);
+                // divides each commonality sum by the land commonality sum. The land commonality sum must eb divided last, no matter what.
                 sandCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey("SandCommonality"))
                     commonalitySum.Add("SandCommonality", sandCommonality);
+
                 waterCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey("WaterCommonality"))
                     commonalitySum.Add("WaterCommonality", waterCommonality);
+
+                wetlandCommonality /= landCommonality;
+                if (!commonalitySum.ContainsKey("CaveCommonality"))
+                    commonalitySum.Add("WetlandCommonality", wetlandCommonality);
+
+                caveCommonality /= landCommonality;
+                if (!commonalitySum.ContainsKey("CaveCommonality"))
+                    commonalitySum.Add("CaveCommonality", caveCommonality);
+
                 landCommonality /= landCommonality;
                 if (!commonalitySum.ContainsKey("LandCommonality"))
                     commonalitySum.Add("LandCommonality", landCommonality);
+
                 float fertility = terrain.fertility;
+                RoofDef roof = ___map.roofGrid.RoofAt(c);
+
                 if (terrain.HasTag("Water"))
-                {
                     __result = fertility * commonalitySum["WaterCommonality"];
-                    return;
-                }
+
                 if (terrain.HasTag("Sandy"))
-                {
                     __result = fertility * commonalitySum["SandCommonality"];
-                    return;
-                }
-                if (terrain.HasTag("Wetland"))
-                {
+
+                if (terrain.HasTag("Boggy"))
                     __result = fertility * commonalitySum["WetlandCommonality"];
-                    return;
-                }
-                __result = fertility * commonalitySum["LandCommonality"];
+
+                if (roof != null)
+                    if (roof.isNatural)
+                        __result = fertility * commonalitySum["CaveCommonality"];
+
+                if (terrain.HasTag("Soil"))
+                    __result = fertility * commonalitySum["LandCommonality"];
+
                 return;
             }
             else
             {
                 float fertility = terrain.fertility;
+                RoofDef roof = ___map.roofGrid.RoofAt(c);
+
                 if (terrain.HasTag("Water"))
-                {
                     __result = fertility * commonalitySum["WaterCommonality"];
-                    return;
-                }
+
                 if (terrain.HasTag("Sandy"))
-                {
                     __result = fertility * commonalitySum["SandCommonality"];
-                    return;
-                }
-                if (terrain.HasTag("Wetland"))
-                {
+
+                if (terrain.HasTag("Boggy"))
                     __result = fertility * commonalitySum["WetlandCommonality"];
-                    return;
-                }
-                __result = fertility * commonalitySum["LandCommonality"];
+
+                if (roof != null)
+                    if (roof.isNatural)
+                        __result = fertility * commonalitySum["CaveCommonality"];
+
+                if (terrain.HasTag("Soil"))
+                    __result = fertility * commonalitySum["LandCommonality"];
                 return;
             }
 

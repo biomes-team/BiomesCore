@@ -10,14 +10,19 @@ namespace BiomesCore.DefModExtensions
 {
     public class Biomes_PlantControl : DefModExtension
     {
-        public bool allowInFreshWater = false;
-        public bool allowInSaltWater = false;
-        public bool allowInShallowWater = false;
-        public bool allowInDeepWater = false;
-        public bool allowOnLand = true;
-        public bool allowOffSand = true;
-        public bool allowOffWetland = true;
-        public bool cavePlant = false;
+        public bool allowInWater = false;
+        public bool allowInFresh = false;
+        public bool allowInSalty = false;
+        public bool allowInShallow = false;
+        public bool allowInDeep = false;
+        public bool allowInChestDeep = false;
+        public bool allowInBoggy = false;
+        public bool allowOnLand = false;
+        public bool allowOnDry = false;
+        public bool allowInSandy = false;
+        public bool allowInCave = false;
+        public bool allowInBuilding = false;
+        public bool allowOutside = false;
         public bool needsRest = true;
         public FloatRange lightRange = new FloatRange(0f, 1f);
         public FloatRange growingHours = new FloatRange(0.25f, 0.8f);

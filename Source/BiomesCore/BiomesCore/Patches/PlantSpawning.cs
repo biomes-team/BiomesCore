@@ -30,54 +30,98 @@ namespace BiomesCore.Patches
                     }
                 }
             }
-            if (terrain.HasTag("Water"))
+            if (!plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should not use the BMT plant spawning system.
             {
-                if (!plantDef.HasModExtension<Biomes_PlantControl>())
+                if (terrain.HasTag("Water"))
                 {
                     __result = false;
                     return false;
                 }
-                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
-                if ((terrain.HasTag("SaltWater") && !ext.allowInSaltWater) || (!terrain.HasTag("SaltWater") && !ext.allowInFreshWater) || (terrain.HasTag("DeepWater") && !ext.allowInDeepWater) || (!terrain.HasTag("DeepWater") && !ext.allowInShallowWater))
+                BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
+                if (biome.isCavern)
                 {
                     __result = false;
                     return false;
                 }
+                return true;
             }
-            else if (plantDef.HasModExtension<Biomes_PlantControl>() )
+            if (plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should.
             {
                 Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
-                if (!ext.allowOnLand)
+                if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
                 {
-                    __result = false;
-                    return false;
-                }
-            }
-            if (plantDef.HasModExtension<Biomes_PlantControl>())
-            {
-                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
-                if (!terrain.HasTag("Sandy"))
-                {
-                    if (!ext.allowOffSand)
+                    if (!map.roofGrid.RoofAt(c).isNatural && !ext.allowInBuilding)
+                    {
+                        __result = false;
+                        return false;
+                    }
+                    if (map.roofGrid.RoofAt(c).isNatural && !ext.allowInCave)
                     {
                         __result = false;
                         return false;
                     }
                 }
-            }
-            if (plantDef.HasModExtension<Biomes_PlantControl>())
-            {
-                Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
-                if (!terrain.HasTag("Wetland"))
+                else if (!ext.allowOutside)//and non cave cells
                 {
-                    if (!ext.allowOffWetland)
-                    {
-                        __result = false;
-                        return false;
-                    }
+                    __result = false;
+                    return false;
                 }
+                //And now some checks for terrain tags
+                if (terrain.HasTag("Water") && !ext.allowInWater)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (terrain.HasTag("Deep") && !ext.allowInDeep)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (terrain.HasTag("ChestDeep") && !ext.allowInChestDeep)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (terrain.HasTag("Shallow") && !ext.allowInShallow)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (terrain.HasTag("Fresh") && !ext.allowInFresh)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (terrain.HasTag("Salty") && !ext.allowInSalty)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (terrain.HasTag("Sandy") && !ext.allowInSandy)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (terrain.HasTag("Boggy") && !ext.allowInBoggy)
+                {
+                    __result = false;
+                    return false;
+                }
+                if (!ext.allowOnDry && !terrain.HasTag("Boggy") && !terrain.HasTag("Water"))
+                {
+                    __result = false;
+                    return false;
+                }
+                if (!ext.allowOnLand && terrain.HasTag("Soil"))
+                {
+                    __result = false;
+                    return false;
+                }
+                __result = true;
+                return true;
             }
-            return true;
+            else
+                return true;
         }
     }
 
