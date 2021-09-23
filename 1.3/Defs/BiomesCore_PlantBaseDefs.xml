@@ -3,12 +3,9 @@
 
 
 	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_FruitBase">
-	<!--
-					<thingCategories>
-						<li>FruitFoodRaw</li>
-					</thingCategories>	
-					-->
-	<!--For VGP compatibility. Don't touch unless you know what you're doing.-->
+
+		<thingCategories/>
+
 	</ThingDef>
 	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_VegBase">
 	<!--For VGP compatibility. Leave empty-->
