@@ -37,13 +37,16 @@ namespace BiomesCore.Patches
                     __result = false;
                     return false;
                 }
-                BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-                if (biome.isCavern)
+                if (map.Biome.HasModExtension<BiomesMap>())
                 {
-                    __result = false;
-                    return false;
+                    BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
+                    if (biome.isCavern)
+                    {
+                        __result = false;
+                        return false;
+                    }
+                    return true;
                 }
-                return true;
             }
             if (plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should.
             {
