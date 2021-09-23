@@ -85,7 +85,20 @@ namespace BiomesCore.Patches
 
 
 
-    [HarmonyPatch(typeof(WildPlantSpawner), "GetBaseDesiredPlantsCountAt")]
+    [HarmonyPatch(typeof(WildPlantSpawner), "GetCommonalityOfPlant")]
+    internal static class WildPlantSpawner_GetCommonalityOfPlant
+    {
+        internal static void Postfix(ref float __result, ThingDef plant, Map ___map)
+        {
+            if (plant.HasModExtension<Biomes_PlantControl>())
+            {
+                __result = ___map.Biome.CommonalityOfPlant(plant);
+            }
+        }
+    }
+
+
+        [HarmonyPatch(typeof(WildPlantSpawner), "GetBaseDesiredPlantsCountAt")]
     internal static class WildPlantSpawner_GetBaseDesiredPlantsCountAt
     {
         public static Dictionary<string, float> commonalitySum = new Dictionary<string, float>();
