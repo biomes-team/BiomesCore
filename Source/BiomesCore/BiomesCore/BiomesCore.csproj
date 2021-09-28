@@ -323,6 +323,7 @@
     <Compile Include="MapGeneration\RocksFromGrid_Cavern.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\CavePlants.cs" />
+    <Compile Include="Patches\CavernEvents.cs" />
     <Compile Include="Patches\CavernRoofs.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
