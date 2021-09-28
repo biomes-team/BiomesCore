@@ -22,7 +22,7 @@ namespace BiomesCore.DefModExtensions
         public bool allowInSandy = false;
         public bool allowInCave = false;
         public bool allowInBuilding = false;
-        public bool allowOutside = false;
+        public bool allowOutside = true;
         public bool needsRest = true;
         public FloatRange lightRange = new FloatRange(0f, 1f);
         public FloatRange growingHours = new FloatRange(0.25f, 0.8f);
