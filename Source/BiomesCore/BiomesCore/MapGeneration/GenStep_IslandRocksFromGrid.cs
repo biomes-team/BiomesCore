@@ -42,7 +42,7 @@ namespace BiomesCore.MapGeneration
             {
                 return;
             }
-            if (!map.Biome.GetModExtension<BiomesMap>().addIslandHills)
+            if (!map.Biome.GetModExtension<BiomesMap>().isIsland)
             {
                 return;
             }
@@ -50,7 +50,7 @@ namespace BiomesCore.MapGeneration
             {
                 return;
             }
-
+            Log.Message("[Biomes Core] Generating island hills...");
             map.regionAndRoomUpdater.Enabled = false;
             float roofThreshhold = 0.7f;
             List<GenStep_IslandRocksFromGrid.RoofThreshold> list = new List<GenStep_IslandRocksFromGrid.RoofThreshold>();
