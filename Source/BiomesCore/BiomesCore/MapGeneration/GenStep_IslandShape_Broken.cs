@@ -32,19 +32,13 @@ namespace BiomesCore.MapGeneration
             distRange.min = (int)(0.18 * map.Size.x);
             distRange.max = (int)(0.30 * map.Size.x);
 
-            float angleA = Rand.Range(10f, 120f);
-            float angleB = angleA + Rand.Range(60f, 120f);
-            float angleC = angleB + Rand.Range(60f, 120f);
-            float angleD = angleC + Rand.Range(60f, 120);
-            float angleE = angleD + Rand.Range(60f, 120);
-            float angleF = angleE + Rand.Range(60f, 120);
 
-            IntVec3 centerA = mapCenter + (distRange.RandomInRange * Vector3Utility.FromAngleFlat(angleA)).ToIntVec3();
-            IntVec3 centerB = mapCenter + (distRange.RandomInRange * 0.2f * Vector3Utility.FromAngleFlat(angleB)).ToIntVec3();
-            IntVec3 centerC = mapCenter + (distRange.RandomInRange * 0.8f * Vector3Utility.FromAngleFlat(angleC)).ToIntVec3();
-            IntVec3 centerD = mapCenter + (distRange.RandomInRange * Vector3Utility.FromAngleFlat(angleD)).ToIntVec3();
-            IntVec3 centerE = mapCenter + (distRange.RandomInRange * 0.2f * Vector3Utility.FromAngleFlat(angleE)).ToIntVec3();
-            IntVec3 centerF = mapCenter + (distRange.RandomInRange * 1f * Vector3Utility.FromAngleFlat(angleF)).ToIntVec3();
+            IntVec3 centerA = CellFinder.RandomNotEdgeCell(50, map);
+            IntVec3 centerB = CellFinder.RandomNotEdgeCell(50, map);
+            IntVec3 centerC = CellFinder.RandomNotEdgeCell(50, map);
+            IntVec3 centerD = CellFinder.RandomNotEdgeCell(50, map);
+            IntVec3 centerE = CellFinder.RandomNotEdgeCell(50, map);
+            IntVec3 centerF = CellFinder.RandomNotEdgeCell(50, map);
 
             ModuleBase noiseA = new Perlin(Rand.Range(0.015f, 0.028f), 2.0, 0.5, 6, Rand.Range(0, 2147483647), QualityMode.High);
             ModuleBase noiseB = new Perlin(Rand.Range(0.015f, 0.028f), 2.0, 0.5, 6, Rand.Range(0, 2147483647), QualityMode.High);
