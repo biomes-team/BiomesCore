@@ -41,24 +41,27 @@ namespace BiomesCore.MapGeneration
             CavernShape shape = allowedShapes.RandomElement();
             switch (shape)
             {
-                case CavernShape.NarrowTunnels:
-                    new GenStep_CavernShape_NarrowTunnels().Generate(map, parms);
+                case CavernShape.Vanilla:
                     break;
-                case CavernShape.FleshChambers:
-                    new GenStep_CavernShape_FleshChambers().Generate(map, parms);
+                case CavernShape.TunnelNetwork:
+                    new GenStep_CavernShape_TunnelNetwork().Generate(map, parms);
                     break;
-                case CavernShape.LavaTubes:
-                    new GenStep_CavernShape_LavaTubes().Generate(map, parms);
+                case CavernShape.Smooth:
+                    new GenStep_CavernShape_Smoth().Generate(map, parms);
                     break;
-                case CavernShape.OpenCaverns:
-                    new GenStep_CavernShape_OpenCaverns().Generate(map, parms);
+                case CavernShape.Tubes:
+                    new GenStep_CavernShape_Tubes().Generate(map, parms);
                     break;
-                case CavernShape.FungalForest:
-                    new GenStep_CavernShape_FungalForest().Generate(map, parms);
+                case CavernShape.LargeChambers:
+                    new GenStep_CavernShape_LargeChambers().Generate(map, parms);
+                    break;
+                case CavernShape.SmallChambers:
+                    new GenStep_CavernShape_SmallChambers().Generate(map, parms);
                     break;
 
-                default:
-                    new GenStep_CavernShape_NarrowTunnels().Generate(map, parms);
+                // vanilla map gen
+                default:    
+                    //new GenStep_CavernShape_TunnelNetwork().Generate(map, parms);
                     break;
             }
 

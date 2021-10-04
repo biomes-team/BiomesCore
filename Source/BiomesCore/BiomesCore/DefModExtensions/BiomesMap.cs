@@ -46,10 +46,11 @@ namespace BiomesCore.DefModExtensions
 
 	public enum CavernShape
     {
-		NarrowTunnels,
-		FleshChambers,
-		LavaTubes,
-		OpenCaverns,
-		FungalForest
+		Vanilla,
+		TunnelNetwork,
+		Smooth,
+		Tubes,
+		LargeChambers,
+		SmallChambers
     }
 }
