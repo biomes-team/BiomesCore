@@ -8,14 +8,25 @@
 		<match Class="PatchOperationSequence">
 		<success>Always</success>
 		<operations>
-			<li Class="PatchOperationAdd"> 
-				<xpath>/Defs/ThingDef[@Name="BiomesCore_FruitBase"]</xpath>
-				<value>	
-					<thingCategories>
+		
+			<li Class="PatchOperationConditional">
+				<xpath>/Defs/ThingDef[@Name="BiomesCore_FruitBase"]/thingCategories</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[@Name="BiomesCore_FruitBase"]</xpath>
+					<value>
+						<thingCategories>
+							<li>FruitFoodRaw</li>
+						</thingCategories>
+					</value>
+				</nomatch>
+				<match Class="PatchOperationAdd">
+					<xpath>/Defs/ThingDef[@Name="BiomesCore_FruitBase"]/thingCategories</xpath>
+					<value>
 						<li>FruitFoodRaw</li>
-					</thingCategories>	
-				</value>
+					</value>
+				</match>
 			</li>
+
 		</operations>
 		</match>
 	</Operation>
