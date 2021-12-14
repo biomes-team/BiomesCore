@@ -41,35 +41,30 @@ namespace BiomesCore.Patches
 				if (plant.HasModExtension<Biomes_PlantControl>())
 				{
 					Biomes_PlantControl plantControl = plant.GetModExtension<Biomes_PlantControl>();
-					foreach (String tag in plantControl.terrainTags)
+					if (plantControl.terrainTags != null)
 					{
-						if (!commonalitySum.ContainsKey(tag))
-							commonalitySum.Add(tag, ___map.Biome.CommonalityOfPlant(plant));
+						foreach (String tag in plantControl.terrainTags)
+						{
+							if (!commonalitySum.ContainsKey(tag))
+								commonalitySum.Add(tag, 0);
+							commonalitySum[tag] += ___map.Biome.CommonalityOfPlant(plant);
+						}
 					}
-				}
-                else
-				{
-					if (!commonalitySum.ContainsKey("Soil"))
-						commonalitySum.Add("Soil", ___map.Biome.CommonalityOfPlant(plant));
+					else
+					{
+						if (!commonalitySum.ContainsKey("Soil"))
+							commonalitySum.Add("Soil", 0);
+						commonalitySum["soil"] += ___map.Biome.CommonalityOfPlant(plant);
+					}
 				}
 			}
 			float averagecommonality = 1;
 			var terrain = c.GetTerrain(___map);
 			if (terrain.HasModExtension<Biomes_PlantControl>())
 			{
-				float baseline = commonalitySum["Soil"];
-				foreach (string tag in commonalitySum.Keys.ToList())
-				{
-					commonalitySum[tag] /= baseline;
-				}
-				averagecommonality = 0;
 				Biomes_PlantControl plantControl = terrain.GetModExtension<Biomes_PlantControl>();
-				foreach (String tag in plantControl.terrainTags)
-                {
-					if (commonalitySum.ContainsKey(tag))
-						averagecommonality += commonalitySum[tag];
-                }
-				averagecommonality /= plantControl.terrainTags.Count;
+				if (plantControl.terrainTags != null)
+				{ }
 			}
 			float fertility = terrain.fertility;
 			__result = fertility * averagecommonality;
