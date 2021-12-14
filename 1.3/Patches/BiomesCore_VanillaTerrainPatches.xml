@@ -9,201 +9,211 @@
 		Salty
 		Sandy
 		Boggy
+		Muddy
+		Rocky
+		Loose
+		Solid
+		Icy
 		-->
 	
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "WaterDeep"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "WaterDeep"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "WaterDeep"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "WaterDeep"]</xpath>
 		<value>
-			<li>Deep</li>
-			<li>Fresh</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Water</li>
+				<li>Deep</li>
+				<li>Fresh</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "WaterOceanDeep"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "WaterOceanDeep"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "WaterOceanDeep"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "WaterOceanDeep"]</xpath>
 		<value>
-			<li>Deep</li>
-			<li>Salty</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Water</li>
+				<li>Deep</li>
+				<li>Salty</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]</xpath>
 		<value>
-			<li>ChestDeep</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Water</li>
+				<li>ChestDeep</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "WaterShallow"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "WaterShallow"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "WaterShallow"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "WaterShallow"]</xpath>
 		<value>
-			<li>Shallow</li>
-			<li>Fresh</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Water</li>
+				<li>Shallow</li>
+				<li>Fresh</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "WaterOceanShallow"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "WaterOceanShallow"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "WaterOceanShallow"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "WaterOceanShallow"]</xpath>
 		<value>
-			<li>Shallow</li>
-			<li>Salty</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Water</li>
+				<li>Shallow</li>
+				<li>Salty</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]</xpath>
 		<value>
-			<li>Shallow</li>
-			<li>Fresh</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Water</li>
+				<li>Shallow</li>
+				<li>Fresh</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "Marsh"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "Marsh"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "Marsh"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "Marsh"]</xpath>
 		<value>
-			<li>ChestDeep</li>
-			<li>Fresh</li>
-			<li>Boggy</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Water</li>
+				<li>ChestDeep</li>
+				<li>Fresh</li>
+				<li>Boggy</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
 	
-    <Operation Class="PatchOperationSequence">
-        <success>Always</success>
-        <operations>
-            <li Class="PatchOperationTest">
-                <xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]/tags</xpath>
-                <success>Invert</success>
-            </li>
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]</xpath>
-                <value>
-                    <tags />
-                </value>
-            </li>
-        </operations>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]/tags</xpath>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "Soil"]</xpath>
 		<value>
-			<li>Shallow</li>
-			<li>Fresh</li>
-			<li>Boggy</li>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Soil</li>
+			</terrainTags>
+        </li>
 		</value>
-	</Operation>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "MossyTerrain"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Soil</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Soil</li>
+				<li>Shallow</li>
+				<li>Fresh</li>
+				<li>Boggy</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "SoilRich"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Soil</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "Gravel"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Soil</li>
+				<li>Rocky</li>
+				<li>Loose</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "Sand"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Sandy</li>
+				<li>Loose</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "SoftSand"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Sandy</li>
+				<li>Loose</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "Mud"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Soil</li>
+				<li>Muddy</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
+	
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "Ice"]</xpath>
+		<value>
+        <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+			<terrainTags>
+				<li>Icy</li>
+			</terrainTags>
+        </li>
+		</value>
+  </Operation>
 	
     <!-- Change water fertility -->
 

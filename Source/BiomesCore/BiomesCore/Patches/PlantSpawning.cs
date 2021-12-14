@@ -48,7 +48,7 @@ namespace BiomesCore.Patches
 				}
 				return true;
 			}
-			if (plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should.
+			else if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should.
 			{
 				if (map.Biome.HasModExtension<BiomesMap>())
 				{
@@ -62,81 +62,34 @@ namespace BiomesCore.Patches
 						}
 					}
 				}
-				Biomes_PlantControl ext = plantDef.GetModExtension<Biomes_PlantControl>();
+				Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
+				Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
 				if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
 				{
-					if (!map.roofGrid.RoofAt(c).isNatural && !ext.allowInBuilding)
+					if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
 					{
 						__result = false;
 						return false;
 					}
-					if (map.roofGrid.RoofAt(c).isNatural && !ext.allowInCave)
+					if (map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInCave)
 					{
 						__result = false;
 						return false;
 					}
 				}
-				else if (!ext.allowOutside)//and non cave cells
+				if (plantExt.terrainTags !=null)
 				{
-					__result = false;
-					return false;
+					foreach (string tag in terrainExt.terrainTags)
+					{
+						if (!plantExt.terrainTags.Contains(tag))
+						{
+							__result = false;
+							return false;
+						}
+					}
 				}
-				//And now some checks for terrain tags
-				if (terrain.HasTag("Water") && !ext.allowInWater)
-				{
-					__result = false;
-					return false;
-				}
-				if (terrain.HasTag("Deep") && !ext.allowInDeep)
-				{
-					__result = false;
-					return false;
-				}
-				if (terrain.HasTag("ChestDeep") && !ext.allowInChestDeep)
-				{
-					__result = false;
-					return false;
-				}
-				if (terrain.HasTag("Shallow") && !ext.allowInShallow)
-				{
-					__result = false;
-					return false;
-				}
-				if (terrain.HasTag("Fresh") && !ext.allowInFresh)
-				{
-					__result = false;
-					return false;
-				}
-				if (terrain.HasTag("Salty") && !ext.allowInSalty)
-				{
-					__result = false;
-					return false;
-				}
-				if (terrain.HasTag("Sandy") && !ext.allowInSandy)
-				{
-					__result = false;
-					return false;
-				}
-				if (terrain.HasTag("Boggy") && !ext.allowInBoggy)
-				{
-					__result = false;
-					return false;
-				}
-				if (!ext.allowOnDry && !terrain.HasTag("Boggy") && !terrain.HasTag("Water"))
-				{
-					__result = false;
-					return false;
-				}
-				if (!ext.allowOnLand && terrain.HasTag("Soil"))
-				{
-					__result = false;
-					return false;
-				}
-				__result = true;
-				return true;
 			}
-			else
-				return true;
+			return true;
 		}
 	}
 

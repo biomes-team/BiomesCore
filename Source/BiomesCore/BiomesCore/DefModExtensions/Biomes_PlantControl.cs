@@ -24,6 +24,7 @@ namespace BiomesCore.DefModExtensions
         public bool allowInBuilding = false;
         public bool allowOutside = true;
         public bool needsRest = true;
+        public List<String> terrainTags = new List<String>();
         public FloatRange lightRange = new FloatRange(0f, 1f);
         public FloatRange growingHours = new FloatRange(0.25f, 0.8f);
     }
