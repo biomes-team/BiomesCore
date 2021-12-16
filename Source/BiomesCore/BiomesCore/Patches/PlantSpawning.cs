@@ -30,13 +30,8 @@ namespace BiomesCore.Patches
 					}
 				}
 			}
-			if (!plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should not use the BMT plant spawning system.
+			if (!plantDef.HasModExtension<Biomes_PlantControl>() && map.Biome.HasModExtension<BiomesMap>())//this section governs plants that should not use the BMT plant spawning system.
 			{
-				if (terrain.HasTag("Water"))
-				{
-					__result = false;
-					return false;
-				}
 				if (map.Biome.HasModExtension<BiomesMap>())
 				{
 					BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
@@ -77,8 +72,14 @@ namespace BiomesCore.Patches
 						return false;
 					}
 				}
-				if (plantExt.terrainTags !=null)
+                else if (plantExt.allowUnroofed) //code to prevent cave plants from spawning outside
+                {
+					__result = false;
+					return false;
+				}
+				if (!plantExt.terrainTags.NullOrEmpty())
 				{
+					Log.Error("plant name: " + plantDef.defName);
 					foreach (string tag in terrainExt.terrainTags)
 					{
 						if (!plantExt.terrainTags.Contains(tag))
