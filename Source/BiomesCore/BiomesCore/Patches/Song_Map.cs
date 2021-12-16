@@ -19,6 +19,16 @@ namespace BiomesCore.Patches
 			{
 				__result = ext.BiomeDefRestrictions().Any(r => r.defName == map.Biome.defName);
 			}
+
+			if (__result && map != null && ext != null && ext.WeatherDefRestrictions().Count() > 0)
+			{
+				__result = ext.WeatherDefRestrictions().Any(r => r.defName == map.weatherManager.curWeather.defName);
+			}
+
+			if (__result && map != null && ext != null && ext.GameConditionDefRestrictions().Count() > 0)
+			{
+				__result = ext.GameConditionDefRestrictions().Any(r => map.gameConditionManager.GetActiveCondition(GameConditionDef.Named(r.defName)) != null);
+			}
 		}
 
 		// The built-in music debugger doesn't load in 1.1, so this is copied to test the application of the patch above
