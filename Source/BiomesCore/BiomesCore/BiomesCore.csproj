@@ -325,6 +325,7 @@
     <Compile Include="Patches\CavePlants.cs" />
     <Compile Include="Patches\CavernEvents.cs" />
     <Compile Include="Patches\CavernRoofs.cs" />
+    <Compile Include="Patches\CropRestrictions.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />

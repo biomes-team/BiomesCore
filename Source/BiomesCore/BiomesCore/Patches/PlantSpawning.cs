@@ -19,6 +19,24 @@ namespace BiomesCore.Patches
 		{
 			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
 			List<Thing> list = map.thingGrid.ThingsListAt(c);
+			if (!plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should not use the BMT plant spawning system.
+			{
+				if (map.Biome.HasModExtension<BiomesMap>())
+				{
+					BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
+					if (biome.isCavern)
+					{
+						__result = false;
+						return false;
+					}
+				}
+				if (terrain.HasTag("Water"))
+				{
+					__result = false;
+					return false;
+				}
+
+			}
 			foreach (Thing thing in list)
 			{
 				if (thing != null && thing.def.building != null)
@@ -30,20 +48,7 @@ namespace BiomesCore.Patches
 					}
 				}
 			}
-			if (!plantDef.HasModExtension<Biomes_PlantControl>() && map.Biome.HasModExtension<BiomesMap>())//this section governs plants that should not use the BMT plant spawning system.
-			{
-				if (map.Biome.HasModExtension<BiomesMap>())
-				{
-					BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-					if (biome.isCavern)
-					{
-						__result = false;
-						return false;
-					}
-				}
-				return true;
-			}
-			else if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should.
+			if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should.
 			{
 				if (map.Biome.HasModExtension<BiomesMap>())
 				{
@@ -72,14 +77,13 @@ namespace BiomesCore.Patches
 						return false;
 					}
 				}
-                else if (plantExt.allowUnroofed) //code to prevent cave plants from spawning outside
+                else if (!plantExt.allowUnroofed) //code to prevent cave plants from spawning outside
                 {
 					__result = false;
 					return false;
 				}
 				if (!plantExt.terrainTags.NullOrEmpty())
 				{
-					Log.Error("plant name: " + plantDef.defName);
 					foreach (string tag in terrainExt.terrainTags)
 					{
 						if (!plantExt.terrainTags.Contains(tag))

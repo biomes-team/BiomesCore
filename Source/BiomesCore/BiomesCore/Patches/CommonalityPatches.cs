@@ -34,40 +34,45 @@ namespace BiomesCore.Patches
 	internal static class WildPlantSpawner_GetBaseDesiredPlantsCountAt
 	{
 		public static Dictionary<string, float> commonalitySum = new Dictionary<string, float>();
+		public static Dictionary<IntVec3, float> commonalitySumForCell = new Dictionary<IntVec3, float>();
 		internal static void Postfix(ref float __result, IntVec3 c, Map ___map)
 		{
-			foreach (ThingDef plant in ___map.Biome.AllWildPlants)
+			if (!commonalitySumForCell.ContainsKey(c))
 			{
-				if (plant.HasModExtension<Biomes_PlantControl>())
+				foreach (ThingDef plant in ___map.Biome.AllWildPlants)
 				{
-					Biomes_PlantControl plantControl = plant.GetModExtension<Biomes_PlantControl>();
-					if (plantControl.terrainTags != null)
+					if (plant.HasModExtension<Biomes_PlantControl>())
 					{
-						foreach (String tag in plantControl.terrainTags)
+						Biomes_PlantControl plantControl = plant.GetModExtension<Biomes_PlantControl>();
+						if (plantControl.terrainTags != null)
 						{
-							if (!commonalitySum.ContainsKey(tag))
-								commonalitySum.Add(tag, 0);
-							commonalitySum[tag] += ___map.Biome.CommonalityOfPlant(plant);
+							foreach (String tag in plantControl.terrainTags)
+							{
+								if (!commonalitySum.ContainsKey(tag))
+									commonalitySum.Add(tag, 0);
+								commonalitySum[tag] += ___map.Biome.CommonalityOfPlant(plant);
+							}
+						}
+						else
+						{
+							if (!commonalitySum.ContainsKey("Soil"))
+								commonalitySum.Add("Soil", 0);
+							commonalitySum["soil"] += ___map.Biome.CommonalityOfPlant(plant) * 2f;
 						}
 					}
-					else
-					{
-						if (!commonalitySum.ContainsKey("Soil"))
-							commonalitySum.Add("Soil", 0);
-						commonalitySum["soil"] += ___map.Biome.CommonalityOfPlant(plant);
-					}
 				}
+				float averagecommonality = 1;
+				var terrain = c.GetTerrain(___map);
+				if (terrain.HasModExtension<Biomes_PlantControl>())
+				{
+					Biomes_PlantControl plantControl = terrain.GetModExtension<Biomes_PlantControl>();
+					if (plantControl.terrainTags != null)
+					{ }
+				}
+				float fertility = terrain.fertility;
+				commonalitySumForCell[c] = fertility * averagecommonality;
 			}
-			float averagecommonality = 1;
-			var terrain = c.GetTerrain(___map);
-			if (terrain.HasModExtension<Biomes_PlantControl>())
-			{
-				Biomes_PlantControl plantControl = terrain.GetModExtension<Biomes_PlantControl>();
-				if (plantControl.terrainTags != null)
-				{ }
-			}
-			float fertility = terrain.fertility;
-			__result = fertility * averagecommonality;
+			__result = commonalitySumForCell[c];
 		}
 	}
 
