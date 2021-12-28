@@ -18,8 +18,17 @@
 		<renderPrecedence>394</renderPrecedence>
 		<driesTo>Gravel</driesTo>
 		<statBases>
-		<Beauty>3</Beauty>
+			<Beauty>3</Beauty>
 		</statBases>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Shallow</li>
+					<li>Fresh</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
 		<affordances>
 			<!-- Technically incorrect, but for gameplay we allow it -->
 			<li>BiomesCore_FreshWater_Bridgeable</li>

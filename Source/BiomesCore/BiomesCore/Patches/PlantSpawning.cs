@@ -94,6 +94,11 @@ namespace BiomesCore.Patches
 					}
 				}
 			}
+			else if (!terrain.HasModExtension<Biomes_PlantControl>())
+			{
+				__result = false;
+				return false;
+			}
 			return true;
 		}
 	}
