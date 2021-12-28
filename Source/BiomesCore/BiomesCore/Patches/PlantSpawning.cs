@@ -94,7 +94,7 @@ namespace BiomesCore.Patches
 					}
 				}
 			}
-			else if (!terrain.HasModExtension<Biomes_PlantControl>())
+			else if (!terrain.HasModExtension<Biomes_PlantControl>() && terrain.HasTag("Water"))
 			{
 				__result = false;
 				return false;
