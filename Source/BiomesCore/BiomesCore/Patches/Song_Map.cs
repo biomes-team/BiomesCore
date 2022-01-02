@@ -26,7 +26,7 @@ namespace BiomesCore.Patches
 				if (ext.GameConditionDefRestrictions().Count() > 0)
 					__result = ext.GameConditionDefRestrictions().Any(r => map.gameConditionManager.GetActiveCondition(GameConditionDef.Named(r.defName)) != null);
 
-				if (ext.DangerRange.HasValue && !ext.DangerRange.Value.Includes(DangerWatcher_CalculateDangerRating.DangerRatingPerMap[map.uniqueID])) //If it has danger values defined and the current one isn't contained in the range..
+				if (ext.dangerRange.HasValue && !ext.dangerRange.Value.Includes(DangerWatcher_CalculateDangerRating.DangerRatingPerMap[map.uniqueID])) //If it has danger values defined and the current one isn't contained in the range..
 					__result = false; //It's not appropriate right now.
 			}
 		}
