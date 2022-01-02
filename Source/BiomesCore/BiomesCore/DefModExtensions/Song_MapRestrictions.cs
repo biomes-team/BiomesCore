@@ -6,6 +6,7 @@ namespace BiomesCore.DefModExtensions
 {
     class Song_MapRestrictions : DefModExtension
     {
+        public FloatRange? DangerRange = null;
         public List<string> biomeDefNameRestrictions = new List<string>();
         public List<string> weatherDefNameRestrictions = new List<string>();
         public List<string> gameConditionDefNameRestrictions = new List<string>();
@@ -21,6 +22,7 @@ namespace BiomesCore.DefModExtensions
                 }
             }
         }
+
         public IEnumerable<WeatherDef> WeatherDefRestrictions()
         {
             foreach (string name in weatherDefNameRestrictions)

@@ -15,19 +15,19 @@ namespace BiomesCore.Patches
 		{
 			Map map = Find.CurrentMap;
 			Song_MapRestrictions ext = song.GetModExtension<Song_MapRestrictions>();
-			if (__result && map != null && ext != null && ext.BiomeDefRestrictions().Count() > 0)
+			if (__result && map != null && ext != null)
 			{
-				__result = ext.BiomeDefRestrictions().Any(r => r.defName == map.Biome.defName);
-			}
+				if (ext.BiomeDefRestrictions().Count() > 0)
+					__result = ext.BiomeDefRestrictions().Any(r => r.defName == map.Biome.defName);
 
-			if (__result && map != null && ext != null && ext.WeatherDefRestrictions().Count() > 0)
-			{
-				__result = ext.WeatherDefRestrictions().Any(r => r.defName == map.weatherManager.curWeather.defName);
-			}
+				if (ext.WeatherDefRestrictions().Count() > 0)
+					__result = ext.WeatherDefRestrictions().Any(r => r.defName == map.weatherManager.curWeather.defName);
 
-			if (__result && map != null && ext != null && ext.GameConditionDefRestrictions().Count() > 0)
-			{
-				__result = ext.GameConditionDefRestrictions().Any(r => map.gameConditionManager.GetActiveCondition(GameConditionDef.Named(r.defName)) != null);
+				if (ext.GameConditionDefRestrictions().Count() > 0)
+					__result = ext.GameConditionDefRestrictions().Any(r => map.gameConditionManager.GetActiveCondition(GameConditionDef.Named(r.defName)) != null);
+
+				if (ext.DangerRange.HasValue && !ext.DangerRange.Value.Includes(DangerWatcher_CalculateDangerRating.DangerRatingPerMap[map.uniqueID])) //If it has danger values defined and the current one isn't contained in the range..
+					__result = false; //It's not appropriate right now.
 			}
 		}
 
