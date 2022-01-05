@@ -20,7 +20,6 @@ namespace BiomesCore.Patches
             DangerRatingPerMap[key] = value;
         }
 
-        [HarmonyDebug]
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
         {
             bool match = false;
