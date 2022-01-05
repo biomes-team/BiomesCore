@@ -37,7 +37,7 @@ namespace BiomesCore.Patches
 				}
 
 			}
-			foreach (Thing thing in list)
+			foreach (Thing thing in list) //governs plant that grow on buildings, such as planters or hydroponics systems. These should bypass our other checks.
 			{
 				if (thing != null && thing.def.building != null)
 				{
@@ -64,6 +64,10 @@ namespace BiomesCore.Patches
 				}
 				Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
 				Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
+				if (plantExt.wallGrower == true)
+                {
+					
+                }
 				if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
 				{
 					if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
