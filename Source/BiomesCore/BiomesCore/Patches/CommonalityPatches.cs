@@ -78,9 +78,8 @@ namespace BiomesCore.Patches
 						averagecommonality /= plantControl2.terrainTags.Count;
 					}
 				}
-				float fertility = terrain.fertility;
-                commonalitySumForCell.Add(c, (fertility + averagecommonality) / 2);
-                Log.Message("cell: " + c + " fertility: " + fertility + " average commonality: " + averagecommonality + " adjusted fertility: " + commonalitySumForCell[c]);
+                commonalitySumForCell.Add(c, (__result + averagecommonality) / 2);
+                Log.Message("cell: " + c + " fertility: " + terrain.fertility + " average commonality: " + averagecommonality + " adjusted fertility: " + commonalitySumForCell[c]);
                 __result = commonalitySumForCell[c];
                 return;
 			}
