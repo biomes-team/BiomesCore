@@ -339,6 +339,7 @@
     <Compile Include="Patches\IslandGeysers.cs" />
     <Compile Include="Patches\IslandHilliness.cs" />
     <Compile Include="Patches\IslandScatterables.cs" />
+    <Compile Include="Patches\SetTerrain_UpdateCommonalityCache.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

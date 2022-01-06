@@ -9,6 +9,8 @@ namespace BiomesCore.DefModExtensions
 {
 	public class BiomesMap : DefModExtension
 	{
+		public bool plantTaggingSystemEnabled = true;
+
 		public bool isIsland = false;
 		public List<IslandShape> islandShapes = new List<IslandShape>();
 		public bool addIslandHills = true;

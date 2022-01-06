@@ -16,7 +16,7 @@ namespace BiomesCore.Patches
         public static Dictionary<int, float> DangerRatingPerMap = new Dictionary<int, float>();
         internal static void _putDangerRatingPerMap(float value, int key)
         {
-            //Log.Message("[BiomesCore] Assigning danger rating of " + value + " for map with ID " + key + " to the dictionary..");
+            //BiomesCore.Log("Assigning danger rating of " + value + " for map with ID " + key + " to the dictionary..");
             DangerRatingPerMap[key] = value;
         }
 
