@@ -26,6 +26,9 @@ namespace BiomesCore.Patches
 		public static Dictionary<IntVec3, float> commonalitySumForCell = new Dictionary<IntVec3, float>();
 		internal static void Postfix(ref float __result, IntVec3 c, Map ___map)
 		{
+			var biomeModExtension = ___map.Biome.GetModExtension<BiomesMap>();
+			if (biomeModExtension == null || !biomeModExtension.plantTaggingSystemEnabled) //If it doesn't have our ModExtension or this system isn't enabled..
+				return; //Abort!
 			if (!commonalitySumForCell.ContainsKey(c))
 				UpdateCommonalityAt(c, ___map, baseDesiredPlantCountAt: __result);
 			__result = commonalitySumForCell[c];
@@ -33,9 +36,6 @@ namespace BiomesCore.Patches
 
 		public static void UpdateCommonalityAt(IntVec3 c, Map map, TerrainDef terrain = null, float? baseDesiredPlantCountAt = null)
 		{
-			var biomeModExtension = map.Biome.GetModExtension<BiomesMap>();
-			if (biomeModExtension == null || !biomeModExtension.plantTaggingSystemEnabled) //If it doesn't have our ModExtension or this system isn't enabled..
-				return; //Abort!
 			if (commonalitySumForCell.ContainsKey(c)) //If this cell is already cached..
 				commonalitySumForCell.Remove(c); //Yeet, if this called it's on purpose.
 			if (terrain == null) //Was not passed in..
@@ -79,8 +79,8 @@ namespace BiomesCore.Patches
 				}
 			}
 			commonalitySumForCell.Add(c, ((baseDesiredPlantCountAt ?? WildPlantSpanwer_GetBaseDesiredPlantCountAt_Copy(c, map)) + averagecommonality) / 2);
-			if (Prefs.DevMode)
-				BiomesCore.Log("cell: " + c + " fertility: " + terrain.fertility + " average commonality: " + averagecommonality + " adjusted fertility: " + commonalitySumForCell[c]);
+			//if (Prefs.DevMode)
+			//	BiomesCore.Log("cell: " + c + " fertility: " + terrain.fertility + " average commonality: " + averagecommonality + " adjusted fertility: " + commonalitySumForCell[c]);
 		}
 
 		//Copied from WildPlantSpawner.GetBaseDesiredPlantCountAt and inlined its call to WildPlantSpawner.GoodRoofForCavePlant, made it static and added map arg.
