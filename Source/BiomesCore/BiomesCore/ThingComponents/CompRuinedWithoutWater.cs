@@ -8,7 +8,7 @@ using RimWorld;
 
 namespace BiomesCore.ThingComponents
 {
-    public class CompDestroyedWithoutWater : CompTemperatureRuinable
+    public class CompRuinedWithoutWater : CompTemperatureRuinable
     {
 		private IntVec3 positionOnLastCheck = IntVec3.Invalid;
 		bool ruinedByLackOfWater = false;

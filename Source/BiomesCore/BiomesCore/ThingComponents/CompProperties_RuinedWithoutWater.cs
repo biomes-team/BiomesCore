@@ -8,7 +8,7 @@ using Verse;
 
 namespace BiomesCore.ThingComponents
 {
-    public class CompProperties_DestroyedWithoutWater : CompProperties_TemperatureRuinable
+    public class CompProperties_RuinedWithoutWater : CompProperties_TemperatureRuinable
     {
 
     }
