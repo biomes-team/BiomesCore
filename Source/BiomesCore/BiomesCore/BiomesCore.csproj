@@ -345,6 +345,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflections\Reflection.cs" />
     <Compile Include="RoofExtensions.cs" />
+    <Compile Include="ThingComponents\CompDestroyedWithoutWater.cs" />
+    <Compile Include="ThingComponents\CompProperties_DestroyedWithoutWater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
