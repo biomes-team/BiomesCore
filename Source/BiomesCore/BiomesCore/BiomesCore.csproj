@@ -295,6 +295,7 @@
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
+    <Compile Include="DefModExtensions\Plant_GraphicPerBiome.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\PawnKindDefOf .cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
@@ -339,6 +340,7 @@
     <Compile Include="Patches\IslandGeysers.cs" />
     <Compile Include="Patches\IslandHilliness.cs" />
     <Compile Include="Patches\IslandScatterables.cs" />
+    <Compile Include="Patches\Plant_Graphic.cs" />
     <Compile Include="Patches\SetTerrain_UpdateCommonalityCache.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
