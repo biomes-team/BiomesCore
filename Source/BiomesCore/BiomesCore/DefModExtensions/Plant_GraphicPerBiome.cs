@@ -18,22 +18,42 @@ namespace BiomesCore.DefModExtensions
         
         public Graphic GraphicForBiome(BiomeDef biome)
         {
-            return graphics[biomes.IndexOf(biome)];
+            if (graphics == null)
+                return null;
+            var biomeIndex = biomes.IndexOf(biome);
+            if (biomeIndex == -1)
+                return null;
+            return graphics[biomeIndex];
         }
 
         public Graphic LeaflessGraphicPerBiome(BiomeDef biome)
         {
-            return leaflessGraphics[biomes.IndexOf(biome)];
+            if (leaflessGraphics == null)
+                return null;
+            var biomeIndex = biomes.IndexOf(biome);
+            if (biomeIndex == -1)
+                return null;
+            return leaflessGraphics[biomeIndex];
         }
 
         public Graphic SowingGraphicPerBiome(BiomeDef biome)
         {
-            return sowingGraphics[biomes.IndexOf(biome)];
+            if (sowingGraphics == null)
+                return null;
+            var biomeIndex = biomes.IndexOf(biome);
+            if (biomeIndex == -1)
+                return null;
+            return sowingGraphics[biomeIndex];
         }
 
         public Graphic ImmatureGraphicPerBiome(BiomeDef biome)
         {
-            return immatureGraphics[biomes.IndexOf(biome)];
+            if (immatureGraphics == null)
+                return null;
+            var biomeIndex = biomes.IndexOf(biome);
+            if (biomeIndex == -1)
+                return null;
+            return immatureGraphics[biomeIndex];
         }
     }
 }
