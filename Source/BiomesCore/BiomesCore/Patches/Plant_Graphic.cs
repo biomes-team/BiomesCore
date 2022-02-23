@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 using Verse;
 using RimWorld;
 using HarmonyLib;
+using System.Reflection;
 
 namespace BiomesCore.Patches
 {
     [HarmonyPatch(typeof(Plant), "Graphic", MethodType.Getter)]
-    internal class Plant_Graphic
+    internal static class Plant_Graphic
     {
-        internal Graphic Postfix(Graphic originalResult, Plant __instance)
+        internal static Graphic Postfix(Graphic originalResult, Plant __instance)
         {
+            var fi = typeof(Plant).GetField("");
             var extension = __instance.def.GetModExtension<DefModExtensions.Plant_GraphicPerBiome>();
             if (extension != null)
             {
