@@ -15,7 +15,6 @@ namespace BiomesCore.Patches
     {
         internal static Graphic Postfix(Graphic originalResult, Plant __instance)
         {
-            var fi = typeof(Plant).GetField("");
             var extension = __instance.def.GetModExtension<DefModExtensions.Plant_GraphicPerBiome>();
             if (extension != null)
             {
