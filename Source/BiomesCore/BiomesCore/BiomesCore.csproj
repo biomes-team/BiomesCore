@@ -302,7 +302,8 @@
     <Compile Include="DefModExtensions\BiomesMap.cs" />
     <Compile Include="DefOfs\PlantDefOf.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
-    <Compile Include="IncidentWorkers\IncidentWorker_AmbrosyxSprout.cs" />
+    <Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
+    <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_LargeChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_Smoth.cs" />
