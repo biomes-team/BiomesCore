@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 using RimWorld;
+using UnityEngine;
 
 namespace BiomesCore.DefModExtensions
 {
@@ -30,14 +31,15 @@ namespace BiomesCore.DefModExtensions
             immatureGraphics = new Graphic[count];
             for (int i = 0; i < count; i++)
             {
+                //Get(Type graphicClass, string path, Shader shader, Vector2 drawSize, Color color, Color colorTwo, string maskPath = null
                 if (graphicPaths[i] != null)
-                    graphics[i] = GraphicDatabase.Get<Graphic_Random>(graphicPaths[i]);
+                    graphics[i] = GraphicDatabase.Get(typeof(Graphic_Random), graphicPaths[i], ShaderDatabase.CutoutPlant, Vector2.one, Color.white, Color.white);
                 if (leaflessGraphicPaths != null && leaflessGraphicPaths[i] != null)
-                    leaflessGraphics[i] = GraphicDatabase.Get<Graphic_Random>(leaflessGraphicPaths[i]);
+                    leaflessGraphics[i] = GraphicDatabase.Get(typeof(Graphic_Random), leaflessGraphicPaths[i], ShaderDatabase.CutoutPlant, Vector2.one, Color.white, Color.white); ;
                 if (sowingGraphicPaths != null && sowingGraphicPaths[i] != null)
-                    sowingGraphics[i] = GraphicDatabase.Get<Graphic_Random>(sowingGraphicPaths[i]);
+                    sowingGraphics[i] = GraphicDatabase.Get(typeof(Graphic_Random), sowingGraphicPaths[i], ShaderDatabase.CutoutPlant, Vector2.one, Color.white, Color.white);
                 if (immatureGraphicPaths != null && immatureGraphicPaths[i] != null)
-                    immatureGraphics[i] = GraphicDatabase.Get<Graphic_Random>(immatureGraphicPaths[i]);
+                    immatureGraphics[i] = GraphicDatabase.Get(typeof(Graphic_Random), immatureGraphicPaths[i], ShaderDatabase.CutoutPlant, Vector2.one, Color.white, Color.white);
             }
             initialized = true;
         }
