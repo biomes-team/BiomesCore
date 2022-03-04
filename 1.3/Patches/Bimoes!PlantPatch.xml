@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Biomes! Caverns</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Plant_TreeAnima"]</xpath>
+						<value>
+							<modExtensions>
+								<li Class="BiomesCore.DefModExtensions.Plant_GraphicPerBiome">
+									<biomes>
+										<li>BMT_FungalForest</li>
+									</biomes>
+									<graphicPaths>
+										<li>BiomesCore_Things/Plant/AnimaShroom/AnimaShroom</li>
+									</graphicPaths>
+									<leaflessGraphicPaths>
+										<li>BiomesCore_Things/Plant/AnimaShroom/AnimaShroomDed</li>
+									</leaflessGraphicPaths>
+									<immatureGraphicPaths>
+										<li>BiomesCore_Things/Plant/AnimaShroom/AnimaShroomGrow</li>
+									</immatureGraphicPaths>
+									<sowingGraphicPaths>
+										<li>BiomesCore_Things/Plant/AnimaShroom/AnimaShroomSnow</li>
+									</sowingGraphicPaths>
+								</li>
+							</modExtensions>
+						</value>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+</Patch>
