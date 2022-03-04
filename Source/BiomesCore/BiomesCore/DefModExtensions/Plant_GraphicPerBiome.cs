@@ -11,68 +11,74 @@ namespace BiomesCore.DefModExtensions
     public class Plant_GraphicPerBiome : DefModExtension
     {
         public List<BiomeDef> biomes;
-        public List<Graphic> graphics;
-        public List<Graphic> sowingGraphics;
-        public List<Graphic> leaflessGraphics;
-        public List<Graphic> immatureGraphics;
+        public Graphic[] graphics;
+        public Graphic[] sowingGraphics;
+        public Graphic[] leaflessGraphics;
+        public Graphic[] immatureGraphics;
         public List<string> graphicPaths;
         public List<string> sowingGraphicPaths;
         public List<string> leaflessGraphicPaths;
         public List<string> immatureGraphicPaths;
+        bool initialized = false;
+
+        public void Initialize()
+        {
+            var count = biomes.Count;
+            graphics = new Graphic[count];
+            leaflessGraphics = new Graphic[count];
+            sowingGraphics = new Graphic[count];
+            immatureGraphics = new Graphic[count];
+            for (int i = 0; i < count; i++)
+            {
+                if (graphicPaths[i] != null)
+                    graphics[i] = GraphicDatabase.Get<Graphic_Random>(graphicPaths[i]);
+                if (leaflessGraphicPaths != null && leaflessGraphicPaths[i] != null)
+                    leaflessGraphics[i] = GraphicDatabase.Get<Graphic_Random>(leaflessGraphicPaths[i]);
+                if (sowingGraphicPaths != null && sowingGraphicPaths[i] != null)
+                    sowingGraphics[i] = GraphicDatabase.Get<Graphic_Random>(sowingGraphicPaths[i]);
+                if (immatureGraphicPaths != null && immatureGraphicPaths[i] != null)
+                    immatureGraphics[i] = GraphicDatabase.Get<Graphic_Random>(immatureGraphicPaths[i]);
+            }
+            initialized = true;
+        }
 
         public Graphic GraphicForBiome(BiomeDef biome)
         {
-            if (graphicPaths == null) 
-                return null;
-            if (graphics == null)
-                graphics = new List<Graphic>(graphicPaths.Count);
+            if (!initialized)
+                Initialize();
             var biomeIndex = biomes.IndexOf(biome);
-            if (biomeIndex == -1)
+            if (biomeIndex == -1 || graphics[biomeIndex] == null)
                 return null;
-            if (graphics[biomeIndex] == null)
-                return graphics[biomeIndex] = GraphicDatabase.Get<Graphic_Random>(graphicPaths[biomeIndex]);
             return graphics[biomeIndex];
         }
 
         public Graphic LeaflessGraphicPerBiome(BiomeDef biome)
         {
-            if (leaflessGraphicPaths == null)
-                return null;
-            if (leaflessGraphics == null)
-                leaflessGraphics = new List<Graphic>(leaflessGraphicPaths.Count);
+            if (!initialized)
+                Initialize();
             var biomeIndex = biomes.IndexOf(biome);
-            if (biomeIndex == -1)
+            if (biomeIndex == -1 || leaflessGraphics[biomeIndex] == null)
                 return null;
-            if (leaflessGraphics[biomeIndex] == null)
-                return leaflessGraphics[biomeIndex] = GraphicDatabase.Get<Graphic_Random>(leaflessGraphicPaths[biomeIndex]);
             return leaflessGraphics[biomeIndex];
         }
 
         public Graphic SowingGraphicPerBiome(BiomeDef biome)
         {
-            if (sowingGraphicPaths == null)
-                return null;
-            if (sowingGraphics == null)
-                sowingGraphics = new List<Graphic>(sowingGraphicPaths.Count);
+            if (!initialized)
+                Initialize();
             var biomeIndex = biomes.IndexOf(biome);
-            if (biomeIndex == -1)
+            if (biomeIndex == -1 || sowingGraphics[biomeIndex] == null)
                 return null;
-            if (sowingGraphics[biomeIndex] == null)
-                return sowingGraphics[biomeIndex] = GraphicDatabase.Get<Graphic_Random>(sowingGraphicPaths[biomeIndex]);
             return sowingGraphics[biomeIndex];
         }
 
         public Graphic ImmatureGraphicPerBiome(BiomeDef biome)
         {
-            if (immatureGraphicPaths == null)
-                return null;
-            if (immatureGraphics == null)
-                immatureGraphics = new List<Graphic>(immatureGraphicPaths.Count);
+            if (!initialized)
+                Initialize();
             var biomeIndex = biomes.IndexOf(biome);
-            if (biomeIndex == -1)
+            if (biomeIndex == -1 || immatureGraphics[biomeIndex] == null)
                 return null;
-            if (immatureGraphics[biomeIndex] == null)
-                return immatureGraphics[biomeIndex] = GraphicDatabase.Get<Graphic_Random>(immatureGraphicPaths[biomeIndex]);
             return immatureGraphics[biomeIndex];
         }
     }
