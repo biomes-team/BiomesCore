@@ -62,24 +62,24 @@ namespace BiomesCore.Patches
 
     }
 
-
+    //Rolled into the roof detection system. -UdderlyEvelyn 3/11/22 
     /// <summary>
     /// cave roofs don't have to be within range of a wall
     /// </summary>
-    [HarmonyPatch(typeof(RoofCollapseUtility), "WithinRangeOfRoofHolder")]
-    static class RoofCollapse_Disable
-    {
-        static bool Prefix(IntVec3 c, Map map, ref bool __result)
-        {
-            if (map.roofGrid.RoofAt(c) == BiomesCoreDefOf.BMT_RockRoofStable)
-            {
-                __result = true;
-                return false;
-            }
-            return true;
-        }
+    //[HarmonyPatch(typeof(RoofCollapseUtility), "WithinRangeOfRoofHolder")]
+    //static class RoofCollapse_Disable
+    //{
+    //    static bool Prefix(IntVec3 c, Map map, ref bool __result)
+    //    {
+    //        if (map.roofGrid.RoofAt(c) == BiomesCoreDefOf.BMT_RockRoofStable)
+    //        {
+    //            __result = true;
+    //            return false;
+    //        }
+    //        return true;
+    //    }
 
-    }
+    //}
 
     /// <summary>
     /// Lowers infestation chance under cave roofs
@@ -96,28 +96,29 @@ namespace BiomesCore.Patches
         }
     }
 
-    [HarmonyPatch]
-    static class Cavern_FindPlayerStartSpot
-    {
-        public static MethodInfo IntVec3UnbreachableRoofedInfo = AccessTools.Method(typeof(IntVec3Extensions), "UnbreachableRoofed");
+    //Rolled into the roof detection system. -UdderlyEvelyn 3/11/22 
+    //[HarmonyPatch]
+    //static class Cavern_FindPlayerStartSpot
+    //{
+    //    public static MethodInfo IntVec3UnbreachableRoofedInfo = AccessTools.Method(typeof(IntVec3Extensions), "UnbreachableRoofed");
 
-        static MethodBase TargetMethod()
-        {
-            // Fetch the first lambda
-            return typeof(GenStep_FindPlayerStartSpot).GetLambda("Generate");
-        }
+    //    static MethodBase TargetMethod()
+    //    {
+    //        // Fetch the first lambda
+    //        return typeof(GenStep_FindPlayerStartSpot).GetLambda("Generate");
+    //    }
 
-        // Changes
-        // IntVec3.Roofed -> IntVec3Extended.Roofed
-        [HarmonyPriority(Priority.First)]
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-        {
-            return instructions.ReplaceFunction(
-                IntVec3UnbreachableRoofedInfo,
-                "Roofed",
-                "GenStep_FindPlayerStartSpot.Generate");
-        }
-    }
+    //    // Changes
+    //    // IntVec3.Roofed -> IntVec3Extended.Roofed
+    //    [HarmonyPriority(Priority.First)]
+    //    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    //    {
+    //        return instructions.ReplaceFunction(
+    //            IntVec3UnbreachableRoofedInfo,
+    //            "Roofed",
+    //            "GenStep_FindPlayerStartSpot.Generate");
+    //    }
+    //}
 
     [HarmonyPatch]
     static class Cavern_DropCellFinder_RandomDropSpot
@@ -242,6 +243,128 @@ namespace BiomesCore.Patches
                 Log.ErrorOnce(String.Format("[BiomesCaverns] Cannot find {0} in {1}, skipping patch", fieldToMatch, parentMethodName), parentMethodName.GetHashCode() + fieldToMatch.GetHashCode());
             }
             return runningChanges.AsEnumerable();
+        }
+    }
+
+    //UdderlyEvelyn 3/11/22
+    static class CavernRoofDetectionMethodReplacers
+    {
+        static CavernRoofDetectionMethodReplacers()
+        {
+            //These methods use RoofGrid.Roofed(IntVec3)
+            typeof(GlowGrid).PatchToIgnoreCavernRoof_RoofedIntVec3("GameGlowAt");
+            typeof(BeautyUtility).PatchToIgnoreCavernRoof_RoofedIntVec3("CellBeauty"); //If this is enabled beauty stats will use indoor values.
+            typeof(CellFinder).PatchToIgnoreCavernRoof_RoofedIntVec3("TryFindRandomPawnExitCell"); //If this is disabled it prevents pawns from leaving through random roofed tunnels.
+            typeof(PawnsArrivalModeWorker_EdgeWalkIn).PatchToIgnoreCavernRoof_RoofedIntVec3("TryResolveRaidSpawnCenter"); //If disabled prevents raids from spawning under our roof type.
+            typeof(RCellFinder).PatchToIgnoreCavernRoof_RoofedIntVec3("TryFindRandomPawnEntryCell"); //If disabled prevents pawns from entering in random spots along the edge with our roof (that use this method).
+            typeof(RCellFinder).PatchToIgnoreCavernRoof_RoofedIntVec3("TryFindTravelDestFrom"); //I think this has to do with which direction they attempt to leave the map? Would stop them from finding edges with our roofs (if they use this method) if disabled.
+            typeof(RimWorld.QuestGen.QuestNode_Root_ShuttleCrash_Rescue).PatchToIgnoreCavernRoof_RoofedIntVec3("TryFindRaidWalkInPosition"); //If disabled the shuttle crash quests' raids will not be able to walk in from edges with our roof.
+            //These methods use RoofGrid.RoofAt(int) AND RoofGrid.Roofed(int)
+            typeof(SectionLayer_LightingOverlay).PatchToIgnoreCavernRoof_RoofAtInt("Regenerate"); //Lighting system ignores our roof.
+            typeof(SectionLayer_LightingOverlay).PatchToIgnoreCavernRoof_RoofedInt("Regenerate");
+            //These methods use RoofGrid.RoofAt(IntVec3)
+            typeof(RoofCollapseCellsFinder).PatchToIgnoreCavernRoof_RoofAtIntVec3("CheckCollapseFlyingRoofAtAndAdjInternal"); //Our roof does not collapse..
+            typeof(RoofCollapseUtility).PatchToIgnoreCavernRoof_RoofAtIntVec3("WithinRangeOfRoofHolder"); //Our roof does not collapse..
+            typeof(RoofCollapserImmediate).PatchToIgnoreCavernRoof_RoofAtIntVec3("DropRoofInCellPhaseOne"); //Our roof does not collapse..
+            typeof(RoofCollapserImmediate).PatchToIgnoreCavernRoof_RoofAtIntVec3("DropRoofInCellPhaseTwo"); //Our roof does not collapse..
+            //These methods use RoofGrid.RoofAt(int, int)
+            typeof(RoofCollapseCellsFinder).PatchToIgnoreCavernRoof_RoofedIntInt("ProcessRoofHolderDespawned"); //Our roof does not collapse..
+            //These methods use IntVec3.Roofed(Map) extension method
+            PatchProcessor.GetOriginalInstructions(AccessTools.Method("SectionLayer_IndoorMask:Regenerate")).MethodReplacer(RoofedIntVec3ExtensionMethod, RoofIsNotNullAndNotOursIntVec3ExtensionMethod); //Special case since type inaccessible.
+            typeof(RoofCollapseCellsFinder).PatchToIgnoreCavernRoof_RoofedIntVec3Extension("CheckCollapseFlyingRoofAtAndAdjInternal"); //Our roof does not collapse..
+            typeof(RoofCollapserImmediate).PatchToIgnoreCavernRoof_RoofedIntVec3Extension("DropRoofInCells", new Type[] { typeof(IntVec3), typeof(Map), typeof(List<Thing>) }); //Our roof does not collapse..
+            typeof(RoofCollapserImmediate).PatchToIgnoreCavernRoof_RoofedIntVec3Extension("DropRoofInCells", new Type[] { typeof(IEnumerable<IntVec3>), typeof(Map), typeof(List<Thing>) }); //Our roof does not collapse..
+            typeof(RoofCollapserImmediate).PatchToIgnoreCavernRoof_RoofedIntVec3Extension("DropRoofInCells", new Type[] { typeof(List<IntVec3>), typeof(Map), typeof(List<Thing>) }); //Our roof does not collapse..
+            typeof(GenStep_FindPlayerStartSpot).PatchToIgnoreCavernRoof_RoofedIntVec3Extension("Generate");
+        }
+
+        static MethodInfo RoofedIntVec3ExtensionMethod = AccessTools.Method(typeof(GridsUtility), "Roofed");
+        static MethodInfo RoofIsNotNullAndNotOursIntVec3ExtensionMethod = AccessTools.Method(typeof(CavernRoofDetectionMethodReplacers), "RoofIsNotNullAndNotOursIntVec3ExtensionMethod");
+
+        static MethodInfo RoofedIntMethod = AccessTools.Method(typeof(RoofGrid), "Roofed", new Type[] { typeof(int) });
+        static MethodInfo RoofIsNotNullAndNotOursIntMethod = AccessTools.Method(typeof(CavernRoofDetectionMethodReplacers), "RoofIsNotNullAndNotOursInt");
+
+        static MethodInfo RoofedIntIntMethod = AccessTools.Method(typeof(RoofGrid), "Roofed", new Type[] { typeof(int), typeof(int) });
+        static MethodInfo RoofIsNotNullAndNotOursIntIntMethod = AccessTools.Method(typeof(CavernRoofDetectionMethodReplacers), "RoofIsNotNullAndNotOursIntInt");
+
+        static MethodInfo RoofedIntVec3Method = AccessTools.Method(typeof(RoofGrid), "Roofed", new Type[] { typeof(IntVec3) });
+        static MethodInfo RoofIsNotNullAndNotOursIntVec3Method = AccessTools.Method(typeof(CavernRoofDetectionMethodReplacers), "RoofIsNotNullAndNotOursIntVec3");
+
+        static MethodInfo RoofedAtIntMethod = AccessTools.Method(typeof(RoofGrid), "RoofAt", new Type[] { typeof(int) });
+        static MethodInfo RoofAtButNullIfOursIntMethod = AccessTools.Method(typeof(CavernRoofDetectionMethodReplacers), "RoofAtButNullIfOursInt");
+
+        static MethodInfo RoofedAtIntVec3Method = AccessTools.Method(typeof(RoofGrid), "RoofAt", new Type[] { typeof(IntVec3) });
+        static MethodInfo RoofAtButNullIfOursIntVec3Method = AccessTools.Method(typeof(CavernRoofDetectionMethodReplacers), "RoofAtButNullIfOursIntVec3");
+
+        static AccessTools.FieldRef<RoofGrid, RoofDef[]> RoofGrid_roofGrid_FieldRef = AccessTools.FieldRefAccess<RoofGrid, RoofDef[]>("roofGrid");
+        static AccessTools.FieldRef<RoofGrid, Map> RoofGrid_map_FieldRef = AccessTools.FieldRefAccess<RoofGrid, Map>("map");
+
+        static bool RoofIsNotNullAndNotOursIntVec3Extension(this IntVec3 c, Map map)
+        {
+            var roofDef = RoofGrid_roofGrid_FieldRef(map.roofGrid)[map.cellIndices.CellToIndex(c)];
+            return roofDef != null && roofDef != BiomesCoreDefOf.BMT_RockRoofStable;
+        }
+
+        static bool RoofIsNotNullAndNotOursInt(this RoofGrid roofGrid, int index)
+        {
+            var roofDef = RoofGrid_roofGrid_FieldRef(roofGrid)[index];
+            return roofDef != null && roofDef != BiomesCoreDefOf.BMT_RockRoofStable;
+        }
+
+        static bool RoofIsNotNullAndNotOursIntInt(this RoofGrid roofGrid, int x, int z)
+        {
+            var map = RoofGrid_map_FieldRef(roofGrid);
+            var roofDef = RoofGrid_roofGrid_FieldRef(roofGrid)[map.cellIndices.CellToIndex(x, z)];
+            return roofDef != null && roofDef != BiomesCoreDefOf.BMT_RockRoofStable;
+        }
+
+        static bool RoofIsNotNullAndNotOursIntVec3(this RoofGrid roofGrid, IntVec3 c)
+        {
+            var map = RoofGrid_map_FieldRef(roofGrid);
+            var roofDef = RoofGrid_roofGrid_FieldRef(roofGrid)[map.cellIndices.CellToIndex(c)];
+            return roofDef != null && roofDef != BiomesCoreDefOf.BMT_RockRoofStable;
+        }
+
+        static RoofDef RoofAtButNullIfOursInt(this RoofGrid roofGrid, int index)
+        {
+            var roofDef = RoofGrid_roofGrid_FieldRef(roofGrid)[index];
+            return roofDef != BiomesCoreDefOf.BMT_RockRoofStable ? roofDef : null;
+        }
+
+        static RoofDef RoofAtButNullIfOursIntVec3(this RoofGrid roofGrid, IntVec3 c)
+        {
+            var map = RoofGrid_map_FieldRef(roofGrid);
+            var roofDef = RoofGrid_roofGrid_FieldRef(roofGrid)[map.cellIndices.CellToIndex(c)];
+            return roofDef != BiomesCoreDefOf.BMT_RockRoofStable ? roofDef : null;
+        }
+
+        static void PatchToIgnoreCavernRoof_RoofedIntVec3Extension(this Type type, string method, Type[] parameters = null)
+        {
+            PatchProcessor.GetOriginalInstructions(AccessTools.Method(type, method, parameters)).MethodReplacer(RoofedIntVec3ExtensionMethod, RoofIsNotNullAndNotOursIntVec3ExtensionMethod);
+        }
+
+        static void PatchToIgnoreCavernRoof_RoofedInt(this Type type, string method)
+        {
+            PatchProcessor.GetOriginalInstructions(AccessTools.Method(type, method)).MethodReplacer(RoofedIntMethod, RoofIsNotNullAndNotOursIntMethod);
+        }
+        static void PatchToIgnoreCavernRoof_RoofedIntInt(this Type type, string method)
+        {
+            PatchProcessor.GetOriginalInstructions(AccessTools.Method(type, method)).MethodReplacer(RoofedIntIntMethod, RoofIsNotNullAndNotOursIntIntMethod);
+        }
+
+        static void PatchToIgnoreCavernRoof_RoofedIntVec3(this Type type, string method)
+        {
+            PatchProcessor.GetOriginalInstructions(AccessTools.Method(type, method)).MethodReplacer(RoofedIntVec3Method, RoofIsNotNullAndNotOursIntVec3Method);
+        }
+
+        static void PatchToIgnoreCavernRoof_RoofAtInt(this Type type, string method)
+        {
+            PatchProcessor.GetOriginalInstructions(AccessTools.Method(type, method)).MethodReplacer(RoofedAtIntMethod, RoofAtButNullIfOursIntMethod);
+        }
+
+        static void PatchToIgnoreCavernRoof_RoofAtIntVec3(this Type type, string method)
+        {
+            PatchProcessor.GetOriginalInstructions(AccessTools.Method(type, method)).MethodReplacer(RoofedAtIntVec3Method, RoofAtButNullIfOursIntVec3Method);
         }
     }
 }

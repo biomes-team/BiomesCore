@@ -31,7 +31,6 @@ namespace BiomesCore.DefModExtensions
             immatureGraphics = new Graphic[count];
             for (int i = 0; i < count; i++)
             {
-                //Get(Type graphicClass, string path, Shader shader, Vector2 drawSize, Color color, Color colorTwo, string maskPath = null
                 if (graphicPaths[i] != null)
                     graphics[i] = GraphicDatabase.Get(typeof(Graphic_Random), graphicPaths[i], ShaderDatabase.CutoutPlant, Vector2.one, Color.white, Color.white);
                 if (leaflessGraphicPaths != null && leaflessGraphicPaths[i] != null)
