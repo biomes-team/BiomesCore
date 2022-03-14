@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biomes! Caverns</li>
+		</mods>
+		<match Class="PatchOperationFindMod">
+			<mods>
+				<li>Ideology</li>
+			</mods>
+			<match Class="PatchOperationSequence">
+				<operations>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Plant_TreeGauranlen"]</xpath>
+						<value>
+							<modExtensions>
+								<li Class="BiomesCore.DefModExtensions.Plant_GraphicPerBiome">
+									<biomes>
+										<li>BMT_FungalForest</li>
+									</biomes>
+									<graphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomTree</li>
+									</graphicPaths>
+									<leaflessGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomTree</li>
+									</leaflessGraphicPaths>
+									<immatureGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomTree</li>
+									</immatureGraphicPaths>
+									<sowingGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomTree</li>
+									</sowingGraphicPaths>
+								</li>
+							</modExtensions>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Plant_MossGauranlen"]</xpath>
+						<value>
+							<modExtensions>
+								<li Class="BiomesCore.DefModExtensions.Plant_GraphicPerBiome">
+									<biomes>
+										<li>BMT_FungalForest</li>
+									</biomes>
+									<graphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomCluster</li>
+									</graphicPaths>
+									<leaflessGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomCluster</li>
+									</leaflessGraphicPaths>
+									<immatureGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomCluster</li>
+									</immatureGraphicPaths>
+									<sowingGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomCluster</li>
+									</sowingGraphicPaths>
+								</li>
+							</modExtensions>
+						</value>
+					</li>
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ThingDef[defName="Plant_PodGauranlen"]</xpath>
+						<value>
+							<modExtensions>
+								<li Class="BiomesCore.DefModExtensions.Plant_GraphicPerBiome">
+									<biomes>
+										<li>BMT_FungalForest</li>
+									</biomes>
+									<graphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomPod</li>
+									</graphicPaths>
+									<leaflessGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomPod</li>
+									</leaflessGraphicPaths>
+									<immatureGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomPod</li>
+									</immatureGraphicPaths>
+									<sowingGraphicPaths>
+										<li>BiomesCore_Things/Plant/GauranlenMushroom/GauranlenMushroomPod</li>
+									</sowingGraphicPaths>
+								</li>
+							</modExtensions>
+						</value>
+					</li>
+				</operations>
+			</match>
+		</match>
+	</Operation>
+</Patch>
