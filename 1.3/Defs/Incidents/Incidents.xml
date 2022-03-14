@@ -36,7 +36,6 @@
     <baseChance>0.5</baseChance>
     <letterLabel>Cave-In</letterLabel>
     <letterText>A large chunk of rock has fallen from the cave ceiling, consisting of {0}.</letterText>
-    <tale>Cave-In</tale>
   </IncidentDef>
   
     <IncidentDef>
@@ -57,7 +56,6 @@
     <baseChance>1.2</baseChance>
     <minRefireDays>15</minRefireDays>
     <durationDays>0.125~0.35</durationDays>
-    <tale>Phosphoric Lights</tale>
   </IncidentDef>
 
 </Defs>
