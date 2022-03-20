@@ -32,7 +32,7 @@
       <li>BMT_FungalForest</li>
       <!--<li>BMT_CrystalCaverns</li>-->
     </allowedBiomes>
-    <workerClass>IncidentWorker_MeteoriteImpact</workerClass>
+    <workerClass>BiomesCore.IncidentWorker_CaveIn</workerClass>
     <baseChance>0.5</baseChance>
     <letterLabel>Cave-In</letterLabel>
     <letterText>A large chunk of rock has fallen from the cave ceiling, consisting of {0}.</letterText>
