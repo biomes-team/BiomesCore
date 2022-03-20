@@ -304,6 +304,7 @@
     <Compile Include="DefOfs\SoundDefOf.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="Incidents\GameCondition_Earthquake.cs" />
+    <Compile Include="Incidents\IncidentWorker_CaveIn.cs" />
     <Compile Include="Incidents\IncidentWorker_Earthquake.cs" />
     <Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
     <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
