@@ -39,7 +39,7 @@ namespace BiomesCore
             var ticks = Find.TickManager.TicksGame;
             if (ticks % 15 == 0)
                 Shaker.DoShake(Rand.Value); //Shake & Bake
-            if (ticks - LastCaveInTick > 250 && Rand.Value > .7f) //30% chance per tick as long as it's been 250 ticks or more since the last time..
+            if (ticks - LastCaveInTick > 250 && Rand.Value > .9f) //10% chance per tick as long as it's been 250 ticks or more since the last time..
             {
                 Find.Storyteller.incidentQueue.Add(
                     new QueuedIncident(
