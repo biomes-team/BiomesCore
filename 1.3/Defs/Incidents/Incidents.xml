@@ -22,7 +22,7 @@
   </PlantSproutIncidentDef>
   
     <IncidentDef>
-    <defName>Cave-In</defName>
+    <defName>CaveIn</defName>
     <label>cave-in</label>
     <category>Misc</category>
     <targetTags>
@@ -43,7 +43,7 @@
     <label>phosphoric lights</label>
     <category>Misc</category>
     <targetTags>
-      <li>World</li>
+      <li>Map_PlayerHome</li>
     </targetTags>
     <allowedBiomes>
       <li>BMT_FungalForest</li>
@@ -56,6 +56,23 @@
     <baseChance>1.2</baseChance>
     <minRefireDays>15</minRefireDays>
     <durationDays>0.125~0.35</durationDays>
+  </IncidentDef>
+  
+    <IncidentDef>
+    <defName>Earthquake</defName>
+    <label>earthquake</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <allowedBiomes>
+      <li>BMT_FungalForest</li>
+      <!--<li>BMT_CrystalCaverns</li>-->
+    </allowedBiomes>
+    <workerClass>BiomesCore.IncidentWorker_Earthquake</workerClass>
+    <baseChance>0.2</baseChance>
+    <letterLabel>Earthquake</letterLabel>
+    <letterText>An earthquake has begun, cave-ins may follow and pawns may have trouble moving or be stunned!</letterText>
   </IncidentDef>
 
 </Defs>

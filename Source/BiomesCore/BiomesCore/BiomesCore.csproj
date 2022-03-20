@@ -297,11 +297,14 @@
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefModExtensions\Plant_GraphicPerBiome.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
-    <Compile Include="DefOfs\PawnKindDefOf .cs" />
+    <Compile Include="DefOfs\PawnKindDefOf.cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\BiomesMap.cs" />
     <Compile Include="DefOfs\PlantDefOf.cs" />
+    <Compile Include="DefOfs\SoundDefOf.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
+    <Compile Include="Incidents\GameCondition_Earthquake.cs" />
+    <Compile Include="Incidents\IncidentWorker_Earthquake.cs" />
     <Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
     <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />

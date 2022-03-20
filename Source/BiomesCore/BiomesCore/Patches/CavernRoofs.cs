@@ -8,7 +8,6 @@ using Verse;
 using RimWorld;
 using System.Reflection;
 using System.Reflection.Emit;
-using BiomesCore.DefOfs;
 using BiomesCore.MapGeneration;
 using BiomesCore.Reflections;
 

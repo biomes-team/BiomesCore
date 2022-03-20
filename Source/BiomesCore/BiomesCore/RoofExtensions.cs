@@ -4,7 +4,6 @@ using Verse;
 using Verse.AI;
 using HarmonyLib;
 using System.Reflection;
-using BiomesCore.DefOfs;
 
 namespace BiomesCore
 {
