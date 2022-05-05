@@ -18,6 +18,7 @@
 			<harvestYield>10</harvestYield>
 			<harvestWork>400</harvestWork>
 			<harvestedThingDef>BiomesIslands_Coconuts</harvestedThingDef>
+			<mustBeWildToSow>true</mustBeWildToSow>
 		</plant>
 	</ThingDef>
 
