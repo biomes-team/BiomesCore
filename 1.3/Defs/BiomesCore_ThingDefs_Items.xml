@@ -67,7 +67,7 @@
 
   <ThingDef ParentName="BiomesCore_ChitinBase">
     <defName>BMT_GrayChitin</defName>
-    <label>green shell</label>
+    <label>gray shell</label>
     <description>A strong, gray, chitinous shell.</description>
     <graphicData>
       <color>(56,56,56)</color>
