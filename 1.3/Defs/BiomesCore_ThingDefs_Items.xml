@@ -65,4 +65,69 @@
     </stuffProps>
   </ThingDef>
 
+  <ThingDef ParentName="BiomesCore_ChitinBase">
+    <defName>BMT_GrayChitin</defName>
+    <label>green shell</label>
+    <description>A strong, gray, chitinous shell.</description>
+    <graphicData>
+      <color>(56,56,56)</color>
+    </graphicData>
+    <statBases>
+      <StuffPower_Armor_Sharp>1.2</StuffPower_Armor_Sharp>
+	  <StuffPower_Armor_Blunt>0.81</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(56,56,56)</color>
+      <commonality>0.035</commonality>
+      <statFactors>
+        <MaxHitPoints>0.8</MaxHitPoints>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+
+  <ThingDef ParentName="BiomesCore_ChitinBase">
+    <defName>BMT_Snailshell</defName>
+    <label>Snailshell</label>
+    <description>Hard shell plates from a giant snail.</description>
+    <graphicData>
+      <color>(186,162,63)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>4.3</MarketValue>
+      <StuffPower_Armor_Sharp>1.45</StuffPower_Armor_Sharp>
+	  <StuffPower_Armor_Blunt>0.52</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(100,68,36)</color>
+    </stuffProps>
+  </ThingDef>
+
+  <!-- ================== Leather ================== -->
+  <ThingDef ParentName="LeatherBase">
+    <defName>BMT_Leather_Gastropoda</defName>
+    <label>gastropodskin</label>
+    <description>The tanned skin of a gastropod, like a slug or snail. Gastropodskin feels crumbly and mushy at the same time.</description>
+    <statBases>
+      <MarketValue>1.9</MarketValue>
+      <StuffPower_Armor_Sharp>0.64</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.81</StuffPower_Armor_Blunt>
+      <StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+    </statBases>
+    <graphicData>
+      <color>(153,150,117)</color>
+    </graphicData>
+    <stuffProps>
+      <color>(153,150,117)</color>
+      <commonality>0.025</commonality>
+      <statFactors>
+        <MaxHitPoints>0.8</MaxHitPoints>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+
 </Defs>
