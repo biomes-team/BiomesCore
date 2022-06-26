@@ -14,6 +14,7 @@
     <letterDef>PositiveEvent</letterDef>
     <allowedBiomes>
       <li>BMT_FungalForest</li>
+      <li>BMT_ShallowCave</li>
       <!--<li>BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <plant>BMT_Ambrosyx</plant>
@@ -30,10 +31,11 @@
     </targetTags>
     <allowedBiomes>
       <li>BMT_FungalForest</li>
+      <li>BMT_ShallowCave</li>
       <!--<li>BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>BiomesCore.IncidentWorker_CaveIn</workerClass>
-    <baseChance>0.5</baseChance>
+    <baseChance>0.2</baseChance>
     <letterLabel>Cave-In</letterLabel>
     <letterText>A large chunk of rock has fallen from the cave ceiling, consisting of {0}.</letterText>
   </IncidentDef>
@@ -47,6 +49,7 @@
     </targetTags>
     <allowedBiomes>
       <li>BMT_FungalForest</li>
+      <li>BMT_ShallowCave</li>
       <!--<li>BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>IncidentWorker_Aurora</workerClass>
@@ -67,6 +70,7 @@
     </targetTags>
     <allowedBiomes>
       <li>BMT_FungalForest</li>
+      <li>BMT_ShallowCave</li>
       <!--<li>BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>BiomesCore.IncidentWorker_Earthquake</workerClass>
