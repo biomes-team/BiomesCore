@@ -88,9 +88,9 @@
   </ThingDef>
 
   <ThingDef ParentName="BiomesCore_ChitinBase">
-    <defName>BMT_Snailshell</defName>
-    <label>Snailshell</label>
-    <description>Hard shell plates from a giant snail.</description>
+    <defName>BMT_Molluscashell</defName>
+    <label>molluscashell</label>
+    <description>Hard shell plates from Molluscas like snails or clams.</description>
     <graphicData>
       <color>(186,162,63)</color>
     </graphicData>
