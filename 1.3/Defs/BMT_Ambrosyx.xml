@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="PlantBase">
+		<defName>BMT_Ambrosyx</defName>
+		<label>ambrosyx</label>
+		<description>A rare wild shroom which yields the ambrosia fruit. Ambrosia fruit is delicious and produces a drug-like mood boost. Ambrosia cannot be farmed, which makes wild ambrosia groves very valuable.\n\nIts rarity, beauty, and desirability are why ambrosia was named after the food of the ancient Greek gods.</description>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Nutrition>0.5</Nutrition>
+			<Flammability>0.35</Flammability>
+		</statBases>
+		<graphicData>
+			<texPath>BiomesCore_Things/Plant/Ambrosyx</texPath>
+			<graphicClass>Graphic_Random</graphicClass>
+			<shadowData>
+				<volume>(0.1, 0.2, 0.1)</volume>
+			</shadowData>
+		</graphicData>
+		<selectable>true</selectable>
+		<neverMultiSelect>false</neverMultiSelect>
+		<pathCost>14</pathCost>
+		<ingestible/>
+		<plant>
+			<growMinGlow>0</growMinGlow>
+			<growOptimalGlow>0</growOptimalGlow>
+			<cavePlant>true</cavePlant>
+			<fertilitySensitivity>0.15</fertilitySensitivity>
+			<interferesWithRoof>false</interferesWithRoof>
+			<growDays>6</growDays>
+			<wildClusterRadius>4</wildClusterRadius>
+			<wildClusterWeight>5</wildClusterWeight>
+			<leaflessGraphicPath>BiomesCore_Things/Plant/Ambrosyx</leaflessGraphicPath>
+			<immatureGraphicPath>BiomesCore_Things/Plant/Ambrosyx</immatureGraphicPath>
+			<harvestYield>4</harvestYield>
+			<harvestTag>Standard</harvestTag>
+			<harvestAfterGrowth>0.3</harvestAfterGrowth>
+			<harvestedThingDef>Ambrosia</harvestedThingDef>
+			<visualSizeRange>0.6~1.1</visualSizeRange>
+			<topWindExposure>0.1</topWindExposure>
+			<wildOrder>2</wildOrder>
+			<purpose>Food</purpose>
+			<allowAutoCut>false</allowAutoCut>
+		</plant>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<allowInCave>true</allowInCave>
+				<allowInBuilding>true</allowInBuilding>
+			</li>
+		</modExtensions>
+	</ThingDef>
+</Defs>
