@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <BodyPartGroupDef>
+        <defName>BMT_StingerGroup</defName>
+        <label>stinger</label>
+        <listOrder>233</listOrder>
+    </BodyPartGroupDef>
+    <BodyPartDef>
+        <defName>BMT_Stinger</defName>
+        <label>stinger</label>
+        <hitPoints>15</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+    </BodyPartDef>
+    <BodyPartDef>
+        <defName>BMT_Cephalothorax</defName>
+        <label>caphalothorax</label>
+        <hitPoints>20</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>BreathingPathway</li>
+            <li>EatingPathway</li>
+            <li>TalkingPathway</li>
+        </tags>
+    </BodyPartDef>
+    <BodyPartDef>
+        <defName>BMT_SpiderAbdomen</defName>
+        <label>abdomen</label>
+        <hitPoints>20</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>MetabolismSource</li>
+        </tags>
+    </BodyPartDef>
+    <BodyPartDef>
+        <defName>BMT_LeftPedipalp</defName>
+        <label>left pedipalp</label>
+        <hitPoints>15</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>ManipulationLimbCore</li>
+        </tags>
+    </BodyPartDef>
+
+    <BodyPartDef>
+        <defName>BMT_RightPedipalp</defName>
+        <label>right pedipalp</label>
+        <hitPoints>15</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>ManipulationLimbCore</li>
+        </tags>
+    </BodyPartDef>
+</Defs>
