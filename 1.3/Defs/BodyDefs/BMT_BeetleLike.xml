@@ -179,10 +179,10 @@
                   </groups>
                 </li>
 			          <li>
-                  <def>Stinger</def>
+                  <def>BMT_Stinger</def>
                   <coverage>0.15</coverage>
                   <groups>
-                    <li>Stinger</li>
+                    <li>BMT_StingerGroup</li>
                   </groups>
                 </li>
               </parts>

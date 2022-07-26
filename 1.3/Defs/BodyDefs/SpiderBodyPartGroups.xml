@@ -11,6 +11,9 @@
         <hitPoints>15</hitPoints>
         <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
         <skinCovered>false</skinCovered>
+        <solid>true</solid>
+        <alive>false</alive>
+        <bleedRate>0</bleedRate>
     </BodyPartDef>
     <BodyPartDef>
         <defName>BMT_Cephalothorax</defName>
