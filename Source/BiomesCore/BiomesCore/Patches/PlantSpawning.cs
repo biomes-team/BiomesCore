@@ -11,8 +11,7 @@ using HarmonyLib;
 
 namespace BiomesCore.Patches
 {
-
-	[HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), new[] { typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool) })]
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), new[] { typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool) })]
 	internal static class PlantUtility_CanEverPlantAt
 	{
 		internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
@@ -24,11 +23,11 @@ namespace BiomesCore.Patches
 				if (map.Biome.HasModExtension<BiomesMap>())
 				{
 					BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-					if (biome.isCavern)
-					{
-						__result = false;
-						return false;
-					}
+					//if (biome.isCavern)
+					//{
+					//	__result = false;
+					//	return false;
+					//}
 				}
 				if (terrain.HasTag("Water"))
 				{
