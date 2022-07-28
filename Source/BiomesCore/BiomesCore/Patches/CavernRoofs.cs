@@ -13,6 +13,29 @@ using BiomesCore.Reflections;
 
 namespace BiomesCore.Patches
 {
+
+    [HarmonyPatch]
+    public static class DisableRaidStrategies
+    {
+        [HarmonyTargetMethods]
+        public static IEnumerable<MethodBase> TargetMethods()
+        {
+            yield return AccessTools.Method(typeof(RaidStrategyWorker_Siege), "CanUseWith");
+            yield return AccessTools.Method(typeof(RaidStrategyWorker_SiegeMechanoid), "CanUseWith");
+        }
+
+        public static void Postfix(ref bool __result, IncidentParms parms, PawnGroupKindDef groupKind)
+        {
+            if (parms.target is Map map)
+            {
+                BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
+                if (biome != null && biome.isCavern)
+                {
+                    __result = false;
+                }
+            }
+        }
+    }
     /// <summary>
     ///  Picks color for custom roofs, when roof overlay is toggled
     ///  Vanilla: thin roof = white, thick roof = 50% grey
@@ -187,11 +210,82 @@ namespace BiomesCore.Patches
                 "DropCellFinder.TryFindSafeLandingSpotCloseToColony");
         }
     }
+    [HarmonyPatch(typeof(DropCellFinder), "CanPhysicallyDropInto")]
+    static class Cavern_DropCellFinder_CanPhysicallyDropInto
+    {
+        public static bool Prefix(ref bool __result, IntVec3 c, Map map, bool canRoofPunch, bool allowedIndoors = true)
+        {
+            BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
+            if (biome != null && biome.isCavern)
+            {
+                __result = CanPhysicallyDropInto(c, map, canRoofPunch, allowedIndoors);
+                if (__result)
+                {
+                    Log.Message("CanPhysicallyDropInto");
+                }
+                return false;
+            }
+            return true;
+        }
 
+        public static bool CanPhysicallyDropInto(IntVec3 c, Map map, bool canRoofPunch, bool allowedIndoors = true)
+        {
+            if (!c.Walkable(map))
+            {
+                return false;
+            }
+            //RoofDef roof = c.GetRoof(map);
+            //if (roof != null)
+            //{
+            //    if (!canRoofPunch)
+            //    {
+            //        return false;
+            //    }
+            //    if (roof.isThickRoof)
+            //    {
+            //        return false;
+            //    }
+            //}
+            //if (!allowedIndoors)
+            //{
+            //    Room room = c.GetRoom(map);
+            //    if (room != null && !room.PsychologicallyOutdoors)
+            //    {
+            //        return false;
+            //    }
+            //}
+            if (!canRoofPunch)
+            {
+                foreach (Building allBuildingsAnimalPenMarker in map.listerBuildings.allBuildingsAnimalPenMarkers)
+                {
+                    if (allBuildingsAnimalPenMarker.Position.GetDistrict(map) == c.GetDistrict(map))
+                    {
+                        CompAnimalPenMarker compAnimalPenMarker = allBuildingsAnimalPenMarker.TryGetComp<CompAnimalPenMarker>();
+                        if (compAnimalPenMarker != null && map.animalPenManager.GetPenMarkerState(compAnimalPenMarker).Enclosed)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+    }
     [HarmonyPatch(typeof(DropCellFinder), "FindRaidDropCenterDistant")]
     static class Cavern_DropCellFinder_FindRaidDropCenterDistant
     {
         public static MethodInfo IntVec3UnbreachableRoofedInfo = AccessTools.Method(typeof(IntVec3Extensions), "UnbreachableRoofed");
+        public static void Prefix(Map map, ref bool allowRoofed)
+        {
+            if (!allowRoofed)
+            {
+                BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
+                if (biome != null && biome.isCavern)
+                {
+                    allowRoofed = true;
+                }
+            }
+        }
 
         // Changes
         // IntVec3.Roofed -> IntVec3Extended.Roofed
