@@ -4,7 +4,7 @@ using Verse;
 
 namespace BiomesCore.DefModExtensions
 {
-    public class DefModExtension_OrePreferredBiome : DefModExtension
+    public class OrePreferredBiome : DefModExtension
     {
         public List<BiomeDef> allowedBiomes = new List<BiomeDef>();
     }

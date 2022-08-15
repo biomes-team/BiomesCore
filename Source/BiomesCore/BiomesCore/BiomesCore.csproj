@@ -336,7 +336,7 @@
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
-    <Compile Include="DefModExtensions\DefModExtension_OrePreferredBiome.cs" />
+    <Compile Include="DefModExtensions\OrePreferredBiome.cs" />
     <Compile Include="DefModExtensions\Biomes_PlantControl.cs" />
     <Compile Include="DefModExtensions\Song_MapRestrictions.cs" />
     <Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />

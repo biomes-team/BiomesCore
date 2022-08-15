@@ -89,6 +89,11 @@ namespace BiomesCore.Patches
 				// terrain tags
 				if (!plantExt.terrainTags.NullOrEmpty())
 				{
+					if (terrainExt.terrainTags.NullOrEmpty())
+                    {
+						__result = false;
+						return false;
+                    }
 					foreach (string tag in terrainExt.terrainTags)
 					{
 						if (!plantExt.terrainTags.Contains(tag))
@@ -100,7 +105,7 @@ namespace BiomesCore.Patches
 				}
 				else	// prevent water spawns if no terrain tags
 				{
-					if (plantExt.terrainTags.Contains("Water") || terrain.HasTag("Water"))
+					if (terrain.HasTag("Water") || terrain.IsWater)
 					{
 						__result = false;
 						return false;
