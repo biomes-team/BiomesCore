@@ -21,8 +21,8 @@ namespace BiomesCore.Patches
             if (extension != null && extension.isBloodDrinkingAnimal)
             {
                 var nearestPawn = pawn.Map.mapPawns.AllPawnsSpawned
-                    .Where(x => x.def != pawn.def && x.Position.DistanceTo(pawn.Position) <= 50
-                    && x.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) != null
+                    .Where(x => x.def != pawn.def && x.Position.DistanceTo(pawn.Position) <= 100
+                    && x.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) is null
                     && pawn.CanReserveAndReach(x, PathEndMode.Touch, Danger.Deadly))
                     .OrderBy(x => x.Position.DistanceTo(pawn.Position)).FirstOrDefault();
                 if (nearestPawn != null)
@@ -39,7 +39,6 @@ namespace BiomesCore.Patches
                 if (nearestCell.IsValid)
                 {
                     __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BottomFeeder, nearestCell);
-                    Log.Message("Gave job: " + nearestCell);
                     return false;
                 }
             }
