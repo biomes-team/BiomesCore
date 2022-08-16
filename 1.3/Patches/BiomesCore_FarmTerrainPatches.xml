@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/TerrainDef[defName = "VCE_TilledSoil"]</xpath>
+		<match Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "VCE_TilledSoil"]</xpath>
+			<value>
+				<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+					<terrainTags>
+						<li>Soil</li>
+					</terrainTags>
+				</li>
+			</value>
+		</match>
+	</Operation>
+	
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/TerrainDef[defName = "DankPyon_PlowedSoil"]</xpath>
+		<match Class="PatchOperationAddModExtension">
+		<xpath>/Defs/TerrainDef[defName = "DankPyon_PlowedSoil"]</xpath>
+			<value>
+				<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+					<terrainTags>
+						<li>Soil</li>
+					</terrainTags>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>
