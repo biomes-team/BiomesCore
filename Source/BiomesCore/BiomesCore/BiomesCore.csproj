@@ -291,12 +291,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActiveTerrain\ActiveTerrainUtility.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainCompBase.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainCompProperties.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComps_Power.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComp_BurnItems.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComp_Glower.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComp_HeatPush.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComp_MoteSpawner.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComp_Healer.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComp_SelfClean.cs" />
+    <Compile Include="ActiveTerrain\Comps\TerrainComp_TempControl.cs" />
+    <Compile Include="ActiveTerrain\DefExtensionActive.cs" />
+    <Compile Include="ActiveTerrain\Patches.cs" />
+    <Compile Include="ActiveTerrain\SpecialTerrain.cs" />
+    <Compile Include="ActiveTerrain\SpecialTerrainList.cs" />
+    <Compile Include="ActiveTerrain\ThingComps.cs" />
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefModExtensions\Plant_GraphicPerBiome.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
+    <Compile Include="Jobs\JobDriver_BottomFeeder.cs" />
     <Compile Include="DefOfs\PawnKindDefOf.cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\BiomesMap.cs" />
@@ -347,6 +364,8 @@
     <Compile Include="Patches\IslandGeysers.cs" />
     <Compile Include="Patches\IslandHilliness.cs" />
     <Compile Include="Patches\IslandScatterables.cs" />
+    <Compile Include="Jobs\JobDriver_BloodDrinking.cs" />
+    <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch.cs" />
     <Compile Include="Patches\Plant_Graphic.cs" />
     <Compile Include="Patches\SetTerrain_UpdateCommonalityCache.cs" />
@@ -355,6 +374,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflections\Reflection.cs" />
     <Compile Include="RoofExtensions.cs" />
+    <Compile Include="ThingComponents\CompBottomFeeder.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
   </ItemGroup>

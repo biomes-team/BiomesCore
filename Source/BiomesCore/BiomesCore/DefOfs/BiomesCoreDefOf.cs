@@ -14,7 +14,8 @@ namespace BiomesCore
         public static RoofDef BMT_RockRoofStable;
         public static IncidentDef CaveIn;
         public static GameConditionDef Earthquake;
-
+        public static JobDef BC_BloodDrinking;
+        public static JobDef BC_BottomFeeder;
         static BiomesCoreDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(BiomesCoreDefOf));

@@ -10,5 +10,6 @@ namespace BiomesCore.DefModExtensions
     class Biomes_AnimalControl : DefModExtension
     {
         public List<string> biomesAlternateGraphics = new List<string>();
+        public bool isBloodDrinkingAnimal;
     }
 }
