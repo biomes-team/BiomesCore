@@ -63,7 +63,5 @@ namespace BiomesCore
         public float glowRadius = 14f;
 
         public ColorInt glowColor = new ColorInt(255, 255, 255, 0) * 1.45f;
-
-        public bool powered = true;
     }
 }

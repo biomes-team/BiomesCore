@@ -28,7 +28,7 @@ namespace BiomesCore
         {
             get
             {
-                return (parent.GetComp<TerrainComp_PowerTrader>()?.PowerOn ?? true) || !Props.powered;
+                return parent.GetComp<TerrainComp_PowerTrader>()?.PowerOn ?? true;
             }
         }
 

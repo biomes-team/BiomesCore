@@ -41,7 +41,6 @@
 			<li Class="BiomesCore.TerrainCompProperties_Glower">
 				<glowRadius>4</glowRadius>
 				<glowColor>(178,58,0,0)</glowColor>
-				<powered>false</powered>
 			</li>
 			<li Class="BiomesCore.TerrainCompProperties_BurnItems">
 			</li>
