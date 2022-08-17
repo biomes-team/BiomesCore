@@ -10,7 +10,7 @@ namespace BiomesCore
 {
     public class TerrainComp_BurnItems : TerrainComp
     {
-        public TerrainCompProperties_HeatPush Props { get { return (TerrainCompProperties_HeatPush)props; } }
+        public TerrainCompProperties_BurnItems Props { get { return (TerrainCompProperties_BurnItems)props; } }
         public override void CompTick()
         {
             base.CompTick();
