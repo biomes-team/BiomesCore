@@ -83,7 +83,7 @@ namespace BiomesCore
             Color = Props.glowColor;
             GlowRadius = Props.glowRadius;
             OverlightRadius = Props.overlightRadius;
-            if (ShouldBeLitNow)
+            if (ShouldBeLitNow && parent.Map != null)
             {
                 parent.Map.glowGrid.RegisterGlower(AsThingComp);
             }
