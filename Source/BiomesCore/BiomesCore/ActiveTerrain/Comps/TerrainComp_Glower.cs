@@ -43,7 +43,6 @@ namespace BiomesCore
         public void UpdateLit()
         {
             bool shouldBeLitNow = ShouldBeLitNow;
-            Log.Message("Make it work goddamit: " + shouldBeLitNow);
             if (currentlyOn == shouldBeLitNow)
             {
                 return;
@@ -70,7 +69,6 @@ namespace BiomesCore
             {
                 parent.Map.glowGrid.RegisterGlower(AsThingComp);
             }
-            Log.Message("Make it work goddamit");
         }
 
         public override void PostRemove()
