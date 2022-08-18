@@ -19,7 +19,12 @@
 		Lava
 		-->
 	
-	<Operation Class="PatchOperationSequence" MayRequire="regrowth.botr.core">
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>ReGrowth Remastered: Core</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
 			<operations>
 				<li Class="PatchOperationAddModExtension">
 					<xpath>Defs/VFECore.ActiveTerrainDef[defName = "RG_HotSpring"]</xpath>
@@ -154,5 +159,6 @@
 					</value>
 				</li>
 			</operations>
+		</match>
 	</Operation>
 </Patch>
