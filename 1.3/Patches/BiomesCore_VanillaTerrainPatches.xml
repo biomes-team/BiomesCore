@@ -50,6 +50,7 @@
 			<terrainTags>
 				<li>Water</li>
 				<li>ChestDeep</li>
+				<li>Fresh</li>
 			</terrainTags>
         </li>
 		</value>
@@ -101,7 +102,6 @@
 			<terrainTags>
 				<li>Water</li>
 				<li>ChestDeep</li>
-				<li>Fresh</li>
 				<li>Boggy</li>
 			</terrainTags>
         </li>
@@ -136,8 +136,6 @@
         <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 			<terrainTags>
 				<li>Soil</li>
-				<li>Shallow</li>
-				<li>Fresh</li>
 				<li>Boggy</li>
 			</terrainTags>
         </li>
