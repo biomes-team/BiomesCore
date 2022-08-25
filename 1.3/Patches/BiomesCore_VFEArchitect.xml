@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+    <!-- Add terrain tags to control spawning of BMT plants -->
+    <!-- tags are:
+		Deep
+		ChestDeep
+		Shallow
+		Fresh
+		Salty
+		Sandy
+		Boggy
+		Muddy
+		Rocky
+		Loose
+		Solid
+		Icy
+
+		Hot
+		Lava
+		-->
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Furniture Expanded - Architect</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/VFECore.ActiveTerrainDef[defName = "VFEArch_Grass"]</xpath>
+					<value>
+						<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+							<terrainTags>
+								<li>Soil</li>
+							</terrainTags>
+						</li>
+					</value>
+				</li>
+				<li Class="PatchOperationAddModExtension">
+					<xpath>Defs/VFECore.ActiveTerrainDef[defName = "VFEArch_LawnPlot"]</xpath>
+					<value>
+						<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+							<terrainTags>
+								<li>Soil</li>
+							</terrainTags>
+						</li>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>
