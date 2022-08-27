@@ -26,7 +26,7 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/VFECore.ActiveTerrainDef[defName = "VFEArch_Grass"]</xpath>
+					<xpath>Defs/TerrainDef[defName = "VFEArch_Grass"]</xpath>
 					<value>
 						<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 							<terrainTags>
@@ -36,7 +36,7 @@
 					</value>
 				</li>
 				<li Class="PatchOperationAddModExtension">
-					<xpath>Defs/VFECore.ActiveTerrainDef[defName = "VFEArch_LawnPlot"]</xpath>
+					<xpath>Defs/TerrainDef[defName = "VFEArch_LawnPlot"]</xpath>
 					<value>
 						<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 							<terrainTags>
