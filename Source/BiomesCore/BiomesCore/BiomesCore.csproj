@@ -375,6 +375,7 @@
     <Compile Include="Reflections\Reflection.cs" />
     <Compile Include="RoofExtensions.cs" />
     <Compile Include="ThingComponents\CompBottomFeeder.cs" />
+    <Compile Include="ThingComponents\CompEvolveAtFixedAge.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
   </ItemGroup>
