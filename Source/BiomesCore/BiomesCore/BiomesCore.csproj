@@ -365,6 +365,7 @@
     <Compile Include="Patches\IslandHilliness.cs" />
     <Compile Include="Patches\IslandScatterables.cs" />
     <Compile Include="Jobs\JobDriver_BloodDrinking.cs" />
+    <Compile Include="Patches\JobDriver_PredatorHunt_Patch.cs" />
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch.cs" />
     <Compile Include="Patches\Plant_Graphic.cs" />
@@ -376,6 +377,7 @@
     <Compile Include="RoofExtensions.cs" />
     <Compile Include="ThingComponents\CompBottomFeeder.cs" />
     <Compile Include="ThingComponents\CompEvolveAtFixedAge.cs" />
+    <Compile Include="ThingComponents\CompPackHunter.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
   </ItemGroup>
