@@ -325,6 +325,7 @@
     <Compile Include="Incidents\IncidentWorker_Earthquake.cs" />
     <Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
     <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
+    <Compile Include="Jobs\JobDriver_EatCustomThing.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_LargeChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_Smoth.cs" />
@@ -377,8 +378,11 @@
     <Compile Include="RoofExtensions.cs" />
     <Compile Include="ThingComponents\CompAnimalThingSpawner.cs" />
     <Compile Include="ThingComponents\CompBottomFeeder.cs" />
+    <Compile Include="ThingComponents\CompCustomThingEater.cs" />
     <Compile Include="ThingComponents\CompEvolveAtFixedAge.cs" />
+    <Compile Include="ThingComponents\CompMakeFilthTrail.cs" />
     <Compile Include="ThingComponents\CompPackHunter.cs" />
+    <Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
   </ItemGroup>

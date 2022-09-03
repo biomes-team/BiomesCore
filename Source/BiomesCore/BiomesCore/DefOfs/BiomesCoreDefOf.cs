@@ -16,6 +16,8 @@ namespace BiomesCore
         public static GameConditionDef Earthquake;
         public static JobDef BC_BloodDrinking;
         public static JobDef BC_BottomFeeder;
+        public static JobDef BC_EatCustomThing;
+        
         static BiomesCoreDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(BiomesCoreDefOf));

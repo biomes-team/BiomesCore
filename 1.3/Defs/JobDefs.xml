@@ -13,4 +13,11 @@
 		<reportString>blood drinking from TargetA.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
+
+	<JobDef>
+		<defName>BC_EatCustomThing</defName>
+		<driverClass>BiomesCore.JobDriver_EatCustomThing</driverClass>
+		<reportString>eating.</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
 </Defs>
