@@ -27,7 +27,7 @@ namespace BiomesCore.Patches
                     {
                         if (packmate.needs.food.CurCategory != HungerCategory.Fed)
                         {
-                            var job = JobMaker.MakeJob(JobDefOf.Follow, __instance.job.targetA, __instance.job.targetB);
+                            var job = JobMaker.MakeJob(JobDefOf.PredatorHunt, __instance.job.targetA, __instance.job.targetB);
                             packmate.jobs.StartJob(job, JobCondition.InterruptOptional);
                         }
                         else
