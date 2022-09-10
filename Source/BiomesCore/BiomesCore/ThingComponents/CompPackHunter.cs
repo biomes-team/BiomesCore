@@ -8,17 +8,18 @@ namespace BiomesCore
     {
         public CompProperties_PackHunter Props => (CompProperties_PackHunter)props;
 
-        public IEnumerable<Pawn> FindPackmates()
+        public static IEnumerable<Pawn> FindPackmates(Thing thing, float range, bool includeSelf = false)
         {
-            if (!(parent is Pawn pawn)) yield break;
+            if (!(thing is Pawn pawn)) yield break;
 
             var room = pawn.GetDistrict();
 
             foreach (var mate in pawn.Map.mapPawns.AllPawnsSpawned.Where(mate =>
-                         pawn != mate &&
+                         (pawn != mate || includeSelf) &&
                          mate.def == pawn.def &&
                          mate.Faction == pawn.Faction &&
-                         mate.Position.InHorDistOf(pawn.Position, Props.joinHuntRange) &&
+                         !mate.InMentalState &&
+                         mate.Position.InHorDistOf(pawn.Position, range) &&
                          mate.GetDistrict() == room))
             {
                 yield return mate;
@@ -29,6 +30,7 @@ namespace BiomesCore
     public class CompProperties_PackHunter : CompProperties
     {
         public float joinHuntRange;
+        public float joinMaxPain = 0.3f;
 
         public CompProperties_PackHunter() => compClass = typeof(CompPackHunter);
     }

@@ -381,6 +381,7 @@
     <Compile Include="ThingComponents\CompCustomThingEater.cs" />
     <Compile Include="ThingComponents\CompEvolveAtFixedAge.cs" />
     <Compile Include="ThingComponents\CompMakeFilthTrail.cs" />
+    <Compile Include="ThingComponents\CompPackDefense.cs" />
     <Compile Include="ThingComponents\CompPackHunter.cs" />
     <Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />

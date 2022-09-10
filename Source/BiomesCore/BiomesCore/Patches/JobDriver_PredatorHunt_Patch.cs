@@ -17,12 +17,33 @@ namespace BiomesCore.Patches
             var compPackHunter = __instance.pawn.TryGetComp<CompPackHunter>();
             if (compPackHunter == null) return;
             
-            foreach (var packmate in compPackHunter.FindPackmates())
+            if (__instance.pawn.Dead || !__instance.pawn.Spawned) return;
+            
+            foreach (var packmate in CompPackHunter.FindPackmates(__instance.pawn, compPackHunter.Props.joinHuntRange))
             {
-                if (packmate.jobs.curJob?.def != JobDefOf.PredatorHunt && packmate.health.hediffSet.PainTotal <= 0.3)
+                if (packmate.jobs.curJob?.def != JobDefOf.PredatorHunt && packmate.health.hediffSet.PainTotal <= compPackHunter.Props.joinMaxPain)
                 {
-                    var job = JobMaker.MakeJob(JobDefOf.PredatorHunt, __instance.job.targetA, __instance.job.targetB);
-                    packmate.jobs.StartJob(job, JobCondition.InterruptOptional);
+                    if (packmate.ageTracker.Adult)
+                    {
+                        if (packmate.needs.food.CurCategory != HungerCategory.Fed)
+                        {
+                            var job = JobMaker.MakeJob(JobDefOf.Follow, __instance.job.targetA, __instance.job.targetB);
+                            packmate.jobs.StartJob(job, JobCondition.InterruptOptional);
+                        }
+                        else
+                        {
+                            var job = JobMaker.MakeJob(JobDefOf.AttackMelee, __instance.job.targetA);
+                            packmate.jobs.StartJob(job, JobCondition.InterruptOptional);
+                        }
+                    }
+                    else
+                    {
+                        var job = JobMaker.MakeJob(JobDefOf.Follow, __instance.pawn);
+                        job.locomotionUrgency = LocomotionUrgency.Sprint;
+                        job.checkOverrideOnExpire = true;
+                        job.expiryInterval = 5000;
+                        packmate.jobs.StartJob(job, JobCondition.InterruptOptional);
+                    }
                 }
             }
         }
