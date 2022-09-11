@@ -6,6 +6,17 @@ namespace BiomesCore
 {
     public class CompPackDefense : ThingComp
     {
+        private static CompProperties_PackDefense _cacheValue;
+        private static ThingDef _cacheKey;
+
+        public static CompProperties_PackDefense GetProps(ThingDef def)
+        {
+            if (_cacheKey == def) return _cacheValue;
+            _cacheValue = def.GetCompProperties<CompProperties_PackDefense>();
+            _cacheKey = def;
+            return _cacheValue;
+        }
+        
         public CompProperties_PackDefense Props => (CompProperties_PackDefense)props;
 
         public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
@@ -49,6 +60,7 @@ namespace BiomesCore
     {
         public float baseChance = 0.5f;
         public float attackerMaxDistance = 30f;
+        public float predatorConfidencePenalty = 100f;
         public float joinDefenseRange = 20f;
         public float joinMaxPain = 0.3f;
         public int maxNumMeleeAttacks = 1;

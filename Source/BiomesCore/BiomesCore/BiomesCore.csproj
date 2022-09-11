@@ -370,6 +370,7 @@
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch.cs" />
     <Compile Include="Patches\Plant_Graphic.cs" />
+    <Compile Include="Patches\PredatorHuntingBehaviour.cs" />
     <Compile Include="Patches\SetTerrain_UpdateCommonalityCache.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
