@@ -133,6 +133,7 @@
     <Compile Include="Patches\SetTerrain_UpdateCommonalityCache.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
+    <Compile Include="PlaceWorker\PlaceWorker_Aquatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflections\Reflection.cs" />
     <Compile Include="RoofExtensions.cs" />
