@@ -143,6 +143,7 @@
     <Compile Include="ThingComponents\CompDamageImmunities.cs" />
     <Compile Include="ThingComponents\CompEvolveAtFixedAge.cs" />
     <Compile Include="ThingComponents\CompHediffImmunities.cs" />
+    <Compile Include="ThingComponents\CompLurePrey.cs" />
     <Compile Include="ThingComponents\CompMakeFilthTrail.cs" />
     <Compile Include="ThingComponents\CompPackDefense.cs" />
     <Compile Include="ThingComponents\CompPackHunter.cs" />
