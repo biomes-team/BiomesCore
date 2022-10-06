@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Big cats -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[@Name="BigCatThingBase"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+  <!-- Lynx -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Lynx"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+</Patch>

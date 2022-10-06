@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Deer -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Deer"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Crepuscular</bodyClock>
+      </li>
+    </value>
+  </Operation>
+  <!-- Elk -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Elk"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Crepuscular</bodyClock>
+      </li>
+    </value>
+  </Operation>
+  <!-- Wild boar -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="WildBoar"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+</Patch>

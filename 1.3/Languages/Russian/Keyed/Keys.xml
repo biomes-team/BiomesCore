@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NocturnalAnimals.BodyClock>Образ жизни</NocturnalAnimals.BodyClock>
+  <NocturnalAnimals.BodyClocks>Образы жизни существ</NocturnalAnimals.BodyClocks>
+  <NocturnalAnimals.BodyClock_Description>Естественный режим бодрствования этого существа.\n\nДневные существа бодрствуют днём, ночные - ночью, а сумеречные - утром и вечером.\nСущества, ведущие смешанный образ жизни, имеют спорадические, случайные интервалы активности в течение дня или ночи.</NocturnalAnimals.BodyClock_Description>
+  <NocturnalAnimals.BodyClock_Diurnal>Дневной</NocturnalAnimals.BodyClock_Diurnal>
+  <NocturnalAnimals.BodyClock_Nocturnal>Ночной</NocturnalAnimals.BodyClock_Nocturnal>
+  <NocturnalAnimals.BodyClock_Crepuscular>Сумеречный</NocturnalAnimals.BodyClock_Crepuscular>
+  <NocturnalAnimals.BodyClock_Cathemeral>Смешанный</NocturnalAnimals.BodyClock_Cathemeral>
+  <NocturnalAnimals.BodyClock_Diurnal_Description>Бодрствует днём</NocturnalAnimals.BodyClock_Diurnal_Description>
+  <NocturnalAnimals.BodyClock_Nocturnal_Description>Бодрствует ночью</NocturnalAnimals.BodyClock_Nocturnal_Description>
+  <NocturnalAnimals.BodyClock_Crepuscular_Description>Бодрствует во время сумерек</NocturnalAnimals.BodyClock_Crepuscular_Description>
+  <NocturnalAnimals.BodyClock_Cathemeral_Description>Бодрствует спорадически</NocturnalAnimals.BodyClock_Cathemeral_Description>
+  <NocturnalAnimals.reset.button>Сбросить</NocturnalAnimals.reset.button>
+  <NocturnalAnimals.search>Искать</NocturnalAnimals.search>
+  <NocturnalAnimals.reset.confirm>Это приведет к сбросу ВСЕХ ваших изменений до значений по умолчанию.</NocturnalAnimals.reset.confirm>
+  <NocturnalAnimals.logging.label>Подробный журнал</NocturnalAnimals.logging.label>
+  <NocturnalAnimals.logging.tooltip>Подробное ведение журнала для отслеживания ошибок.</NocturnalAnimals.logging.tooltip>
+  <NocturnalAnimals.version.label>Версия модификации: {0}</NocturnalAnimals.version.label>
+</LanguageData>

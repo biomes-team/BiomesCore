@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <NocturnalAnimals.BodyClock>Horloge biologique</NocturnalAnimals.BodyClock>
+  <NocturnalAnimals.BodyClock_Description>Le rythme de sommeil naturel de la créature. \n\nLes créatures diurnes sont éveillées pendant la journée, les créatures nocturnes pendant la nuit et les créatures crépusculaires le matin et le soir.</NocturnalAnimals.BodyClock_Description>
+  <NocturnalAnimals.BodyClock_Diurnal>Diurne</NocturnalAnimals.BodyClock_Diurnal>
+  <NocturnalAnimals.BodyClock_Nocturnal>Nocturne</NocturnalAnimals.BodyClock_Nocturnal>
+  <NocturnalAnimals.BodyClock_Crepuscular>Crépusculaire</NocturnalAnimals.BodyClock_Crepuscular>
+</LanguageData>

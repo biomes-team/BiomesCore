@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Hares -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[@Name="BaseHare"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Crepuscular</bodyClock>
+      </li>
+    </value>
+  </Operation>
+</Patch>

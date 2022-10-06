@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Alphabeaver -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Alphabeaver"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+  <!-- Chinchilla -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Chinchilla"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Crepuscular</bodyClock>
+      </li>
+    </value>
+  </Operation>
+  <!-- Boomrat -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Boomrat"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+  <!-- Raccoon -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Raccoon"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+  <!-- Rat -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Rat"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+</Patch>
