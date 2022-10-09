@@ -43,7 +43,6 @@ namespace BiomesCore
                 {
                     Faction = oldPawn.Faction,
                     FixedGender = oldPawn.gender,
-                    Newborn = !Props.carryOverAge,
                     FixedBiologicalAge = Props.carryOverAge ? oldPawn.ageTracker.AgeBiologicalYearsFloat : 0f,
                     FixedChronologicalAge = Props.carryOverAge ? oldPawn.ageTracker.AgeChronologicalYearsFloat : 0f
                 };

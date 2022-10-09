@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+	<BodyPartDef>
+	    <defName>RWBMucousGland</defName>
+	    <label>mucous gland</label>
+	    <hitPoints>20</hitPoints>
+	    <skinCovered>true</skinCovered>
+  	</BodyPartDef>
+
+    <BodyPartDef>
+        <defName>RWBRightEyeStalk</defName>
+        <label>eyestalk</label>
+        <hitPoints>10</hitPoints>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>SightSource</li>
+        </tags>
+        <hitChanceFactors>
+            <li>
+                <key>Blunt</key>
+                <value>0</value>
+            </li>
+        </hitChanceFactors>
+    </BodyPartDef>
+    
+    <BodyPartDef>
+        <defName>RWBLeftEyeStalk</defName>
+        <label>eyestalk</label>
+        <hitPoints>10</hitPoints>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>SightSource</li>
+        </tags>
+        <hitChanceFactors>
+            <li>
+                <key>Blunt</key>
+                <value>0</value>
+            </li>
+        </hitChanceFactors>
+    </BodyPartDef>
+
+  	<BodyPartDef>
+	    <defName>RWBSnailMouth</defName>
+	    <label>mouth</label>
+	    <hitPoints>20</hitPoints>
+	    <skinCovered>true</skinCovered>
+	    <tags>
+	      <li>EatingSource</li>
+	      <li>TalkingSource</li>
+	      <li>ManipulationLimbCore</li>
+	    </tags>
+  	</BodyPartDef>
+    
+    <BodyPartDef>
+        <defName>RWBSnailFoot</defName>
+        <label>snail foot</label>
+        <hitPoints>30</hitPoints>
+        <skinCovered>false</skinCovered>
+        <tags>
+            <li>MovingLimbCore</li>
+        </tags>
+    </BodyPartDef>
+
+</Defs>

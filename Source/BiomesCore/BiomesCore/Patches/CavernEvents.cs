@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
 using Verse;
 using RimWorld;
 using HarmonyLib;
@@ -108,7 +104,7 @@ namespace BiomesCore.Patches
     }
 
 
-    [HarmonyPatch(typeof(GenStep_AnimaTrees), "CanSpawnAt")]
+    [HarmonyPatch(typeof(GenStep_SpecialTrees), "CanSpawnAt")]
     static class CavernAnimaTreePatch
     {
         static bool Prefix(IntVec3 c, Map map, int minProximityToArtificialStructures, int minProximityToCenter, int minFertileUnroofedCells, int maxFertileUnroofedCellRadius, ref bool __result)
@@ -125,7 +121,7 @@ namespace BiomesCore.Patches
             // copied from the vanilla method, but with the "isroofed" checks replaced with UsesOutdoorTemperature
 
             if (!c.Standable(map) || c.Fogged(map) || !c.GetRoom(map).UsesOutdoorTemperature)
-                {
+            {
                 __result = false;
                 return false;
             }

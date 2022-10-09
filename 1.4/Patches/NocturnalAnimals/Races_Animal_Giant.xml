@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Megasloth -->
+  <Operation Class="PatchOperationAddModExtension">
+    <xpath>/Defs/ThingDef[defName="Megasloth"]</xpath>
+    <value>
+      <li Class="NocturnalAnimals.ExtendedRaceProperties">
+        <bodyClock>Nocturnal</bodyClock>
+      </li>
+    </value>
+  </Operation>
+</Patch>

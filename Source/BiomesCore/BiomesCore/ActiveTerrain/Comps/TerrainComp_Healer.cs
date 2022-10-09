@@ -1,9 +1,6 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using UnityEngine;
 using Verse;
 
 namespace BiomesCore
@@ -16,9 +13,13 @@ namespace BiomesCore
             compClass = typeof(TerrainComp_Healer);
         }
     }
+    
     public class TerrainComp_Healer : TerrainComp
     {
-        public TerrainCompProperties_Healer Props { get { return (TerrainCompProperties_Healer)props; } }
+        public TerrainCompProperties_Healer Props => (TerrainCompProperties_Healer)props;
+
+        [ThreadStatic] // for good ol RimThreaded support
+        private static List<Hediff_Injury> tmpHediffInjuries;
 
         public override void CompTick()
         {
@@ -36,17 +37,18 @@ namespace BiomesCore
 
         public Hediff FirstInjuryToThreat(Pawn pawn)
         {
-            var injuries = pawn.health.hediffSet.GetHediffs<Hediff_Injury>().ToList();
+            tmpHediffInjuries ??= new List<Hediff_Injury>();
+            pawn.health.hediffSet.GetHediffs(ref tmpHediffInjuries);
             var minorInjuries = new List<Hediff>();
             var permanentInjuries = new List<Hediff>();
-            foreach (var injury in injuries)
+            foreach (var injury in tmpHediffInjuries)
             {
                 var comp = injury.TryGetComp<HediffComp_GetsPermanent>();
                 if (comp is null || !comp.IsPermanent)
                 {
                     minorInjuries.Add(injury);
                 }
-                else if (comp?.IsPermanent ?? false)
+                else if (comp.IsPermanent)
                 {
                     permanentInjuries.Add(injury);
                 }
@@ -60,11 +62,6 @@ namespace BiomesCore
                 return permanentInjuries.MinBy(x => x.Part.def.GetMaxHealth(pawn) - pawn.health.hediffSet.GetPartHealth(x.Part));
             }
             return null;
-        }
-        public override void PostExposeData()
-        {
-            base.PostExposeData();
-
         }
     }
 }

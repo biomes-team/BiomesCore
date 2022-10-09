@@ -1,8 +1,5 @@
 ﻿using RimWorld;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Verse;
 
 namespace BiomesCore
@@ -10,25 +7,29 @@ namespace BiomesCore
     public class CompPowerTraderFloor : CompPowerTrader
     {
         public List<TerrainComp_PowerTrader> acceptedComps = new List<TerrainComp_PowerTrader>();
+        
         public override void SetUpPowerVars()
         {
             base.SetUpPowerVars();
             UpdatePowerOutput();
         }
+        
         public virtual void ReceiveTerrainComp(TerrainComp_PowerTrader comp)
         {
             acceptedComps.Add(comp);
             UpdatePowerOutput();
         }
+        
         public virtual void Notify_TerrainCompRemoved(TerrainComp_PowerTrader comp)
         {
             acceptedComps.Remove(comp);
             UpdatePowerOutput();
         }
+        
         public void UpdatePowerOutput()
         {
             float f = CurPowerDemand;
-            var output = -Props.basePowerConsumption + f;
+            var output = -Props.PowerConsumption + f;
             PowerOutput = output;
         }
 

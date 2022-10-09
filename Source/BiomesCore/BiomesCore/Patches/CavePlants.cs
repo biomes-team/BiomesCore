@@ -1,9 +1,4 @@
-﻿using BiomesCore.DefModExtensions;
-using HarmonyLib;
-using RimWorld;
-using Verse;
-
-namespace BiomesCore.Patches
+﻿namespace BiomesCore.Patches
 {
 
 

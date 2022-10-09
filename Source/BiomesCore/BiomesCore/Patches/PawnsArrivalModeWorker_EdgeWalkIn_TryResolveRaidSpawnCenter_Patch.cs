@@ -7,7 +7,6 @@ using BiomesCore.DefModExtensions;
 using System.Reflection.Emit;
 using System.Reflection;
 using System;
-using Verse.AI;
 
 namespace BiomesCore.Patches
 {

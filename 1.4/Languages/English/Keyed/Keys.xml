@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+  <RuinedByLackOfWater>Ruined by lack of water.</RuinedByLackOfWater>
+  
+  <DI_Immune>Immunity: {0}</DI_Immune>
+  <HE_Immune>Immunity: {0}</HE_Immune>
+  
+  <NocturnalAnimals.BodyClock>Body clock</NocturnalAnimals.BodyClock>
+  <NocturnalAnimals.BodyClocks>Body clocks</NocturnalAnimals.BodyClocks>
+  <NocturnalAnimals.BodyClock_Description>The creature's natural sleeping pattern.\n\nDiurnal creatures are awake during daytime, nocturnal creatures during nighttime, and crepuscular creatures during mornings and evenings. Cathemeral does not have a schedule but sleeps when they feel like it.</NocturnalAnimals.BodyClock_Description>
+  <NocturnalAnimals.BodyClock_Diurnal>Diurnal</NocturnalAnimals.BodyClock_Diurnal>
+  <NocturnalAnimals.BodyClock_Nocturnal>Nocturnal</NocturnalAnimals.BodyClock_Nocturnal>
+  <NocturnalAnimals.BodyClock_Crepuscular>Crepuscular</NocturnalAnimals.BodyClock_Crepuscular>
+  <NocturnalAnimals.BodyClock_Cathemeral>Cathemeral</NocturnalAnimals.BodyClock_Cathemeral>
+  <NocturnalAnimals.BodyClock_Diurnal_Description>Awake during daytime</NocturnalAnimals.BodyClock_Diurnal_Description>
+  <NocturnalAnimals.BodyClock_Nocturnal_Description>Awake during nighttime</NocturnalAnimals.BodyClock_Nocturnal_Description>
+  <NocturnalAnimals.BodyClock_Crepuscular_Description>Awake during mornings and evenings</NocturnalAnimals.BodyClock_Crepuscular_Description>
+  <NocturnalAnimals.BodyClock_Cathemeral_Description>Awake irregularly</NocturnalAnimals.BodyClock_Cathemeral_Description>
+  <NocturnalAnimals.reset.button>Reset</NocturnalAnimals.reset.button>
+  <NocturnalAnimals.search>Search</NocturnalAnimals.search>
+  <NocturnalAnimals.reset.confirm>This will reset ALL values</NocturnalAnimals.reset.confirm>
+  <NocturnalAnimals.logging.label>Enable verbose logging</NocturnalAnimals.logging.label>
+  <NocturnalAnimals.logging.tooltip>Shows verbose logging, for finding errors</NocturnalAnimals.logging.tooltip>
+  <NocturnalAnimals.version.label>Installed mod-version: {0}</NocturnalAnimals.version.label>
+</LanguageData>

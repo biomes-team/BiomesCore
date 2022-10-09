@@ -1,34 +1,32 @@
 ﻿using RimWorld;
 using Verse;
-using System.Reflection.Emit;
-using BiomesCore.Reflections;
-using BiomesCore.Bridges;
 using BiomesCore.DefModExtensions;
-using UnityEngine;
 using System.Collections.Generic;
-using System.Reflection;
 using HarmonyLib;
 
 namespace BiomesCore.Patches
 {
-    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), new[] { typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool) })]
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool))]
 	internal static class PlantUtility_CanEverPlantAt
 	{
 		internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
 		{
 			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
 			List<Thing> list = map.thingGrid.ThingsListAt(c);
+			
 			if (!plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should not use the BMT plant spawning system.
 			{
+				/*
 				if (map.Biome.HasModExtension<BiomesMap>())
 				{
 					BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-					//if (biome.isCavern)
-					//{
-					//	__result = false;
-					//	return false;
-					//}
+					if (biome.isCavern)
+					{
+						__result = false;
+						return false;
+					}
 				}
+				*/
 				if (terrain.HasTag("Water"))
 				{
 					__result = false;
@@ -36,9 +34,10 @@ namespace BiomesCore.Patches
 				}
 
 			}
+			
 			foreach (Thing thing in list) //governs plant that grow on buildings, such as planters or hydroponics systems. These should bypass our other checks.
 			{
-				if (thing != null && thing.def.building != null)
+				if (thing?.def.building != null)
 				{
 					if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
 					{
@@ -47,7 +46,8 @@ namespace BiomesCore.Patches
 					}
 				}
 			}
-			if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should.
+			
+			if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>()) //this section governs plants that should.
 			{
 				if (map.Biome.HasModExtension<BiomesMap>())
 				{
@@ -61,12 +61,15 @@ namespace BiomesCore.Patches
 						}
 					}
 				}
+				
 				Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
 				Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
-				if (plantExt.wallGrower == true)
+				
+				if (plantExt.wallGrower)
                 {
 					
                 }
+				
 				if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
 				{
 					if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
@@ -94,6 +97,7 @@ namespace BiomesCore.Patches
 						__result = false;
 						return false;
                     }
+					
 					foreach (string tag in terrainExt.terrainTags)
 					{
 						if (!plantExt.terrainTags.Contains(tag))
@@ -103,7 +107,7 @@ namespace BiomesCore.Patches
 						}
 					}
 				}
-				else	// prevent water spawns if no terrain tags
+				else // prevent water spawns if no terrain tags
 				{
 					if (terrain.HasTag("Water") || terrain.IsWater)
 					{
@@ -176,11 +180,10 @@ namespace BiomesCore.Patches
 		}
 	}
 
-
 	/// <summary>
 	/// Prevent normal growing zones from being placed in water
 	/// </summary>
-	[HarmonyPatch(typeof(RimWorld.Designator_ZoneAdd_Growing), "CanDesignateCell")]
+	[HarmonyPatch(typeof(Designator_ZoneAdd_Growing), "CanDesignateCell")]
 	internal static class DesignatorZoneGrowing_CanDesignateCell
 	{
 		static bool Prefix(IntVec3 c, ref AcceptanceReport __result)

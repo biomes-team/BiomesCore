@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+  
+ <Defs>
+ 
+    <BodyDef>
+        <defName>BMT_Scorpion</defName>
+        <label>scorpion</label>
+        <corePart>
+            <def>Shell</def>
+            <height>Middle</height>
+            <depth>Outside</depth>
+            <parts>
+                <li>
+                    <def>BMT_Cephalothorax</def>
+                    <height>Top</height>
+                    <depth>Outside</depth>
+                    <coverage>0.25</coverage>
+                    <parts>
+                        <li>
+                            <def>InsectHead</def>
+                            <coverage>0.4</coverage>
+                            <groups>
+                                <li>HeadAttackTool</li>
+                            </groups>
+                            <parts>
+                                <li>
+                                    <def>Brain</def>
+                                    <coverage>0.2</coverage>
+                                    <depth>Inside</depth>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>left anterior lateral eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>right anterior lateral eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>left anterior median eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>right anterior median eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>left posterior lateral eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>right posterier lateral eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>left posterior median eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>Eye</def>
+                                    <customLabel>right posterior median eye</customLabel>
+                                    <coverage>0.025</coverage>
+                                </li>
+                                <li>
+                                    <def>InsectMouth</def>
+                                    <coverage>0.10</coverage>
+                                    <groups>
+                                        <li>Mouth</li>
+                                    </groups>
+                                </li>
+                            </parts>
+                        </li>
+                        <li>
+                            <def>FrontClaw</def>
+                            <customLabel>front left claw</customLabel>
+                            <coverage>0.09</coverage>
+                            <height>Bottom</height>
+							<groups>
+								<li>FrontLeftClaws</li>
+                            </groups>
+                        </li>
+                        <li>
+                            <def>FrontClaw</def>
+                            <customLabel>front right claw</customLabel>
+                            <coverage>0.09</coverage>
+							<groups>
+								<li>FrontRightClaws</li>
+                            </groups>
+                        </li>
+                        <li>
+                            <def>InsectLeg</def>
+                            <customLabel>front left leg</customLabel>
+                            <coverage>0.06</coverage>
+                            <height>Bottom</height>
+                            <groups>
+                                <li>FrontLeftLeg</li>
+                            </groups>
+                        </li>
+                        <li>
+                            <def>InsectLeg</def>
+                            <customLabel>front right leg</customLabel>
+                            <coverage>0.06</coverage>
+                            <height>Bottom</height>
+                            <groups>
+                                <li>FrontRightLeg</li>
+                            </groups>
+                        </li>
+                        <li>
+                            <def>InsectLeg</def>
+                            <customLabel>middle left leg</customLabel>
+                            <coverage>0.06</coverage>
+                            <height>Bottom</height>
+                        </li>
+                        <li>
+                            <def>InsectLeg</def>
+                            <customLabel>middle right leg</customLabel>
+                            <coverage>0.06</coverage>
+                            <height>Bottom</height>
+                        </li>
+						<li>
+                            <def>InsectLeg</def>
+                            <customLabel>rear left leg</customLabel>
+                            <coverage>0.06</coverage>
+                            <height>Bottom</height>
+                        </li>
+                        <li>
+                            <def>InsectLeg</def>
+                            <customLabel>rear right leg</customLabel>
+                            <coverage>0.06</coverage>
+                            <height>Bottom</height>
+                        </li>
+                    </parts>
+                </li>
+                <li>
+                    <def>BMT_SpiderAbdomen</def>
+                    <height>Top</height>
+                    <depth>Outside</depth>
+                    <coverage>0.25</coverage>
+                    <parts>
+                        <li>
+                            <def>InsectHeart</def>
+                            <coverage>0.03</coverage>
+                            <depth>Inside</depth>
+                        </li>
+                        <li>
+                            <def>Stomach</def>
+                            <coverage>0.05</coverage>
+                            <depth>Inside</depth>
+                        </li>
+                        <li>
+                            <def>BMT_Stinger</def>
+                            <coverage>0.04</coverage>
+                            <height>Bottom</height>
+                            <groups>
+                                <li>BMT_StingerGroup</li>
+                            </groups>
+                        </li>
+                    </parts>
+                </li>
+            </parts>
+        </corePart>
+    </BodyDef>
+	
+
+	
+	
+</Defs>

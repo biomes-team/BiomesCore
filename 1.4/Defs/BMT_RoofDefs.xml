@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RoofDef>
+    <defName>BMT_RockRoofStable</defName>
+    <label>stable overhead mountain</label>
+    <isThickRoof>true</isThickRoof>
+    <isNatural>true</isNatural>
+    <!-- <collapseLeavingThingDef>CollapsedRocks</collapseLeavingThingDef> -->
+    <filthLeaving>Filth_RubbleRock</filthLeaving>
+  </RoofDef>
+  
+  
+</Defs>

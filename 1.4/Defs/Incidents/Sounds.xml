@@ -1,0 +1,21 @@
+<Defs>
+
+  <SoundDef>
+    <defName>Earthquake</defName>  
+    <context>MapOnly</context> 
+    <maxSimultaneous>100</maxSimultaneous>  
+    <subSounds>
+      <li>
+    <onCamera>True</onCamera>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Misc/RockCollapse</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>90~110</volumeRange>
+        <pitchRange>0.03~.3</pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>
