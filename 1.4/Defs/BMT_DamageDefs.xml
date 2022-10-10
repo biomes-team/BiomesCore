@@ -22,7 +22,8 @@
       <li>
         <hediff>ToxicBuildup</hediff>
         <severityPerDamageDealt>0.020</severityPerDamageDealt>
-        <victimSeverityScaling>ToxicSensitivity</victimSeverityScaling>
+        <victimSeverityScaling>ToxicResistance</victimSeverityScaling>
+        <inverseStatScaling>true</inverseStatScaling>
         <victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
       </li>
     </additionalHediffs>
