@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Add new caravans to vanilla factions. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[@Name="TribeBase" or @Name="OutlanderFactionBase"]/caravanTraderKinds</xpath>
+		<value>
+			<li>BMT_Caravan_Herder</li>
+		</value>
+	</Operation>
+</Patch>

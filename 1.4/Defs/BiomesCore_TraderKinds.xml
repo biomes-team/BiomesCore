@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<TraderKindDef>
+		<defName>BMT_Caravan_Herder</defName>
+		<label>herder</label>
+		<commonality>0.75</commonality>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>750~1200</countRange>
+			</li>
+			<!-- Selling -->
+			<li Class="BiomesCore.StockGenerators.Herder">
+				<kindCountRange>2</kindCountRange>
+				<totalPriceRange>800~1400</totalPriceRange>
+				<tradeTags>
+					<li>AnimalFarm</li>
+				</tradeTags>
+				<wildnessRange>0~0.7</wildnessRange>
+				<leatherPriceRange>110~230</leatherPriceRange>
+				<animalProductPriceRange>150~280</animalProductPriceRange>
+				<fertilizedEggCountRange>1~2</fertilizedEggCountRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Pemmican</thingDef>
+				<countRange>200~250</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>5~10</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Bedroll</thingDef>
+				<countRange>1~2</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Hay</thingDef>
+				<totalPriceRange>250~450</totalPriceRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Kibble</thingDef>
+				<totalPriceRange>400~700</totalPriceRange>
+			</li>
+			<!-- Buying -->
+			<li Class="StockGenerator_Animals">
+				<tradeTagsBuy>
+					<li>AnimalPet</li>
+					<li>AnimalExotic</li>
+				</tradeTagsBuy>
+			</li>
+			<li Class="StockGenerator_BuyExpensiveSimple"/>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>Art</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>MusicalInstrument</tag>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+</Defs>
