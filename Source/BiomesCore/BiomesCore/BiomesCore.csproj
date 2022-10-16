@@ -112,6 +112,7 @@
     <Compile Include="Patches\CavePlants.cs" />
     <Compile Include="Patches\CavernEvents.cs" />
     <Compile Include="Patches\CavernRoofs.cs" />
+    <Compile Include="Patches\ChangeStockQuality.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
@@ -141,6 +142,9 @@
     <Compile Include="Reflections\Reflection.cs" />
     <Compile Include="RoofExtensions.cs" />
     <Compile Include="StockGenerators\Herder.cs" />
+    <Compile Include="StockGenerators\HighQualityItems.cs" />
+    <Compile Include="StockGenerators\ButcheredPrey.cs" />
+    <Compile Include="StockGenerators\Util.cs" />
     <Compile Include="ThingComponents\CompAnimalThingSpawner.cs" />
     <Compile Include="ThingComponents\CompBottomFeeder.cs" />
     <Compile Include="ThingComponents\CompCustomThingEater.cs" />

@@ -5,6 +5,7 @@
 		<xpath>Defs/FactionDef[@Name="TribeBase" or @Name="OutlanderFactionBase"]/caravanTraderKinds</xpath>
 		<value>
 			<li>BMT_Caravan_Herder</li>
+			<li>BMT_Caravan_Hunter</li>
 		</value>
 	</Operation>
 </Patch>

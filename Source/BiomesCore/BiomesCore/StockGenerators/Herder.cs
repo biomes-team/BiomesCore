@@ -67,49 +67,15 @@ namespace BiomesCore.StockGenerators
 			}
 		}
 
-		/// <summary>
-		/// Checks if a pawn kind definition could be chosen as an animal type for this trader.
-		/// </summary>
-		/// <param name="def">Pawn type being considered</param>
-		/// <param name="forTile">Tile in which the transaction takes place.</param>
-		/// <param name="faction">Faction of the trader.</param>
-		/// <returns>True if the trader could potentially have this animal in stock.</returns>
 		private bool AcceptablePawnKindDef(PawnKindDef def, int forTile, Faction faction = null)
 		{
 			return def.RaceProps.Animal && def.race.tradeTags != null &&
 			       tradeTags.Any(tag => def.race.tradeTags.Contains(tag)) && wildnessRange.Includes(def.RaceProps.wildness);
 		}
 
-		private bool AcceptableTemperature(PawnKindDef def, int forTile)
-		{
-			if (!checkTemperature)
-			{
-				return true;
-			}
-
-			var tempTile = forTile;
-			if (tempTile == -1 && Find.AnyPlayerHomeMap != null)
-			{
-				tempTile = Find.AnyPlayerHomeMap.Tile;
-			}
-
-			return tempTile == -1 || Find.World.tileTemperatures.SeasonAndOutdoorTemperatureAcceptableFor(tempTile, def.race);
-		}
-
-		/// <summary>
-		/// See StockGenerator_Animals
-		/// </summary>
-		private static readonly SimpleCurve SelectionChanceFromWildnessCurve = new SimpleCurve
-		{
-			new CurvePoint(0.0f, 100f),
-			new CurvePoint(0.25f, 60f),
-			new CurvePoint(0.5f, 30f),
-			new CurvePoint(0.75f, 12f),
-			new CurvePoint(1f, 2f)
-		};
 
 		private static float SelectionChance(PawnKindDef kind) =>
-			SelectionChanceFromWildnessCurve.Evaluate(kind.RaceProps.wildness);
+			Util.SelectionChanceFromWildnessCurve.Evaluate(kind.RaceProps.wildness);
 
 		private static AnimalProductSet AnimalProducts(PawnKindDef pawnKind)
 		{
@@ -139,21 +105,19 @@ namespace BiomesCore.StockGenerators
 			return set;
 		}
 
-		/// <summary>
-		/// Since GenerateThings is called only once
-		/// </summary>
-		/// <param name="forTile"></param>
-		/// <param name="faction"></param>
-		/// <returns></returns>
-		/// <exception cref="NotImplementedException"></exception>
 		public override IEnumerable<Thing> GenerateThings(int forTile, Faction faction = null)
 		{
 			var acceptableKinds =
 				DefDatabase<PawnKindDef>.AllDefs.Where(kind =>
-					AcceptablePawnKindDef(kind, forTile, faction) && AcceptableTemperature(kind, forTile)).ToList();
+						AcceptablePawnKindDef(kind, forTile, faction) &&
+						(!checkTemperature || Util.AcceptableTemperature(kind, forTile)))
+					.ToList();
 
 			var kindCount = Math.Min(kindCountRange.RandomInRange, acceptableKinds.Count);
-			if (kindCount <= 0) yield break;
+			if (kindCount <= 0)
+			{
+				yield break;
+			}
 
 			var chosenKinds = new HashSet<PawnKindDef>();
 			while (chosenKinds.Count < kindCount)
