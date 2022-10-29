@@ -20,6 +20,8 @@
   <loadAfter>
     <li>Ludeon.RimWorld</li>
     <li>Ludeon.RimWorld.Royalty</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>Ludeon.RimWorld.Biotech</li>
     <li>brrainz.harmony</li>
     <li>pyrce.terrain.movement.modkit</li>
     <li>pyrce.swimming.modkit</li>
