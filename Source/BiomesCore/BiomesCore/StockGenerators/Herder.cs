@@ -192,7 +192,7 @@ namespace BiomesCore.StockGenerators
 			return thingDef.tradeability != Tradeability.None && (
 				thingDef.category == ThingCategory.Pawn && thingDef.race.Animal &&
 				tradeTags.Any(tag => thingDef.tradeTags != null && thingDef.tradeTags.Contains(tag)) ||
-				thingDef.IsLeather || thingDef.IsAnimalProduct || thingDef.IsWool
+				thingDef.IsLeather || (thingDef.IsAnimalProduct && thingDef.defName != "VRESaurids_HumanEgg") || thingDef.IsWool
 			);
 		}
 	}
