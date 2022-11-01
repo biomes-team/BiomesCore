@@ -136,7 +136,7 @@
 		<defName>FloatinggardenSlate</defName>
 		<label>Slate chinampa</label>
 		<costList>
-			<Slate>1</Slate>
+			<ChunkSlate>1</ChunkSlate>
 		</costList>
 	</TerrainDef>
   
