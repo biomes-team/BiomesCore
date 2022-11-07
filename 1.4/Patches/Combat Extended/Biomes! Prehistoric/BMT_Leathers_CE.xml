@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!--========== Thin Dinosaur Leather ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideThin"]/statBases/StuffPower_Armor_Sharp</xpath>
+                    <value>
+                        <StuffPower_Armor_Sharp>0.16</StuffPower_Armor_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideThin"]/statBases/StuffPower_Armor_Blunt</xpath>
+                    <value>
+                        <StuffPower_Armor_Blunt>0.04</StuffPower_Armor_Blunt>
+                    </value>
+                </li>
+
+                <!--========== Feathery Dinosaur Leather ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideFeathery"]/statBases/StuffPower_Armor_Sharp</xpath>
+                    <value>
+                        <StuffPower_Armor_Sharp>0.31</StuffPower_Armor_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideFeathery"]/statBases/StuffPower_Armor_Blunt</xpath>
+                    <value>
+                        <StuffPower_Armor_Blunt>0.08</StuffPower_Armor_Blunt>
+                    </value>
+                </li>
+
+                <!--========== Medium Dinosaur Leather ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideMedium"]/statBases/StuffPower_Armor_Sharp</xpath>
+                    <value>
+                        <StuffPower_Armor_Sharp>0.47</StuffPower_Armor_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideMedium"]/statBases/StuffPower_Armor_Blunt</xpath>
+                    <value>
+                        <StuffPower_Armor_Blunt>0.12</StuffPower_Armor_Blunt>
+                    </value>
+                </li>
+
+                <!--========== Heavy Dinosaur Leather ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideHeavy"]/statBases/StuffPower_Armor_Sharp</xpath>
+                    <value>
+                        <StuffPower_Armor_Sharp>0.705</StuffPower_Armor_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideHeavy"]/statBases/StuffPower_Armor_Blunt</xpath>
+                    <value>
+                        <StuffPower_Armor_Blunt>0.16</StuffPower_Armor_Blunt>
+                    </value>
+                </li>
+
+                <!--========== Armored Dinosaur Leather ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideArmored"]/statBases/StuffPower_Armor_Sharp</xpath>
+                    <value>
+                        <StuffPower_Armor_Sharp>0.94</StuffPower_Armor_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_DinoHideArmored"]/statBases/StuffPower_Armor_Blunt</xpath>
+                    <value>
+                        <StuffPower_Armor_Blunt>0.2</StuffPower_Armor_Blunt>
+                    </value>
+                </li>
+
+                <!--========== Primordial Chitin ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_PrimordialChitin"]/statBases/StuffPower_Armor_Sharp</xpath>
+                    <value>
+                        <StuffPower_Armor_Sharp>0.615</StuffPower_Armor_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>Defs/ThingDef[defName="BMT_PrimordialChitin"]/statBases/StuffPower_Armor_Blunt</xpath>
+                    <value>
+                        <StuffPower_Armor_Blunt>0.14</StuffPower_Armor_Blunt>
+                    </value>
+                </li>
+
+                <!--========== Dinofloof ==========-->
+                <!--Perfectly Balanced Base As All Things Should Be(This will get left in if I have to make edits)-->
+
+            </operations>
+        </match>
+    </Operation>
+</Patch>
