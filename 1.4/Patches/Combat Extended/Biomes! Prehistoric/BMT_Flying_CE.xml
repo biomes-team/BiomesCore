@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!--========== Anhanguera ==========-->
+                <li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="BMT_Anhanguera"]</xpath>
+					<value>
+						<li Class="CombatExtended.RacePropertiesExtensionCE">
+							<bodyShape>Birdlike</bodyShape>
+						</li>
+					</value>
+				</li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_Anhanguera"]/statBases</xpath>
+                    <value>
+                        <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+                        <ArmorRating_Blunt>0.9</ArmorRating_Blunt>
+                        <MeleeDodgeChance>0.34</MeleeDodgeChance>
+                        <MeleeCritChance>0.01</MeleeCritChance>
+                        <MeleeParryChance>0.06</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Anhanguera"]/race/baseHealthScale</xpath>
+                    <value>
+                        <baseHealthScale>1.68</baseHealthScale>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Anhanguera"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>beak</label>
+                                <capacities>
+                                    <li>Bite</li>
+                                </capacities>
+                                <power>9.1</power>
+                                <cooldownTime>1.27</cooldownTime>
+                                <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.44</armorPenetrationSharp>
+                                <armorPenetrationBlunt>4.35</armorPenetrationBlunt>
+                                <chanceFactor>0.7</chanceFactor>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>claws</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <surpriseAttack>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>4</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </surpriseAttack>
+                                <power>6.3</power>
+                                <cooldownTime>0.5</cooldownTime>
+                                <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.43</armorPenetrationSharp>
+                                <chanceFactor>0.4</chanceFactor>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!--========== Bladecrest ==========-->
+                <li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="BMT_Bladecrest"]</xpath>
+					<value>
+						<li Class="CombatExtended.RacePropertiesExtensionCE">
+							<bodyShape>Birdlike</bodyShape>
+						</li>
+					</value>
+				</li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_Bladecrest"]/statBases</xpath>
+                    <value>
+                        <ArmorRating_Sharp>0.05</ArmorRating_Sharp>
+                        <ArmorRating_Blunt>2.34</ArmorRating_Blunt>
+                        <MeleeDodgeChance>0.45</MeleeDodgeChance>
+                        <MeleeCritChance>0.25</MeleeCritChance>
+                        <MeleeParryChance>0.14</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Bladecrest"]/race/baseHealthScale</xpath>
+                    <value>
+                        <baseHealthScale>1.68</baseHealthScale>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Bladecrest"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>beak</label>
+                                <capacities>
+                                    <li>Bite</li>
+                                </capacities>
+                                <power>23.7</power>
+                                <cooldownTime>2</cooldownTime>
+                                <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>1.12</armorPenetrationSharp>
+                                <armorPenetrationBlunt>11.31</armorPenetrationBlunt>
+                                <chanceFactor>0.7</chanceFactor>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>claws</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <surpriseAttack>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>7</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </surpriseAttack>
+                                <power>16.45</power>
+                                <cooldownTime>1.26</cooldownTime>
+                                <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>1.12</armorPenetrationSharp>
+                                <chanceFactor>0.4</chanceFactor>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!--========== Dimorphodon ==========-->
+                <li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="BMT_Dimorphodon"]</xpath>
+					<value>
+						<li Class="CombatExtended.RacePropertiesExtensionCE">
+							<bodyShape>Birdlike</bodyShape>
+						</li>
+					</value>
+				</li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_Dimorphodon"]/statBases</xpath>
+                    <value>
+                        <ArmorRating_Sharp>0.02</ArmorRating_Sharp>
+                        <ArmorRating_Blunt>0.9</ArmorRating_Blunt>
+                        <MeleeDodgeChance>0.42</MeleeDodgeChance>
+                        <MeleeCritChance>0.02</MeleeCritChance>
+                        <MeleeParryChance>0.03</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Dimorphodon"]/race/baseHealthScale</xpath>
+                    <value>
+                        <baseHealthScale>2.01</baseHealthScale>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Dimorphodon"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>beak</label>
+                                <capacities>
+                                    <li>Bite</li>
+                                </capacities>
+                                <power>9.1</power>
+                                <cooldownTime>1.27</cooldownTime>
+                                <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.44</armorPenetrationSharp>
+                                <armorPenetrationBlunt>4.35</armorPenetrationBlunt>
+                                <chanceFactor>0.7</chanceFactor>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>claws</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <surpriseAttack>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>4</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </surpriseAttack>
+                                <power>6.3</power>
+                                <cooldownTime>0.5</cooldownTime>
+                                <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.43</armorPenetrationSharp>
+                                <chanceFactor>0.4</chanceFactor>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!--========== Pteranodon ==========-->
+                <li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="BMT_Pteranodon"]</xpath>
+					<value>
+						<li Class="CombatExtended.RacePropertiesExtensionCE">
+							<bodyShape>Birdlike</bodyShape>
+						</li>
+					</value>
+				</li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_Pteranodon"]/statBases</xpath>
+                    <value>
+                        <ArmorRating_Sharp>0.04</ArmorRating_Sharp>
+                        <ArmorRating_Blunt>1.8</ArmorRating_Blunt>
+                        <MeleeDodgeChance>0.45</MeleeDodgeChance>
+                        <MeleeCritChance>0.22</MeleeCritChance>
+                        <MeleeParryChance>0.11</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Pteranodon"]/race/baseHealthScale</xpath>
+                    <value>
+                        <baseHealthScale>3.02</baseHealthScale>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Pteranodon"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>beak</label>
+                                <capacities>
+                                    <li>Bite</li>
+                                </capacities>
+                                <power>18.2</power>
+                                <cooldownTime>1.52</cooldownTime>
+                                <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.86</armorPenetrationSharp>
+                                <armorPenetrationBlunt>8.7</armorPenetrationBlunt>
+                                <chanceFactor>0.7</chanceFactor>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>claws</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <surpriseAttack>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>5</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </surpriseAttack>
+                                <power>12.65</power>
+                                <cooldownTime>0.97</cooldownTime>
+                                <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.87</armorPenetrationSharp>
+                                <chanceFactor>0.4</chanceFactor>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!--========== Quetzalcoatlus ==========-->
+                <li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="BMT_Quetzal"]</xpath>
+					<value>
+						<li Class="CombatExtended.RacePropertiesExtensionCE">
+							<bodyShape>Birdlike</bodyShape>
+						</li>
+					</value>
+				</li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_Quetzal"]/statBases</xpath>
+                    <value>
+                        <ArmorRating_Sharp>0.06</ArmorRating_Sharp>
+                        <ArmorRating_Blunt>3.42</ArmorRating_Blunt>
+                        <MeleeDodgeChance>0.36</MeleeDodgeChance>
+                        <MeleeCritChance>0.47</MeleeCritChance>
+                        <MeleeParryChance>0.23</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Quetzal"]/race/baseHealthScale</xpath>
+                    <value>
+                        <baseHealthScale>3.518</baseHealthScale>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Quetzal"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>beak</label>
+                                <capacities>
+                                    <li>Bite</li>
+                                </capacities>
+                                <power>34.6</power>
+                                <cooldownTime>2.9</cooldownTime>
+                                <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>1.64</armorPenetrationSharp>
+                                <armorPenetrationBlunt>16.53</armorPenetrationBlunt>
+                                <chanceFactor>0.7</chanceFactor>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>claws</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <surpriseAttack>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>10</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </surpriseAttack>
+                                <power>24</power>
+                                <cooldownTime>1.84</cooldownTime>
+                                <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>1.64</armorPenetrationSharp>
+                                <chanceFactor>0.4</chanceFactor>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+
+                <!--========== Tapejara ==========-->
+                <li Class="PatchOperationAddModExtension">
+					<xpath>/Defs/ThingDef[defName="BMT_Tapejara"]</xpath>
+					<value>
+						<li Class="CombatExtended.RacePropertiesExtensionCE">
+							<bodyShape>Birdlike</bodyShape>
+						</li>
+					</value>
+				</li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_Tapejara"]/statBases</xpath>
+                    <value>
+                        <ArmorRating_Sharp>0.01</ArmorRating_Sharp>
+                        <ArmorRating_Blunt>0.36</ArmorRating_Blunt>
+                        <MeleeDodgeChance>0.49</MeleeDodgeChance>
+                        <MeleeCritChance>0.01</MeleeCritChance>
+                        <MeleeParryChance>0.01</MeleeParryChance>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Tapejara"]/race/baseHealthScale</xpath>
+                    <value>
+                        <baseHealthScale>1.51</baseHealthScale>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_Tapejara"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>beak</label>
+                                <capacities>
+                                    <li>Bite</li>
+                                </capacities>
+                                <power>3.6</power>
+                                <cooldownTime>0.31</cooldownTime>
+                                <linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.18</armorPenetrationSharp>
+                                <armorPenetrationBlunt>1.74</armorPenetrationBlunt>
+                                <chanceFactor>0.7</chanceFactor>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>claws</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <surpriseAttack>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>2</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </surpriseAttack>
+                                <power>2.53</power>
+                                <cooldownTime>0.2</cooldownTime>
+                                <linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+                                <armorPenetrationSharp>0.17</armorPenetrationSharp>
+                                <chanceFactor>0.4</chanceFactor>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

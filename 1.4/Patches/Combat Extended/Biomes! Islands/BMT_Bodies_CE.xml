@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!--+++++++++ Ammonoidea +++++++++-->
+                    <!--+++++++++ Ammonites! +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="BMT_AmmoniteBody"]//*[
+                    def="TurtleShell" or
+                    def="BMT_AmmoniteHood"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="BMT_AmmoniteBody"]//*[
+                    def="TurtleShell" or
+                    def="BMT_AmmoniteMantle" or
+                    def="BMT_AmmoniteHood"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                <!--+++++++++ Fish, Shark, and Whale +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="Biomes_FishBody" or
+                    defName="Biomes_SharkBody" or
+                    defName="Biomes_WhaleBody"]//*[
+                    def="Body" or
+                    def="FishTail" or
+                    def="BiomesIslands_Fin"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="Biomes_FishBody" or
+                    defName="Biomes_SharkBody" or
+                    defName="Biomes_WhaleBody"]//*[
+                    def="Body" or
+                    def="FishTail" or
+                    def="BiomesIslands_Fin" or
+                    def="Head" or
+                    def="AnimalJaw"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                <!--+++++++++ Rays +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="Biomes_MantaBody"]//*[
+                    def="Body" or
+                    def="BiomesIslands_Fin" or
+                    def="Tail"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="Biomes_MantaBody"]//*[
+                    def="Body" or
+                    def="Tail" or
+                    def="BiomesIslands_Fin" or
+                    def="Head" or
+                    def="AnimalJaw"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                <!--+++++++++ Insectoid +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="MantisLike"]//*[
+                    def="Shell" or
+                    def="Pronotum" or
+                    def="InsectLeg"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="MantisLike"]//*[
+                    def="Shell" or
+                    def="Pronotum" or
+                    def="InsectLeg" or
+                    def="InsectHead" or
+                    def="InsectMouth"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

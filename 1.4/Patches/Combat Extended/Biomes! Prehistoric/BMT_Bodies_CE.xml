@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <!--+++++++++ Bipedal Dinosaurs +++++++++-->
+                    <!--+++++++++ Bipeds With Beak +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="BMT_BipedWithBeakHornsAndTailThreeDH"]//*[
+                    def="Body" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="Leg" or
+                    def="Arm" or
+                    def="Shoulder"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[defName="BMT_BipedWithBeakHornsAndTailThreeDH"]//*[
+                    def="Body" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="Leg" or
+                    def="Arm" or
+                    def="Shoulder" or
+                    def="Head" or
+                    def="Horn" or
+                    def="Foot" or
+                    def="BMT_DinoBeak" or
+                    def="Hand"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                    <!--+++++++++ Bipeds Without Beak +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_BipedWithClawsSickleTeethAndTail" or
+                    defName="BMT_BipedWithClawsTeethAndTailFiveDH" or
+                    defName="BMT_BipedWithClawsTeethAndTailFourDH" or
+                    defName="BMT_BipedWithClawsTeethAndTailThreeDH" or
+                    defName="BMT_BipedWithClawsTeethAndTailTwoDH" or
+                    defName="BMT_BipedWithSpikeTeethAndTail"]//*[
+                    def="Body" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="Leg" or
+                    def="Arm" or
+                    def="Shoulder"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_BipedWithClawsSickleTeethAndTail" or
+                    defName="BMT_BipedWithClawsTeethAndTailFiveDH" or
+                    defName="BMT_BipedWithClawsTeethAndTailFourDH" or
+                    defName="BMT_BipedWithClawsTeethAndTailThreeDH" or
+                    defName="BMT_BipedWithClawsTeethAndTailTwoDH" or
+                    defName="BMT_BipedWithSpikeTeethAndTail"]//*[
+                    def="Body" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="Leg" or
+                    def="Arm" or
+                    def="Shoulder" or
+                    def="Head" or
+                    def="Foot" or
+                    def="AnimalJaw" or
+                    def="BMT_FrontClaw"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                <!--+++++++++ Quadrupedal Dinosaurs +++++++++-->
+                    <!--+++++++++ Quadrupeds With Beak, Armor +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithArmorBeakAndTailWeapon" or
+                    defName="BMT_QuadrupedWithArmorBeakSpikesAndTailWeapon"]//*[
+                    def="BMT_Osteoderm" or
+                    def="Neck" or
+                    def="BMT_Tail"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithArmorBeakAndTailWeapon" or
+                    defName="BMT_QuadrupedWithArmorBeakSpikesAndTailWeapon"]//*[
+                    def="BMT_Osteoderm" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="BMT_TailWeapon" or
+                    def="Head" or
+                    def="BMT_DinoBeak"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                    <!--+++++++++ Quadrupeds With Beak Without Armor (TailTip) +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithBeakFeatherCrestNeckAndTailWeapon" or
+                    defName="BMT_QuadrupedWithNeckAndTailWeapon" or
+                    defName="BMT_QuadrupedWithBeakSpikesNeckAndTailWeapon"]//*[
+                    def="Body" or
+                    def="BMT_TailTip" or
+                    def="Leg"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithBeakFeatherCrestNeckAndTailWeapon" or
+                    defName="BMT_QuadrupedWithNeckAndTailWeapon" or
+                    defName="BMT_QuadrupedWithBeakSpikesNeckAndTailWeapon"]//*[
+                    def="Body" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="BMT_TailTip" or
+                    def="Leg" or
+                    def="Head" or
+                    def="BMT_DinoBeak" or
+                    def="Foot"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                    <!--+++++++++ Quadrupeds With Beak and Neckfrill +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithNeckFrillBeakAndTail" or
+                    defName="BMT_QuadrupedWithNeckFrillBeakAndTailHorn" or
+                    defName="BMT_QuadrupedWithNeckFrillBeakAndTailThreeHorns"]//*[
+                    def="Body" or
+                    def="BMT_Tail" or
+                    def="Leg" or
+                    def="Neck" or
+                    def="BMT_NeckFrill"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithNeckFrillBeakAndTail" or
+                    defName="BMT_QuadrupedWithNeckFrillBeakAndTailHorn" or
+                    defName="BMT_QuadrupedWithNeckFrillBeakAndTailThreeHorns"]//*[
+                    def="Body" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="Leg" or
+                    def="Head" or
+                    def="BMT_DinoBeak" or
+                    def="Foot" or
+                    def="BMT_NeckFrill"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                    <!--+++++++++ Quadrupeds With Beak, Plates, and(1) Spikes +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithPlatesBeakAndTailWeapon" or
+                    defName="BMT_QuadrupedWithPlatesSpikesBeakAndTailWeapon"]//*[
+                    def="Body" or
+                    def="BMT_OsteodermPlates" or
+                    def="BMT_Back" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="Leg"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_QuadrupedWithPlatesBeakAndTailWeapon" or
+                    defName="BMT_QuadrupedWithPlatesSpikesBeakAndTailWeapon"]//*[
+                    def="Body" or
+                    def="BMT_Osteoderm" or
+                    def="Neck" or
+                    def="BMT_Tail" or
+                    def="Leg" or
+                    def="BMT_OsteodermPlates" or
+                    def="BMT_Back" or
+                    def="Head" or
+                    def="BMT_DinoBeak" or
+                    def="Foot"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                    <!--+++++++++ Arthropods +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_BeetleLike" or
+                    defName="BMT_BeetleLikeWithStinger"]//*[
+                    def="Shell"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_BeetleLike" or
+                    defName="BMT_BeetleLikeWithStinger"]//*[
+                    def="Shell" or
+                    def="InsectHead"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+
+                <!--+++++++++ Scorpionida +++++++++-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_Scorpion"]//*[
+                    def="Shell" or
+                    def="BMT_SpiderAbdomen"]
+                    </xpath>
+                    <value>
+                        <groups>
+                        </groups>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/BodyDef[
+                    defName="BMT_Scorpion"]//*[
+                    def="Shell" or
+                    def="BMT_SpiderAbdomen" or
+                    def="InsectHead"]/groups
+                    </xpath>
+                    <value>
+                        <li>CoveredByNaturalArmor</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

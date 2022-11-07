@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+            <!--========== Trophies ==========-->
+                <!--========== Raptor Claw ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_RaptorClaw"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>raptor claw</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <power>12.7</power>
+                                <cooldownTime>2</cooldownTime>
+                                <chanceFactor>0.65</chanceFactor>
+                                <armorPenetrationSharp>0.87</armorPenetrationSharp>
+                                <armorPenetrationBlunt>7</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>raptor claw</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>25</power>
+                                <cooldownTime>1.5</cooldownTime>
+                                <chanceFactor>0.35</chanceFactor>
+                                <armorPenetrationSharp>2.23</armorPenetrationSharp>
+                                <armorPenetrationBlunt>2</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_RaptorClaw"]/statBases</xpath>
+                    <value>
+                        <Bulk>1</Bulk>
+                        <MeleeCounterParryBonus>0.07</MeleeCounterParryBonus>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_RaptorClaw"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.12</MeleeCritChance>
+                            <MeleeDodgeChance>0.15</MeleeDodgeChance>
+                        </equippedStatOffsets>  
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_RaptorClaw"]</xpath>
+                    <value>
+                        <weaponTags>
+                            <li>CE_OneHandedWeapon</li>
+                        </weaponTags>
+                    </value>
+                </li>
+
+                <!--========== Ceratopsid Horn ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_CeratopsidHorn"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>ceratopsid horn</label>
+                                <capacities>
+                                    <li>Scratch</li>
+                                </capacities>
+                                <power>14</power>
+                                <cooldownTime>2</cooldownTime>
+                                <chanceFactor>0.65</chanceFactor>
+                                <armorPenetrationSharp>1.38</armorPenetrationSharp>
+                                <armorPenetrationBlunt>16</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>ceratopsid horn</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>36</power>
+                                <cooldownTime>1.5</cooldownTime>
+                                <chanceFactor>0.35</chanceFactor>
+                                <armorPenetrationSharp>6.5</armorPenetrationSharp>
+                                <armorPenetrationBlunt>5.8</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_CeratopsidHorn"]/statBases</xpath>
+                    <value>
+                        <Bulk>3</Bulk>
+                        <MeleeCounterParryBonus>0.12</MeleeCounterParryBonus>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_CeratopsidHorn"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.20</MeleeCritChance>
+                            <MeleeDodgeChance>0.10</MeleeDodgeChance>
+                        </equippedStatOffsets>  
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_CeratopsidHorn"]</xpath>
+                    <value>
+                        <weaponTags>
+                            <li>CE_OneHandedWeapon</li>
+                        </weaponTags>
+                    </value>
+                </li>
+
+                <!--========== Bladecrest Blade ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladecrestBlade"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>bladecrest blade</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <power>14</power>
+                                <cooldownTime>2</cooldownTime>
+                                <chanceFactor>0.65</chanceFactor>
+                                <armorPenetrationSharp>1.38</armorPenetrationSharp>
+                                <armorPenetrationBlunt>16</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>bladecrest blade</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>36</power>
+                                <cooldownTime>1.5</cooldownTime>
+                                <chanceFactor>0.35</chanceFactor>
+                                <armorPenetrationSharp>6.5</armorPenetrationSharp>
+                                <armorPenetrationBlunt>5.8</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladecrestBlade"]/statBases</xpath>
+                    <value>
+                        <Bulk>3</Bulk>
+                        <MeleeCounterParryBonus>0.18</MeleeCounterParryBonus>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladecrestBlade"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.25</MeleeCritChance>
+                            <MeleeDodgeChance>0.12</MeleeDodgeChance>
+                        </equippedStatOffsets>  
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladecrestBlade"]</xpath>
+                    <value>
+                        <weaponTags>
+                            <li>CE_OneHandedWeapon</li>
+                        </weaponTags>
+                    </value>
+                </li>
+
+                <!--========== Tyrannosaurus Skull(you got balls) ==========-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_TyrannoSkull"]/statBases</xpath>
+                    <value>
+                        <Bulk>5</Bulk>
+                        <WornBulk>3</WornBulk>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_TyrannoSkull"]/statBases/ArmorRating_Sharp</xpath>
+                    <value>
+                        <ArmorRating_Sharp>3</ArmorRating_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_TyrannoSkull"]/statBases/ArmorRating_Blunt</xpath>
+                    <value>
+                        <ArmorRating_Blunt>9</ArmorRating_Blunt>
+                    </value>
+                </li>
+                <li Class="PatchOperationAddModExtension">
+                    <xpath>/Defs/ThingDef[defName="BMT_TyrannoSkull"]</xpath>
+                    <value>
+                        <li Class="CombatExtended.PartialArmorExt">
+                            <stats>
+                                <li>
+                                    <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+                                    <parts>
+                                        <li>Eye</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
+                                    <parts>
+                                        <li>Eye</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+                                    <parts>
+                                        <li>Ear</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+                                    <parts>
+                                        <li>Ear</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Sharp>0.85</ArmorRating_Sharp>
+                                    <parts>
+                                        <li>Nose</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Blunt>0.85</ArmorRating_Blunt>
+                                    <parts>
+                                        <li>Nose</li>
+                                    </parts>
+                                </li>
+                            </stats>
+                        </li>
+                    </value>
+                </li>
+
+                <!--========== DilophosaurusSkull ==========-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_DilophosaurusSkull"]/statBases</xpath>
+                    <value>
+                        <Bulk>3</Bulk>
+                        <WornBulk>2</WornBulk>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_DilophosaurusSkull"]/statBases/ArmorRating_Sharp</xpath>
+                    <value>
+                        <ArmorRating_Sharp>2</ArmorRating_Sharp>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_DilophosaurusSkull"]/statBases/ArmorRating_Blunt</xpath>
+                    <value>
+                        <ArmorRating_Blunt>8</ArmorRating_Blunt>
+                    </value>
+                </li>
+                <li Class="PatchOperationAddModExtension">
+                    <xpath>/Defs/ThingDef[defName="BMT_DilophosaurusSkull"]</xpath>
+                    <value>
+                        <li Class="CombatExtended.PartialArmorExt">
+                            <stats>
+                                <li>
+                                    <ArmorRating_Sharp>0.6</ArmorRating_Sharp>
+                                    <parts>
+                                        <li>Eye</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Blunt>0.6</ArmorRating_Blunt>
+                                    <parts>
+                                        <li>Eye</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Sharp>0.45</ArmorRating_Sharp>
+                                    <parts>
+                                        <li>Ear</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Blunt>0.45</ArmorRating_Blunt>
+                                    <parts>
+                                        <li>Ear</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Sharp>0.35</ArmorRating_Sharp>
+                                    <parts>
+                                        <li>Nose</li>
+                                    </parts>
+                                </li>
+                                <li>
+                                    <ArmorRating_Blunt>0.35</ArmorRating_Blunt>
+                                    <parts>
+                                        <li>Nose</li>
+                                    </parts>
+                                </li>
+                            </stats>
+                        </li>
+                    </value>
+                </li>
+
+                <!--========== Blade Feather ==========-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladeFeather"]/tools</xpath>
+                    <value>
+                        <tools>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>blade feather</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <power>36</power>
+                                <cooldownTime>3</cooldownTime>
+                                <chanceFactor>0.65</chanceFactor>
+                                <armorPenetrationSharp>4.3</armorPenetrationSharp>
+                                <armorPenetrationBlunt>28</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Edge</linkedBodyPartsGroup>
+                            </li>
+                            <li Class="CombatExtended.ToolCE">
+                                <label>blade feather</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>54</power>
+                                <cooldownTime>4</cooldownTime>
+                                <chanceFactor>0.35</chanceFactor>
+                                <armorPenetrationSharp>8</armorPenetrationSharp>
+                                <armorPenetrationBlunt>6.4</armorPenetrationBlunt>
+                                <linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+                            </li>
+                        </tools>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladeFeather"]/statBases</xpath>
+                    <value>
+                        <Bulk>3</Bulk>
+                        <MeleeCounterParryBonus>0.24</MeleeCounterParryBonus>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladeFeather"]</xpath>
+                    <value>
+                        <equippedStatOffsets>
+                            <MeleeCritChance>0.25</MeleeCritChance>
+                            <MeleeDodgeChance>0.12</MeleeDodgeChance>
+                        </equippedStatOffsets>  
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="BMT_BladeFeather"]</xpath>
+                    <value>
+                        <weaponTags>
+                            <li>CE_OneHandedWeapon</li>
+                        </weaponTags>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
