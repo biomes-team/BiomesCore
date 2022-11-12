@@ -32,6 +32,7 @@
 		<affordances>
 			<!-- Technically incorrect, but for gameplay we allow it -->
 			<li>BiomesCore_FreshWater_Bridgeable</li>
+			<li>Bridgeable</li>
 		</affordances>
 	</TerrainDef>
 
@@ -90,7 +91,7 @@
 		<designationCategory>Structure</designationCategory>
 		<fertility>1.0</fertility>
 		<constructEffect>ConstructWood</constructEffect>
-		<terrainAffordanceNeeded>BiomesCore_FreshWater_Bridgeable</terrainAffordanceNeeded>
+		<terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded>
 		<edgeType>Hard</edgeType>
 		<renderPrecedence>400</renderPrecedence>
 		<statBases>
