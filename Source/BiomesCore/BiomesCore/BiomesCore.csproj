@@ -145,6 +145,8 @@
     <Compile Include="StockGenerators\HighQualityItems.cs" />
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
+    <Compile Include="ThingComponents\CompProperties_CorpseThingSpawner.cs" />
+    <Compile Include="ThingComponents\CompProperties_CleanFilthAround.cs" />
     <Compile Include="ThingComponents\CompAnimalThingSpawner.cs" />
     <Compile Include="ThingComponents\CompBottomFeeder.cs" />
     <Compile Include="ThingComponents\CompCustomThingEater.cs" />

@@ -12,7 +12,7 @@ namespace BiomesCore
         public static JobDef BC_BloodDrinking;
         public static JobDef BC_BottomFeeder;
         public static JobDef BC_EatCustomThing;
-        
+
         static BiomesCoreDefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(BiomesCoreDefOf));
