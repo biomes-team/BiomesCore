@@ -11,8 +11,12 @@ namespace BiomesCore.Patches
 	{
 		internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
 		{
+			if (!c.InBounds(map))
+			{
+				return true;
+			}
+
 			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-			List<Thing> list = map.thingGrid.ThingsListAt(c);
 			
 			if (!plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should not use the BMT plant spawning system.
 			{
@@ -34,7 +38,8 @@ namespace BiomesCore.Patches
 				}
 
 			}
-			
+
+			List<Thing> list = map.thingGrid.ThingsListAt(c);
 			foreach (Thing thing in list) //governs plant that grow on buildings, such as planters or hydroponics systems. These should bypass our other checks.
 			{
 				if (thing?.def.building != null)
