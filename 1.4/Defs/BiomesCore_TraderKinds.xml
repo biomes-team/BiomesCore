@@ -48,6 +48,10 @@
 					<li>AnimalExotic</li>
 				</tradeTagsBuy>
 			</li>
+			<!-- To simplify BiomesCore.StockGenerators.Herder, Chemfuel is hardcoded as a purchasable animal product. -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Chemfuel</thingDef>
+			</li>
 			<li Class="StockGenerator_BuyExpensiveSimple"/>
 			<li Class="StockGenerator_BuyTradeTag">
 				<tag>Art</tag>
