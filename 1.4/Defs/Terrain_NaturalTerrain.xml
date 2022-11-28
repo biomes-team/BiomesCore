@@ -49,6 +49,11 @@
 			<li Class="BiomesCore.DefExtension_ShaderSpeedMult">
 				<timeMult>0.005</timeMult>
 			</li>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Lava</li>
+				</terrainTags>
+			</li>
 		</modExtensions>
   </BiomesCore.ActiveTerrainDef>
   

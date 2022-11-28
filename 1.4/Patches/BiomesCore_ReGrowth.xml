@@ -2,21 +2,29 @@
 <Patch>
     <!-- Add terrain tags to control spawning of BMT plants -->
     <!-- tags are:
-		Deep
-		ChestDeep
-		Shallow
-		Fresh
-		Salty
-		Sandy
 		Boggy
+		ChestDeep
+		Deep
+		Fresh
+		Icy
+		Loose
 		Muddy
 		Rocky
-		Loose
-		Solid
-		Icy
+		Salty
+		Sandy
+		Shallow
+		Soil
+		Water
 
 		Hot
 		Lava
+		
+		Toxic
+
+		Slimy
+		Metallic
+		Eyey
+		Tarry
 		-->
 	
 	<Operation Class="PatchOperationFindMod">

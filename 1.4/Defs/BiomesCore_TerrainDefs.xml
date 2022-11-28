@@ -50,6 +50,14 @@
       <Beauty>-1</Beauty>
       <Cleanliness>-1</Cleanliness>
     </statBases>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Rocky</li>
+					<li>Loose</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
     <scatterType>Rocky</scatterType>
     <affordances>
       <li>Light</li>
