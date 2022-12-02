@@ -20,4 +20,10 @@
 		<reportString>eating.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
+
+	<JobDef>
+		<defName>BC_HarvestAnimalProduct</defName>
+		<driverClass>BiomesCore.JobDriver_HarvestAnimalProduct</driverClass>
+		<reportString>harvesting animal product from TargetA.</reportString>
+	</JobDef>
 </Defs>

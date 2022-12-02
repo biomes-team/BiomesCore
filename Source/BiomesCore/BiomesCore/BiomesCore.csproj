@@ -74,6 +74,7 @@
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefModExtensions\Plant_GraphicPerBiome.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
+    <Compile Include="Jobs\JobDriver_HarvestAnimalProduct.cs" />
     <Compile Include="Jobs\JobDriver_BottomFeeder.cs" />
     <Compile Include="DefOfs\PawnKindDefOf.cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
@@ -145,6 +146,9 @@
     <Compile Include="StockGenerators\HighQualityItems.cs" />
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
+    <Compile Include="ThingComponents\CompHarvestAnimalProduct.cs" />
+    <Compile Include="ThingComponents\CompCorpseThingSpawner.cs" />
+    <Compile Include="ThingComponents\CompCleanFilthAround.cs" />
     <Compile Include="ThingComponents\CompAnimalThingSpawner.cs" />
     <Compile Include="ThingComponents\CompBottomFeeder.cs" />
     <Compile Include="ThingComponents\CompCustomThingEater.cs" />

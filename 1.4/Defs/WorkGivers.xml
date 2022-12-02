@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<WorkGiverDef>
+		<defName>BC_HarvestAnimalProduct</defName>
+		<label>harvest animal product</label>
+		<giverClass>BiomesCore.WorkGiver_HarvestAnimalProduct</giverClass>
+		<workType>Handling</workType>
+		<verb>harvest from</verb>
+		<gerund>harvesting from</gerund>
+		<priorityInType>85</priorityInType>
+		<requiredCapacities>
+		  <li>Manipulation</li>
+		</requiredCapacities>
+    </WorkGiverDef>
+</Defs>
