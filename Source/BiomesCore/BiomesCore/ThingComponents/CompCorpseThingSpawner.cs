@@ -9,9 +9,9 @@ namespace BiomesCore
         public string thingDef = null;
         public int filthAmount = 0;
         public int baseResourceAmount = 1;
-        public CompProperties_CorpseThingSpawner() => this.compClass = typeof(CorpseThingSpawner);
+        public CompProperties_CorpseThingSpawner() => this.compClass = typeof(Comp_CorpseThingSpawner);
     }
-    public class CorpseThingSpawner : ThingComp
+    public class Comp_CorpseThingSpawner : ThingComp
     {
         public CompProperties_CorpseThingSpawner Props => (CompProperties_CorpseThingSpawner)this.props;
     }
@@ -19,7 +19,7 @@ namespace BiomesCore
     {
         public override void PawnDied(Corpse corpse)
         {
-            CorpseThingSpawner comp = corpse.InnerPawn.TryGetComp<CorpseThingSpawner>();
+            Comp_CorpseThingSpawner comp = corpse.InnerPawn.TryGetComp<Comp_CorpseThingSpawner>();
             if (comp != null)
             {
                 FilthMaker.TryMakeFilth(corpse.Position, corpse.Map, DefDatabase<ThingDef>.GetNamedSilentFail(comp.Props.filthDef), comp.Props.filthAmount, FilthSourceFlags.None);

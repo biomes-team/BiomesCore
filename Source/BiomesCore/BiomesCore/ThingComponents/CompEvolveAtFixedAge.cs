@@ -5,6 +5,20 @@ using Verse.Sound;
 
 namespace BiomesCore
 {
+    public class CompProperties_EvolveAtFixedAge : CompProperties
+    {
+        public int ageInDays;
+        public ThingDef evolveIntoThingDef;
+        public PawnKindDef evolveIntoPawnKindDef;
+        public SoundDef evolveSound;
+        public int filthAmount;
+        public ThingDef filthDef;
+        public bool carryOverAge;
+        public string inspectionStringKey;
+
+        public CompProperties_EvolveAtFixedAge() => compClass = typeof(CompEvolveAtFixedAge);
+    }
+
     public class CompEvolveAtFixedAge : ThingComp
     {
         public CompProperties_EvolveAtFixedAge Props => (CompProperties_EvolveAtFixedAge) props;
@@ -66,19 +80,5 @@ namespace BiomesCore
             int remainingTicks = Math.Max(0, (int)(Props.ageInDays * 60000L - oldPawn.ageTracker.AgeBiologicalTicks));
             return key.Translate(remainingTicks.ToStringTicksToPeriod(false, false, false));
         }
-    }
-    
-    public class CompProperties_EvolveAtFixedAge : CompProperties
-    {
-        public int ageInDays;
-        public ThingDef evolveIntoThingDef;
-        public PawnKindDef evolveIntoPawnKindDef;
-        public SoundDef evolveSound;
-        public int filthAmount;
-        public ThingDef filthDef;
-        public bool carryOverAge;
-        public string inspectionStringKey;
-        
-        public CompProperties_EvolveAtFixedAge() => compClass = typeof(CompEvolveAtFixedAge);
     }
 }
