@@ -14,7 +14,6 @@
     <letterDef>PositiveEvent</letterDef>
     <allowedBiomes>
       <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <li MayRequire="biomesteam.biomescaverns">BMT_ShallowCave</li>
       <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <plant>BMT_Ambrosyx</plant>
@@ -31,7 +30,6 @@
     </targetTags>
     <allowedBiomes>
       <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <li MayRequire="biomesteam.biomescaverns">BMT_ShallowCave</li>
       <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>BiomesCore.IncidentWorker_CaveIn</workerClass>
@@ -49,7 +47,6 @@
     </targetTags>
     <allowedBiomes>
       <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <li MayRequire="biomesteam.biomescaverns">BMT_ShallowCave</li>
       <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>IncidentWorker_Aurora</workerClass>
@@ -70,7 +67,6 @@
     </targetTags>
     <allowedBiomes>
       <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <li MayRequire="biomesteam.biomescaverns">BMT_ShallowCave</li>
       <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>BiomesCore.IncidentWorker_Earthquake</workerClass>

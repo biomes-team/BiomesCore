@@ -2,6 +2,7 @@
 using Verse;
 using BiomesCore.DefModExtensions;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using HarmonyLib;
 
 namespace BiomesCore.Patches
@@ -54,12 +55,13 @@ namespace BiomesCore.Patches
 			
 			if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>()) //this section governs plants that should.
 			{
-				if (map.Biome.HasModExtension<BiomesMap>())
+				BiomeDef biome = map.LocalBiome(c);
+				if (biome.HasModExtension<BiomesMap>())
 				{
-					BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-					if (biome.isCavern)
+					BiomesMap biomesMap = biome.GetModExtension<BiomesMap>();
+					if (biomesMap.isCavern)
 					{
-						if (!map.Biome.AllWildPlants.Contains(plantDef))
+						if (!biome.AllWildPlants.Contains(plantDef))
 						{
 							__result = false;
 							return false;
@@ -202,4 +204,12 @@ namespace BiomesCore.Patches
 		}
 	}
 
+	/// <summary>
+	/// Extension point for Harmony patches to return a different biome based on map position.
+	/// </summary>
+	internal static class LocalBiomeExtensionPoint
+	{
+		[MethodImpl(MethodImplOptions.NoInlining)]
+		public static BiomeDef LocalBiome(this Map map, IntVec3 pos) => map.Biome;
+	}
 }

@@ -29,7 +29,7 @@ namespace BiomesCore.Patches
                         return 0f;
                     }
                     var preferred = d.GetModExtension<OrePreferredBiome>();
-                    if (preferred != null && !preferred.allowedBiomes.Contains(map.Biome))
+                    if (preferred != null && !preferred.allowedBiomes.Contains(map.LocalBiome(c)))
                     {
                         return d.building.mineableScatterCommonality * 0.15f;
                     }
