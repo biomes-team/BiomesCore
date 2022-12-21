@@ -5,8 +5,8 @@ namespace BiomesCore.DerivedClasses
 {
 	public class BMT_Plant : Plant
 	{
-		protected override bool Resting => isResting;
-		bool isResting
+		protected override bool Resting => IsResting;
+		bool IsResting
 		{
 			get
 			{
