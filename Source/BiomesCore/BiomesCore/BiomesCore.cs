@@ -17,6 +17,7 @@ namespace BiomesCore
         {
             HarmonyInstance = new Harmony(BiomesCore.Id);
             HarmonyInstance.PatchAll();
+            LongEventHandler.ExecuteWhenFinished(Patches.ExtraStatInfo.Initialize);
             Log("Initialized");
         }
 

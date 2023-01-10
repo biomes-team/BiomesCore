@@ -23,4 +23,6 @@
   <NocturnalAnimals.logging.label>Enable verbose logging</NocturnalAnimals.logging.label>
   <NocturnalAnimals.logging.tooltip>Shows verbose logging, for finding errors</NocturnalAnimals.logging.tooltip>
   <NocturnalAnimals.version.label>Installed mod-version: {0}</NocturnalAnimals.version.label>
+
+  <BC_SpawnPercentage>{0} %</BC_SpawnPercentage>
 </LanguageData>

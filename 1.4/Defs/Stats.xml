@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<StatCategoryDef>
+		<defName>BC_AnimalCommonality</defName>
+		<label>animal commonality</label>
+		<!-- Always last, right before content source. -->
+		<displayOrder>998</displayOrder>
+	</StatCategoryDef>
+	<StatCategoryDef>
+		<defName>BC_BiomeCommonality</defName>
+		<label>biome commonality</label>
+		<!-- Always last, right before content source. -->
+		<displayOrder>998</displayOrder>
+	</StatCategoryDef>
+</Defs>
