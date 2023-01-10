@@ -16,7 +16,13 @@ namespace BiomesCore.Patches
 		{
 			public int Compare(Def x, Def y)
 			{
-				return string.Compare(x.label.ToLower(), y.label.ToLower(), StringComparison.Ordinal);
+				var result = string.Compare(x.label.ToLower(), y.label.ToLower(), StringComparison.Ordinal);
+				if (result == 0)
+				{
+					result = x.defName.CompareTo(y.defName);
+				}
+
+				return result;
 			}
 		}
 
@@ -62,7 +68,6 @@ namespace BiomesCore.Patches
 					{
 						_animalsPerBiome[biomeDef] = new SortedDictionary<ThingDef, float>(Comparer);
 					}
-
 					_animalsPerBiome[biomeDef].Add(animalDef.race, commonality);
 
 					if (!_biomesPerAnimal.ContainsKey(animalDef.race))
