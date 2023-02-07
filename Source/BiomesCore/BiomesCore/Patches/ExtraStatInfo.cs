@@ -49,7 +49,10 @@ namespace BiomesCore.Patches
 		{
 			foreach (var animalDef in DefDatabase<PawnKindDef>.AllDefsListForReading)
 			{
-				if (animalDef.race?.race == null || !animalDef.race.race.Animal)
+				if (animalDef.race?.race == null || !animalDef.race.race.Animal ||
+				    // Two PawnKindDefs can share the same race.
+				    _biomesPerAnimal.ContainsKey(animalDef.race)
+				   )
 				{
 					continue;
 				}
@@ -67,6 +70,7 @@ namespace BiomesCore.Patches
 					{
 						_animalsPerBiome[biomeDef] = new SortedDictionary<ThingDef, float>(Comparer);
 					}
+
 					_animalsPerBiome[biomeDef].Add(animalDef.race, commonality);
 
 					if (!_biomesPerAnimal.ContainsKey(animalDef.race))
