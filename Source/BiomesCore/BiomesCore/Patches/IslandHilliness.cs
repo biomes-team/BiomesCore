@@ -15,6 +15,10 @@ namespace BiomesCore.Patches
             {
                 return;
             }
+            if (!__result.biome.GetModExtension<BiomesMap>().isIsland)
+            {
+                return;
+            }
             if (!__result.biome.GetModExtension<BiomesMap>().addIslandHills)
             {
                 return;
