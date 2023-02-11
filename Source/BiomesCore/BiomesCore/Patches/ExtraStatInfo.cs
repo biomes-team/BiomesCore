@@ -11,6 +11,9 @@ namespace BiomesCore.Patches
 	[HarmonyPatch]
 	public static class ExtraStatInfo
 	{
+		// Ensures that the new stats will always be shown at the end, before the mod information.
+		private const int displayPriority = 89998;
+
 		private class ByLabel : IComparer<Def>
 		{
 			public int Compare(Def x, Def y)
@@ -47,10 +50,12 @@ namespace BiomesCore.Patches
 
 		public static void Initialize()
 		{
+			// Calculate _animalsPerBiome. At this stage, _biomesPerAnimals is used to track which PawnKindDef races have
+			// already been checked.
 			foreach (var animalDef in DefDatabase<PawnKindDef>.AllDefsListForReading)
 			{
 				if (animalDef.race?.race == null || !animalDef.race.race.Animal ||
-				    // Two PawnKindDefs can share the same race.
+				    // Mods may have different PawnKindDefs sharing the same race ThingDef.
 				    _biomesPerAnimal.ContainsKey(animalDef.race)
 				   )
 				{
@@ -73,15 +78,15 @@ namespace BiomesCore.Patches
 
 					_animalsPerBiome[biomeDef].Add(animalDef.race, commonality);
 
+					// Keep track of already processed race ThingDefs. Commonalities are added to the dictionary later.
 					if (!_biomesPerAnimal.ContainsKey(animalDef.race))
 					{
 						_biomesPerAnimal[animalDef.race] = new SortedDictionary<BiomeDef, float>(Comparer);
 					}
-
-					_biomesPerAnimal[animalDef.race].Add(biomeDef, commonality);
 				}
 			}
 
+			// Calculate the percentages relative to each biome.
 			var animalsPerBiomeTemp =
 				new Dictionary<BiomeDef, SortedDictionary<ThingDef, float>>();
 			foreach (var entry in _animalsPerBiome)
@@ -91,14 +96,20 @@ namespace BiomesCore.Patches
 
 			_animalsPerBiome = animalsPerBiomeTemp;
 
-			var biomesPerAnimalTemp =
-				new Dictionary<ThingDef, SortedDictionary<BiomeDef, float>>();
-			foreach (var entry in _biomesPerAnimal)
+			// Copy the percentages relative to each biome into _biomesPerAnimal.
+			foreach (var biomeEntry in _animalsPerBiome)
 			{
-				biomesPerAnimalTemp[entry.Key] = ChanceToPercentage(entry.Value);
-			}
+				foreach (var animalEntry in biomeEntry.Value)
+				{
+					if (!_biomesPerAnimal.ContainsKey(animalEntry.Key))
+					{
+						Log.Error(
+							$"BiomesCore.ExtraStatInfo error: cannot add [{animalEntry.Key.defName}, {biomeEntry.Key.defName}].");
+					}
 
-			_biomesPerAnimal = biomesPerAnimalTemp;
+					_biomesPerAnimal[animalEntry.Key].Add(biomeEntry.Key, animalEntry.Value);
+				}
+			}
 		}
 
 		[HarmonyPostfix]
@@ -121,9 +132,9 @@ namespace BiomesCore.Patches
 				yield return new StatDrawEntry(
 					StatCategories.BC_BiomeCommonality,
 					biomeEntry.Key.label.ToLower().CapitalizeFirst(),
-					"BC_SpawnPercentage".Translate(biomeEntry.Value.ToString("0.##")),
+					"BC_SpawnPercentage".Translate(biomeEntry.Value.ToString("0.###")),
 					biomeEntry.Key.description,
-					89998,
+					displayPriority,
 					null,
 					new List<Dialog_InfoCard.Hyperlink> {new Dialog_InfoCard.Hyperlink(biomeEntry.Key)}
 				);
@@ -140,7 +151,8 @@ namespace BiomesCore.Patches
 				yield return entry;
 			}
 
-			if (!(__instance is BiomeDef biomeDef))
+			// Some biomes such as Ocean may have no animals.
+			if (!(__instance is BiomeDef biomeDef) || !_animalsPerBiome.ContainsKey(biomeDef))
 			{
 				yield break;
 			}
@@ -150,9 +162,9 @@ namespace BiomesCore.Patches
 				yield return new StatDrawEntry(
 					StatCategories.BC_AnimalCommonality,
 					animalEntry.Key.label.ToLower().CapitalizeFirst(),
-					"BC_SpawnPercentage".Translate(animalEntry.Value.ToString("0.##")),
+					"BC_SpawnPercentage".Translate(animalEntry.Value.ToString("0.###")),
 					animalEntry.Key.description,
-					89998,
+					displayPriority,
 					null,
 					new List<Dialog_InfoCard.Hyperlink> {new Dialog_InfoCard.Hyperlink(animalEntry.Key)}
 				);
