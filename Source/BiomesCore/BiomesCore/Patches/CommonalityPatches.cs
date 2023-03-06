@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using BiomesCore.DefModExtensions;
 namespace BiomesCore.Patches
 {
+	/*
 	[HarmonyPatch(typeof(WildPlantSpawner), "GetCommonalityOfPlant")]
 	internal static class WildPlantSpawner_GetCommonalityOfPlant
 	{
@@ -14,6 +15,7 @@ namespace BiomesCore.Patches
 				__result = ___map.Biome.CommonalityOfPlant(plant);
 		}
 	}
+	*/
 
 	[HarmonyPatch(typeof(WildPlantSpawner), "GetBaseDesiredPlantsCountAt")]
 	internal static class WildPlantSpawner_GetBaseDesiredPlantsCountAt

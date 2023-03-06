@@ -46,7 +46,7 @@ namespace BiomesCore
             var oldTerr = ___map.terrainGrid.TerrainAt(c);
             if (oldTerr is ActiveTerrainDef special)
             {
-                ___map.GetComponent<SpecialTerrainList>().Notify_RemovedTerrainAt(c);
+                ___map.GetComponent<SpecialTerrainList>()?.Notify_RemovedTerrainAt(c);
             }
         }
         static void Postfix(IntVec3 c, TerrainDef newTerr, TerrainGrid __instance, Map ___map)
@@ -54,7 +54,7 @@ namespace BiomesCore
             if (newTerr is ActiveTerrainDef special)
             {
                 var specialTerrainList = ___map.GetComponent<SpecialTerrainList>();
-                specialTerrainList.RegisterAt(special, c);
+                specialTerrainList?.RegisterAt(special, c);
             }
         }
     }
@@ -67,7 +67,7 @@ namespace BiomesCore
             if (__instance.TerrainAt(c) is ActiveTerrainDef special)
             {
                 var specialTerrainList = ___map.GetComponent<SpecialTerrainList>();
-                specialTerrainList.Notify_RemovedTerrainAt(c);
+                specialTerrainList?.Notify_RemovedTerrainAt(c);
             }
         }
     }
