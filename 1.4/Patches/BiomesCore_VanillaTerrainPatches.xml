@@ -146,8 +146,7 @@
 		<value>
         <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 			<terrainTags>
-				<li>Soil</li>
-				<li>Boggy</li>
+				<li>Marshy</li>
 			</terrainTags>
         </li>
 		</value>
@@ -206,7 +205,6 @@
 		<value>
         <li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 			<terrainTags>
-				<li>Soil</li>
 				<li>Muddy</li>
 			</terrainTags>
         </li>
