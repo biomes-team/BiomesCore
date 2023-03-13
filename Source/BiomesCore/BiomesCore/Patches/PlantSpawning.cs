@@ -77,7 +77,7 @@ namespace BiomesCore.Patches
 					
                 }
 				
-				if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
+				/*if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
 				{
 					if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
 					{
@@ -94,7 +94,7 @@ namespace BiomesCore.Patches
                 {
 					__result = false;
 					return false;
-				}
+				}*/
 
 				// terrain tags
 				if (!plantExt.terrainTags.NullOrEmpty())
