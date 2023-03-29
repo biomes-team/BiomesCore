@@ -109,11 +109,7 @@ namespace BiomesCore.Patches
     {
         static bool Prefix(IntVec3 c, Map map, int minProximityToArtificialStructures, int minProximityToCenter, int minFertileUnroofedCells, int maxFertileUnroofedCellRadius, ref bool __result)
         {
-            if (!map.Biome.HasModExtension<BiomesMap>())
-            {
-                return true;
-            }
-            if (!map.Biome.GetModExtension<BiomesMap>().isCavern)
+            if (map.roofGrid.RoofAt(c) != BiomesCoreDefOf.BMT_RockRoofStable)
             {
                 return true;
             }

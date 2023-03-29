@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using HarmonyLib;
 using System.Linq;
 using Verse;
-using BiomesCore.DefModExtensions;
 using System.Reflection.Emit;
 using System.Reflection;
-using System;
 
 namespace BiomesCore.Patches
 {
@@ -37,11 +35,13 @@ namespace BiomesCore.Patches
                 }
             }
         }
+        
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codeInstructions)
         {
             var codes = codeInstructions.ToList();
-            var roofedInfo = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new Type[] { typeof(IntVec3)});
+            var roofedInfo = AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] { typeof(IntVec3)});
             var allowIfCavernInfo = AccessTools.Method(typeof(PawnsArrivalModeWorker_EdgeWalkIn_Patch), nameof(AllowIfCavern));
+            
             foreach (var code in codes)
             {
                 if (code.Calls(roofedInfo))
@@ -57,18 +57,7 @@ namespace BiomesCore.Patches
 
         public static bool AllowIfCavern(RoofGrid roofgrid, IntVec3 cell)
         {
-            var map = Traverse.Create(roofgrid).Field("map").GetValue() as Map;
-            if (map.Biome.HasModExtension<BiomesMap>())
-            {
-                BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-                if (biome.isCavern)
-                {
-                    return false;
-                }
-            }
-            return roofgrid.Roofed(cell);
+            return roofgrid.Roofed(cell) && roofgrid.RoofAt(cell) != BiomesCoreDefOf.BMT_RockRoofStable;
         }
     }
-
-
 }

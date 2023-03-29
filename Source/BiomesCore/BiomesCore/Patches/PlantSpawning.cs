@@ -55,6 +55,10 @@ namespace BiomesCore.Patches
 			
 			if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>()) //this section governs plants that should.
 			{
+				/*
+				 no longer needed because of <applyToCaverns> biome tag which overrides the vanilla cave plant spawning system
+				 with the normal <wildPlants> from the biome
+				 
 				BiomeDef biome = map.LocalBiome(c);
 				if (biome.HasModExtension<BiomesMap>())
 				{
@@ -68,6 +72,7 @@ namespace BiomesCore.Patches
 						}
 					}
 				}
+				*/
 				
 				Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
 				Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();

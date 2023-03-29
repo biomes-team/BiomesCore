@@ -210,21 +210,18 @@ namespace BiomesCore.Patches
                 "DropCellFinder.TryFindSafeLandingSpotCloseToColony");
         }
     }
+    
     [HarmonyPatch(typeof(DropCellFinder), "CanPhysicallyDropInto")]
     static class Cavern_DropCellFinder_CanPhysicallyDropInto
     {
         public static bool Prefix(ref bool __result, IntVec3 c, Map map, bool canRoofPunch, bool allowedIndoors = true)
         {
-            BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-            if (biome != null && biome.isCavern)
+            if (map.roofGrid.RoofAt(c) == BiomesCoreDefOf.BMT_RockRoofStable)
             {
                 __result = CanPhysicallyDropInto(c, map, canRoofPunch, allowedIndoors);
-                if (__result)
-                {
-                    Log.Message("CanPhysicallyDropInto");
-                }
                 return false;
             }
+            
             return true;
         }
 
@@ -271,6 +268,7 @@ namespace BiomesCore.Patches
             return true;
         }
     }
+    
     [HarmonyPatch(typeof(DropCellFinder), "FindRaidDropCenterDistant")]
     static class Cavern_DropCellFinder_FindRaidDropCenterDistant
     {
