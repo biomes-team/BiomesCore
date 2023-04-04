@@ -80,7 +80,6 @@
     <Compile Include="DefOfs\PawnKindDefOf.cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\BiomesMap.cs" />
-    <Compile Include="DefOfs\PlantDefOf.cs" />
     <Compile Include="DefOfs\SoundDefOf.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="Incidents\GameCondition_Earthquake.cs" />

@@ -1,27 +1,6 @@
 <Defs>
 
-<PlantSproutIncidentDef>
-    <defName>AmbrosyxSprout</defName>
-    <label>ambrosyx sprout</label>
-    <category>Misc</category>
-    <targetTags>
-      <li>Map_PlayerHome</li>
-    </targetTags>
-    <workerClass>BiomesCore.IncidentWorker_PlantSprout</workerClass>
-    <baseChance>1.0</baseChance>
-    <letterLabel>Ambrosyx sprout</letterLabel>
-    <letterText>A grove of the mysterious ambrosia bush has sprouted nearby! If you wait for the plants to grow, you'll be able to harvest the delicious, pleasurable, and slightly addictive fruit.</letterText>
-    <letterDef>PositiveEvent</letterDef>
-    <allowedBiomes>
-      <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
-    </allowedBiomes>
-    <plant>BMT_Ambrosyx</plant>
-    <amount>10~20</amount>
-    <ignoreSeason>true</ignoreSeason>
-  </PlantSproutIncidentDef>
-  
-    <IncidentDef>
+  <IncidentDef>
     <defName>CaveIn</defName>
     <label>cave-in</label>
     <category>Misc</category>
