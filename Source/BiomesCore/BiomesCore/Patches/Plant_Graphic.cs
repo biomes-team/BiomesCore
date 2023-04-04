@@ -1,6 +1,11 @@
-﻿using Verse;
+﻿// Allows customizing almost every plant graphic for every biome.
+// Has issues with NREs when used in other biomes.
+// Might be used again in the future, for now Caverns is using a smaller extension that changes only the main graphic.
+/*
+using Verse;
 using RimWorld;
 using HarmonyLib;
+
 
 namespace BiomesCore.Patches
 {
@@ -31,3 +36,4 @@ namespace BiomesCore.Patches
         }
     }
 }
+*/
