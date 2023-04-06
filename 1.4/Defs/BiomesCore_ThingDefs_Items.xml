@@ -24,6 +24,10 @@
       <StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
     </statBases>
     <stuffProps>
+      <categories>
+        <li>BMT_ChitinStuff</li>
+        <li>Leathery</li>
+      </categories>
       <color>(255,255,255)</color>
       <commonality>0.02</commonality>
       <statFactors>
