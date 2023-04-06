@@ -88,6 +88,8 @@
     <Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
     <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
     <Compile Include="Jobs\JobDriver_EatCustomThing.cs" />
+    <Compile Include="LordJobs\WanderAroundThing.cs" />
+    <Compile Include="LordToils\WanderAroundThing.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_LargeChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_Smoth.cs" />
@@ -163,6 +165,7 @@
     <Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
+    <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
