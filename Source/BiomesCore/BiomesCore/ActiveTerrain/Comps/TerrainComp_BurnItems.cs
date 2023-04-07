@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using System.Linq;
 using Verse;
 
@@ -6,24 +7,45 @@ namespace BiomesCore
 {
     public class TerrainComp_BurnItems : TerrainComp
     {
+        /// <summary>
+        /// Lazily initialized cache of surrounding tiles affected by this comp.
+        /// </summary>
+        private List<IntVec3> affectedTiles;
+
         public TerrainCompProperties_BurnItems Props { get { return (TerrainCompProperties_BurnItems)props; } }
+
+        private void InitializeAffectedTiles()
+        {
+            if (affectedTiles != null)
+            {
+                return;
+            }
+            affectedTiles = new List<IntVec3>();
+
+            // Custom version of GenAdj.CellsAdjacent8Way which ignores cells outside of the map.
+            foreach (var adjacentOffset in GenAdj.AdjacentCells)
+            {
+                IntVec3 adjacentCell = parent.Position + adjacentOffset;
+                if (adjacentCell.x >= 0 && adjacentCell.x < parent.Map.Size.x && adjacentCell.z >= 0 &&
+                    adjacentCell.z < parent.Map.Size.z)
+                {
+                    affectedTiles.Add(adjacentCell);
+                }
+            }
+        }
+        
         public override void CompTick()
         {
             base.CompTick();
             if (Find.TickManager.TicksGame % 60 == this.HashCodeToMod(60))
             {
-                DamageThings(this.parent.Position);
-                foreach (var cell in GenAdj.CellsAdjacent8Way(new TargetInfo(this.parent.Position, this.parent.Map)).InRandomOrder())
+                DamageThings(parent.Position);
+
+                InitializeAffectedTiles();
+                if (affectedTiles.Count != 0)
                 {
-                    var terrain = cell.GetTerrain(this.parent.Map);
-                    if (terrain != this.parent.def)
-                    {
-                        if (Rand.Chance(0.3f))
-                        {
-                            DamageThings(cell);
-                            break;
-                        }
-                    }
+                    int index = Rand.Range(0, affectedTiles.Count - 1);
+                    DamageThings(affectedTiles[index]);
                 }
             }
         }
@@ -44,8 +66,7 @@ namespace BiomesCore
                         obj.AttachTo(t);
                     }
                     GenSpawn.Spawn(obj, t.Position, t.Map, Rot4.North);
-                    Pawn pawn = t as Pawn;
-                    if (pawn != null)
+                    if (t is Pawn pawn)
                     {
                         pawn.jobs.StopAll();
                         pawn.records.Increment(RecordDefOf.TimesOnFire);
