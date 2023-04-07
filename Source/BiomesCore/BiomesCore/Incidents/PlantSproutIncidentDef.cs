@@ -8,5 +8,6 @@ namespace BiomesCore
         public ThingDef plant;
         public IntRange amount = new IntRange(10, 20);
         public bool ignoreSeason;
+        public bool allowIndoors;
     }
 }

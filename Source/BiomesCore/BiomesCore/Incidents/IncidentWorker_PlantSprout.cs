@@ -10,43 +10,50 @@ namespace BiomesCore
 
 		private const int SpawnRadius = 6;
 
-		private PlantSproutIncidentDef incidentDef;
-
 		public IncidentWorker_PlantSprout()
-        {
-			incidentDef = (PlantSproutIncidentDef)def;
+		{
 		}
 
 		protected override bool CanFireNowSub(IncidentParms parms)
 		{
-			if (!base.CanFireNowSub(parms))
-				return false;
-			Map map = (Map)parms.target;
-            if (!incidentDef.ignoreSeason && !map.weatherManager.growthSeasonMemory.GrowthSeasonOutdoorsNow)
-                return false;
-            IntVec3 cell;
-			return TryFindRootCell(map, out cell);
+			Map map = parms.target as Map;
+			PlantSproutIncidentDef incidentDef = def as PlantSproutIncidentDef;
+
+			return map != null && incidentDef != null && base.CanFireNowSub(parms) &&
+			       (incidentDef.ignoreSeason || map.weatherManager.growthSeasonMemory.GrowthSeasonOutdoorsNow) &&
+			       TryFindRootCell(map, out IntVec3 _);
 		}
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
 		{
-			Map map = (Map)parms.target;
-			if (!TryFindRootCell(map, out var cell))
+			Map map = parms.target as Map;
+			PlantSproutIncidentDef incidentDef = def as PlantSproutIncidentDef;
+			if (incidentDef == null || !TryFindRootCell(map, out var cell))
+			{
 				return false;
-			Thing thing = null;
+			}
+
 			int randomInRange = incidentDef.amount.RandomInRange;
+			Thing anyPlant = null;
 			for (int i = 0; i < randomInRange; i++)
 			{
-				if (!CellFinder.TryRandomClosewalkCellNear(cell, map, 6, out var result, (IntVec3 x) => CanSpawnAt(x, map)))
+				if (!CellFinder.TryRandomClosewalkCellNear(cell, map, 6, out var result, x => CanSpawnAt(x, map)))
+				{
 					break;
+				}
 				result.GetPlant(map)?.Destroy();
 				Thing thing2 = GenSpawn.Spawn(incidentDef.plant, result, map);
-				if (thing == null)
-					thing = thing2;
+				if (anyPlant == null && thing2 != null)
+				{
+					anyPlant = thing2;
+				}
 			}
-			if (thing == null)
-				return false;
-			SendStandardLetter(parms, thing);
+
+			if (anyPlant != null)
+			{
+				SendStandardLetter(parms, anyPlant);
+			}
+
 			return true;
 		}
 
@@ -57,15 +64,29 @@ namespace BiomesCore
 
 		private bool CanSpawnAt(IntVec3 c, Map map)
 		{
-			if (!c.Standable(map) || c.Fogged(map) || map.fertilityGrid.FertilityAt(c) < incidentDef.plant.plant.fertilityMin || !c.GetRoom(map).PsychologicallyOutdoors || c.GetEdifice(map) != null || (incidentDef.ignoreSeason && !PlantUtility.GrowthSeasonNow(c, map)))
+			PlantSproutIncidentDef incidentDef = def as PlantSproutIncidentDef;
+			if (incidentDef == null || !c.Standable(map) || c.Fogged(map) ||
+			    map.fertilityGrid.FertilityAt(c) < incidentDef.plant.plant.fertilityMin ||
+			    (!incidentDef.allowIndoors && !c.GetRoom(map).PsychologicallyOutdoors) || c.GetEdifice(map) != null ||
+			    (incidentDef.ignoreSeason && !PlantUtility.GrowthSeasonNow(c, map)))
+			{
 				return false;
+			}
+
 			Plant plant = c.GetPlant(map);
 			if (plant != null && plant.def.plant.growDays > 10f)
+			{
 				return false;
+			}
 			List<Thing> thingList = c.GetThingList(map);
-			for (int i = 0; i < thingList.Count; i++)
-				if (thingList[i].def == incidentDef.plant)
+			foreach (var t in thingList)
+			{
+				if (t.def == incidentDef.plant)
+				{
 					return false;
+				}
+			}
+
 			return true;
 		}
 	}
