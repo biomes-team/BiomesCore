@@ -1,17 +1,36 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace BiomesCore
 {
     public class CompProperties_HarvestAnimalProduct : CompProperties
     {
-        public int harvestIntervalDays;
+        public int harvestIntervalDays = 1;
         public int baseResourceAmount = 1;
         public ThingDef thingDef;
         public Gender fixedGender = Gender.None;
-        public string resourceGrowthReportString = "ThingGrowth";
+        public string resourceGrowthReportString = null;
 
-        public CompProperties_HarvestAnimalProduct() => this.compClass = typeof(CompHarvestAnimalProduct);
+        public CompProperties_HarvestAnimalProduct() => compClass = typeof(CompHarvestAnimalProduct);
+
+        public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
+        {
+            foreach (var error in base.ConfigErrors(parentDef))
+            {
+                yield return error;
+            }
+
+            if (resourceGrowthReportString == null)
+            {
+                yield return "CompProperties_HarvestAnimalProduct must set a resourceGrowthReportString.";
+            }
+
+            if (thingDef == null)
+            {
+                yield return "CompProperties_HarvestAnimalProduct must set a thingDef to be produced.";
+            }
+        }
     }
 
     public class CompHarvestAnimalProduct : CompHasGatherableBodyResource
@@ -19,23 +38,30 @@ namespace BiomesCore
 
         protected override int GatherResourcesIntervalDays => this.Props.harvestIntervalDays;
 
-        protected override int ResourceAmount => parent is Pawn pawn ? (int)GenMath.RoundRandom(pawn.ageTracker.CurLifeStage.bodySizeFactor * this.Props.baseResourceAmount) : 0;
+        protected override int ResourceAmount => parent is Pawn pawn ?
+            GenMath.RoundRandom(pawn.ageTracker.CurLifeStage.bodySizeFactor * Props.baseResourceAmount) : 0;
 
-        protected override ThingDef ResourceDef => this.Props.thingDef;
+        protected override ThingDef ResourceDef => Props.thingDef;
 
-        public override string CompInspectStringExtra() => !this.Active ? (string)null : (string)(this.Props.resourceGrowthReportString.Translate() + ": " + this.Fullness.ToStringPercent());
+        public override string CompInspectStringExtra() => !Active ? null : Props.resourceGrowthReportString.Translate() + ": " + Fullness.ToStringPercent();
 
-        protected override string SaveKey => this.Props.resourceGrowthReportString;
+        protected override string SaveKey => Props.resourceGrowthReportString;
 
-        public CompProperties_HarvestAnimalProduct Props => (CompProperties_HarvestAnimalProduct)this.props;
+        public CompProperties_HarvestAnimalProduct Props => (CompProperties_HarvestAnimalProduct)props;
 
-        protected override bool Active
+        protected override bool Active =>base.Active && parent is Pawn pawn &&
+                                         (Props.fixedGender == Gender.None || Props.fixedGender == pawn.gender);
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            get
+            if (DebugSettings.ShowDevGizmos)
             {
-                if (!base.Active)
-                    return false;
-                return parent is Pawn pawn && (Props.fixedGender == Gender.None || Props.fixedGender == pawn.gender);
+                yield return new Command_Action
+                {
+                    defaultLabel = $"Finish production of {ResourceDef.label}",
+                    icon = TexCommand.ForbidOff,
+                    action = () =>fullness = 1F
+                };
             }
         }
     }
