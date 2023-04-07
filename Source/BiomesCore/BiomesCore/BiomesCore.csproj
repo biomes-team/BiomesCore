@@ -149,6 +149,7 @@
     <Compile Include="StockGenerators\HighQualityItems.cs" />
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
+    <Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
     <Compile Include="ThingComponents\CompHarvestAnimalProduct.cs" />
     <Compile Include="ThingComponents\CompCorpseThingSpawner.cs" />
     <Compile Include="ThingComponents\CompCleanFilthAround.cs" />

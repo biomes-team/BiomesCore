@@ -14,4 +14,17 @@
     </stages>
   </ThoughtDef>
 
+<ThoughtDef>
+    <defName>BiomesCore_AbysalWater</defName>
+    <durationDays>0.1</durationDays>
+    <stackLimit>1</stackLimit>
+    <stages>
+      <li>
+        <label>thalassophobie</label>
+        <description>I don't want to know what's lurking underneath.</description>
+        <baseMoodEffect>-2</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
 </Defs>
