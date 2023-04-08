@@ -1,5 +1,6 @@
 ﻿using Verse;
 using RimWorld;
+using UnityEngine;
 
 namespace BiomesCore
 {
@@ -31,7 +32,8 @@ namespace BiomesCore
             if (parent.Map == null || !(parent is Plant plant)) return;
             if (plant.Growth >= Props.growthProgress)
             {
-                GasUtility.AddGas(this.parent.PositionHeld, this.parent.MapHeld, this.Props.gasType, this.Props.cellsToFill);
+                float radius = Mathf.Round(plant.Growth * this.Props.cellsToFill);
+                GasUtility.AddGas(this.parent.PositionHeld, this.parent.MapHeld, this.Props.gasType, radius);
                 if (this.Props.effecterReleasing != null)
                 {
                     if (this.effecter == null)
