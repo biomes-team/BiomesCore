@@ -75,6 +75,8 @@
     <Compile Include="DefModExtensions\Plant_GraphicPerBiome.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
+    <Compile Include="Jobs\JobDriver_HermaphroditicMate.cs" />
+    <Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />
     <Compile Include="Jobs\JobDriver_HarvestAnimalProduct.cs" />
     <Compile Include="Jobs\JobDriver_BottomFeeder.cs" />
     <Compile Include="DefOfs\PawnKindDefOf.cs" />

@@ -17,6 +17,7 @@ namespace BiomesCore
         public static JobDef BC_BottomFeeder;
         public static JobDef BC_EatCustomThing;
         public static JobDef BC_HarvestAnimalProduct;
+        public static JobDef BC_HermaphroditicMate;
 
         public static RoofDef BMT_RockRoofStable;
         static BiomesCoreDefOf()

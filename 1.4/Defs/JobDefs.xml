@@ -26,4 +26,12 @@
 		<driverClass>BiomesCore.JobDriver_HarvestAnimalProduct</driverClass>
 		<reportString>harvesting animal product from TargetA.</reportString>
 	</JobDef>
+
+	<JobDef>
+		<defName>BC_HermaphroditicMate</defName>
+		<driverClass>BiomesCore.JobDriver_HermaphroditicMate</driverClass>
+		<reportString>mating with TargetA.</reportString>
+		<casualInterruptible>false</casualInterruptible>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
 </Defs>
