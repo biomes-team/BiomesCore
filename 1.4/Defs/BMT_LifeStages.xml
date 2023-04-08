@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!-- Vanilla EusocialInsectAdult does not allow eusocial insects to be used as rideable in caravans. -->
+	<LifeStageDef>
+		<defName>BMT_RideableEusocialInsectAdult</defName>
+		<label>adult</label>
+		<visible>false</visible>
+		<milkable>true</milkable>
+		<caravanRideable>true</caravanRideable>
+	</LifeStageDef>
+</Defs>
