@@ -19,6 +19,9 @@ namespace BiomesCore
         public static JobDef BC_HarvestAnimalProduct;
         public static JobDef BC_HermaphroditicMate;
 
+        [MayRequireBiotech]
+        public static EffecterDef CellPollution;
+
         public static RoofDef BMT_RockRoofStable;
         static BiomesCoreDefOf()
         {
