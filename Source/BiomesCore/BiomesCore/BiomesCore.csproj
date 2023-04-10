@@ -72,7 +72,6 @@
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
-    <Compile Include="DefModExtensions\Plant_GraphicPerBiome.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
     <Compile Include="Jobs\JobDriver_HermaphroditicMate.cs" />
@@ -152,6 +151,7 @@
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
     <Compile Include="ThingComponents\CompPlantGasOnDestroy.cs" />
+    <Compile Include="ThingComponents\CompPlantGraphicPerBiome.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
     <Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
     <Compile Include="ThingComponents\CompHarvestAnimalProduct.cs" />
