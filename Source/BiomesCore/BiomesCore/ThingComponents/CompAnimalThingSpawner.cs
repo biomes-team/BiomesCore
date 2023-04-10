@@ -13,10 +13,7 @@ namespace BiomesCore.ThingComponents
 
 		public IntRange spawnIntervalRange = new IntRange(100, 100);
 
-		public bool writeTimeLeftToSpawn;
-
 		public string saveKeysPrefix;
-
 
 		public CompProperties_AnimalThingSpawner()
 		{
@@ -53,15 +50,11 @@ namespace BiomesCore.ThingComponents
 
 		private void TickInterval(int interval)
 		{
-			if (!parent.Spawned)
+			if (!parent.Spawned || parent.Position.Fogged(parent.Map))
 			{
 				return;
 			}
 
-			else if (parent.Position.Fogged(parent.Map))
-			{
-				return;
-			}
 			ticksUntilSpawn -= interval;
 			CheckShouldSpawn();
 		}
@@ -84,11 +77,13 @@ namespace BiomesCore.ThingComponents
 			if (TryFindSpawnCell(parent, PropsSpawner.thingToSpawn, PropsSpawner.spawnCount, out var result))
 			{
 				Thing thing = ThingMaker.MakeThing(PropsSpawner.thingToSpawn);
-				thing.stackCount = PropsSpawner.spawnCount;
 				if (thing == null)
 				{
 					Log.Error("Could not spawn anything for " + parent);
+					return false;
 				}
+
+				thing.stackCount = PropsSpawner.spawnCount;
 
 				GenPlace.TryPlaceThing(thing, result, parent.Map, ThingPlaceMode.Direct, out var lastResultingThing);
 
@@ -100,9 +95,8 @@ namespace BiomesCore.ThingComponents
 					if (animal.Faction?.IsPlayer != true)
 					{
 						if(!parent.Map.areaManager.Home[animal.Position])
-                        {
+						{
 							lastResultingThing.SetForbidden(value: true);
-
 						}
 					}
 				}
@@ -132,9 +126,8 @@ namespace BiomesCore.ThingComponents
 				}
 				bool flag = false;
 				List<Thing> thingList = item.GetThingList(parent.Map);
-				for (int i = 0; i < thingList.Count; i++)
+				foreach (var thing in thingList)
 				{
-					Thing thing = thingList[i];
 					if (thing.def.category == ThingCategory.Item && (thing.def != thingToSpawn || thing.stackCount > thingToSpawn.stackLimit - spawnCount))
 					{
 						flag = true;
@@ -156,6 +149,13 @@ namespace BiomesCore.ThingComponents
 			ticksUntilSpawn = PropsSpawner.spawnIntervalRange.RandomInRange;
 		}
 
+		public override string CompInspectStringExtra()
+		{
+			return parent.Spawned
+				? "BMT_AnimalThingSpawner".Translate(PropsSpawner.thingToSpawn.label, ticksUntilSpawn.ToStringTicksToPeriod())
+				: null;
+		}
+
 		public override void PostExposeData()
 		{
 			string text = (PropsSpawner.saveKeysPrefix.NullOrEmpty() ? null : (PropsSpawner.saveKeysPrefix + "_"));
@@ -171,8 +171,8 @@ namespace BiomesCore.ThingComponents
 				command_Action.icon = TexCommand.DesirePower;
 				command_Action.action = delegate
 				{
-					ResetCountdown();
-					TryDoSpawn();
+					ticksUntilSpawn = -1;
+					CheckShouldSpawn();
 				};
 				yield return command_Action;
 			}

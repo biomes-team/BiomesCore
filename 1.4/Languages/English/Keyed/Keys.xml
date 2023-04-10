@@ -25,4 +25,6 @@
   <NocturnalAnimals.version.label>Installed mod-version: {0}</NocturnalAnimals.version.label>
 
   <BC_SpawnPercentage>{0} %</BC_SpawnPercentage>
+
+  <BMT_AnimalThingSpawner>Producing {0} in {1}.</BMT_AnimalThingSpawner>
 </LanguageData>
