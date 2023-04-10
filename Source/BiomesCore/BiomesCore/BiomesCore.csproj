@@ -78,6 +78,7 @@
     <Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />
     <Compile Include="Jobs\JobDriver_HarvestAnimalProduct.cs" />
     <Compile Include="Jobs\JobDriver_BottomFeeder.cs" />
+    <Compile Include="Defs\DisableIncidentsDef.cs" />
     <Compile Include="DefOfs\PawnKindDefOf.cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\BiomesMap.cs" />
