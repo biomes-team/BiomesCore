@@ -33,8 +33,8 @@ namespace BiomesCore.Patches
 		{
 			Initialize();
 
-			BiomeDef biome = Find.WorldGrid[parms.target.Tile].biome;
-			if (biome.HasModExtension<BiomesMap>() && biome.GetModExtension<BiomesMap>().isCavern &&
+			if (parms.target is Map map && map.Biome.HasModExtension<BiomesMap>() &&
+			    map.Biome.GetModExtension<BiomesMap>().isCavern &&
 			    _forbiddenIncidents.Contains(__instance.def))
 			{
 				__result = false;
@@ -44,5 +44,4 @@ namespace BiomesCore.Patches
 			return true;
 		}
 	}
-
 }
