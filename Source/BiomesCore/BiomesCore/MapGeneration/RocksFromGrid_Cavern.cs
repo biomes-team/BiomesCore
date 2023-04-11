@@ -6,62 +6,31 @@ namespace BiomesCore.MapGeneration
 {
     public class RocksFromGrid_Cavern : GenStep
     {
-        private float maxMineableValue = 3.40282347E+38f;
+        private const float MaxMineableValue = float.MaxValue;
 
-        private const int MinRoofedCellsPerGroup = 20;
+        private const float RoofElevationThreshold = 0.7f;
 
-        public override int SeedPart
-        {
-            get
-            {
-                return 1182952823;
-            }
-        }
+        public override int SeedPart => 1182952823;
 
         public override void Generate(Map map, GenStepParams parms)
         {
-            Log.Message("Generating cavern roofs");
-
             map.regionAndRoomUpdater.Enabled = false;
-            float num = 0.7f;
 
             MapGenFloatGrid elevation = MapGenerator.Elevation;
 
             foreach (IntVec3 current in map.AllCells)
             {
                 float num2 = elevation[current];
-                if (num2 > num)
+                if (num2 > RoofElevationThreshold)
                 {
-                    ThingDef def = GenStep_RocksFromGrid.RockDefAt(current);
-                    GenSpawn.Spawn(def, current, map, WipeMode.Vanish);
+                    ThingDef rockDef = GenStep_RocksFromGrid.RockDefAt(current);
+                    GenSpawn.Spawn(rockDef, current, map, WipeMode.Vanish);
                 }
                 map.roofGrid.SetRoof(current, BiomesCoreDefOf.BMT_RockRoofStable);
-
             }
-            //BoolGrid visited = new BoolGrid(map);
-            //List<IntVec3> toRemove = new List<IntVec3>();
-            //foreach (IntVec3 current2 in map.AllCells)
-            //{
-            //    if (!visited[current2])
-            //    {
-            //        toRemove.Clear();
-            //        map.floodFiller.FloodFill(current2, (IntVec3 x) => true, delegate (IntVec3 x)
 
-            //        {
-            //            visited[x] = true;
-            //                toRemove.Add(x);
-            //            }, 2147483647, false, null);
-            //            if (toRemove.Count < 20)
-            //            {
-            //                for (int j = 0; j < toRemove.Count; j++)
-            //                {
-            //                    map.roofGrid.SetRoof(toRemove[j], null);
-            //                }
-            //            }
-            //    }
-            //}
             GenStep_ScatterLumpsMineable genStep_ScatterLumpsMineable = new GenStep_ScatterLumpsMineable();
-            genStep_ScatterLumpsMineable.maxValue = this.maxMineableValue;
+            genStep_ScatterLumpsMineable.maxValue = MaxMineableValue;
             float num3 = 10f;
             switch (Find.WorldGrid[map.Tile].hilliness)
             {
