@@ -115,8 +115,9 @@
     <Compile Include="MapGeneration\RocksFromGrid_Cavern.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\CavePlants.cs" />
-    <Compile Include="Patches\CavernEvents.cs" />
+    <Compile Include="Patches\DisableBiomeIncidents.cs" />
     <Compile Include="Patches\CavernRoofs.cs" />
+    <Compile Include="Patches\Caverns\AnimaTreeSpawn.cs" />
     <Compile Include="Patches\ChangeStockQuality.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />

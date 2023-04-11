@@ -1,54 +1,14 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
-using Verse;
-using RimWorld;
 using HarmonyLib;
-using BiomesCore.DefModExtensions;
+using RimWorld;
+using Verse;
 
-namespace BiomesCore.Patches
+namespace BiomesCore.Patches.Caverns
 {
-	[HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow))]
-	static class CavernGameConditions
-	{
-		private static HashSet<IncidentDef> _forbiddenIncidents;
-
-		private static void Initialize()
-		{
-			if (_forbiddenIncidents != null)
-			{
-				return;
-			}
-
-			_forbiddenIncidents = new HashSet<IncidentDef>();
-
-			foreach (var def in DefDatabase<DisableIncidentsDef>.AllDefs)
-			{
-				if (def.isCavern)
-				{
-					_forbiddenIncidents.AddRange(def.incidents);
-				}
-			}
-		}
-
-		static bool Prefix(IncidentParms parms, ref IncidentWorker __instance, ref bool __result)
-		{
-			Initialize();
-
-			BiomeDef biome = Find.WorldGrid[parms.target.Tile].biome;
-			if (biome.HasModExtension<BiomesMap>() && biome.GetModExtension<BiomesMap>().isCavern &&
-			    _forbiddenIncidents.Contains(__instance.def))
-			{
-				__result = false;
-				return false;
-			}
-
-			return true;
-		}
-	}
-
 	[HarmonyPatch(typeof(GenStep_SpecialTrees), nameof(GenStep_SpecialTrees.CanSpawnAt))]
-	internal static class CavernAnimaTreePatch
+	internal static class AnimaTreeSpawn
 	{
 		private static bool PsychologicallyOutdoorsOrCavern(Room room, IntVec3 cell)
 		{
@@ -60,7 +20,7 @@ namespace BiomesCore.Patches
 		{
 			MethodInfo outdoorsOriginal = AccessTools.PropertyGetter(typeof(Room), nameof(Room.PsychologicallyOutdoors));
 			MethodInfo outdoorsPatched =
-				AccessTools.Method(typeof(CavernAnimaTreePatch), nameof(PsychologicallyOutdoorsOrCavern));
+				AccessTools.Method(typeof(AnimaTreeSpawn), nameof(PsychologicallyOutdoorsOrCavern));
 
 			MethodInfo roofedOriginal = AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed));
 			MethodInfo roofedPatched =
@@ -84,4 +44,5 @@ namespace BiomesCore.Patches
 			}
 		}
 	}
+
 }
