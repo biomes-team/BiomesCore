@@ -75,7 +75,8 @@ namespace BiomesCore.ThingComponents
 
 		public bool Active()
 		{
-			return parent is Pawn pawn && !pawn.Awake() && (!Props.roofedOnly || pawn.Position.Roofed(pawn.Map));
+			return parent is Pawn pawn && !pawn.Dead && !pawn.Awake() &&
+			       (!Props.roofedOnly || pawn.Position.Roofed(pawn.Map));
 		}
 
 		public GraphicData Graphic()
