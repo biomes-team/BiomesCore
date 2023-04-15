@@ -67,10 +67,29 @@ namespace BiomesCore.ThingComponents
 
 	public class CompSleepGraphic : ThingComp
 	{
-		private CompProperties_CompSleepGraphic Props => (CompProperties_CompSleepGraphic) props;
+		public CompProperties_CompSleepGraphic Props => (CompProperties_CompSleepGraphic) props;
+
+		[Unsaved] private bool wasAwake;
 
 		public CompSleepGraphic()
 		{
+		}
+
+		public override void PostSpawnSetup(bool respawningAfterLoad)
+		{
+			base.PostSpawnSetup(respawningAfterLoad);
+			wasAwake = parent is Pawn pawn && pawn.Awake();
+		}
+
+		public override void CompTick()
+		{
+			base.CompTick();
+			if (parent is Pawn pawn && wasAwake != pawn.Awake())
+			{
+				// Force an update of the PawnGraphicSet.
+				pawn.drawer.renderer.graphics.nakedGraphic = null;
+				wasAwake = !wasAwake;
+			}
 		}
 
 		public bool Active()
@@ -81,8 +100,7 @@ namespace BiomesCore.ThingComponents
 
 		public GraphicData Graphic()
 		{
-			var pawn = parent as Pawn;
-			if (pawn != null)
+			if (parent is Pawn pawn)
 			{
 				var lifeStage = pawn.ageTracker.CurLifeStageIndex;
 				return Active() && lifeStage < Props.sleepGraphicData.Count ? Props.sleepGraphicData[lifeStage] : null;

@@ -193,5 +193,6 @@
   <Import Project="..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets" Condition="Exists('..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets')" />
   <ItemGroup>
     <Publicize Include="Assembly-CSharp:Verse.PawnRenderer.pawn" />
+    <Publicize Include="Assembly-CSharp:Verse.Pawn.drawer" />
   </ItemGroup>
 </Project>

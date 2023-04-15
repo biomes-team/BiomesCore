@@ -1,5 +1,6 @@
 ﻿using BiomesCore.ThingComponents;
 using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace BiomesCore.Patches
@@ -17,6 +18,7 @@ namespace BiomesCore.Patches
 
 			GraphicData alternativeGraphic = null;
 			var compSleepGraphic = __instance.pawn.GetComp<CompSleepGraphic>();
+
 			if (compSleepGraphic != null && compSleepGraphic.Active())
 			{
 				alternativeGraphic = compSleepGraphic.Graphic();
@@ -24,7 +26,6 @@ namespace BiomesCore.Patches
 
 			if (alternativeGraphic != null)
 			{
-				__instance.ClearCache();
 				__instance.nakedGraphic = alternativeGraphic.Graphic;
 			}
 		}
