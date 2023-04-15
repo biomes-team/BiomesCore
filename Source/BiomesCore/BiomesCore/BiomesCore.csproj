@@ -116,6 +116,7 @@
     <Compile Include="MapGeneration\RocksFromGrid_Cavern.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\CavePlants.cs" />
+    <Compile Include="Patches\Caverns\CellOutsideBeauty.cs" />
     <Compile Include="Patches\Caverns\FindPlayerStartSpot.cs" />
     <Compile Include="Patches\Caverns\GauranlenPodSpawn.cs" />
     <Compile Include="Patches\Caverns\Transpilers.cs" />
