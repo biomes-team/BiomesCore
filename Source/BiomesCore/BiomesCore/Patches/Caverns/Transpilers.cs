@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
+using BiomesCore.Reflections;
 using HarmonyLib;
 using Verse;
 
@@ -19,7 +20,7 @@ namespace BiomesCore.Patches.Caverns
 		/// <returns>Patched instructions.</returns>
 		public static List<CodeInstruction> CellPsychologicallyOutdoors(List<CodeInstruction> instructions, OpCode cellCode)
 		{
-			return ReplaceCall(instructions, Methods.OutdoorsOriginal, Methods.OutdoorsNew,
+			return TranspilerHelper.ReplaceCall(instructions, Methods.OutdoorsOriginal, Methods.OutdoorsNew,
 				new List<CodeInstruction> {new CodeInstruction(cellCode)});
 		}
 
@@ -30,39 +31,7 @@ namespace BiomesCore.Patches.Caverns
 		/// <returns></returns>
 		public static List<CodeInstruction> CellUnbreachableRoofed(List<CodeInstruction> instructions)
 		{
-			return ReplaceCall(instructions, Methods.RoofedOriginal, Methods.RoofedPatched);
-		}
-
-		/// <summary>
-		/// Replaces a call with a different one.
-		/// </summary>
-		/// <param name="instructions">Original set of instructions.</param>
-		/// <param name="original">Original method.</param>
-		/// <param name="changed">New method.</param>
-		/// <param name="additionalParameters">Additional OpcCodes to execute before the call to get more parameters.</param>
-		/// <returns>Modified list of instructions.</returns>
-		public static List<CodeInstruction> ReplaceCall(List<CodeInstruction> instructions, MethodInfo original,
-			MethodInfo changed, List<CodeInstruction> additionalParameters = null)
-		{
-			var newInstructions = new List<CodeInstruction>();
-			foreach (var line in instructions)
-			{
-				if (line.operand as MethodInfo == original && (line.opcode == OpCodes.Callvirt || line.opcode == OpCodes.Call))
-				{
-					if (additionalParameters != null)
-					{
-						newInstructions.AddRange(additionalParameters);
-					}
-
-					newInstructions.Add(new CodeInstruction(OpCodes.Call, changed));
-				}
-				else
-				{
-					newInstructions.Add(line);
-				}
-			}
-
-			return newInstructions;
+			return TranspilerHelper.ReplaceCall(instructions, Methods.RoofedOriginal, Methods.RoofedPatched);
 		}
 	}
 
