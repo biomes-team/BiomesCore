@@ -19,29 +19,10 @@ namespace BiomesCore.Patches.Caverns
 	{
 		static MethodBase TargetMethod()
 		{
-			MethodBase methodToPatch = null;
-			foreach (var currentLambdaType in typeof(RCellFinder).GetNestedTypes(AccessTools.all))
+			return typeof(RCellFinder).GetLambda(nameof(RCellFinder.TryFindRandomSpotJustOutsideColony), parentArgs: new[]
 			{
-				foreach (var currentLambdaMethod in currentLambdaType.GetMethods(AccessTools.allDeclared))
-				{
-					if (currentLambdaMethod.Name.Contains(nameof(RCellFinder.TryFindRandomSpotJustOutsideColony)))
-					{
-						var parameters = currentLambdaMethod.GetParameters();
-						if (parameters.Length == 1 && parameters[0].ParameterType == typeof(IntVec3))
-						{
-							methodToPatch = currentLambdaMethod;
-							break;
-						}
-					}
-				}
-
-				if (methodToPatch != null)
-				{
-					break;
-				}
-			}
-
-			return methodToPatch;
+				typeof(IntVec3), typeof(Map), typeof(Pawn), typeof(IntVec3).MakeByRefType(), typeof(Predicate<IntVec3>)
+			}, lambdaOrdinal: 0);
 		}
 
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
