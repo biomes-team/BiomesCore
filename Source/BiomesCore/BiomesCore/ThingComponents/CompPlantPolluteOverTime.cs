@@ -24,12 +24,12 @@ namespace BiomesCore
         {
             if (!this.parent.Spawned || !this.parent.IsHashIntervalTick(this.TicksToPolluteCell))
                 return;
-            if (parent.Map == null || !(parent is Plant plant)) return;
-            if (plant.Growth >= Props.growthProgress)
+            if (parent.Map == null || !(parent is Plant plant))
+                return;
+            if (plant.Growth >= Props.growthProgress && !plant.Dying)
             {
                 this.Pollute();
             }
-                
         }
 
         private void Pollute()

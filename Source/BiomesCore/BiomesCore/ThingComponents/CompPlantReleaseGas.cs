@@ -13,6 +13,7 @@ namespace BiomesCore
 
         public CompProperties_PlantReleaseGas() => compClass = typeof(CompPlantReleaseGas);
     }
+
     public class CompPlantReleaseGas : ThingComp
     {
         public CompProperties_PlantReleaseGas Props => (CompProperties_PlantReleaseGas)props;
@@ -29,8 +30,9 @@ namespace BiomesCore
         {
             base.CompTickLong();
 
-            if (parent.Map == null || !(parent is Plant plant)) return;
-            if (plant.Growth >= Props.growthProgress)
+            if (parent.Map == null || !(parent is Plant plant))
+                return;
+            if (plant.Growth >= Props.growthProgress && !plant.Dying)
             {
                 float radius = Mathf.Round(plant.Growth * this.Props.cellsToFill);
                 GasUtility.AddGas(this.parent.PositionHeld, this.parent.MapHeld, this.Props.gasType, radius);
@@ -41,7 +43,6 @@ namespace BiomesCore
                     this.effecter.EffectTick((TargetInfo)(Plant)this.parent, (TargetInfo)(Plant)this.parent);
                 }
             }
-
         }
     }
 }

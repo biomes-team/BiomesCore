@@ -160,9 +160,9 @@
     <Compile Include="StockGenerators\HighQualityItems.cs" />
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
-    <Compile Include="ThingComponents\CompPlantGasOnDestroy.cs" />
     <Compile Include="ThingComponents\CompPlantGraphicPerBiome.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
+    <Compile Include="ThingComponents\CompPlantProximityExplosive.cs" />
     <Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
     <Compile Include="ThingComponents\CompHarvestAnimalProduct.cs" />
     <Compile Include="ThingComponents\CompCorpseThingSpawner.cs" />
@@ -178,6 +178,7 @@
     <Compile Include="ThingComponents\CompPackDefense.cs" />
     <Compile Include="ThingComponents\CompPackHunter.cs" />
     <Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
+    <Compile Include="ThingComponents\CompPlantReleaseSpore.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
