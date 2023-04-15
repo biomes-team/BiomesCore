@@ -325,6 +325,9 @@ namespace BiomesCore.Patches
 
 
 	//UdderlyEvelyn 3/11/22
+	// joseasoler 15/04/23 These patches are not being executed.
+	// After reviewing and testing the current situation with each one, I have logged tasks for each one that should
+	// be implemented. Consider removing the entire class after caverns is finished.
 	static class CavernRoofDetectionMethodReplacers
 	{
 		static CavernRoofDetectionMethodReplacers()
