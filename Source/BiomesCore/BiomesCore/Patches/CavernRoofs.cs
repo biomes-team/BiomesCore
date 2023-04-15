@@ -115,30 +115,6 @@ namespace BiomesCore.Patches
 		}
 	}
 
-	//Rolled into the roof detection system. -UdderlyEvelyn 3/11/22 
-	//[HarmonyPatch]
-	//static class Cavern_FindPlayerStartSpot
-	//{
-	//    public static MethodInfo IntVec3UnbreachableRoofedInfo = AccessTools.Method(typeof(IntVec3Extensions), "UnbreachableRoofed");
-
-	//    static MethodBase TargetMethod()
-	//    {
-	//        // Fetch the first lambda
-	//        return typeof(GenStep_FindPlayerStartSpot).GetLambda("Generate");
-	//    }
-
-	//    // Changes
-	//    // IntVec3.Roofed -> IntVec3Extended.Roofed
-	//    [HarmonyPriority(Priority.First)]
-	//    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
-	//    {
-	//        return instructions.ReplaceFunction(
-	//            IntVec3UnbreachableRoofedInfo,
-	//            "Roofed",
-	//            "GenStep_FindPlayerStartSpot.Generate");
-	//    }
-	//}
-
 	[HarmonyPatch]
 	static class Cavern_DropCellFinder_RandomDropSpot
 	{
@@ -162,47 +138,6 @@ namespace BiomesCore.Patches
 				"DropCellFinder.RandomDropSpot");
 		}
 	}
-
-	[HarmonyPatch]
-	internal class Cavern_GenStep_FindPlayerStartSpot
-	{
-		private static IntVec3 TryFindCentralCellStableRoof(Map map,int tightness,int minCellCount)
-		{
-			return CellFinderLoose.TryFindCentralCell(map, 7, 10,
-				x => !x.Roofed(map) || map.roofGrid.RoofAt(x) == BiomesCoreDefOf.BMT_RockRoofStable);
-		}
-
-		[HarmonyTranspiler]
-		[HarmonyPatch(typeof(GenStep_FindPlayerStartSpot), nameof(GenStep_FindPlayerStartSpot.Generate))]
-		private static IEnumerable<CodeInstruction> PatchPlayerSpotGeneration(IEnumerable<CodeInstruction> instructions)
-		{
-			var replacement = AccessTools.Method(typeof(Cavern_GenStep_FindPlayerStartSpot),
-				nameof(TryFindCentralCellStableRoof));
-
-			var setter = AccessTools.PropertySetter(typeof(MapGenerator), nameof(MapGenerator.PlayerStartSpot));
-
-			bool removeInstructions = false;
-			foreach (var code in instructions)
-			{
-				if (removeInstructions && code.opcode == OpCodes.Call && code.operand is MethodInfo operandInfo && operandInfo == setter)
-				{
-					removeInstructions = false;
-				}
-
-				if (!removeInstructions)
-				{
-					yield return code;
-				}
-
-				if (code.opcode == OpCodes.Ldc_I4_S)
-				{
-					removeInstructions = true;
-					yield return new CodeInstruction(OpCodes.Call, replacement);
-				}
-			}
-		}
-	}
-
 
 	[HarmonyPatch]
 	static class Cavern_DropCellFinder_TradeDropSpot
@@ -440,7 +375,6 @@ namespace BiomesCore.Patches
 				new Type[] {typeof(IEnumerable<IntVec3>), typeof(Map), typeof(List<Thing>)}); //Our roof does not collapse..
 			typeof(RoofCollapserImmediate).PatchToIgnoreCavernRoof_RoofedIntVec3Extension("DropRoofInCells",
 				new Type[] {typeof(List<IntVec3>), typeof(Map), typeof(List<Thing>)}); //Our roof does not collapse..
-			typeof(GenStep_FindPlayerStartSpot).PatchToIgnoreCavernRoof_RoofedIntVec3Extension("Generate");
 		}
 
 		static MethodInfo RoofedIntVec3ExtensionMethod = AccessTools.Method(typeof(GridsUtility), "Roofed");
