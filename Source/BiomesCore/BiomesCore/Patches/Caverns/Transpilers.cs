@@ -19,7 +19,8 @@ namespace BiomesCore.Patches.Caverns
 		/// <returns>Patched instructions.</returns>
 		public static List<CodeInstruction> CellPsychologicallyOutdoors(List<CodeInstruction> instructions, OpCode cellCode)
 		{
-			return ReplaceCall(instructions, Methods.OutdoorsOriginal, Methods.OutdoorsNew, new List<OpCode> {cellCode});
+			return ReplaceCall(instructions, Methods.OutdoorsOriginal, Methods.OutdoorsNew,
+				new List<CodeInstruction> {new CodeInstruction(cellCode)});
 		}
 
 		/// <summary>
@@ -40,8 +41,8 @@ namespace BiomesCore.Patches.Caverns
 		/// <param name="changed">New method.</param>
 		/// <param name="additionalParameters">Additional OpcCodes to execute before the call to get more parameters.</param>
 		/// <returns>Modified list of instructions.</returns>
-		private static List<CodeInstruction> ReplaceCall(List<CodeInstruction> instructions, MethodInfo original,
-			MethodInfo changed, List<OpCode> additionalParameters = null)
+		public static List<CodeInstruction> ReplaceCall(List<CodeInstruction> instructions, MethodInfo original,
+			MethodInfo changed, List<CodeInstruction> additionalParameters = null)
 		{
 			var newInstructions = new List<CodeInstruction>();
 			foreach (var line in instructions)
@@ -50,10 +51,7 @@ namespace BiomesCore.Patches.Caverns
 				{
 					if (additionalParameters != null)
 					{
-						foreach (var codeBefore in additionalParameters)
-						{
-							newInstructions.Add(new CodeInstruction(codeBefore));
-						}
+						newInstructions.AddRange(additionalParameters);
 					}
 
 					newInstructions.Add(new CodeInstruction(OpCodes.Call, changed));
