@@ -1,6 +1,5 @@
 ﻿using BiomesCore.ThingComponents;
 using HarmonyLib;
-using RimWorld;
 using Verse;
 
 namespace BiomesCore.Patches
@@ -10,23 +9,22 @@ namespace BiomesCore.Patches
 	{
 		public static void Postfix(PawnGraphicSet __instance)
 		{
-			PawnKindDef pawnDef = __instance.pawn.kindDef;
+			var pawnDef = __instance.pawn.kindDef;
 			if (pawnDef == null)
 			{
 				return;
 			}
 
-			GraphicData alternativeGraphic = null;
-			var compSleepGraphic = __instance.pawn.GetComp<CompSleepGraphic>();
-
-			if (compSleepGraphic != null && compSleepGraphic.Active())
+			foreach (var comp in __instance.pawn.AllComps)
 			{
-				alternativeGraphic = compSleepGraphic.Graphic();
-			}
-
-			if (alternativeGraphic != null)
-			{
-				__instance.nakedGraphic = alternativeGraphic.Graphic;
+				if (comp is CompDynamicPawnGraphic graphicComp && graphicComp.Active())
+				{
+					var data = graphicComp.Graphic();
+					if (data != null)
+					{
+						__instance.nakedGraphic = data.Graphic;
+					}
+				}
 			}
 		}
 	}

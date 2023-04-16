@@ -65,7 +65,7 @@ namespace BiomesCore.ThingComponents
 		}
 	}
 
-	public class CompSleepGraphic : ThingComp
+	public class CompSleepGraphic : CompDynamicPawnGraphic
 	{
 		public CompProperties_CompSleepGraphic Props => (CompProperties_CompSleepGraphic) props;
 
@@ -86,19 +86,18 @@ namespace BiomesCore.ThingComponents
 			base.CompTick();
 			if (parent is Pawn pawn && wasAwake != pawn.Awake())
 			{
-				// Force an update of the PawnGraphicSet.
-				pawn.drawer.renderer.graphics.nakedGraphic = null;
+				ForceGraphicUpdateNow();
 				wasAwake = !wasAwake;
 			}
 		}
 
-		public bool Active()
+		public override bool Active()
 		{
 			return parent is Pawn pawn && !pawn.Dead && !pawn.Awake() &&
 			       (!Props.roofedOnly || pawn.Position.Roofed(pawn.Map));
 		}
 
-		public GraphicData Graphic()
+		public override GraphicData Graphic()
 		{
 			if (parent is Pawn pawn)
 			{
