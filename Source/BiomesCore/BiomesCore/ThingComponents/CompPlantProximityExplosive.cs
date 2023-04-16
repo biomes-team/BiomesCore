@@ -8,7 +8,8 @@ namespace BiomesCore
 {
     public class CompProperties_PlantProximityExplosive : CompProperties
     {
-        public ThingDef Proxitarget;
+        public ThingDef proxiTarget;
+        public ThingRequestGroup proxiGroup;
         public ThingDef postExplosionSpawnThingDef;
         public ThingDef preExplosionSpawnThingDef;
         public DamageDef explosiveDamageType;
@@ -17,7 +18,8 @@ namespace BiomesCore
         public EffecterDef explosionEffect;
         public SoundDef explosionSound;
         public float growthProgress = 1f;
-        public float Proxiradius;
+        public float proxiRadius;
+        public float minBodySize;
         public float explosiveRadius = 1.9f;
         public float growthAfterExplosion = 15f;
         public float armorPenetrationBase = -1f;
@@ -54,11 +56,16 @@ namespace BiomesCore
         private Thing instigator;
         private Effecter effecter;
 
+
         public override void CompTickLong()
         {
+            var thingRequest = Props.proxiTarget != null
+                ? ThingRequest.ForDef(Props.proxiTarget)
+                : ThingRequest.ForGroup(ThingRequestGroup.Pawn);
+
             if (parent.Map == null || !(parent is Plant plant))
                 return;
-            if (!this.parent.Spawned || GenClosest.ClosestThingReachable(this.parent.Position, this.parent.Map, ThingRequest.ForDef(Props.Proxitarget), PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors), Props.Proxiradius) == null)
+            if (!this.parent.Spawned || GenClosest.ClosestThingReachable(this.parent.Position, this.parent.Map, thingRequest, PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors), Props.proxiRadius, thing => thing is Pawn pawn && pawn.BodySize >= Props.minBodySize) == null)
                 return;
             if (plant.Growth >= Props.growthProgress && !plant.Dying)
             {
