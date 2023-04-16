@@ -17,6 +17,7 @@ namespace BiomesCore
         public GasType postExplosionGasType;
         public EffecterDef explosionEffect;
         public SoundDef explosionSound;
+        public List<DamageDef> detonateOnDamageTaken;
         public float growthProgress = 1f;
         public float proxiRadius;
         public float minBodySize;
@@ -107,6 +108,12 @@ namespace BiomesCore
                 if (!this.parent.Destroyed)
                     return;
                 absorbed = true;
+            }
+            else
+            {
+                if (this.Props.detonateOnDamageTaken == null || !this.Props.detonateOnDamageTaken.Contains(dinfo.Def))
+                    return;
+                this.Detonate();
             }
         }
 
