@@ -1,4 +1,5 @@
-﻿using BiomesCore.ThingComponents;
+﻿using System.Collections.Generic;
+using BiomesCore.ThingComponents;
 using HarmonyLib;
 using Verse;
 
@@ -30,14 +31,15 @@ namespace BiomesCore.Patches
 	}
 
 	[HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.BodyAngle))]
-	internal static class SleepingPawnAngle
+	public static class SleepingPawnAngle
 	{
+		public static Dictionary<Pawn, float> OverrideAngle = new Dictionary<Pawn, float>();
+
 		internal static bool Prefix(ref float __result, PawnRenderer __instance)
 		{
-			var compSleepGraphic = __instance.pawn.GetComp<CompSleepGraphic>();
-			if (compSleepGraphic != null && compSleepGraphic.Active())
+			if (OverrideAngle.TryGetValue(__instance.pawn, out float angle))
 			{
-				__result = 0.0F;
+				__result = angle;
 				return false;
 			}
 

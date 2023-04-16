@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BiomesCore.Patches;
 using RimWorld;
 using Verse;
 
@@ -78,16 +79,55 @@ namespace BiomesCore.ThingComponents
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			base.PostSpawnSetup(respawningAfterLoad);
-			wasAwake = parent is Pawn pawn && pawn.Awake();
+			if (!(parent is Pawn pawn))
+			{
+				return;
+			}
+
+			wasAwake = pawn.Awake();
+			if (wasAwake)
+			{
+				SleepingPawnAngle.OverrideAngle.Remove(pawn);
+			}
+			else
+			{
+				SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
+			}
 		}
 
 		public override void CompTick()
 		{
 			base.CompTick();
-			if (parent is Pawn pawn && wasAwake != pawn.Awake())
+			if (!(parent is Pawn pawn))
 			{
-				ForceGraphicUpdateNow();
-				wasAwake = !wasAwake;
+				return;
+			}
+
+			var isAwake = pawn.Awake();
+			if (wasAwake == isAwake)
+			{
+				return;
+			}
+
+			// Force an update of the PawnGraphicSet.
+			pawn.drawer.renderer.graphics.nakedGraphic = null;
+			wasAwake = !wasAwake;
+			if (isAwake)
+			{
+				SleepingPawnAngle.OverrideAngle.Remove(pawn);
+			}
+			else
+			{
+				SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
+			}
+		}
+
+		public override void PostDeSpawn(Map map)
+		{
+			base.PostDeSpawn(map);
+			if (parent is Pawn pawn)
+			{
+				SleepingPawnAngle.OverrideAngle.Remove(pawn);
 			}
 		}
 
