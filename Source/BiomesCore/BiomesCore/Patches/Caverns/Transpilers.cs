@@ -31,7 +31,12 @@ namespace BiomesCore.Patches.Caverns
 		/// <returns></returns>
 		public static List<CodeInstruction> CellUnbreachableRoofed(List<CodeInstruction> instructions)
 		{
-			return TranspilerHelper.ReplaceCall(instructions, Methods.RoofedOriginal, Methods.RoofedPatched);
+			return TranspilerHelper.ReplaceCall(instructions, Methods.CellRoofedOriginal, Methods.CellRoofedPatched);
+		}
+
+		public static List<CodeInstruction> RoofGridUnbreachableRoofed(List<CodeInstruction> instructions)
+		{
+			return TranspilerHelper.ReplaceCall(instructions, Methods.RoofGridRoofedOriginal, Methods.RoofGridRoofedPatched);
 		}
 	}
 
@@ -44,11 +49,18 @@ namespace BiomesCore.Patches.Caverns
 		public static readonly MethodInfo OutdoorsNew =
 			AccessTools.Method(typeof(Utility), nameof(Utility.PsychologicallyOutdoorsOrCavern));
 
-		public static readonly MethodInfo RoofedOriginal =
+		public static readonly MethodInfo CellRoofedOriginal =
 			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed));
 
-		public static readonly MethodInfo RoofedPatched =
+		public static readonly MethodInfo CellRoofedPatched =
 			AccessTools.Method(typeof(IntVec3Extensions), nameof(IntVec3Extensions.UnbreachableRoofed));
+
+		public static readonly MethodInfo RoofGridRoofedOriginal =
+			AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] {typeof(IntVec3)});
+
+		public static readonly MethodInfo RoofGridRoofedPatched =
+			AccessTools.Method(typeof(RoofGridExtensions), nameof(RoofGridExtensions.UnbreachableRoofed),
+				new[] {typeof(RoofGrid), typeof(IntVec3)});
 
 		static Methods()
 		{

@@ -15,7 +15,7 @@ namespace BiomesCore.Patches.Caverns
 	/// Used by caravans (both from the colony and friendly traders) when they want to leave.
 	/// </summary>
 	[HarmonyPatch]
-	public class TryFindRandomSpotJustOutsideColony
+	public class RCellFinder_TryFindRandomSpotJustOutsideColony
 	{
 		static MethodBase TargetMethod()
 		{

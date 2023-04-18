@@ -119,12 +119,14 @@
     <Compile Include="Patches\Caverns\CellOutsideBeauty.cs" />
     <Compile Include="Patches\Caverns\FindPlayerStartSpot.cs" />
     <Compile Include="Patches\Caverns\GauranlenPodSpawn.cs" />
+    <Compile Include="Patches\Caverns\PawnsArrivalEdgeWalkIn.cs" />
+    <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomPawnEntryCell.cs" />
     <Compile Include="Patches\Caverns\Transpilers.cs" />
     <Compile Include="Patches\Caverns\Utility.cs" />
     <Compile Include="Patches\DisableBiomeIncidents.cs" />
     <Compile Include="Patches\CavernRoofs.cs" />
     <Compile Include="Patches\Caverns\AnimaTreeSpawn.cs" />
-    <Compile Include="Patches\Caverns\TryFindRandomSpotJustOutsideColony.cs" />
+    <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomSpotJustOutsideColony.cs" />
     <Compile Include="Patches\ChangeStockQuality.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
@@ -145,7 +147,6 @@
     <Compile Include="Jobs\JobDriver_BloodDrinking.cs" />
     <Compile Include="Patches\JobDriver_PredatorHunt_Patch.cs" />
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
-    <Compile Include="Patches\PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch.cs" />
     <Compile Include="Patches\Plant_Graphic.cs" />
     <Compile Include="Patches\PredatorHuntingBehaviour.cs" />
     <Compile Include="Patches\SetTerrain_UpdateCommonalityCache.cs" />
