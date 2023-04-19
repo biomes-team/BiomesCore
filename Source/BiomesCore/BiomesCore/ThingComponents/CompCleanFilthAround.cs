@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Verse;
 
 namespace BiomesCore
@@ -13,6 +14,7 @@ namespace BiomesCore
     public class CompCleanFilthAround : ThingComp
     {
         public CompProperties_CleanFilthAround Props => this.props as CompProperties_CleanFilthAround;
+
         public override void CompTick()
         {
             base.CompTick();
@@ -31,6 +33,15 @@ namespace BiomesCore
             }
         }
 
+        public override void CompTickLong()
+        {
+            base.CompTickLong();
+            if (this.parent.IsHashIntervalTick(this.Props.tickRate))
+            {
+                ClearFilth();
+            }
+        }
+
         private void ClearFilth()
         {
             List<Thing> filth = this.parent.Map.listerThings.ThingsInGroup(ThingRequestGroup.Filth);
@@ -41,6 +52,18 @@ namespace BiomesCore
                     filth[index].Destroy();
                     break;
                 }
+            }
+        }
+
+        public override IEnumerable<Gizmo> CompGetGizmosExtra()
+        {
+            CompCleanFilthAround CompCleanFilthAround = this;
+            if (DebugSettings.ShowDevGizmos)
+            {
+                Command_Action commandAction = new Command_Action();
+                commandAction.defaultLabel = "DEV: Clean";
+                commandAction.action = new Action(CompCleanFilthAround.ClearFilth);
+                yield return (Gizmo)commandAction;
             }
         }
     }

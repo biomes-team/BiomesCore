@@ -8,7 +8,7 @@ namespace BiomesCore
 {
     public class CompProperties_PlantProximityExplosive : CompProperties
     {
-        public ThingDef proxiTarget;
+        public ThingDef proxiTarget = null;
         public ThingRequestGroup proxiGroup;
         public ThingDef postExplosionSpawnThingDef;
         public ThingDef preExplosionSpawnThingDef;
@@ -32,6 +32,7 @@ namespace BiomesCore
         public int postExplosionSpawnThingCount = 1;
         public int preExplosionSpawnThingCount = 1;
         public bool explodeOnKilled;
+        public bool destroyedThroughDetonation;
         public bool applyDamageToExplosionCellsNeighbors;
         public bool damageFalloff;
         public bool doVisualEffects = true;
@@ -49,24 +50,21 @@ namespace BiomesCore
 
     public class CompPlantProximityExplosive : ThingComp
     {
-        public bool destroyedThroughDetonation;
         private List<Thing> thingsIgnoredByExplosion;
-
-        public CompProperties_PlantProximityExplosive Props => (CompProperties_PlantProximityExplosive)this.props;
-
         private Thing instigator;
         private Effecter effecter;
 
+        public CompProperties_PlantProximityExplosive Props => (CompProperties_PlantProximityExplosive)this.props;
 
         public override void CompTickLong()
         {
             var thingRequest = Props.proxiTarget != null
                 ? ThingRequest.ForDef(Props.proxiTarget)
-                : ThingRequest.ForGroup(ThingRequestGroup.Pawn);
+                : ThingRequest.ForGroup(Props.proxiGroup);
 
             if (parent.Map == null || !(parent is Plant plant))
                 return;
-            if (!this.parent.Spawned || GenClosest.ClosestThingReachable(this.parent.Position, this.parent.Map, thingRequest, PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors), Props.proxiRadius, thing => thing is Pawn pawn && pawn.BodySize >= Props.minBodySize) == null)
+            if (!this.parent.Spawned || GenClosest.ClosestThingReachable(this.parent.Position, this.parent.Map, thingRequest, PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors), Props.proxiRadius, thing => thing is Pawn pawn ? pawn.BodySize >= Props.minBodySize : true) == null)
                 return;
             if (plant.Growth >= Props.growthProgress && !plant.Dying)
             {
@@ -86,7 +84,7 @@ namespace BiomesCore
             base.PostExposeData();
             Scribe_References.Look<Thing>(ref this.instigator, "instigator");
             Scribe_Collections.Look<Thing>(ref this.thingsIgnoredByExplosion, "thingsIgnoredByExplosion", LookMode.Reference);
-            Scribe_Values.Look<bool>(ref this.destroyedThroughDetonation, "destroyedThroughDetonation");
+            //Scribe_Values.Look<bool>(ref this.destroyedThroughDetonation, "destroyedThroughDetonation");
         }
 
         public override void PostDestroy(DestroyMode mode, Map previousMap)
@@ -133,7 +131,14 @@ namespace BiomesCore
             }
             Thing instigator = this.instigator == null || this.instigator.HostileTo(this.parent.Faction) && this.parent.Faction != Faction.OfPlayer ? (Thing)this.parent : this.instigator;
             GenExplosion.DoExplosion(this.parent.PositionHeld, this.parent.MapHeld, radius, Props.explosiveDamageType, instigator, Props.damageAmountBase, Props.armorPenetrationBase, Props.explosionSound, postExplosionSpawnThingDef: Props.postExplosionSpawnThingDef, postExplosionSpawnChance: Props.postExplosionSpawnChance, postExplosionSpawnThingCount: Props.postExplosionSpawnThingCount, postExplosionGasType: this.Props.postExplosionGasType, applyDamageToExplosionCellsNeighbors: Props.applyDamageToExplosionCellsNeighbors, preExplosionSpawnThingDef: Props.preExplosionSpawnThingDef, preExplosionSpawnChance: Props.preExplosionSpawnChance, preExplosionSpawnThingCount: Props.preExplosionSpawnThingCount, chanceToStartFire: Props.chanceToStartFire, damageFalloff: Props.damageFalloff, ignoredThings: this.thingsIgnoredByExplosion, doVisualEffects: Props.doVisualEffects, propagationSpeed: Props.propagationSpeed);
-            plant.Growth = Props.growthAfterExplosion;
+            if (Props.destroyedThroughDetonation)
+            {
+                plant.Destroy();
+            }
+            else
+            {
+                plant.Growth = Props.growthAfterExplosion;
+            }
         }
 
         private bool CanExplodeFromDamageType(DamageDef damage) => this.Props.requiredDamageTypeToExplode == null || this.Props.requiredDamageTypeToExplode == damage;
