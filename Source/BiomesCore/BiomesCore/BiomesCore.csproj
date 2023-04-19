@@ -139,7 +139,6 @@
     <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
     <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
-    <Compile Include="Patches\CommonalityPatches.cs" />
     <Compile Include="Patches\Immunities_TakeDamage_Patch.cs" />
     <Compile Include="Patches\IslandGeysers.cs" />
     <Compile Include="Patches\IslandHilliness.cs" />
@@ -149,7 +148,6 @@
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\Plant_Graphic.cs" />
     <Compile Include="Patches\PredatorHuntingBehaviour.cs" />
-    <Compile Include="Patches\SetTerrain_UpdateCommonalityCache.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
     <Compile Include="PlaceWorker\PlaceWorker_Aquatic.cs" />
