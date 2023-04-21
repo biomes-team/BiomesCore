@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace BiomesCore.DefModExtensions
@@ -25,6 +26,18 @@ namespace BiomesCore.DefModExtensions
 		public float maxHillEncroachment = 1;
 		public float minHillEdgeMultiplier = 1;
 		public float maxHillEdgeMultiplier = 1;
+
+		/// <summary>
+		/// Adds these pack animals as possible choices for all factions visiting the biome. The BiomeDef's
+		/// allowedPackAnimals list can be used to control which animals are allowed as carriers.
+		/// </summary>
+		public List<PawnGenOption> extraCarriers;
+		
+		/// <summary>
+		/// If this value is 1, it is equally probable to choose an original carrier or an extra carrier. Increasing it will
+		/// make extra carriers proportionally more probable.
+		/// </summary>
+		public float extraCarriersRelativeWeight;
 	}
 
 	public enum IslandShape

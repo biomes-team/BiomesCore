@@ -130,6 +130,7 @@
     <Compile Include="Patches\ChangeStockQuality.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
+    <Compile Include="Patches\ExtendCaravanCarriers.cs" />
     <Compile Include="Patches\ExtraStatInfo.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\OrePreferredBiome.cs" />
@@ -198,7 +199,8 @@
   </Target>
   <Import Project="..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets" Condition="Exists('..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets')" />
   <ItemGroup>
-    <Publicize Include="Assembly-CSharp:Verse.PawnRenderer.pawn" />
+    <Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
     <Publicize Include="Assembly-CSharp:Verse.Pawn.drawer" />
+    <Publicize Include="Assembly-CSharp:Verse.PawnRenderer.pawn" />
   </ItemGroup>
 </Project>
