@@ -22,8 +22,8 @@
 		<takeSplashes>true</takeSplashes>
 		<extinguishesFire>false</extinguishesFire>
 		<extraDeteriorationFactor>12</extraDeteriorationFactor>
-		<extraNonDraftedPerceivedPathCost>50</extraNonDraftedPerceivedPathCost>
-		<extraDraftedPerceivedPathCost>50</extraDraftedPerceivedPathCost>
+		<extraNonDraftedPerceivedPathCost>360</extraNonDraftedPerceivedPathCost>
+		<extraDraftedPerceivedPathCost>90</extraDraftedPerceivedPathCost>
 		<pathCost>300</pathCost>
 		<passability>Impassable</passability>
 		<fertility>0</fertility>

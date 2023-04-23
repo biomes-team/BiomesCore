@@ -185,6 +185,7 @@
     <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
     <Compile Include="ThingComponents\CompSleepGraphic.cs" />
     <Compile Include="ThingComponents\CompDynamicPawnGraphic.cs" />
+    <Compile Include="ThingComponents\CompTerrainRecolor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
