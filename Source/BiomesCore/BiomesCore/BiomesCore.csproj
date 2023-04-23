@@ -130,6 +130,7 @@
     <Compile Include="Patches\ChangeStockQuality.cs" />
     <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
+    <Compile Include="Patches\ChunksOnKilled.cs" />
     <Compile Include="Patches\ExtendCaravanCarriers.cs" />
     <Compile Include="Patches\ExtraStatInfo.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="StockGenerators\HighQualityItems.cs" />
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
+    <Compile Include="ThingComponents\CompChunksOnKilled.cs" />
     <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
     <Compile Include="ThingComponents\CompPlantGraphicPerBiome.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
