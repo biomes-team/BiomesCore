@@ -67,14 +67,13 @@ namespace BiomesCore.Patches
 	{
 		static bool Prefix(Map map, GenStepParams parms)
 		{
+			var modExtension = map.Biome.GetModExtension<BiomesMap>();
+			
 			// solid cave roof for caverns
-			if (map.Biome.HasModExtension<BiomesMap>())
+			if (modExtension?.isCavern == true && !modExtension.cavernShapes.NullOrEmpty())
 			{
-				if (map.Biome.GetModExtension<BiomesMap>().isCavern)
-				{
-					new RocksFromGrid_Cavern().Generate(map, parms);
-					return false;
-				}
+				new RocksFromGrid_Cavern().Generate(map, parms);
+				return false;
 			}
 
 			return true;

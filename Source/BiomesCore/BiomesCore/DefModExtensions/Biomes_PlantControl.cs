@@ -13,5 +13,6 @@ namespace BiomesCore.DefModExtensions
         public List<string> terrainTags = new List<string>();
         public FloatRange lightRange = new FloatRange(0f, 1f);
         public FloatRange growingHours = new FloatRange(0.25f, 0.8f);
+        public FloatRange optimalTemperature = new FloatRange(6f, 42f);
     }
 }

@@ -22,17 +22,9 @@ namespace BiomesCore.MapGeneration
         public override void Generate(Map map, GenStepParams parms)
         {
             Log.Message("[Biomes! Core] Generating a cavern");
-
-            // if the valley didn't specify any shapes, all shapes are valid.
+            
             List<CavernShape> allowedShapes = map.Biome.GetModExtension<BiomesMap>().cavernShapes;
-            if(allowedShapes.NullOrEmpty())
-            {
-                allowedShapes = new List<CavernShape>();
-                foreach(CavernShape s in Enum.GetValues(typeof(CavernShape)))
-                {
-                    allowedShapes.Add(s);
-                }
-            }
+            if (allowedShapes.NullOrEmpty()) return;
 
             //pick and run a random allowable shape
             CavernShape shape = allowedShapes.RandomElement();

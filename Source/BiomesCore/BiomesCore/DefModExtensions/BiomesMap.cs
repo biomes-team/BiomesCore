@@ -38,6 +38,8 @@ namespace BiomesCore.DefModExtensions
 		/// make extra carriers proportionally more probable.
 		/// </summary>
 		public float extraCarriersRelativeWeight;
+
+		public bool alwaysGrowthSeason;
 	}
 
 	public enum IslandShape
