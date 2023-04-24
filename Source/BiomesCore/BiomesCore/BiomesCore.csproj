@@ -83,7 +83,6 @@
     <Compile Include="DefOfs\PawnKindDefOf.cs" />
     <Compile Include="DefOfs\BiomeDefOf.cs" />
     <Compile Include="DefModExtensions\BiomesMap.cs" />
-    <Compile Include="DefOfs\SoundDefOf.cs" />
     <Compile Include="DerivedClasses\PlantClasses.cs" />
     <Compile Include="Incidents\GameCondition_Earthquake.cs" />
     <Compile Include="Incidents\IncidentWorker_CaveIn.cs" />
@@ -154,6 +153,7 @@
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
     <Compile Include="PlaceWorker\PlaceWorker_Aquatic.cs" />
+    <Compile Include="PlaceWorker\PlaceWorker_LavaGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reflections\Reflection.cs" />
     <Compile Include="Reflections\TranspilerHelper.cs" />
@@ -183,6 +183,7 @@
     <Compile Include="ThingComponents\CompPackHunter.cs" />
     <Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
     <Compile Include="ThingComponents\CompPlantReleaseSpore.cs" />
+    <Compile Include="ThingComponents\CompPowerPlantLava.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />

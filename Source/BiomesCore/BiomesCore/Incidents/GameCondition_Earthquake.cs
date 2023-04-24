@@ -48,7 +48,7 @@ namespace BiomesCore
                         p.stances.stunner.StunFor(250, null, false);
                 });
             if (Rand.Value > .9) //10% chance per tick for another sound.
-                SoundDefOf.Earthquake.PlayOneShot(SoundInfo.OnCamera(MaintenanceType.PerTick));
+                BiomesCoreDefOf.EarthquakeSound.PlayOneShot(SoundInfo.OnCamera(MaintenanceType.PerTick));
         }
     }
 }

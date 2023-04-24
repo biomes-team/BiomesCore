@@ -1,7 +1,7 @@
 <Defs>
 
   <SoundDef>
-    <defName>Earthquake</defName>  
+    <defName>EarthquakeSound</defName>  
     <context>MapOnly</context> 
     <maxSimultaneous>100</maxSimultaneous>  
     <subSounds>
