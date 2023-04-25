@@ -34,9 +34,9 @@ namespace BiomesCore.Patches.Caverns
 				return false;
 			}
 
-			foreach (var cell in GenRadial.RadialCellsAround(c, 10, true))
+			foreach (var loopCell in GenRadial.RadialCellsAround(c, 10, true))
 			{
-				if (TerrainToAvoid.Contains(cell.GetTerrain(map)))
+				if (loopCell.InBounds(map) && TerrainToAvoid.Contains(loopCell.GetTerrain(map)))
 				{
 					return false;
 				}
