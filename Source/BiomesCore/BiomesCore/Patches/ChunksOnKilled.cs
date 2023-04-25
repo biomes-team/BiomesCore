@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BiomesCore.DefModExtensions;
 using BiomesCore.ThingComponents;
 using HarmonyLib;
 using RimWorld;
@@ -29,8 +30,8 @@ namespace BiomesCore.Patches
 			typeof(Predicate<IntVec3>), typeof(List<Thing>))]
 		public static void ChunksOnKilled(Thing diedThing, Map map)
 		{
-			var chunksOnKilled = diedThing.TryGetComp<CompChunksOnKilled>();
-			if (chunksOnKilled != null)
+			var chunksWhenDestroyed = diedThing.def.GetModExtension<DropChunksWhenDestroyed>();
+			if (chunksWhenDestroyed != null)
 			{
 				var position = diedThing.Position;
 				var terrainDef = position.GetTerrain(map);
@@ -39,7 +40,7 @@ namespace BiomesCore.Patches
 					var chunkDef = FindChunkOfTerrain(terrainDef);
 					if (chunkDef != null)
 					{
-						var count = chunksOnKilled.Props.chunkCountRange.RandomInRange;
+						var count = chunksWhenDestroyed.chunkCountRange.RandomInRange;
 						for (int num = 0; num < count; ++num)
 						{
 							Thing thing = ThingMaker.MakeThing(chunkDef);
