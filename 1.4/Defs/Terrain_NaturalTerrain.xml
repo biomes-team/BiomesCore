@@ -4,7 +4,7 @@
 	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase" Name="BiomeCore_Lava">
 		<defName>BiomeCore_Lava</defName>
 		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
-		<label>lava</label>
+		<label>magma</label>
 		<renderPrecedence>395</renderPrecedence>
 		<tickerType>Normal</tickerType>
 		<statBases>
