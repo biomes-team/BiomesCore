@@ -1,4 +1,5 @@
-﻿using Verse;
+﻿using BiomesCore.ThingComponents;
+using Verse;
 using RimWorld;
 using HarmonyLib;
 
@@ -11,15 +12,16 @@ namespace BiomesCore.Patches
 		[HarmonyPatch(typeof(Plant), nameof(Plant.Graphic), MethodType.Getter)]
 		internal static bool ChangePlantGraphics(ref Graphic __result, Plant __instance)
 		{
-			var comp = __instance.GetComp<CompPlantGraphicPerBiome>();
-			if (comp != null)
+			foreach (var comp in __instance.AllComps)
 			{
-				BiomeDef biomeDef = __instance.Map.LocalBiome(__instance.Position);
-				Graphic newGraphic = comp.PerBiomeGraphic(biomeDef, __instance);
-				if (newGraphic != null)
+				if (comp is CompPlantGraphic plantGraphicComp && plantGraphicComp.Active())
 				{
-					__result = newGraphic;
-					return false;
+					var data = plantGraphicComp.Graphic();
+					if (data != null)
+					{
+						__result = data;
+						return false;
+					}
 				}
 			}
 

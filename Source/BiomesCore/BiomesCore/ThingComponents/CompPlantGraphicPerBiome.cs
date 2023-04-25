@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using BiomesCore.Patches;
 using BiomesCore.ThingComponents;
 using RimWorld;
 using Verse;
@@ -29,7 +30,7 @@ namespace BiomesCore.ThingComponents
 		}
 	}
 
-	public class CompProperties_CompPlantGraphicPerBiome : CompProperties
+	public class CompProperties_CompPlantGraphicPerBiome : CompProperties_CompPlantGraphic
 	{
 		public List<BiomeGraphics> graphicsPerBiome;
 
@@ -40,11 +41,6 @@ namespace BiomesCore.ThingComponents
 			foreach (var line in base.ConfigErrors(parentDef))
 			{
 				yield return line;
-			}
-
-			if (!parentDef.IsPlant)
-			{
-				yield return $"{GetType().Name} can only be applied to plants.";
 			}
 
 			if (graphicsPerBiome.NullOrEmpty())
@@ -75,7 +71,7 @@ namespace BiomesCore.ThingComponents
 			}
 		}
 
-		private void Initialize(ThingDef parentDef)
+		protected override void Initialize(ThingDef parentDef)
 		{
 			var graphic = parentDef.graphicData.graphicClass;
 			var shader = parentDef.graphic.Shader;
@@ -114,16 +110,10 @@ namespace BiomesCore.ThingComponents
 				}
 			}
 		}
-
-
-		public override void PostLoadSpecial(ThingDef parentDef)
-		{
-			LongEventHandler.ExecuteWhenFinished(() => Initialize(parentDef));
-		}
 	}
 }
 
-public class CompPlantGraphicPerBiome : ThingComp
+public class CompPlantGraphicPerBiome : CompPlantGraphic
 {
 	private CompProperties_CompPlantGraphicPerBiome Props => (CompProperties_CompPlantGraphicPerBiome) props;
 
@@ -151,7 +141,7 @@ public class CompPlantGraphicPerBiome : ThingComp
 		return plant.def.plant.immatureGraphic != null && !plant.HarvestableNow ? entry.immatureGraphic : entry.graphic;
 	}
 
-	public Graphic PerBiomeGraphic(BiomeDef biome, Plant plant)
+	private Graphic PerBiomeGraphic(BiomeDef biome, Plant plant)
 	{
 		foreach (var entry in Props.graphicsPerBiome)
 		{
@@ -162,5 +152,15 @@ public class CompPlantGraphicPerBiome : ThingComp
 		}
 
 		return null;
+	}
+
+	public override bool Active()
+	{
+		return parent is Plant plant && PerBiomeGraphic(plant.Map.LocalBiome(plant.Position), plant) != null;
+	}
+
+	public override Graphic Graphic()
+	{
+		return parent is Plant plant ? PerBiomeGraphic(plant.Map.LocalBiome(plant.Position), plant) : null;
 	}
 }

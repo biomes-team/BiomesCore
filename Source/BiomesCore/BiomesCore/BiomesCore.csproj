@@ -165,7 +165,9 @@
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
     <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
+    <Compile Include="ThingComponents\CompPlantGraphic.cs" />
     <Compile Include="ThingComponents\CompPlantGraphicPerBiome.cs" />
+    <Compile Include="ThingComponents\CompPlantGrownGraphic.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
     <Compile Include="ThingComponents\CompPlantProximityExplosive.cs" />
     <Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
