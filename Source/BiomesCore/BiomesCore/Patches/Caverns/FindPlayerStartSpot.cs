@@ -16,39 +16,46 @@ namespace BiomesCore.Patches.Caverns
 			return typeof(GenStep_FindPlayerStartSpot).GetLambda(nameof(GenStep_FindPlayerStartSpot.Generate));
 		}
 
-		private static HashSet<TerrainDef> TerrainToAvoid;
+		private static HashSet<TerrainDef> _terrainToAvoid;
 
-		private static bool CellUnbreachableRoofedAndValid(IntVec3 c, Map map)
+		/// <summary>
+		/// The lambda being transpiled is negated, which is why this function returns true for invalid spots.
+		/// </summary>
+		/// <param name="c">Cell being evaluated.</param>
+		/// <param name="map">Map being evaluated.</param>
+		/// <returns>True if this is not a good starting point.</returns>
+		private static bool InvalidStartSpot(IntVec3 c, Map map)
 		{
-			if (TerrainToAvoid == null)
+			if (_terrainToAvoid == null)
 			{
-				TerrainToAvoid = new HashSet<TerrainDef>();
+				_terrainToAvoid = new HashSet<TerrainDef>();
 				foreach (var def in DefDatabase<AvoidTerrainOnGameStartDef>.AllDefs)
 				{
-					TerrainToAvoid.AddRange(def.terrains);
+					_terrainToAvoid.AddRange(def.terrains);
 				}
 			}
 
-			if (c.UnbreachableRoofed(map))
-			{
-				return false;
-			}
+			var result = c.Roofed(map) && c.GetRoof(map) != BiomesCoreDefOf.BMT_RockRoofStable;
 
-			foreach (var loopCell in GenRadial.RadialCellsAround(c, 10, true))
+			if (!result)
 			{
-				if (loopCell.InBounds(map) && TerrainToAvoid.Contains(loopCell.GetTerrain(map)))
+				foreach (var loopCell in GenRadial.RadialCellsAround(c, 10, true))
 				{
-					return false;
+					if (loopCell.InBounds(map) && _terrainToAvoid.Contains(loopCell.GetTerrain(map)))
+					{
+						result = true;
+						break;
+					}
 				}
 			}
 
-			return true;
+			return result;
 		}
 
 		private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
 			MethodInfo newMethod =
-				AccessTools.Method(typeof(FindPlayerStartSpot), nameof(CellUnbreachableRoofedAndValid));
+				AccessTools.Method(typeof(FindPlayerStartSpot), nameof(InvalidStartSpot));
 
 			return TranspilerHelper.ReplaceCall(instructions.ToList(), Methods.CellRoofedOriginal, newMethod);
 		}
