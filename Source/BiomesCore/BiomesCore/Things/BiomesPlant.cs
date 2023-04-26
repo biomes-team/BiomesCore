@@ -66,7 +66,7 @@ namespace BMT
 				if (entry.biomes.Contains(biomeDef))
 				{
 					customBiomeGraphic = entry;
-					InitializeBiomeGraphics(entry);
+					LongEventHandler.ExecuteWhenFinished(() => InitializeBiomeGraphics(entry));
 					break;
 				}
 			}
