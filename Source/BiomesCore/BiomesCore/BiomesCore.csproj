@@ -73,6 +73,7 @@
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
+    <Compile Include="DefModExtensions\CustomGraphicsPlantDef.cs" />
     <Compile Include="DefModExtensions\DropChunksWhenDestroyed.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
@@ -150,7 +151,6 @@
     <Compile Include="Patches\JobDriver_PredatorHunt_Patch.cs" />
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\PlantGrowth.cs" />
-    <Compile Include="Patches\Plant_Graphic.cs" />
     <Compile Include="Patches\PredatorHuntingBehaviour.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
@@ -165,9 +165,6 @@
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
     <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
-    <Compile Include="ThingComponents\CompPlantGraphic.cs" />
-    <Compile Include="ThingComponents\CompPlantGraphicPerBiome.cs" />
-    <Compile Include="ThingComponents\CompPlantGrownGraphic.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
     <Compile Include="ThingComponents\CompPlantProximityExplosive.cs" />
     <Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
@@ -193,6 +190,7 @@
     <Compile Include="ThingComponents\CompSleepGraphic.cs" />
     <Compile Include="ThingComponents\CompDynamicPawnGraphic.cs" />
     <Compile Include="ThingComponents\CompTerrainRecolor.cs" />
+    <Compile Include="Things\BiomesPlant.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -208,6 +206,7 @@
   <Import Project="..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets" Condition="Exists('..\packages\Krafs.Publicizer.2.2.1\build\Krafs.Publicizer.targets')" />
   <ItemGroup>
     <Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
+    <Publicize Include="Assembly-CSharp:RimWorld.Plant.GraphicSowing" />
     <Publicize Include="Assembly-CSharp:Verse.Pawn.drawer" />
     <Publicize Include="Assembly-CSharp:Verse.PawnRenderer.pawn" />
   </ItemGroup>
