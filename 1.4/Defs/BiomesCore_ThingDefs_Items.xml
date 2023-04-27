@@ -154,4 +154,54 @@
     </stuffProps>
   </ThingDef>
 
+  <ThingDef ParentName="LeatherBase">
+    <defName>BMT_Leather_Amphibian</defName>
+    <label>amphibianskin</label>
+    <description>The tanned skin of an amphibian, like a frog or salamander. Amphibianskin feels moist and soft at the same time.</description>
+    <statBases>
+      <MarketValue>4</MarketValue>
+      <Flammability>0.25</Flammability>
+      <StuffPower_Armor_Sharp>0.75</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.15</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+    </statBases>
+    <graphicData>
+      <color>(255,237,237)</color>
+    </graphicData>
+    <stuffProps>
+      <color>(255,237,237)</color>
+      <commonality>0.030</commonality>
+      <statFactors>
+        <MaxHitPoints>0.9</MaxHitPoints>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+  
+   <ThingDef ParentName="LeatherBase">
+    <defName>BMT_Leather_Magma</defName>
+    <label>flame-proof leather</label>
+    <description>The tanned skin of a fireproof creature. It feels hardy and tough but doesn't protect against cold well.</description>
+    <statBases>
+      <MarketValue>7</MarketValue>
+      <Flammability>0.0</Flammability>
+      <StuffPower_Armor_Sharp>0.75</StuffPower_Armor_Sharp>
+      <StuffPower_Armor_Blunt>0.15</StuffPower_Armor_Blunt>
+      <StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
+      <StuffPower_Insulation_Cold>5</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>50</StuffPower_Insulation_Heat>
+    </statBases>
+    <graphicData>
+      <color>(128,128,128)</color>
+    </graphicData>
+    <stuffProps>
+      <color>(128,128,128)</color>
+      <commonality>0.020</commonality>
+      <statFactors>
+		<Flammability>0.0</Flammability>
+        <MaxHitPoints>0.6</MaxHitPoints>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
 </Defs>
