@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using BiomesCore.MapGeneration;
 using BiomesCore.Reflections;
+using RimWorld.Planet;
 
 namespace BiomesCore.Patches
 {
@@ -111,6 +112,44 @@ namespace BiomesCore.Patches
 			{
 				__result *= 0.25f;
 			}
+		}
+	}
+	
+	/// <summary>
+	/// Undergrounders should feel indoors in caverns biomes
+	/// </summary>
+	[HarmonyPatch(typeof(ThoughtWorker_IsIndoorsForUndergrounder), "IsAwakeAndIndoors")]
+	internal static class IndoorsForUndergrounder
+	{
+		private static bool Prefix(Pawn p, ref bool isNaturalRoof, ref bool __result)
+		{
+			if (p.Map.TileInfo.hilliness == Hilliness.Impassable) // better for performance than checking def extension
+			{
+				var roofDef = p.Map.roofGrid.RoofAt(p.Position);
+				isNaturalRoof = roofDef?.isNatural ?? false;
+				__result = p.Awake() && roofDef != null;
+				return false;
+			}
+
+			return true;
+		}
+	}
+	
+	/// <summary>
+	/// Undergrounders should not feel outdoors in caverns biomes
+	/// </summary>
+	[HarmonyPatch(typeof(ThoughtWorker_IsOutdoorsForUndergrounder), "CurrentStateInternal")]
+	internal static class OutdoorsForUndergrounder
+	{
+		private static bool Prefix(Pawn p, ref ThoughtState __result)
+		{
+			if (p.Map.TileInfo.hilliness == Hilliness.Impassable) // better for performance than checking def extension
+			{
+				__result = p.Awake() && !p.Position.Roofed(p.Map);
+				return false;
+			}
+
+			return true;
 		}
 	}
 
