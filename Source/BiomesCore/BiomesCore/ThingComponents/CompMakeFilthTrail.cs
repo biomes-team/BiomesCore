@@ -12,9 +12,10 @@ namespace BiomesCore
 
         public override void CompTick()
         {
+            _cooldownTicks--;
+            
             if (parent.Map == null || parent.Position == _lastPos) return;
             
-            _cooldownTicks--;
             _lastPos = parent.Position;
 
             if (_cooldownTicks <= 0)
