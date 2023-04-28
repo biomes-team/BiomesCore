@@ -8,7 +8,7 @@ namespace BiomesCore
 {
     public class CompPowerPlantLava : CompPowerPlant
     {
-        private float spinPosition;
+        private float pumpPosition;
 
         private bool cacheDirty = true;
 
@@ -39,7 +39,7 @@ namespace BiomesCore
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             base.PostSpawnSetup(respawningAfterLoad);
-            spinPosition = Rand.Range(0f, 15f);
+            pumpPosition = Rand.Range(0f, 15f);
             RebuildCache();
             ForceOthersToRebuildCache(parent.Map);
         }
@@ -107,7 +107,7 @@ namespace BiomesCore
             base.CompTick();
             if (base.PowerOutput > 0.01f)
             {
-                spinPosition = (spinPosition + 1f / 150f * (float)Math.PI * 2f) % ((float)Math.PI * 2f);
+                pumpPosition = (pumpPosition + 1f / 150f * (float)Math.PI * 2f) % ((float)Math.PI * 2f);
             }
         }
 

@@ -4,7 +4,7 @@
 	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase" Name="BiomeCore_Lava">
 		<defName>BiomeCore_Lava</defName>
 		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
-		<label>magma</label>
+		<label>lava</label>
 		<renderPrecedence>395</renderPrecedence>
 		<tickerType>Normal</tickerType>
 		<statBases>
@@ -63,7 +63,7 @@
 
 	<BiomesCore.ActiveTerrainDef ParentName="BiomeCore_Lava">
 		<defName>BiomeCore_Magma</defName>
-		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
+		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
 		<label>magma</label>
 		<driesTo Inherit="False"/>
 	</BiomesCore.ActiveTerrainDef>
@@ -71,8 +71,8 @@
 	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase">
 		<defName>BMT_MagmaStone</defName>
 		<label>tachylite</label>
-		<texturePath>BMT_Caverns/Terrains/MagmaStone</texturePath>
-		<pollutedTexturePath>BMT_Caverns/Terrains/MagmaStone</pollutedTexturePath>
+		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
+		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath>
 		<edgeType>Fade</edgeType>
 		<renderPrecedence>335</renderPrecedence>
 		<pathCost>16</pathCost>
