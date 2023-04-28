@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
+	
 	<StatCategoryDef>
 		<defName>BC_AnimalCommonality</defName>
 		<label>animal commonality</label>
 		<!-- Always last, right before content source. -->
 		<displayOrder>998</displayOrder>
 	</StatCategoryDef>
+	
 	<StatCategoryDef>
 		<defName>BC_BiomeCommonality</defName>
 		<label>biome commonality</label>
 		<!-- Always last, right before content source. -->
 		<displayOrder>998</displayOrder>
 	</StatCategoryDef>
+
+	<StatDef>
+		<defName>BC_FlammabilityOffset</defName>
+		<label>Flammability offset</label>
+		<labelForFullStatList>Flammability offset (apparel stat)</labelForFullStatList>
+		<description>Affects how easily an object catches fire and how quickly a fire will grow as it burns.</description>
+		<displayPriorityInCategory>88</displayPriorityInCategory>
+		<category>Apparel</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>-1</minValue>
+		<hideAtValue>0</hideAtValue>
+		<maxValue>1</maxValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<parts>
+			<li Class="StatPart_Stuff">
+				<priority>100</priority>
+				<stuffPowerStat>BC_StuffPower_FlammabilityOffset</stuffPowerStat>
+				<multiplierStat>StuffEffectMultiplierInsulation_Heat</multiplierStat>
+			</li>
+		</parts>
+	</StatDef>
+	
+	<StatDef>
+		<defName>BC_StuffPower_FlammabilityOffset</defName>
+		<label>Flammability offset</label>
+		<labelForFullStatList>Flammability (material offset)</labelForFullStatList>
+		<description>Affects how easily an object catches fire and how quickly a fire will grow as it burns.</description>
+		<category>StuffStatFactors</category>
+		<defaultBaseValue>0</defaultBaseValue>
+		<minValue>-1</minValue>
+		<maxValue>1</maxValue>
+		<toStringStyle>PercentZero</toStringStyle>
+		<showIfUndefined>false</showIfUndefined>
+		<displayPriorityInCategory>4420</displayPriorityInCategory>
+	</StatDef>
+	
 </Defs>
