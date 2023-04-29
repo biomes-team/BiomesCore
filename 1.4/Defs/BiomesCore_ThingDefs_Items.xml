@@ -122,7 +122,7 @@
       <StuffPower_Armor_Blunt>0.52</StuffPower_Armor_Blunt>
       <StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
       <StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
-      <BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
+      <BC_StuffPower_FlammabilityOffset>-0.1</BC_StuffPower_FlammabilityOffset>
     </statBases>
     <stuffProps>
       <color>(100,68,36)</color>
@@ -146,7 +146,7 @@
       <StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
       <StuffPower_Insulation_Cold>10</StuffPower_Insulation_Cold>
       <StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
-      <BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
+      <BC_StuffPower_FlammabilityOffset>-0.05</BC_StuffPower_FlammabilityOffset>
     </statBases>
     <graphicData>
       <color>(153,150,117)</color>
@@ -198,7 +198,7 @@
       <StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
       <StuffPower_Insulation_Cold>5</StuffPower_Insulation_Cold>
       <StuffPower_Insulation_Heat>50</StuffPower_Insulation_Heat>
-      <BC_StuffPower_FlammabilityOffset>-0.4</BC_StuffPower_FlammabilityOffset>
+      <BC_StuffPower_FlammabilityOffset>-0.8</BC_StuffPower_FlammabilityOffset>
     </statBases>
     <graphicData>
       <color>(128,128,128)</color>
