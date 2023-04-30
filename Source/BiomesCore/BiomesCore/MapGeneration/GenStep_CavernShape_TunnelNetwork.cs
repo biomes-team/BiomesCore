@@ -6,14 +6,7 @@ namespace BiomesCore.MapGeneration
 {
 	public class GenStep_CavernShape_TunnelNetwork : GenStep
 	{
-		public override int SeedPart
-		{
-			get
-			{
-				return 2115796768;
-			}
-		}
-
+		public override int SeedPart => 2115796768;
 
 		public override void Generate(Map map, GenStepParams parms)
 		{
@@ -28,7 +21,10 @@ namespace BiomesCore.MapGeneration
 
 			foreach (IntVec3 cell in map.AllCells)
 			{
-                elevation[cell] = 0.53f + 2f * Math.Abs(tunnels.GetValue(cell) - 0.5f) + 0.10f * noise.GetValue(cell);
+				if (elevation[cell] > -999)
+				{
+					elevation[cell] = 0.53f + 2f * Math.Abs(tunnels.GetValue(cell) - 0.5f) + 0.10f * noise.GetValue(cell);
+				}
 			}
 
 
@@ -41,11 +37,14 @@ namespace BiomesCore.MapGeneration
 
 			foreach (IntVec3 cell in map.AllCells)
 			{
-				float distance = (float)Math.Sqrt(Math.Pow(cell.x - roomLoc.x, 2) + Math.Pow(cell.z - roomLoc.z, 2));
+				if (elevation[cell] > -999)
+				{
+					float distance = (float) Math.Sqrt(Math.Pow(cell.x - roomLoc.x, 2) + Math.Pow(cell.z - roomLoc.z, 2));
 
-				float addition = 25 * (1f - (sizeAdj * distance / map.Size.x)) + 15f * roomNoise.GetValue(cell);
+					float addition = 25 * (1f - (sizeAdj * distance / map.Size.x)) + 15f * roomNoise.GetValue(cell);
 
-				elevation[cell] -= Math.Max(0, addition);
+					elevation[cell] -= Math.Max(0, addition);
+				}
 			}
 
 

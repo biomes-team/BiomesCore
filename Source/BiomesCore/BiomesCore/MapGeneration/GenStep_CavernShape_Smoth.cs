@@ -6,14 +6,7 @@ namespace BiomesCore.MapGeneration
 {
 	public class GenStep_CavernShape_Smoth : GenStep
 	{
-		public override int SeedPart
-		{
-			get
-			{
-				return 2104796118;
-			}
-		}
-
+		public override int SeedPart => 2104796118;
 
 		public override void Generate(Map map, GenStepParams parms)
 		{
@@ -28,13 +21,15 @@ namespace BiomesCore.MapGeneration
 
 			foreach (IntVec3 cell in map.AllCells)
 			{
-				//elevation[cell] = 0.53f + 2f * Math.Abs(tunnels.GetValue(cell) - 0.5f);
-				//elevation[cell] = 1.1f + 2f * chambers.GetValue(cell);
+				if (elevation[cell] > -999)
+				{
+					//elevation[cell] = 0.53f + 2f * Math.Abs(tunnels.GetValue(cell) - 0.5f);
+					//elevation[cell] = 1.1f + 2f * chambers.GetValue(cell);
 
-				elevation[cell] = 0.53f + 2f * Math.Abs(tunnels.GetValue(cell) - 0.5f);
-				elevation[cell] = Math.Min(elevation[cell], 1.3f + 2f * chambers.GetValue(cell));
-
-            }
+					elevation[cell] = 0.53f + 2f * Math.Abs(tunnels.GetValue(cell) - 0.5f);
+					elevation[cell] = Math.Min(elevation[cell], 1.3f + 2f * chambers.GetValue(cell));
+				}
+			}
 
 		}
 	}

@@ -6,14 +6,7 @@ namespace BiomesCore.MapGeneration
 {
 	public class GenStep_CavernShape_Tubes : GenStep
 	{
-		public override int SeedPart
-		{
-			get
-			{
-				return 2115123768;
-			}
-		}
-
+		public override int SeedPart => 2115123768;
 
 		public override void Generate(Map map, GenStepParams parms)
 		{
@@ -54,7 +47,10 @@ namespace BiomesCore.MapGeneration
 
 			foreach (IntVec3 cell in map.AllCells)
 			{
-                elevation[cell] = tubes.GetValue(cell);
+				if (elevation[cell] > -999)
+				{
+					elevation[cell] = tubes.GetValue(cell);
+				}
 			}
 
 		}

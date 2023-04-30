@@ -1,6 +1,6 @@
 ﻿using RimWorld;
-using System;
 using System.Collections.Generic;
+using RimWorld.Planet;
 using Verse;
 using Verse.AI;
 
@@ -42,9 +42,9 @@ namespace BiomesCore
         public override void ResolveReferences(ThingDef parentDef)
         {
             base.ResolveReferences(parentDef);
-            if (this.explosiveDamageType != null)
+            if (explosiveDamageType != null)
                 return;
-            this.explosiveDamageType = DamageDefOf.Bomb;
+            explosiveDamageType = DamageDefOf.Bomb;
         }
     }
 
@@ -53,84 +53,141 @@ namespace BiomesCore
         private List<Thing> thingsIgnoredByExplosion;
         private Thing instigator;
         private Effecter effecter;
+        private bool plantedByMapFaction;
 
-        public CompProperties_PlantProximityExplosive Props => (CompProperties_PlantProximityExplosive)this.props;
+        private static int _lastExplodedTick = -1;
+        private static bool _lastExplodedPlantedByMapFaction;
 
-        public override void CompTickLong()
+        public CompProperties_PlantProximityExplosive Props => (CompProperties_PlantProximityExplosive)props;
+        
+        public override void PostSpawnSetup(bool respawningAfterLoad)
         {
+            if (respawningAfterLoad || Current.ProgramState != ProgramState.Playing || parent.Map.ParentFaction == null) return;
+
+            // propagate plantedByMapFaction to new shrooms produced in explosions
+            if (_lastExplodedTick > 0 && Find.TickManager.TicksGame - _lastExplodedTick < 200)
+            {
+                plantedByMapFaction = _lastExplodedPlantedByMapFaction;
+                return;
+            }
+
+            // try to find pawn from the map faction that is planting the shroom
+            var nearbyMapFactionPawn = GenClosest.ClosestThingReachable(parent.Position, parent.Map, 
+                ThingRequest.ForGroup(ThingRequestGroup.Pawn), PathEndMode.OnCell, 
+                TraverseParms.For(TraverseMode.NoPassClosedDoors), Props.proxiRadius, 
+                thing => thing.Faction == parent.Map.ParentFaction);
+            
+            plantedByMapFaction = nearbyMapFactionPawn != null;
+        }
+
+        public override void CompTick()
+        {
+            if (!parent.IsHashIntervalTick(100)) return;
+
             var thingRequest = Props.proxiTarget != null
                 ? ThingRequest.ForDef(Props.proxiTarget)
                 : ThingRequest.ForGroup(Props.proxiGroup);
 
             if (parent.Map == null || !(parent is Plant plant))
                 return;
-            if (!this.parent.Spawned || GenClosest.ClosestThingReachable(this.parent.Position, this.parent.Map, thingRequest, PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors), Props.proxiRadius, thing => thing is Pawn pawn ? pawn.BodySize >= Props.minBodySize : true) == null)
+            if (plant.Growth < Props.growthProgress || plant.Dying)
                 return;
-            if (plant.Growth >= Props.growthProgress && !plant.Dying)
+            if (!parent.Spawned || GenClosest.ClosestThingReachable(parent.Position, parent.Map, thingRequest, PathEndMode.OnCell, TraverseParms.For(TraverseMode.NoPassClosedDoors), Props.proxiRadius, CanBeTriggeredBy) == null)
+                return;
+            
+            Detonate();
+        }
+
+        private bool CanBeTriggeredBy(Thing thing)
+        {
+            if (thing is Pawn pawn)
             {
-                this.Detonate();
+                if (pawn.BodySize < Props.minBodySize) return false;
+                
+                if (plantedByMapFaction)
+                {
+                    var mapFaction = parent.Map.ParentFaction;
+                    if (pawn.Faction != null && !pawn.Faction.HostileTo(mapFaction)) return false;
+                    if (pawn.Faction == null && pawn.RaceProps.Animal && !pawn.InAggroMentalState) return false;
+                    if (pawn.guest is { Released: true }) return false;
+                    if (!pawn.IsPrisoner && pawn.HostFaction == mapFaction) return false;
+                    if (pawn.RaceProps.Humanlike && pawn.IsFormingCaravan()) return false;
+                    if (pawn.IsPrisoner && pawn.guest.ShouldWaitInsteadOfEscaping && mapFaction == pawn.HostFaction) return false;
+                    if (pawn.Faction == null && pawn.RaceProps.Humanlike) return false;
+                }
+                else
+                {
+                    if (pawn.RaceProps.Animal && !pawn.InAggroMentalState) return false;
+                }
             }
+            
+            return true;
         }
 
         public void AddThingsIgnoredByExplosion(List<Thing> things)
         {
-            if (this.thingsIgnoredByExplosion == null)
-                this.thingsIgnoredByExplosion = new List<Thing>();
-            this.thingsIgnoredByExplosion.AddRange((IEnumerable<Thing>)things);
+            thingsIgnoredByExplosion ??= new List<Thing>();
+            thingsIgnoredByExplosion.AddRange(things);
         }
 
         public override void PostExposeData()
         {
             base.PostExposeData();
-            Scribe_References.Look<Thing>(ref this.instigator, "instigator");
-            Scribe_Collections.Look<Thing>(ref this.thingsIgnoredByExplosion, "thingsIgnoredByExplosion", LookMode.Reference);
+            Scribe_Values.Look(ref plantedByMapFaction, "plantedByMapFaction");
+            Scribe_References.Look(ref instigator, "instigator");
+            Scribe_Collections.Look(ref thingsIgnoredByExplosion, "thingsIgnoredByExplosion", LookMode.Reference);
             //Scribe_Values.Look<bool>(ref this.destroyedThroughDetonation, "destroyedThroughDetonation");
         }
 
         public override void PostDestroy(DestroyMode mode, Map previousMap)
         {
-            if (mode != DestroyMode.KillFinalize || !this.Props.explodeOnKilled)
+            if (mode != DestroyMode.KillFinalize || !Props.explodeOnKilled)
                 return;
-            this.Detonate();
+            Detonate();
         }
 
         public override void PostPreApplyDamage(DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
-            if (dinfo.Def.ExternalViolenceFor((Thing)this.parent) && (double)dinfo.Amount >= (double)this.parent.HitPoints && this.CanExplodeFromDamageType(dinfo.Def))
+            if (dinfo.Def.ExternalViolenceFor(parent) && dinfo.Amount >= (double)parent.HitPoints && CanExplodeFromDamageType(dinfo.Def))
             {
-                if (this.parent.MapHeld == null)
+                if (parent.MapHeld == null)
                     return;
-                this.instigator = dinfo.Instigator;
-                this.Detonate();
-                if (!this.parent.Destroyed)
+                instigator = dinfo.Instigator;
+                Detonate();
+                if (!parent.Destroyed)
                     return;
                 absorbed = true;
             }
             else
             {
-                if (this.Props.detonateOnDamageTaken == null || !this.Props.detonateOnDamageTaken.Contains(dinfo.Def))
+                if (Props.detonateOnDamageTaken == null || !Props.detonateOnDamageTaken.Contains(dinfo.Def))
                     return;
-                this.Detonate();
+                Detonate();
             }
         }
 
         protected void Detonate()
         {
             float radius = Props.explosiveRadius * Props.growthProgress;
-            if ((double)radius <= 0.0)
+            if (radius <= 0.0)
                 return;
             if (parent.Map == null || !(parent is Plant plant))
                 return;
+            
             if (Props.explosionEffect != null)
             {
-                if (this.effecter == null)
-                    this.effecter = this.Props.explosionEffect.Spawn((Plant)this.parent, this.parent.MapHeld);
-                this.effecter.EffectTick((TargetInfo)(Plant)this.parent, (TargetInfo)(Plant)this.parent);
-                this.effecter.Cleanup();
+                effecter ??= Props.explosionEffect.Spawn((Plant) parent, parent.MapHeld);
+                effecter.EffectTick((TargetInfo)(Plant)parent, (TargetInfo)(Plant)parent);
+                effecter.Cleanup();
             }
-            Thing instigator = this.instigator == null || this.instigator.HostileTo(this.parent.Faction) && this.parent.Faction != Faction.OfPlayer ? (Thing)this.parent : this.instigator;
-            GenExplosion.DoExplosion(this.parent.PositionHeld, this.parent.MapHeld, radius, Props.explosiveDamageType, instigator, Props.damageAmountBase, Props.armorPenetrationBase, Props.explosionSound, postExplosionSpawnThingDef: Props.postExplosionSpawnThingDef, postExplosionSpawnChance: Props.postExplosionSpawnChance, postExplosionSpawnThingCount: Props.postExplosionSpawnThingCount, postExplosionGasType: this.Props.postExplosionGasType, applyDamageToExplosionCellsNeighbors: Props.applyDamageToExplosionCellsNeighbors, preExplosionSpawnThingDef: Props.preExplosionSpawnThingDef, preExplosionSpawnChance: Props.preExplosionSpawnChance, preExplosionSpawnThingCount: Props.preExplosionSpawnThingCount, chanceToStartFire: Props.chanceToStartFire, damageFalloff: Props.damageFalloff, ignoredThings: this.thingsIgnoredByExplosion, doVisualEffects: Props.doVisualEffects, propagationSpeed: Props.propagationSpeed);
+            
+            var explosionInstigator = instigator == null || instigator.HostileTo(parent.Faction) && parent.Faction != Faction.OfPlayer ? parent : instigator;
+            GenExplosion.DoExplosion(parent.PositionHeld, parent.MapHeld, radius, Props.explosiveDamageType, explosionInstigator, Props.damageAmountBase, Props.armorPenetrationBase, Props.explosionSound, postExplosionSpawnThingDef: Props.postExplosionSpawnThingDef, postExplosionSpawnChance: Props.postExplosionSpawnChance, postExplosionSpawnThingCount: Props.postExplosionSpawnThingCount, postExplosionGasType: Props.postExplosionGasType, applyDamageToExplosionCellsNeighbors: Props.applyDamageToExplosionCellsNeighbors, preExplosionSpawnThingDef: Props.preExplosionSpawnThingDef, preExplosionSpawnChance: Props.preExplosionSpawnChance, preExplosionSpawnThingCount: Props.preExplosionSpawnThingCount, chanceToStartFire: Props.chanceToStartFire, damageFalloff: Props.damageFalloff, ignoredThings: thingsIgnoredByExplosion, doVisualEffects: Props.doVisualEffects, propagationSpeed: Props.propagationSpeed);
+
+            _lastExplodedTick = Find.TickManager.TicksGame;
+            _lastExplodedPlantedByMapFaction = plantedByMapFaction;
+            
             if (Props.destroyedThroughDetonation)
             {
                 plant.Destroy();
@@ -141,17 +198,18 @@ namespace BiomesCore
             }
         }
 
-        private bool CanExplodeFromDamageType(DamageDef damage) => this.Props.requiredDamageTypeToExplode == null || this.Props.requiredDamageTypeToExplode == damage;
+        private bool CanExplodeFromDamageType(DamageDef damage) => Props.requiredDamageTypeToExplode == null || Props.requiredDamageTypeToExplode == damage;
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            CompPlantProximityExplosive CompPlantProximityExplosive = this;
+            var compPlantProximityExplosive = this;
             if (DebugSettings.ShowDevGizmos)
             {
-                Command_Action commandAction = new Command_Action();
-                commandAction.defaultLabel = "DEV: Explode";
-                commandAction.action = new Action(CompPlantProximityExplosive.Detonate);
-                yield return (Gizmo)commandAction;
+                yield return new Command_Action
+                {
+                    defaultLabel = plantedByMapFaction ? "DEV: Explode (PMF)" : "DEV: Explode",
+                    action = compPlantProximityExplosive.Detonate
+                };
             }
         }
     }

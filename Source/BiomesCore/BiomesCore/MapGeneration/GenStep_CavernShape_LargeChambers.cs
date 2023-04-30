@@ -6,14 +6,7 @@ namespace BiomesCore.MapGeneration
 {
 	public class GenStep_CavernShape_LargeChambers : GenStep
 	{
-		public override int SeedPart
-		{
-			get
-			{
-				return 2104796118;
-			}
-		}
-
+		public override int SeedPart => 2104796118;
 
 		public override void Generate(Map map, GenStepParams parms)
 		{
@@ -41,8 +34,11 @@ namespace BiomesCore.MapGeneration
 
 			foreach (IntVec3 cell in map.AllCells)
 			{
-                elevation[cell] = Math.Max(columns.GetValue(cell), chambers.GetValue(cell));
-            }
+				if (elevation[cell] > -999)
+				{
+					elevation[cell] = Math.Max(columns.GetValue(cell), chambers.GetValue(cell));
+				}
+			}
 
 		}
 	}
