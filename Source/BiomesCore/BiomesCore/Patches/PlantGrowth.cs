@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using BiomesCore.DefModExtensions;
 using HarmonyLib;
 using RimWorld;
@@ -61,6 +63,36 @@ namespace BiomesCore.Patches
                 : cellTemp > max ? Mathf.InverseLerp(max + span / 2f, max, cellTemp) : 1f;
                 
             return false;
+        }
+    }
+    
+    [HarmonyPatch(typeof(ThingDef), "SpecialDisplayStats")]
+    internal static class ThingDef_SpecialDisplayStats
+    {
+        internal static void Postfix(ThingDef __instance, ref IEnumerable<StatDrawEntry> __result)
+        {
+            if (__instance.plant != null)
+            {
+                var modExtension = __instance.GetModExtension<Biomes_PlantControl>();
+                if (modExtension != null)
+                {
+                    var list = __result.ToList();
+                    
+                    var minLabel = "MinGrowthTemperature".Translate().CapitalizeFirst();
+                    var maxLabel = "MaxGrowthTemperature".Translate().CapitalizeFirst();
+
+                    var minValue = modExtension.optimalTemperature.min - 6f;
+                    var maxValue = modExtension.optimalTemperature.max + 16f;
+
+                    if (list.RemoveAll(e => e.LabelCap == minLabel || e.LabelCap == maxLabel) > 0)
+                    {
+                        list.Add(new StatDrawEntry(StatCategoryDefOf.Basics, "MinGrowthTemperature".Translate(), minValue.ToStringTemperature(), "Stat_Thing_Plant_MinGrowthTemperature_Desc".Translate(), 4152));
+                        list.Add(new StatDrawEntry(StatCategoryDefOf.Basics, "MaxGrowthTemperature".Translate(), maxValue.ToStringTemperature(), "Stat_Thing_Plant_MaxGrowthTemperature_Desc".Translate(), 4153));
+                    }
+
+                    __result = list;
+                }
+            }
         }
     }
 }
