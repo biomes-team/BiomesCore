@@ -11,9 +11,6 @@
 		<hungerRateFactor>0.4</hungerRateFactor>
 		<marketValueFactor>0.4</marketValueFactor>
 		<meleeDamageFactor>0.5</meleeDamageFactor>
-		<statFactors>
-			<MoveSpeed>0.5</MoveSpeed>
-		</statFactors>
 		<visible>false</visible>
 		<reproductive>false</reproductive>
 		<bodySizeFactor>0.1</bodySizeFactor>
@@ -70,7 +67,7 @@
 			<MoveSpeed>0.5</MoveSpeed>
 		</statFactors>
 		<visible>false</visible>
-		<reproductive>true</reproductive>
+		<reproductive>false</reproductive>
 		<shearable>true</shearable>
 		<milkable>true</milkable>
 		<caravanRideable>true</caravanRideable>
@@ -90,7 +87,7 @@
 			<MoveSpeed>0.9</MoveSpeed>
 		</statFactors>
 		<visible>false</visible>
-		<reproductive>true</reproductive>
+		<reproductive>false</reproductive>
 		<shearable>true</shearable>
 		<milkable>true</milkable>
 		<caravanRideable>true</caravanRideable>
