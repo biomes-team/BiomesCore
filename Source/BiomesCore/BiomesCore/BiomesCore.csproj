@@ -123,6 +123,7 @@
     <Compile Include="Patches\Caverns\GauranlenPodSpawn.cs" />
     <Compile Include="Patches\Caverns\PawnsArrivalEdgeWalkIn.cs" />
     <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomPawnEntryCell.cs" />
+    <Compile Include="Patches\Caverns\RoyalTitlePermitWorker_CallShuttle_GetReportFromCell.cs" />
     <Compile Include="Patches\Caverns\Transpilers.cs" />
     <Compile Include="Patches\Caverns\Utility.cs" />
     <Compile Include="Patches\DisableBiomeIncidents.cs" />
