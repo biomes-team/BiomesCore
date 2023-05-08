@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+	<BodyPartGroupDef>
+		<defName>BMT_TailGroup</defName>
+		<label>tail</label>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_FrontLeftThumbSpike</defName>
+		<label>front left thumb spike</label>
+		<labelShort>thumb spike</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_FrontRightThumbSpike</defName>
+		<label>front right thumb spike</label>
+		<labelShort>thumb spike</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_RearLeftClaw</defName>
+		<label>rear left claw</label>
+		<labelShort>claw</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_RearRightClaw</defName>
+		<label>rear right claw</label>
+		<labelShort>claw</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_RearLeftSickleClaw</defName>
+		<label>rear left sickle claw</label>
+		<labelShort>sickle claw</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_RearRightSickleClaw</defName>
+		<label>rear right sickle claw</label>
+		<labelShort>sickle claw</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_SickleClaws</defName>
+		<label>sickle claws</label>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_FrontLeftClaws</defName>
+		<label>front left claws</label>
+		<labelShort>claw</labelShort>
+	</BodyPartGroupDef>
+  
+	<BodyPartGroupDef>
+		<defName>BMT_FrontRightClaws</defName>
+		<label>front right claws</label>
+		<labelShort>claw</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_DinoBeakAttackTool</defName>
+		<label>beak</label>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_NeckAttackTool</defName>
+		<label>neck</label>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_BladeFeatherAttackTool</defName>
+		<label>blade feather</label>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_LeftShoulderSpike</defName>
+		<label>left shoulder spike</label>
+		<labelShort>shoulder spike</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_RightShoulderSpike</defName>
+		<label>right shoulder spike</label>
+		<labelShort>shoulder spike</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_ShoulderSpikes</defName>
+		<label>shoulder spikes</label>
+	</BodyPartGroupDef>
+
+</Defs>
