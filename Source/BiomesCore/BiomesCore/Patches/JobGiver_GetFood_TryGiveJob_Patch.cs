@@ -21,11 +21,14 @@ namespace BiomesCore.Patches
             var extension = pawn.def.GetModExtension<Biomes_AnimalControl>();
             if (extension != null)
             {
+                bool desperate = pawn.needs.food.CurCategory == HungerCategory.Starving;
+
                 if (extension.isBloodDrinkingAnimal)
                 {
                     var nearestPawn = pawn.Map.mapPawns.AllPawnsSpawned
                         .Where(x => x.def != pawn.def 
                                     && x.Position.DistanceTo(pawn.Position) <= 100
+                                    // && (!x.Position.IsForbidden(pawn) || desperate)
                                     && x.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) is null
                                     && pawn.CanReserveAndReach(x, PathEndMode.Touch, Danger.Deadly))
                         .OrderBy(x => x.Position.DistanceTo(pawn.Position)).FirstOrDefault();
@@ -47,6 +50,10 @@ namespace BiomesCore.Patches
                         {
                             if (!c.GetTerrain(pawn.Map).HasTag(bottomFeeder.Props.feedingTerrainTag)) return false;
                             if (!pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.Deadly)) return false;
+                            if (c.IsForbidden(pawn) && !desperate)
+                            {
+                                return false;
+                            }
                             nearestCell = c;
                             return true;
                         });
@@ -70,6 +77,10 @@ namespace BiomesCore.Patches
                         {
                             if (!c.GetThingList(pawn.Map).Any(t => acceptableThings.Contains(t.def))) return false;
                             if (!pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.Deadly)) return false;
+                            if (c.IsForbidden(pawn) && !desperate)
+                            {
+                                return false;
+                            }
                             nearestCell = c;
                             return true;
                         });
