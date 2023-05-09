@@ -16,15 +16,10 @@ namespace BiomesCore
         public List<string> thingsToNutritionMapper = new List<string>();
 
         /// <summary>
-        /// This creature can eat all filth which can be washed away by rain. Eating filth provides this nutrition.
+        /// This creature can eat all filth. Eating filth provides this nutrition.
         /// thingsToNutritionMapper can be used to override specific filth nutrition values.
         /// </summary>
         public float filthNutrition;
-
-        /// <summary>
-        /// Lazily initialized set of all filth that creatures with a filthNutrition value can eat.
-        /// </summary>
-        private static HashSet<ThingDef> _filth;
 
         [Unsaved]
         public Dictionary<ThingDef, float> thingsToNutrition = new Dictionary<ThingDef, float>();
@@ -51,23 +46,12 @@ namespace BiomesCore
                 return;
             }
 
-            if (_filth == null)
+            foreach (ThingDef filthDef in DefDatabase<ThingDef>.AllDefs)
             {
-                _filth = new HashSet<ThingDef>();
-                foreach (ThingDef filthDef in DefDatabase<ThingDef>.AllDefs)
+                if (filthDef.filth != null)
                 {
-                    if (filthDef.filth == null || !filthDef.filth.rainWashes)
-                    {
-                        continue;
-                    }
-
-                    _filth.Add(filthDef);
+                    thingsToNutrition[filthDef] = filthNutrition;
                 }
-            }
-
-            foreach (ThingDef filthDef in _filth)
-            {
-                thingsToNutrition[filthDef] = filthNutrition;
             }
         }
         
