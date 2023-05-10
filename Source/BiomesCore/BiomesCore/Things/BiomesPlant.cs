@@ -4,9 +4,18 @@ using Verse;
 
 namespace BMT
 {
+	/// <summary>
+	/// Special class used for certain Biomes! plants. It extends plant functionality with some features that would be too
+	/// performance-heavy if they were implemented as comps.
+	///
+	/// * Enables the use of custom textures with the CustomGraphicsPlantDef DefModExtension.
+	/// * The plant can be sown and will grow indoors outside of the vanilla temperature range if it has a
+	///   Biomes_PlantControl.optimalTemperature and the current temperature is inside of that range.
+	/// </summary>
 	public class BiomesPlant : Plant
 	{
-		private CustomGraphicsPlantDef defExtension;
+		private CustomGraphicsPlantDef customGraphicsDef;
+		private FloatRange optimalTemperature = new FloatRange(float.MinValue, float.MinValue);
 
 		private BiomeGraphics customBiomeGraphic;
 
@@ -55,13 +64,13 @@ namespace BMT
 
 		private void SetCustomBiomeGraphic(Map map)
 		{
-			if (defExtension.graphicsPerBiome.NullOrEmpty())
+			if (customGraphicsDef == null || customGraphicsDef.graphicsPerBiome.NullOrEmpty())
 			{
 				return;
 			}
 
 			var biomeDef = map.Biome;
-			foreach (var entry in defExtension.graphicsPerBiome)
+			foreach (var entry in customGraphicsDef.graphicsPerBiome)
 			{
 				if (entry.biomes.Contains(biomeDef))
 				{
@@ -75,31 +84,25 @@ namespace BMT
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
 			base.SpawnSetup(map, respawningAfterLoad);
-			defExtension = def.GetModExtension<CustomGraphicsPlantDef>();
-			if (defExtension == null)
-			{
-				var errorStr =
-					$"{def.defName} is a CustomGraphicsPlant but it lacks the required CustomGraphicsPlantDef extension.";
-				Log.ErrorOnce(errorStr, errorStr.GetHashCode());
-			}
-			else
-			{
-				SetCustomBiomeGraphic(map);
-			}
-		}
+			customGraphicsDef = def.GetModExtension<CustomGraphicsPlantDef>();
+			SetCustomBiomeGraphic(map);
 
-		private bool UseImmatureGraphic()
-		{
-			var str0 =
-				$"Plant {def.defName} UseImmatureGraphic: {!defExtension.forceUseImmature} || {defExtension.forceUseImmature} && {Growth < 1.0F}";
-			Log.ErrorOnce(str0, str0.GetHashCode());
-			return (!defExtension.forceUseImmature && !HarvestableNow) || (defExtension.forceUseImmature && Growth < 1.0F);
+			var controlDef = def.GetModExtension<Biomes_PlantControl>();
+			if (controlDef != null)
+			{
+				optimalTemperature = controlDef.optimalTemperature;
+			}
 		}
 
 		public override Graphic Graphic
 		{
 			get
 			{
+				if (customGraphicsDef == null)
+				{
+					return base.Graphic;
+				}
+
 				if (customBiomeGraphic != null)
 				{
 					if (LifeStage == PlantLifeStage.Sowing)
@@ -117,7 +120,7 @@ namespace BMT
 						return customBiomeGraphic.leaflessGraphic;
 					}
 
-					if (customBiomeGraphic.immatureGraphic != null && defExtension.forceUseImmature)
+					if (customBiomeGraphic.immatureGraphic != null && customGraphicsDef.forceUseImmature)
 					{
 						return Growth < 1.0F ? customBiomeGraphic.immatureGraphic : customBiomeGraphic.graphic;
 					}
@@ -127,13 +130,64 @@ namespace BMT
 						: customBiomeGraphic.graphic;
 				}
 
-				if (def.plant.immatureGraphic != null && defExtension.forceUseImmature)
+				if (def.plant.immatureGraphic != null && customGraphicsDef.forceUseImmature)
 				{
 					return Growth < 1.0F ? def.plant.immatureGraphic : def.graphic;
 				}
 
 				return base.Graphic;
 			}
+		}
+
+		private bool GrowthSeasonNow()
+		{
+			return optimalTemperature.Includes(Position.GetTemperature(Map)) || PlantUtility.GrowthSeasonNow(Position, Map);
+		}
+
+		public override float GrowthRate => Blighted || Spawned && !GrowthSeasonNow()
+			? 0.0f
+			: GrowthRateFactor_Fertility * GrowthRateFactor_Temperature * GrowthRateFactor_Light *
+			  GrowthRateFactor_NoxiousHaze;
+
+		public override void TickLong()
+		{
+			if (Destroyed)
+			{
+				return;
+			}
+
+			base.TickLong();
+			// Check Plant.TickLong would not execute its growth code but BiomesPlant needs it.
+			if (PlantUtility.GrowthSeasonNow(Position, Map) || !GrowthSeasonNow())
+			{
+				return;
+			}
+
+			// Duplication of the Growth code in base.TickLong.
+			var wasNotMature = LifeStage != PlantLifeStage.Mature;
+			growthInt += GrowthPerTick * 2000f;
+			if (growthInt > 1.0F)
+			{
+				growthInt = 1.0F;
+			}
+
+			if (wasNotMature && LifeStage == PlantLifeStage.Mature && CurrentlyCultivated())
+			{
+				Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things);
+			}
+		}
+
+		public override string GetInspectString()
+		{
+			var inspectString = base.GetInspectString();
+
+			if (!PlantUtility.GrowthSeasonNow(Position, Map) && GrowthSeasonNow())
+			{
+				// Remove the now incorrect string in base.
+				inspectString = inspectString.Replace("OutOfIdealTemperatureRangeNotGrowing".Translate(), "");
+			}
+
+			return inspectString;
 		}
 	}
 }
