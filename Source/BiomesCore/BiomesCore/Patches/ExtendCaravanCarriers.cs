@@ -71,5 +71,20 @@ namespace BiomesCore.Patches
 				}
 			}
 		}
+
+		public static void ModCompatibility()
+		{
+			if (!LoadedModManager.RunningMods.Any(pack => pack.PackageId == "vanillaexpanded.vanillatradingexpanded"))
+			{
+				return;
+			}
+
+			var vteGenerateCarriers =
+				AccessTools.Method("VanillaTradingExpanded.IncidentWorker_CaravanArriveForItems:GenerateCarriers");
+			var transpileCarriers =
+				new HarmonyMethod(AccessTools.Method(typeof(PawnGroupKindWorker_Trader_GenerateCarriers),
+					nameof(Transpiler)));
+			BiomesCore.HarmonyInstance.Patch(vteGenerateCarriers, transpiler: transpileCarriers);
+		}
 	}
 }

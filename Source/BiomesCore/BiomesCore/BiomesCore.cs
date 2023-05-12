@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using System;
 using System.Reflection;
+using BiomesCore.Patches;
 using RimWorld;
 using Verse;
 
@@ -26,6 +27,8 @@ namespace BiomesCore
                 nameof(WildAnimalSpawner.SpawnRandomWildAnimalAt));
             HarmonyInstance.Unpatch(method, HarmonyPatchType.Prefix, "net.mseal.rimworld.mod.terrain.movement");
 
+            // Conditional Harmony patches. Mostly intended for mod compatibility.
+            PawnGroupKindWorker_Trader_GenerateCarriers.ModCompatibility();
             Log("Initialized");
         }
 
