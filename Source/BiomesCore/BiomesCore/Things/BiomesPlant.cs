@@ -151,12 +151,12 @@ namespace BMT
 
 		public override void TickLong()
 		{
+			base.TickLong();
 			if (Destroyed)
 			{
 				return;
 			}
 
-			base.TickLong();
 			// Check Plant.TickLong would not execute its growth code but BiomesPlant needs it.
 			if (PlantUtility.GrowthSeasonNow(Position, Map) || !GrowthSeasonNow())
 			{
