@@ -41,7 +41,7 @@ namespace BiomesCore.Patches.Caverns
 	}
 
 	[StaticConstructorOnStartup]
-	internal static class Methods
+	public static class Methods
 	{
 		public static readonly MethodInfo OutdoorsOriginal =
 			AccessTools.PropertyGetter(typeof(Room), nameof(Room.PsychologicallyOutdoors));

@@ -71,24 +71,30 @@ namespace BiomesCore.Patches
                     var customThingEater = pawn.GetComp<CompCustomThingEater>();
                     if (customThingEater != null)
                     {
-                        var nearestCell = IntVec3.Invalid;
+                        Thing nearestCustomThing = null;
                         var acceptableThings = customThingEater.Props.thingsToNutrition.Keys;
                         pawn.Map.floodFiller.FloodFill(pawn.Position, c => true, c =>
                         {
-                            if (!c.GetThingList(pawn.Map).Any(t => acceptableThings.Contains(t.def))) return false;
-                            if (!pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.Deadly)) return false;
                             if (c.IsForbidden(pawn) && !desperate)
                             {
                                 return false;
                             }
-                            nearestCell = c;
-                            return true;
+                            if (!pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.Deadly)) return false;
+                            foreach (var thing in c.GetThingList(pawn.Map))
+                            {
+                                if (acceptableThings.Contains(thing.def) && pawn.CanReserve(thing))
+                                {
+                                    nearestCustomThing = thing;
+                                    return true;
+                                }
+                            }
+
+                            return false;
                         });
-                        
-                        if (nearestCell.IsValid)
+
+                        if (nearestCustomThing != null)
                         {
-                            var thing = nearestCell.GetThingList(pawn.Map).First(t => acceptableThings.Contains(t.def));
-                            __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_EatCustomThing, thing);
+                            __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_EatCustomThing, nearestCustomThing);
                             return false;
                         }
                     }

@@ -6,7 +6,8 @@ namespace BiomesCore
 {
     public class JobDriver_EatCustomThing : JobDriver
     {
-        public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
+        public override bool TryMakePreToilReservations(bool errorOnFailed) =>
+            pawn.Reserve(TargetA, job, errorOnFailed: errorOnFailed);
         
         protected override IEnumerable<Toil> MakeNewToils()
         {
