@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Verse;
 
@@ -5,6 +6,26 @@ namespace BiomesCore
 {
     public class CompCustomThingEater : ThingComp
     {
+        // This value is intentionally kept unsaved. It is only used to avoid making food lookups for every critter
+        // at the same time.
+        private bool canLookForFood;
+
+        private const int TickInterval = 600;
+
+        public override void CompTick()
+        {
+            var couldLook = canLookForFood;
+            canLookForFood = canLookForFood ||
+                             Find.TickManager.TicksGame % TickInterval == this.HashCodeToMod(TickInterval);
+        }
+
+        public bool TryLookForFood()
+        {
+            var result = canLookForFood;
+            canLookForFood = false;
+            return result;
+        }
+
         public CompProperties_CustomThingEater Props => (CompProperties_CustomThingEater)props;
     }
     
