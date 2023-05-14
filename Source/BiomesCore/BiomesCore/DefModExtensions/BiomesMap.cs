@@ -40,6 +40,8 @@ namespace BiomesCore.DefModExtensions
 		public float extraCarriersRelativeWeight;
 
 		public bool alwaysGrowthSeason;
+
+		public float seasonalTemperatureShift = 1f;
 	}
 
 	public enum IslandShape
