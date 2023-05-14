@@ -12,72 +12,75 @@ namespace BiomesCore.Patches
     {
         public static bool Prefix(ref Job __result, Pawn pawn, HungerCategory ___minCategory, float ___maxLevelPercentage)
         {
-            Need_Food food = pawn.needs.food;
-            if (food == null || (int)food.CurCategory < (int)___minCategory || food.CurLevelPercentage > ___maxLevelPercentage)
+            var extension = pawn.def.GetModExtension<Biomes_AnimalControl>();
+            if (extension == null)
             {
                 return true;
             }
-            
-            var extension = pawn.def.GetModExtension<Biomes_AnimalControl>();
-            if (extension != null)
-            {
-                bool desperate = pawn.needs.food.CurCategory == HungerCategory.Starving;
 
-                if (extension.isBloodDrinkingAnimal)
+            Need_Food food = pawn.needs.food;
+            if (food == null || !extension.eatWhenFed &&
+                ((int)food.CurCategory < (int)___minCategory || food.CurLevelPercentage > ___maxLevelPercentage))
+            {
+                return true;
+            }
+
+            bool desperate = pawn.needs.food.CurCategory == HungerCategory.Starving;
+
+            if (extension.isBloodDrinkingAnimal)
+            {
+                var nearestPawn = pawn.Map.mapPawns.AllPawnsSpawned
+                    .Where(x => x.def != pawn.def 
+                                && x.Position.DistanceTo(pawn.Position) <= 100
+                                // && (!x.Position.IsForbidden(pawn) || desperate)
+                                && x.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) is null
+                                && pawn.CanReserveAndReach(x, PathEndMode.Touch, Danger.Deadly))
+                    .OrderBy(x => x.Position.DistanceTo(pawn.Position)).FirstOrDefault();
+                
+                if (nearestPawn != null)
                 {
-                    var nearestPawn = pawn.Map.mapPawns.AllPawnsSpawned
-                        .Where(x => x.def != pawn.def 
-                                    && x.Position.DistanceTo(pawn.Position) <= 100
-                                    // && (!x.Position.IsForbidden(pawn) || desperate)
-                                    && x.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) is null
-                                    && pawn.CanReserveAndReach(x, PathEndMode.Touch, Danger.Deadly))
-                        .OrderBy(x => x.Position.DistanceTo(pawn.Position)).FirstOrDefault();
-                    
-                    if (nearestPawn != null)
+                    __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BloodDrinking, nearestPawn);
+                    return false;
+                }
+            }
+
+            if (extension.isBottomFeeder)
+            {
+                var bottomFeeder = pawn.GetComp<CompBottomFeeder>();
+                if (bottomFeeder != null)
+                {
+                    var nearestCell = IntVec3.Invalid;
+                    pawn.Map.floodFiller.FloodFill(pawn.Position, c => true, c =>
                     {
-                        __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BloodDrinking, nearestPawn);
+                        if (!c.GetTerrain(pawn.Map).HasTag(bottomFeeder.Props.feedingTerrainTag)) return false;
+                        if (!pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.Deadly)) return false;
+                        if (c.IsForbidden(pawn) && !desperate)
+                        {
+                            return false;
+                        }
+                        nearestCell = c;
+                        return true;
+                    });
+                    
+                    if (nearestCell.IsValid)
+                    {
+                        __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BottomFeeder, nearestCell);
                         return false;
                     }
                 }
-
-                if (extension.isBottomFeeder)
+            }
+            
+            if (extension.isCustomThingEater)
+            {
+                var customThingEater = pawn.GetComp<CompCustomThingEater>();
+                if (customThingEater != null)
                 {
-                    var bottomFeeder = pawn.GetComp<CompBottomFeeder>();
-                    if (bottomFeeder != null)
-                    {
-                        var nearestCell = IntVec3.Invalid;
-                        pawn.Map.floodFiller.FloodFill(pawn.Position, c => true, c =>
-                        {
-                            if (!c.GetTerrain(pawn.Map).HasTag(bottomFeeder.Props.feedingTerrainTag)) return false;
-                            if (!pawn.CanReserveAndReach(c, PathEndMode.OnCell, Danger.Deadly)) return false;
-                            if (c.IsForbidden(pawn) && !desperate)
-                            {
-                                return false;
-                            }
-                            nearestCell = c;
-                            return true;
-                        });
-                        
-                        if (nearestCell.IsValid)
-                        {
-                            __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BottomFeeder, nearestCell);
-                            return false;
-                        }
-                    }
-                }
-                
-                if (extension.isCustomThingEater)
-                {
-                    var customThingEater = pawn.GetComp<CompCustomThingEater>();
-                    if (customThingEater != null)
-                    {
-                        Thing nearestCustomThing = CustomThingEater(pawn, customThingEater, desperate);
+                    Thing nearestCustomThing = CustomThingEater(pawn, customThingEater, desperate);
 
-                        if (nearestCustomThing != null)
-                        {
-                            __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_EatCustomThing, nearestCustomThing);
-                            return false;
-                        }
+                    if (nearestCustomThing != null)
+                    {
+                        __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_EatCustomThing, nearestCustomThing);
+                        return false;
                     }
                 }
             }
