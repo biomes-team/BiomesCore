@@ -150,6 +150,7 @@
     <Compile Include="Patches\IslandScatterables.cs" />
     <Compile Include="Jobs\JobDriver_BloodDrinking.cs" />
     <Compile Include="Patches\JobDriver_PredatorHunt_Patch.cs" />
+    <Compile Include="Patches\JobGiver_GetFood_GetPriority_Patch.cs" />
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\PlantGrowth.cs" />
     <Compile Include="Patches\PredatorHuntingBehaviour.cs" />

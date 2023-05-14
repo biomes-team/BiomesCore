@@ -10,17 +10,18 @@ namespace BiomesCore.Patches
     [HarmonyPatch(typeof(JobGiver_GetFood), "TryGiveJob")]
     public static class JobGiver_GetFood_TryGiveJob_Patch
     {
-        public static bool Prefix(ref Job __result, Pawn pawn, HungerCategory ___minCategory, float ___maxLevelPercentage)
+        public static bool Prefix(ref Job __result, Pawn pawn, HungerCategory ___minCategory,
+            float ___maxLevelPercentage, JobGiver_GetFood __instance)
         {
             var extension = pawn.def.GetModExtension<Biomes_AnimalControl>();
-            if (extension == null)
+            Need_Food food = pawn.needs.food;
+            if (extension == null || food == null)
             {
                 return true;
             }
 
-            Need_Food food = pawn.needs.food;
-            if (food == null || !extension.eatWhenFed &&
-                ((int)food.CurCategory < (int)___minCategory || food.CurLevelPercentage > ___maxLevelPercentage))
+            if (!extension.eatWhenFed && (int) food.CurCategory < (int) ___minCategory ||
+                food.CurLevelPercentage > ___maxLevelPercentage)
             {
                 return true;
             }
@@ -85,7 +86,10 @@ namespace BiomesCore.Patches
                 }
             }
 
-            return true;
+            // Since this job giver is called more frequently for eatWhenFed animals, the vanilla code should only be
+            // allowed to execute if the animal is actually hungry. Otherwise they will consume every piece of regular
+            // food in a frenzy. See JobGiver_GetFood_GetPriority_Patch for details.
+            return __instance.GetPriority(pawn) > 6.6F;
         }
 
         private static Thing CustomThingEater(Pawn pawn, CompCustomThingEater extension, bool desperate)
