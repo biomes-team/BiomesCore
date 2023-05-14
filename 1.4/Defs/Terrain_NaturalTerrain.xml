@@ -65,6 +65,7 @@
 	<BiomesCore.ActiveTerrainDef ParentName="BiomeCore_Lava">
 		<defName>BiomeCore_Magma</defName>
 		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
+		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/Magma</pollutedTexturePath>
 		<label>magma</label>
 		<driesTo Inherit="False"/>
 	</BiomesCore.ActiveTerrainDef>
