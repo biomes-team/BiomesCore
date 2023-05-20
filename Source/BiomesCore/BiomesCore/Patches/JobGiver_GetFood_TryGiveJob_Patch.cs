@@ -30,14 +30,11 @@ namespace BiomesCore.Patches
 
             if (extension.isBloodDrinkingAnimal)
             {
-                var nearestPawn = pawn.Map.mapPawns.AllPawnsSpawned
-                    .Where(x => x.def != pawn.def 
-                                && x.Position.DistanceTo(pawn.Position) <= 100
-                                // && (!x.Position.IsForbidden(pawn) || desperate)
-                                && x.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) is null
-                                && pawn.CanReserveAndReach(x, PathEndMode.Touch, Danger.Deadly))
-                    .OrderBy(x => x.Position.DistanceTo(pawn.Position)).FirstOrDefault();
-                
+                var nearestPawn = GenClosest.ClosestThingReachable(pawn.Position, pawn.Map,
+                    ThingRequest.ForGroup(ThingRequestGroup.Pawn), PathEndMode.OnCell,
+                    TraverseParms.For(TraverseMode.NoPassClosedDoors), 100.0F,
+                    thing => IsValidBloodfeedingTarget(thing, pawn));
+
                 if (nearestPawn != null)
                 {
                     __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BloodDrinking, nearestPawn);
@@ -90,6 +87,14 @@ namespace BiomesCore.Patches
             // allowed to execute if the animal is actually hungry. Otherwise they will consume every piece of regular
             // food in a frenzy. See JobGiver_GetFood_GetPriority_Patch for details.
             return __instance.GetPriority(pawn) > 6.6F;
+        }
+
+        private static bool IsValidBloodfeedingTarget(Thing victimThing, Pawn feeder)
+        {
+            return victimThing is Pawn victim && feeder.CanReserve(victim) &&
+                   victim.def != feeder.def &&
+                   victim.RaceProps.IsFlesh &&
+                   victim.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) is null;
         }
 
         private static Thing CustomThingEater(Pawn pawn, CompCustomThingEater extension, bool desperate)
