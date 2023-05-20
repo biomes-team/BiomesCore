@@ -20,7 +20,8 @@ namespace BiomesCore.Patches.Caverns
 		/// <returns>Patched instructions.</returns>
 		public static List<CodeInstruction> CellPsychologicallyOutdoors(List<CodeInstruction> instructions, OpCode cellCode)
 		{
-			return TranspilerHelper.ReplaceCall(instructions, Methods.OutdoorsOriginal, Methods.OutdoorsNew,
+			return TranspilerHelper.ReplaceCall(instructions, Methods.PsychologicallyOutdoorsMethod,
+				Methods.PsychologicallyOutdoorsOrCavernMethod,
 				new List<CodeInstruction> {new CodeInstruction(cellCode)});
 		}
 
@@ -31,7 +32,7 @@ namespace BiomesCore.Patches.Caverns
 		/// <returns></returns>
 		public static List<CodeInstruction> CellUnbreachableRoofed(List<CodeInstruction> instructions)
 		{
-			return TranspilerHelper.ReplaceCall(instructions, Methods.CellRoofedOriginal, Methods.CellRoofedPatched);
+			return TranspilerHelper.ReplaceCall(instructions, Methods.CellRoofedMethod, Methods.CellUnbreachableRoofedMethod);
 		}
 
 		public static List<CodeInstruction> RoofGridUnbreachableRoofed(List<CodeInstruction> instructions)
@@ -43,17 +44,20 @@ namespace BiomesCore.Patches.Caverns
 	[StaticConstructorOnStartup]
 	public static class Methods
 	{
-		public static readonly MethodInfo OutdoorsOriginal =
+		public static readonly MethodInfo PsychologicallyOutdoorsMethod =
 			AccessTools.PropertyGetter(typeof(Room), nameof(Room.PsychologicallyOutdoors));
 
-		public static readonly MethodInfo OutdoorsNew =
+		public static readonly MethodInfo PsychologicallyOutdoorsOrCavernMethod =
 			AccessTools.Method(typeof(Utility), nameof(Utility.PsychologicallyOutdoorsOrCavern));
 
-		public static readonly MethodInfo CellRoofedOriginal =
+		public static readonly MethodInfo CellRoofedMethod =
 			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed));
 
-		public static readonly MethodInfo CellRoofedPatched =
+		public static readonly MethodInfo CellUnbreachableRoofedMethod =
 			AccessTools.Method(typeof(IntVec3Extensions), nameof(IntVec3Extensions.UnbreachableRoofed));
+
+		public static readonly MethodInfo NoRoofOrCavernMethod =
+			AccessTools.Method(typeof(Utility), nameof(Utility.NoRoofOrCavern));
 
 		public static readonly MethodInfo RoofGridRoofedOriginal =
 			AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] {typeof(IntVec3)});

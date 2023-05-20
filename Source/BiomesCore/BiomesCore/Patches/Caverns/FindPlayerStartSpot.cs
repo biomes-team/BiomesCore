@@ -57,7 +57,7 @@ namespace BiomesCore.Patches.Caverns
 			MethodInfo newMethod =
 				AccessTools.Method(typeof(FindPlayerStartSpot), nameof(InvalidStartSpot));
 
-			return TranspilerHelper.ReplaceCall(instructions.ToList(), Methods.CellRoofedOriginal, newMethod);
+			return TranspilerHelper.ReplaceCall(instructions.ToList(), Methods.CellRoofedMethod, newMethod);
 		}
 	}
 }

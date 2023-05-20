@@ -17,5 +17,17 @@ namespace BiomesCore.Patches.Caverns
 		{
 			return cell.GetRoof(room.Map) == BiomesCoreDefOf.BMT_RockRoofStable || room.PsychologicallyOutdoors;
 		}
+
+		/// <summary>
+		/// Check if the cell has a roof that is not cavern roof.
+		/// </summary>
+		/// <param name="cell">Cell to check.</param>
+		/// <param name="map">Map of this cell.</param>
+		/// <returns>True if the cell has any kind of roof, except for cavern stable rock roof.</returns>
+		public static bool NoRoofOrCavern(IntVec3 cell, Map map)
+		{
+			var roof = cell.GetRoof(map);
+			return roof == null || roof == BiomesCoreDefOf.BMT_RockRoofStable;
+		}
 	}
 }
