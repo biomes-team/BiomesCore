@@ -156,6 +156,7 @@
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\PlantGrowth.cs" />
     <Compile Include="Patches\PollutionUtility_StimulatedByPollution_Patch.cs" />
+    <Compile Include="Patches\PreceptWorker_Animal_ThingDefs_Patch.cs" />
     <Compile Include="Patches\PredatorHuntingBehaviour.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
