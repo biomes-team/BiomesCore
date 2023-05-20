@@ -122,7 +122,7 @@ namespace BiomesCore.ThingComponents
 
 		public override void CompTick()
 		{
-			if (Dormant || !parent.Spawned || Find.TickManager.TicksGame < nextSpawnTick)
+			if (Dormant || !parent.Spawned || parent.Fogged() || Find.TickManager.TicksGame < nextSpawnTick)
 			{
 				return;
 			}
