@@ -40,7 +40,6 @@ namespace BiomesCore.Patches
 			var instructionList = instructions.ToList();
 			var indexOfGetInsect =
 				instructionList.FindIndex(0, instruction => instruction.operand as MethodInfo == insectProperty);
-			Log.Error($"indexOfGetInsect: {indexOfGetInsect}");
 
 			for (var index = 0; index < instructionList.Count; ++index)
 			{
