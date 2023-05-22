@@ -24,10 +24,10 @@ namespace BiomesCore.Patches.Caverns
 		/// <param name="cell">Cell to check.</param>
 		/// <param name="map">Map of this cell.</param>
 		/// <returns>True if the cell has any kind of roof, except for cavern stable rock roof.</returns>
-		public static bool NoRoofOrCavern(IntVec3 cell, Map map)
+		public static bool HasNonCavernRoof(IntVec3 cell, Map map)
 		{
 			var roof = cell.GetRoof(map);
-			return roof == null || roof == BiomesCoreDefOf.BMT_RockRoofStable;
+			return roof != null && roof != BiomesCoreDefOf.BMT_RockRoofStable;
 		}
 	}
 }

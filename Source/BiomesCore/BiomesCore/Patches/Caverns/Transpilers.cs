@@ -56,8 +56,8 @@ namespace BiomesCore.Patches.Caverns
 		public static readonly MethodInfo CellUnbreachableRoofedMethod =
 			AccessTools.Method(typeof(IntVec3Extensions), nameof(IntVec3Extensions.UnbreachableRoofed));
 
-		public static readonly MethodInfo NoRoofOrCavernMethod =
-			AccessTools.Method(typeof(Utility), nameof(Utility.NoRoofOrCavern));
+		public static readonly MethodInfo HasNonCavernRoofMethod =
+			AccessTools.Method(typeof(Utility), nameof(Utility.HasNonCavernRoof));
 
 		public static readonly MethodInfo RoofGridRoofedOriginal =
 			AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] {typeof(IntVec3)});
