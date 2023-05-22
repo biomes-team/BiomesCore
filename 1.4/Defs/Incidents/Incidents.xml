@@ -8,8 +8,9 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <allowedBiomes>
+      <li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>
+      <li MayRequire="biomesteam.biomescaverns">BMT_EarthenDepths</li>
       <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>BiomesCore.IncidentWorker_CaveIn</workerClass>
     <baseChance>0.2</baseChance>
@@ -25,8 +26,9 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <allowedBiomes>
+      <li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>
+      <li MayRequire="biomesteam.biomescaverns">BMT_EarthenDepths</li>
       <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>IncidentWorker_Aurora</workerClass>
     <gameCondition>PhosphoricLights</gameCondition>
@@ -45,8 +47,9 @@
       <li>Map_PlayerHome</li>
     </targetTags>
     <allowedBiomes>
+      <li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>
+      <li MayRequire="biomesteam.biomescaverns">BMT_EarthenDepths</li>
       <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-      <!--<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>-->
     </allowedBiomes>
     <workerClass>BiomesCore.IncidentWorker_Earthquake</workerClass>
     <baseChance>0.2</baseChance>
