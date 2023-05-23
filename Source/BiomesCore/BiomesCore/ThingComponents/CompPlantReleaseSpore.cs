@@ -15,6 +15,7 @@ namespace BiomesCore
         public float baseSeverity = 1f;
         public float cellsToFill = 2f;
         public float growthProgress = 1f;
+        public StatDef statDef;
 
         public CompProperties_PlantReleaseSpore() => compClass = typeof(CompPlantReleaseSpore);
     }
@@ -39,7 +40,8 @@ namespace BiomesCore
                         continue;
                     }
                     {
-                        float sevOffset = Props.baseSeverity * plant.Growth * (1 - pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance));
+                        // float sevOffset = Props.baseSeverity * plant.Growth * (1 - pawn.GetStatValue(StatDefOf.ToxicEnvironmentResistance));
+                        float sevOffset = Props.baseSeverity * plant.Growth * (1 - pawn.GetStatValue(Props.statDef));
                         if (sevOffset != 0f)
                         {
                             Hediff firstHediffOfDef = pawn.health.hediffSet.GetFirstHediffOfDef(Props.hediffDef);
