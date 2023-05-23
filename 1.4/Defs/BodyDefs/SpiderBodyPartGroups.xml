@@ -28,7 +28,7 @@
     <BodyPartDef>
         <defName>BMT_Cephalothorax</defName>
         <label>caphalothorax</label>
-        <hitPoints>20</hitPoints>
+        <hitPoints>50</hitPoints>
         <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
         <skinCovered>false</skinCovered>
         <tags>
@@ -40,7 +40,7 @@
     <BodyPartDef>
         <defName>BMT_SpiderAbdomen</defName>
         <label>abdomen</label>
-        <hitPoints>20</hitPoints>
+        <hitPoints>40</hitPoints>
         <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
         <skinCovered>false</skinCovered>
         <tags>
