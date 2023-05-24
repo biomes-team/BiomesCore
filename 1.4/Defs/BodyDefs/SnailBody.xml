@@ -36,8 +36,7 @@
           </groups>
         </li>
         <li>
-          <!-- Reusing SnakeHead because it has the same attributes as a SnailHead but the hardcoded checks find it in Rimworld -->
-          <def>SnakeHead</def>
+          <def>Head</def>
           <coverage>0.20</coverage>
           <groups>
             <li>HeadAttackTool</li>
