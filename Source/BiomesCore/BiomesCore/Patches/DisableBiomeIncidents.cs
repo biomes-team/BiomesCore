@@ -20,7 +20,7 @@ namespace BiomesCore.Patches
 
 			_forbiddenCavernIncidentDefs = new HashSet<IncidentDef>();
 
-			foreach (var def in DefDatabase<DisableIncidentsDef>.AllDefs)
+			foreach (var def in DefDatabase<DisableIncidentsDef>.AllDefsListForReading)
 			{
 				if (def.isCavern)
 				{

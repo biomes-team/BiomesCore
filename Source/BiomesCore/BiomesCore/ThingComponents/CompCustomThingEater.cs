@@ -67,7 +67,7 @@ namespace BiomesCore
                 return;
             }
 
-            foreach (ThingDef filthDef in DefDatabase<ThingDef>.AllDefs)
+            foreach (ThingDef filthDef in DefDatabase<ThingDef>.AllDefsListForReading)
             {
                 if (filthDef.filth != null)
                 {

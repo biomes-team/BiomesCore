@@ -108,7 +108,7 @@ namespace BiomesCore.StockGenerators
 		public override IEnumerable<Thing> GenerateThings(int forTile, Faction faction = null)
 		{
 			var acceptableKinds =
-				DefDatabase<PawnKindDef>.AllDefs.Where(kind =>
+				DefDatabase<PawnKindDef>.AllDefsListForReading.Where(kind =>
 						AcceptablePawnKindDef(kind, forTile, faction) &&
 						(!checkTemperature || Util.AcceptableTemperature(kind, forTile)))
 					.ToList();

@@ -18,7 +18,7 @@ namespace BiomesCore.Patches
             }
             else
             {
-                chosen = DefDatabase<ThingDef>.AllDefs.RandomElementByWeightWithFallback(delegate (ThingDef d)
+                chosen = DefDatabase<ThingDef>.AllDefsListForReading.RandomElementByWeightWithFallback(delegate (ThingDef d)
                 {
                     if (d.building == null)
                     {

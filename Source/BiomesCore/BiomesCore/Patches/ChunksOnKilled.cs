@@ -14,7 +14,7 @@ namespace BiomesCore.Patches
 	{
 		private static ThingDef FindChunkOfTerrain(TerrainDef def)
 		{
-			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefs)
+			foreach (ThingDef thingDef in DefDatabase<ThingDef>.AllDefsListForReading)
 			{
 				if (thingDef.building != null && thingDef.building.naturalTerrain == def)
 				{

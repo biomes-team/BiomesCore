@@ -145,7 +145,7 @@ namespace BiomesCore.StockGenerators
 
 			_butcheredProducts = new HashSet<ThingDef>();
 
-			var animals = DefDatabase<PawnKindDef>.AllDefs
+			var animals = DefDatabase<PawnKindDef>.AllDefsListForReading
 				.Where(def => def.RaceProps.Animal && def.race.butcherProducts != null)
 				.ToList();
 			foreach (var animal in animals)

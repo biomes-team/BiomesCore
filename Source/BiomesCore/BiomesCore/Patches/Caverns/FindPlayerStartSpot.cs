@@ -29,7 +29,7 @@ namespace BiomesCore.Patches.Caverns
 			if (_terrainToAvoid == null)
 			{
 				_terrainToAvoid = new HashSet<TerrainDef>();
-				foreach (var def in DefDatabase<AvoidTerrainOnGameStartDef>.AllDefs)
+				foreach (var def in DefDatabase<AvoidTerrainOnGameStartDef>.AllDefsListForReading)
 				{
 					_terrainToAvoid.AddRange(def.terrains);
 				}
