@@ -109,6 +109,7 @@
 		<label>pupa</label>
 		<visible>false</visible>
 		<reproductive>false</reproductive>
+		<hungerRateFactor>0.000001</hungerRateFactor>
 	</LifeStageDef>
 
 	<!--Digger-->
