@@ -57,15 +57,23 @@ namespace BiomesCore.ThingComponents
 
 		private List<Pawn> pawnsAround = new List<Pawn>();
 
+		private bool cachedDormancyComp = false;
 		private CompCanBeDormant dormancyCompCached;
 
 		private CompProperties_CompAnimalsAroundThing Props => (CompProperties_CompAnimalsAroundThing) props;
 
 		private Lord lord;
 
-		private CompCanBeDormant DormancyComp => dormancyCompCached ??= parent.TryGetComp<CompCanBeDormant>();
+		private bool CanSpawn()
+		{
+			if (cachedDormancyComp == false)
+			{
+				dormancyCompCached = parent.TryGetComp<CompCanBeDormant>();
+			}
 
-		private bool Dormant => DormancyComp != null && !DormancyComp.Awake;
+			return (dormancyCompCached == null || dormancyCompCached.Awake) && parent.Spawned && !parent.Fogged() &&
+			       Find.TickManager.TicksGame >= nextSpawnTick;
+		}
 
 		public CompAnimalsAroundThing()
 		{
@@ -115,14 +123,14 @@ namespace BiomesCore.ThingComponents
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
 			base.PostSpawnSetup(respawningAfterLoad);
-			while (pawnsAround.Count < Props.pawnCount.min && TrySpawnPawn(false))
+			while (CanSpawn() && pawnsAround.Count < Props.pawnCount.min && TrySpawnPawn(false))
 			{
 			}
 		}
 
 		public override void CompTick()
 		{
-			if (Dormant || !parent.Spawned || parent.Fogged() || Find.TickManager.TicksGame < nextSpawnTick)
+			if (!CanSpawn())
 			{
 				return;
 			}
