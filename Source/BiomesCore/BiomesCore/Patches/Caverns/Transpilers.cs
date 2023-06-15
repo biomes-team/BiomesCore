@@ -22,7 +22,7 @@ namespace BiomesCore.Patches.Caverns
 		{
 			return TranspilerHelper.ReplaceCall(instructions, Methods.PsychologicallyOutdoorsMethod,
 				Methods.PsychologicallyOutdoorsOrCavernMethod,
-				new List<CodeInstruction> {new CodeInstruction(cellCode)});
+				new List<CodeInstruction> { new CodeInstruction(cellCode) });
 		}
 
 		/// <summary>
@@ -47,11 +47,17 @@ namespace BiomesCore.Patches.Caverns
 		public static readonly MethodInfo PsychologicallyOutdoorsMethod =
 			AccessTools.PropertyGetter(typeof(Room), nameof(Room.PsychologicallyOutdoors));
 
-		public static readonly MethodInfo PsychologicallyOutdoorsOrCavernMethod =
-			AccessTools.Method(typeof(Utility), nameof(Utility.PsychologicallyOutdoorsOrCavern));
-
 		public static readonly MethodInfo CellRoofedMethod =
 			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed));
+
+		public static readonly MethodInfo RoofGridRoofedOriginal =
+			AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] { typeof(IntVec3) });
+
+		public static readonly MethodInfo GetRoofMethod =
+			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.GetRoof));
+
+		public static readonly MethodInfo PsychologicallyOutdoorsOrCavernMethod =
+			AccessTools.Method(typeof(Utility), nameof(Utility.PsychologicallyOutdoorsOrCavern));
 
 		public static readonly MethodInfo CellUnbreachableRoofedMethod =
 			AccessTools.Method(typeof(IntVec3Extensions), nameof(IntVec3Extensions.UnbreachableRoofed));
@@ -59,12 +65,12 @@ namespace BiomesCore.Patches.Caverns
 		public static readonly MethodInfo HasNonCavernRoofMethod =
 			AccessTools.Method(typeof(Utility), nameof(Utility.HasNonCavernRoof));
 
-		public static readonly MethodInfo RoofGridRoofedOriginal =
-			AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] {typeof(IntVec3)});
+		public static readonly MethodInfo GetRoofThickIfCavernMethod =
+			AccessTools.Method(typeof(Utility), nameof(Utility.GetRoofThickIfCavern));
 
 		public static readonly MethodInfo RoofGridRoofedPatched =
 			AccessTools.Method(typeof(RoofGridExtensions), nameof(RoofGridExtensions.UnbreachableRoofed),
-				new[] {typeof(RoofGrid), typeof(IntVec3)});
+				new[] { typeof(RoofGrid), typeof(IntVec3) });
 
 		static Methods()
 		{

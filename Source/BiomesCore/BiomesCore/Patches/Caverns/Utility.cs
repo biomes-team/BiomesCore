@@ -1,3 +1,4 @@
+using RimWorld;
 using Verse;
 
 namespace BiomesCore.Patches.Caverns
@@ -28,6 +29,18 @@ namespace BiomesCore.Patches.Caverns
 		{
 			var roof = cell.GetRoof(map);
 			return roof != null && roof != BiomesCoreDefOf.BMT_RockRoofStable;
+		}
+
+		/// <summary>
+		/// Translates BMT_RockRoofStable into the def for vanilla thick rock roof.
+		/// </summary>
+		/// <param name="c">Current cell.</param>
+		/// <param name="map">Map of the cell.</param>
+		/// <returns>RoofDefOf.RoofRockThick if the roof is BMT_RockRoofStable, the vanilla value otherwise.</returns>
+		public static RoofDef GetRoofThickIfCavern(IntVec3 c, Map map)
+		{
+			var roof = c.GetRoof(map);
+			return roof == BiomesCoreDefOf.BMT_RockRoofStable ? RoofDefOf.RoofRockThick : roof;
 		}
 	}
 }
