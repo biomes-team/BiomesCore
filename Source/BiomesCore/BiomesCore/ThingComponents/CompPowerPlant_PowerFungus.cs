@@ -14,7 +14,14 @@ namespace BiomesCore
 
 		public override void UpdateDesiredPowerOutput()
 		{
-			base.PowerOutput = GetAllPowerPlants();
+			if ((breakdownableComp != null && breakdownableComp.BrokenDown) || (refuelableComp != null && !refuelableComp.HasFuel) || (flickableComp != null && !flickableComp.SwitchIsOn) || (autoPoweredComp != null && !autoPoweredComp.WantsToBeOn) || (toxifier != null && !toxifier.CanPolluteNow) || !base.PowerOn)
+			{
+				base.PowerOutput = 0f;
+			}
+			else
+			{
+				base.PowerOutput = GetAllPowerPlants();
+			}
 		}
 
 		public int GetAllPowerPlants()
