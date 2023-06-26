@@ -9,6 +9,7 @@
 			<li>Eclipse</li>
 			<li>Flashstorm</li>
 			<li>HeatWave</li>
+			<li>MeteoriteImpact</li>
 			<li>ToxicFallout</li>
 			<li>VolcanicWinter</li>
 			<li MayRequire="sarg.alphaanimals">AA_IncidentSummitCrab</li>
