@@ -86,7 +86,6 @@
 				<thingDefs>
 					<li>Bow_Recurve</li>
 					<li>Gun_BoltActionRifle</li>
-					<li MayRequire="VanillaExpanded.VAEAccessories">VAEA_Apparel_Quiver</li>
 					<li MayRequire="VanillaExpanded.VWE">VWE_Bow_Compound</li>
 					<li MayRequire="VanillaExpanded.VWENL">VWE_Gun_DartGun</li>
 				</thingDefs>
