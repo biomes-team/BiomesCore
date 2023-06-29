@@ -200,6 +200,8 @@
     <Compile Include="ThingComponents\CompSleepGraphic.cs" />
     <Compile Include="ThingComponents\CompDynamicPawnGraphic.cs" />
     <Compile Include="ThingComponents\CompTerrainRecolor.cs" />
+    <Compile Include="ThingComponents\Spawner_Comp.cs" />
+    <Compile Include="ThingComponents\Spawner_CompProperties.cs" />
     <Compile Include="Things\BiomesPlant.cs" />
   </ItemGroup>
   <ItemGroup>
