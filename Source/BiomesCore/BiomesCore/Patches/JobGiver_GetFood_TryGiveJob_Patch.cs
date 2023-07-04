@@ -1,4 +1,6 @@
-﻿using BiomesCore.DefModExtensions;
+﻿using System;
+using System.Collections.Generic;
+using BiomesCore.DefModExtensions;
 using HarmonyLib;
 using System.Linq;
 using Verse;
@@ -97,33 +99,80 @@ namespace BiomesCore.Patches
                    victim.health.hediffSet.GetFirstHediffOfDef(HediffDefOf.BloodLoss) is null;
         }
 
+        private static bool RequestedThingFromReachableRegion(Region region, Pawn pawn, bool desperate, ThingRequest request, ref Thing filth)
+        {
+            var filthList = region.ListerThings.ThingsMatching(request);
+
+            for (int index = 0; index < filthList.Count; ++index)
+            {
+                var thing = filthList[index];
+                if ((desperate || !thing.IsForbidden(pawn)) && pawn.CanReserve(thing) &&
+                    ReachabilityWithinRegion.ThingFromRegionListerReachable(thing, region, PathEndMode.ClosestTouch, pawn))
+                {
+                    filth = thing;
+                    break;
+                }
+            }
+
+            return filth != null;
+        }
+
+        private static bool CellHasReservableThing(IntVec3 processCell, Pawn pawn,
+            Dictionary<ThingDef, float>.KeyCollection acceptableThings, ref Thing customThing)
+        {
+            var thingList = processCell.GetThingList(pawn.Map);
+            for (var index = 0; index < thingList.Count; ++index)
+            {
+                var thing = thingList[index];
+                if (acceptableThings.Contains(thing.def) && pawn.CanReserve(thing))
+                {
+                    customThing = thing;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private static Thing CustomThingEater(Pawn pawn, CompCustomThingEater extension, bool desperate)
         {
+            const int maxFilthRegions = 18;
+            const int maxLookupCells = 3200;
+
             if (!extension.TryLookForFood())
             {
                 return null;
             }
 
-            Thing nearestCustomThing = null;
-            var acceptableThings = extension.Props.thingsToNutrition.Keys;
-            pawn.Map.floodFiller.FloodFill(pawn.Position,
-                checkCell => (!checkCell.IsForbidden(pawn) || desperate) &&
-                    pawn.Map.reachability.CanReach(checkCell,checkCell, PathEndMode.OnCell, TraverseParms.For(pawn)),
-                processCell =>
+            Thing customThing = null;
+            var position = pawn.Position;
+            var traverseParams = TraverseParms.For(pawn);
+
+            if (extension.Props.filthNutrition > 0.0F)
             {
-                foreach (var thing in processCell.GetThingList(pawn.Map))
-                {
-                    if (acceptableThings.Contains(thing.def) && pawn.CanReserve(thing))
-                    {
-                        nearestCustomThing = thing;
-                        return true;
-                    }
-                }
+                // Region look-up optimized for filth.
+                // This might not necessarily yield the closest edible filth, but it will always be very close.
+                bool RegionEntryCondition(Region from, Region to) => to.Allows(traverseParams, false);
+                var request = ThingRequest.ForGroup(ThingRequestGroup.Filth);
+                var regionProcessor = (RegionProcessor)
+                    (region => RequestedThingFromReachableRegion(region, pawn, desperate, request, ref customThing));
+                RegionTraverser.BreadthFirstTraverse(pawn.Position, pawn.Map, RegionEntryCondition, regionProcessor,
+                    maxFilthRegions);
+            }
 
-                return false;
-            }, 1600);
+            if (customThing != null || extension.Props.thingsToNutritionMapper.Count == 0)
+            {
+                return customThing;
+            }
 
-            return nearestCustomThing;
+            // Generic cell look-up for any other items. Slower than region look-ups.
+            var acceptableThings = extension.Props.thingsToNutrition.Keys;
+            bool CellCheckCondition(IntVec3 checkCell) => (!checkCell.IsForbidden(pawn) || desperate) &&
+                pawn.Map.reachability.CanReach(checkCell, checkCell, PathEndMode.OnCell, traverseParams);
+            Func<IntVec3, bool> processor = cell => CellHasReservableThing(cell, pawn, acceptableThings, ref customThing);
+            pawn.Map.floodFiller.FloodFill(position, CellCheckCondition, processor, maxLookupCells);
+
+            return customThing;
         }
     }
 }
