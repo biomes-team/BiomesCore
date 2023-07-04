@@ -75,7 +75,7 @@ namespace BiomesCore.Patches
                 {
                     Thing nearestCustomThing = CustomThingEater(pawn, customThingEater, desperate);
 
-                    if (nearestCustomThing != null)
+                    if (nearestCustomThing != null && !nearestCustomThing.Destroyed)
                     {
                         __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_EatCustomThing, nearestCustomThing);
                         return false;
@@ -105,48 +105,13 @@ namespace BiomesCore.Patches
             }
 
             Thing nearestCustomThing = null;
-            bool canEatAnyFilth = extension.Props.filthNutrition > 0.0F;
-            // Look-up optimized for filth.
-            if (canEatAnyFilth)
-            {
-                var position = pawn.Position;
-                int currentDistance = int.MaxValue;
-                var filthList = pawn.Map.listerThings.ThingsInGroup(ThingRequestGroup.Filth);
-                foreach (var filth in filthList)
-                {
-                    var filthPos = filth.Position;
-                    if (filthPos.IsForbidden(pawn) && !desperate ||
-                        !pawn.CanReserveAndReach(filth, PathEndMode.OnCell, Danger.Deadly))
-                    {
-                        continue;
-                    }
-
-                    int distance = (filth.Position - position).LengthManhattan;
-                    if (currentDistance > distance)
-                    {
-                        nearestCustomThing = filth;
-                        currentDistance = distance;
-                    }
-                }
-            }
-
-            if (nearestCustomThing != null || extension.Props.thingsToNutritionMapper.Count == 0)
-            {
-                return nearestCustomThing;
-            }
-
-            // Generic look-up for any other items. It is more costly in performance so it should be used as sparingly
-            // as possible.
             var acceptableThings = extension.Props.thingsToNutrition.Keys;
-            pawn.Map.floodFiller.FloodFill(pawn.Position, c => true, c =>
+            pawn.Map.floodFiller.FloodFill(pawn.Position,
+                checkCell => (!checkCell.IsForbidden(pawn) || desperate) &&
+                    pawn.Map.reachability.CanReach(checkCell,checkCell, PathEndMode.OnCell, TraverseParms.For(pawn)),
+                processCell =>
             {
-                if (c.IsForbidden(pawn) && !desperate ||
-                    !pawn.CanReach(c, PathEndMode.OnCell, Danger.Deadly))
-                {
-                    return false;
-                }
-
-                foreach (var thing in c.GetThingList(pawn.Map))
+                foreach (var thing in processCell.GetThingList(pawn.Map))
                 {
                     if (acceptableThings.Contains(thing.def) && pawn.CanReserve(thing))
                     {
@@ -156,7 +121,7 @@ namespace BiomesCore.Patches
                 }
 
                 return false;
-            });
+            }, 1600);
 
             return nearestCustomThing;
         }
