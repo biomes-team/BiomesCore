@@ -28,7 +28,13 @@ namespace BiomesCore.Patches
                 return true;
             }
 
+            // Manhunter animals ignore their custom feeding behaviour unless they are desperately hungry.
             bool desperate = pawn.needs.food.CurCategory == HungerCategory.Starving;
+            if (!desperate && pawn.InMentalState && (pawn.MentalStateDef == MentalStateDefOf.Manhunter ||
+                    pawn.MentalStateDef == MentalStateDefOf.ManhunterPermanent))
+            {
+                return true;
+            }
 
             if (extension.isBloodDrinkingAnimal)
             {
