@@ -32,10 +32,6 @@ namespace BiomesCore.Patches
 		private static List<Map> MapTargets(IncidentDef def, IIncidentTarget target)
 		{
 			var maps = new List<Map>();
-			if (!_forbiddenCavernIncidentDefs.Contains(def))
-			{
-				return maps;
-			}
 
 			if (target is Map map)
 			{
@@ -44,13 +40,14 @@ namespace BiomesCore.Patches
 			else
 			{
 				var currentMaps = Find.Maps;
-				for (var index = 0; index < maps.Count; ++index)
+				for (var index = 0; index < currentMaps.Count; ++index)
 				{
 					var currentMap = currentMaps[index];
 					if (currentMap.IsPlayerHome)
 					{
 						maps.Add(currentMap);
 					}
+
 				}
 			}
 
@@ -64,7 +61,7 @@ namespace BiomesCore.Patches
 			{
 				var map = targetMaps[index];
 				var extension = map.Biome.GetModExtension<BiomesMap>();
-				if (extension != null && extension.isCavern)
+				if (extension != null && extension.isCavern && _forbiddenCavernIncidentDefs.Contains(def))
 				{
 					shouldDisable = true;
 					break;
@@ -79,6 +76,7 @@ namespace BiomesCore.Patches
 			Initialize();
 
 			var incidentDef = __instance.def;
+
 			var targets = MapTargets(incidentDef, parms.target);
 			if (ShouldDisableIncident(incidentDef, targets))
 			{
