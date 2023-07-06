@@ -35,7 +35,8 @@
 			<hasGenders>true</hasGenders>
 			<herdAnimal>false</herdAnimal>
 			<maxPreyBodySize>1</maxPreyBodySize>
-			<body>BiomesCore_Slug</body>
+			<!-- <body>BiomesCore_Slug</body> -->
+			<body>BMT_OctoLike</body>
 			<baseHungerRate>0.8</baseHungerRate>
 			<baseBodySize>0.8</baseBodySize>
 			<baseHealthScale>1</baseHealthScale>

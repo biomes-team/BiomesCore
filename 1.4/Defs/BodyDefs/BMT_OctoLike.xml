@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs> 
+
+  <BodyPartDef>
+	<defName>BMT_ArmLeg</defName>
+	<label>tentacle</label>
+	<hitPoints>32</hitPoints>
+	<skinCovered>true</skinCovered>
+	<canScarify>true</canScarify>
+	<tags>
+	  <li>ManipulationLimbCore</li>
+	  <li>MovingLimbCore</li>
+	</tags>
+  </BodyPartDef>
+
+  <BodyDef>
+	<defName>BMT_OctoLike</defName>
+	<label>octo-like</label>
+	<corePart>
+	  <def>Body</def>
+	  <!-- <customLabel>larva body</customLabel> -->
+	  <height>Middle</height>
+	  <depth>Outside</depth>
+	  <parts>
+		<li>
+		  <def>Stomach</def>
+		  <coverage>0.05</coverage>
+		  <depth>Inside</depth>
+		</li>
+		<li>
+		  <def>Heart</def>
+		  <coverage>0.03</coverage>
+		  <depth>Inside</depth>
+		</li>
+		<li>
+		  <def>Lung</def>
+		  <customLabel>left lung</customLabel>
+		  <coverage>0.03</coverage>
+		  <depth>Inside</depth>
+		</li>
+		<li>
+		  <def>Lung</def>
+		  <customLabel>right lung</customLabel>
+		  <coverage>0.03</coverage>
+		  <depth>Inside</depth>
+		</li>
+		<li>
+		  <def>Kidney</def>
+		  <customLabel>left kidney</customLabel>
+		  <coverage>0.03</coverage>
+		  <depth>Inside</depth>
+		</li>
+		<li>
+		  <def>Kidney</def>
+		  <customLabel>right kidney</customLabel>
+		  <coverage>0.03</coverage>
+		  <depth>Inside</depth>
+		</li>
+		<li>
+		  <def>Liver</def>
+		  <coverage>0.05</coverage>
+		  <depth>Inside</depth>
+		</li>
+		<li>
+		  <def>Neck</def>
+		  <coverage>0.18</coverage>
+		  <height>Top</height>
+		  <parts>
+			<li>
+			  <def>Head</def>
+			  <coverage>0.65</coverage>
+			  <groups>
+				<li>HeadAttackTool</li>
+			  </groups>
+			  <parts>
+				<li>
+				  <def>Brain</def>
+				  <coverage>0.2</coverage>
+				  <depth>Inside</depth>
+				</li>
+				<li>
+				  <def>Eye</def>
+				  <customLabel>left eye</customLabel>
+				  <coverage>0.15</coverage>
+				</li>
+				<li>
+				  <def>Eye</def>
+				  <customLabel>right eye</customLabel>
+				  <coverage>0.15</coverage>
+				</li>
+				<li>
+				  <def>Antenna</def>
+				  <coverage>0.10</coverage>
+				  <customLabel>left antenna</customLabel>
+				</li>
+				<li>
+				  <def>Antenna</def>
+				  <coverage>0.10</coverage>
+				  <customLabel>right antenna</customLabel>
+				</li>
+				<li>
+				  <def>Nose</def>
+				  <coverage>0.07</coverage>
+				</li>
+				<li>
+				  <def>Jaw</def>
+				  <coverage>0.10</coverage>
+				  <groups>
+					<li>Mouth</li>
+				  </groups>
+				</li>
+			  </parts>
+			</li>
+		  </parts>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>first tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>second tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>third tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>fourth tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>fifth tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>sixth tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>seventh tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+		<li>
+		  <def>BMT_ArmLeg</def>
+		  <customLabel>eighth tentacle</customLabel>
+		  <coverage>0.015</coverage>
+		  <height>Bottom</height>
+		  <groups>
+			<li>Legs</li>
+			<li>Hands</li>
+			<li>Arms</li>
+		  </groups>
+		</li>
+	  </parts>
+	</corePart>
+  </BodyDef>
+
+</Defs>
