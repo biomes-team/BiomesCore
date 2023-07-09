@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BiomesCore.ThingComponents;
+using RimWorld;
 using Verse;
 
 namespace BiomesCore
@@ -52,7 +53,12 @@ namespace BiomesCore
 
         public override void PostPostApplyDamage(DamageInfo dinfo, float totalDamageDealt)
         {
-            if (parent is Pawn { Spawned: true, Dead: false } pawn && 
+            var pawn = parent as Pawn;
+            var pawnIsSpawned = pawn != null && pawn.Spawned && !pawn.Dead;
+            var pawnNotManhunter = !pawnIsSpawned || !pawn.InMentalState ||
+                (pawn.MentalStateDef != MentalStateDefOf.Manhunter &&
+                    pawn.MentalStateDef != MentalStateDefOf.ManhunterPermanent);
+            if (pawnIsSpawned && pawnNotManhunter &&
                 dinfo.Instigator != null && dinfo.Def.ExternalViolenceFor(pawn) &&
                 pawn.health.hediffSet.PainTotal >= Props.minPain)
             {
