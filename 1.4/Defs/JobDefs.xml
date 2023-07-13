@@ -17,7 +17,7 @@
 	<JobDef>
 		<defName>BC_EatCustomThing</defName>
 		<driverClass>BiomesCore.JobDriver_EatCustomThing</driverClass>
-		<reportString>eating.</reportString>
+		<reportString>eating TargetA.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
 
@@ -34,4 +34,13 @@
 		<casualInterruptible>false</casualInterruptible>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
+
+	<JobDef>
+		<defName>BMT_DevourHungering</defName>
+		<driverClass>JobDriver_Ingest</driverClass>
+		<reportString>devouring TargetA.</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+		<neverFleeFromEnemies>true</neverFleeFromEnemies>
+	</JobDef>
+
 </Defs>

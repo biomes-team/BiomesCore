@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<BMT_LetterLabelHungeringPackArrived>Hungering pack</BMT_LetterLabelHungeringPackArrived>
+	<BMT_LetterTextHungeringPackArrived>A pack of {0} have entered the area! They are afflicted with hungering, which keeps them in a perpetual state of starvation. They will try to eat the food of your colony by any means, including digging through walls.\n\nThey are initially non-hostile, but they may become hostile if they are attacked.\n\nThe {0} will leave the area in less than two days. You can try to tame them, give them enough food, or attack them.</BMT_LetterTextHungeringPackArrived>
+</LanguageData>

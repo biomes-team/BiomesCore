@@ -79,6 +79,7 @@
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
     <Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
+    <Compile Include="Incidents\IncidentWorker_HungeringAnimals.cs" />
     <Compile Include="Jobs\JobDriver_HermaphroditicMate.cs" />
     <Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />
     <Compile Include="Jobs\JobDriver_HarvestAnimalProduct.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
     <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
     <Compile Include="Jobs\JobDriver_EatCustomThing.cs" />
+    <Compile Include="Jobs\JobGiver_Hungering.cs" />
     <Compile Include="LordJobs\WanderAroundThing.cs" />
     <Compile Include="LordToils\WanderAroundThing.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
@@ -117,7 +119,9 @@
     <Compile Include="MapGeneration\GenStep_Oasis.cs" />
     <Compile Include="MapGeneration\MapGenerationPatch.cs" />
     <Compile Include="MapGeneration\RocksFromGrid_Cavern.cs" />
+    <Compile Include="MentalState\MentalState_Hungering.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
+    <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
     <Compile Include="Patches\CavePlants.cs" />
     <Compile Include="Patches\Caverns\CellOutsideBeauty.cs" />
     <Compile Include="Patches\Caverns\FindPlayerStartSpot.cs" />

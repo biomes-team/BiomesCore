@@ -9,18 +9,24 @@ namespace BiomesCore
     {
         public static ThingDef BMT_LavaGenerator;
 
+        public static ConceptDef BMT_HungeringAnimalsConcept;
+
         public static DutyDef BMT_WanderAroundPoint;
         
         public static GameConditionDef Earthquake;
         
+        public static HediffDef BMT_HungeringHediff;
         public static IncidentDef CaveIn;
 
         public static JobDef BC_BloodDrinking;
         public static JobDef BC_BottomFeeder;
+        public static JobDef BMT_DevourHungering;
         public static JobDef BC_EatCustomThing;
         public static JobDef BC_HarvestAnimalProduct;
         public static JobDef BC_HermaphroditicMate;
         //public static JobDef BC_Cough;
+
+        public static MentalStateDef BMT_Hungering;
 
         //public static TaleDef BMT_Coughed;
 
