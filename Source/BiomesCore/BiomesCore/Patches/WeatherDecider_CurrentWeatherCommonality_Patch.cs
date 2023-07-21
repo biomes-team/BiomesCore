@@ -17,7 +17,6 @@ namespace BiomesCore.Patches
 			var disallowedWeathers = ___map.Biome.GetModExtension<BiomesMap>()?.disallowedWeathers?.ToHashSet();
 			if (disallowedWeathers != null && disallowedWeathers.Contains(weather))
 			{
-				Log.Error($"WeatherDecider: {weather} CANCELLED");
 				return false;
 			}
 
