@@ -42,6 +42,11 @@ namespace BiomesCore.DefModExtensions
 		public bool alwaysGrowthSeason;
 
 		public float seasonalTemperatureShift = 1f;
+
+		/// <summary>
+		/// These weathers will never happen in the biome.
+		/// </summary>
+		public List<WeatherDef> disallowedWeathers;
 	}
 
 	public enum IslandShape

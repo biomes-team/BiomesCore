@@ -131,6 +131,7 @@
     <Compile Include="Patches\Caverns\RoyalTitlePermitWorker_CallShuttle_GetReportFromCell.cs" />
     <Compile Include="Patches\Caverns\Transpilers.cs" />
     <Compile Include="Patches\Caverns\Utility.cs" />
+    <Compile Include="Patches\CompCauseGameCondition_ForceWeather_RandomizeSettings_Patch.cs" />
     <Compile Include="Patches\ComplexThreatWorker_SleepingInsects_GetPawnKindsForPoints_Patch.cs" />
     <Compile Include="Patches\DisableBiomeIncidents.cs" />
     <Compile Include="Patches\CavernRoofs.cs" />
@@ -167,6 +168,7 @@
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
     <Compile Include="Patches\SymbolResolver_Interior_SleepingInsects_Resolve_Patch.cs" />
+    <Compile Include="Patches\WeatherDecider_CurrentWeatherCommonality_Patch.cs" />
     <Compile Include="PlaceWorker\PlaceWorker_Aquatic.cs" />
     <Compile Include="PlaceWorker\PlaceWorker_LavaGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
