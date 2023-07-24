@@ -31,11 +31,12 @@ namespace BiomesCore
         private PawnKindLifeStage _cachedForLifeStage;
         
         public override bool Active() => _remainingTicksActive > 0;
-        
+
+        // Assumes that PawnGraphicSet has already set its nakedGraphic value.
         public override GraphicData Graphic()
         {
             var stage = Pawn.ageTracker.CurKindLifeStage;
-            var original = Pawn.gender != Gender.Female || stage.femaleGraphicData == null ? stage.bodyGraphicData : stage.femaleGraphicData;
+            var original = Pawn.drawer.renderer.graphics.nakedGraphic.data;
 
             if (_cachedDefenseGraphic == null || _cachedForLifeStage != stage)
             {

@@ -147,7 +147,7 @@ namespace BMT
 		public override float GrowthRate => Blighted || Spawned && !GrowthSeasonNow()
 			? 0.0f
 			: GrowthRateFactor_Fertility * GrowthRateFactor_Temperature * GrowthRateFactor_Light *
-			  GrowthRateFactor_NoxiousHaze;
+			GrowthRateFactor_NoxiousHaze;
 
 		public override void TickLong()
 		{
@@ -188,6 +188,25 @@ namespace BMT
 			}
 
 			return inspectString;
+		}
+
+		protected override bool Resting => IsResting();
+
+		private bool IsResting()
+		{
+			var extension = def.GetModExtension<Biomes_PlantControl>();
+			if (extension == null)
+			{
+				return base.Resting;
+			}
+
+			if (!extension.needsRest)
+			{
+				return false;
+			}
+
+			var date = GenLocalDate.DayPercent(this);
+			return date >= extension.growingHours.min && date <= extension.growingHours.max;
 		}
 	}
 }

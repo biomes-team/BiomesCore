@@ -3,6 +3,7 @@ using RimWorld;
 
 namespace BiomesCore.DerivedClasses
 {
+	/// Avoid using this class. Use BiomesPlant instead.
 	public class BMT_Plant : Plant
 	{
 		protected override bool Resting => IsResting;
