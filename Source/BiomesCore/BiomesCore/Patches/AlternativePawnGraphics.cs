@@ -46,4 +46,22 @@ namespace BiomesCore.Patches
 			return true;
 		}
 	}
+	
+	[HarmonyPatch(typeof(PawnRenderer), nameof(PawnRenderer.LayingFacing))]
+	public static class SleepingPawnLayFacing
+	{
+		public static HashSet<Pawn> OverrideDirection = new HashSet<Pawn>();
+
+		internal static bool Prefix(ref Rot4 __result, PawnRenderer __instance)
+		{
+			if (!OverrideDirection.Contains(__instance.pawn))
+			{
+				return true;
+			}
+
+			__result = Rot4.South;
+			return false;
+
+		}
+	}
 }

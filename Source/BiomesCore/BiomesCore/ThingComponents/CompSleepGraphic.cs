@@ -17,6 +17,11 @@ namespace BiomesCore.ThingComponents
 		/// </summary>
 		public bool roofedOnly;
 
+		/// <summary>
+		/// Force the use of the south texture while sleeping. Conflicts with animal pack textures.
+		/// </summary>
+		public bool faceSouth;
+
 		public CompProperties_CompSleepGraphic() => compClass = typeof(CompSleepGraphic);
 
 		public override IEnumerable<string> ConfigErrors(ThingDef parentDef)
@@ -88,10 +93,15 @@ namespace BiomesCore.ThingComponents
 			if (wasAwake)
 			{
 				SleepingPawnAngle.OverrideAngle.Remove(pawn);
+				SleepingPawnLayFacing.OverrideDirection.Remove(pawn);
 			}
 			else
 			{
-				SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
+				SleepingPawnLayFacing.OverrideDirection.Add(pawn);
+				if (Props.faceSouth)
+				{
+					SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
+				}
 			}
 		}
 
@@ -115,10 +125,15 @@ namespace BiomesCore.ThingComponents
 			if (isAwake)
 			{
 				SleepingPawnAngle.OverrideAngle.Remove(pawn);
+				SleepingPawnLayFacing.OverrideDirection.Remove(pawn);
 			}
 			else
 			{
-				SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
+				SleepingPawnLayFacing.OverrideDirection.Add(pawn);
+				if (Props.faceSouth)
+				{
+					SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
+				}
 			}
 		}
 
@@ -128,6 +143,7 @@ namespace BiomesCore.ThingComponents
 			if (parent is Pawn pawn)
 			{
 				SleepingPawnAngle.OverrideAngle.Remove(pawn);
+				SleepingPawnLayFacing.OverrideDirection.Remove(pawn);
 			}
 		}
 
