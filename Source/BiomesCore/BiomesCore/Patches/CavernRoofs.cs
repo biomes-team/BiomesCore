@@ -230,7 +230,7 @@ namespace BiomesCore.Patches
 	{
 		public static bool Prefix(ref bool __result, IntVec3 c, Map map, bool canRoofPunch, bool allowedIndoors = true)
 		{
-			if (map.roofGrid.RoofAt(c) == BiomesCoreDefOf.BMT_RockRoofStable)
+			if (c.InBounds(map) && map.roofGrid.RoofAt(c) == BiomesCoreDefOf.BMT_RockRoofStable)
 			{
 				__result = CanPhysicallyDropInto(c, map, canRoofPunch, allowedIndoors);
 				return false;
