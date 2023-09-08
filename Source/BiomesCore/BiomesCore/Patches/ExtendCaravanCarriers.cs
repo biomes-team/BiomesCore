@@ -29,6 +29,11 @@ namespace BiomesCore.Patches
 		private static List<PawnGenOption> GetExtendedCarriers(List<PawnGenOption> originalCarriers,
 			PawnGroupMakerParms parms)
 		{
+			if (parms.tile < 0)
+			{
+				return originalCarriers;
+			}
+
 			var biomeDef = Find.WorldGrid.tiles[parms.tile].biome;
 			var extension = biomeDef?.GetModExtension<BiomesMap>();
 			if (extension == null || extension.extraCarriers.NullOrEmpty())
