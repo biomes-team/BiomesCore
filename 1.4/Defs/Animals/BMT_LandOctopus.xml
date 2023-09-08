@@ -47,10 +47,8 @@
 			<manhunterOnTameFailChance>0.15</manhunterOnTameFailChance>
 			<manhunterOnDamageChance>0.25</manhunterOnDamageChance>
 			<trainability>Advanced</trainability>
-			<!-- <meatLabel>snail meat</meatLabel> -->
-			<!-- <meatColor>(62,133,215)</meatColor> -->
-			<leatherDef>BMT_Leather_Gastropoda</leatherDef> <!-- or hyponota, could be same as squids, octopuses, nautiluses, Worm like... -->
-			<useMeatFrom>BMT_GiantSnail</useMeatFrom>
+			<leatherDef>BMT_Leather_Gastropoda</leatherDef>
+			<specificMeatDef>BMT_GastropodMeat</specificMeatDef>
 			<lifeStageAges>
 				<li>
 					<def>AnimalBaby</def>
@@ -87,32 +85,32 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/LandOctopus/LandOctopi</texPath>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/LandOctopi</texPath>
 					<drawSize>1.0</drawSize>
 					<!-- need texture for size -->
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
 					<drawSize>1.0</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
 			<li>
 				<bodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/LandOctopus/LandOctopi</texPath>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/LandOctopi</texPath>
 					<drawSize>1.5</drawSize>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
 					<drawSize>1.5</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
 			<li>
 				<bodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/LandOctopus/LandOctopi</texPath>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/LandOctopi</texPath>
 					<drawSize>2</drawSize>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
 					<drawSize>2</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -123,7 +121,7 @@
 		<label>terrestrial octopus egg (fert.)</label>
 		<description>A fertilized terrestrial octopus egg. If all goes well, it should hatch into a baby octopus. It can be eaten raw, but it's much better cooked.</description>
 		<graphicData>
-			<texPath>BMT_Caverns/Things/Item/Eggs/OvoidBugEggs</texPath>
+			<texPath>BMT_Core/Things/Item/Eggs/OvoidBugEggs</texPath>
 			<color>(109,137,70)</color>
 			<drawSize>1</drawSize>
 		</graphicData>
