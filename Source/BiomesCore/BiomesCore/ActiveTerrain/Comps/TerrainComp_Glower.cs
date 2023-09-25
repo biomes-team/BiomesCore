@@ -20,7 +20,8 @@ namespace BiomesCore
 
         public TerrainCompProperties_Glower Props { get { return (TerrainCompProperties_Glower)props; } }
 
-        public virtual bool ShouldBeLitNow
+        // renamed from ShouldBeLitNow to avoid LightsOut messing with it
+        public virtual bool ShouldTerrainBeLitNow
         {
             get
             {
@@ -38,7 +39,7 @@ namespace BiomesCore
 
         public void UpdateLit()
         {
-            bool shouldBeLitNow = ShouldBeLitNow;
+            bool shouldBeLitNow = ShouldTerrainBeLitNow;
             if (currentlyOn == shouldBeLitNow)
             {
                 return;
@@ -61,7 +62,7 @@ namespace BiomesCore
         public override void PostPostLoad()
         {
             UpdateLit();
-            if (ShouldBeLitNow)
+            if (ShouldTerrainBeLitNow)
             {
                 parent.Map.glowGrid.RegisterGlower(AsThingComp);
             }
@@ -79,7 +80,7 @@ namespace BiomesCore
             Color = Props.glowColor;
             GlowRadius = Props.glowRadius;
             OverlightRadius = Props.overlightRadius;
-            if (ShouldBeLitNow && parent.Map != null)
+            if (ShouldTerrainBeLitNow && parent.Map != null)
             {
                 parent.Map.glowGrid.RegisterGlower(AsThingComp);
             }
