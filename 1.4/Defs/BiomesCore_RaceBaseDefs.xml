@@ -1,48 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+	<ThingDef ParentName="AnimalThingBase" Name="BiomesCore_CrabThingBase" Abstract="true">
+		<defName>BiomesCore_CrabThingBase</defName>
+		<label>crab</label>
+		<description>A crab</description>
+		<statBases>
+			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+			<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
+			<MoveSpeed>3.5</MoveSpeed>
+		</statBases>
+		<race>
+			<leatherDef>BiomesCore_CrabShell</leatherDef>
+			<body>BeetleLikeWithClaw</body>
+			<foodType>OmnivoreRoughAnimal</foodType>
+			<wildness>0.75</wildness>
+			<trainability>Intermediate</trainability>
+			<lifeExpectancy>9</lifeExpectancy>
+			<nameGenerator>Biomes_NamerCrab</nameGenerator>
+			<manhunterOnTameFailChance>0.15</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.05</manhunterOnDamageChance>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBabyTiny</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.14</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.27</minAge>
+					<soundDeath>Pawn_Rodent_Death</soundDeath>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+		<modExtensions>
+			<li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+				<movementDef>PF_Amphibious</movementDef>
+			</li>
+		</modExtensions>
+	</ThingDef>
 
-  <ThingDef ParentName="AnimalThingBase" Name="BiomesCore_CrabThingBase" Abstract="true">
-	<defName>BiomesCore_CrabThingBase</defName>
-    <label>crab</label>
-    <description>A crab</description>
-    <statBases>
-		<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
-		<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
-		<SwimSpeed>8</SwimSpeed>
-    </statBases>
-    <race>
-	  <leatherDef>BiomesCore_CrabShell</leatherDef>
-	  <body>BeetleLikeWithClaw</body>
-	  <foodType>OmnivoreRoughAnimal</foodType>
-      <wildness>0.75</wildness>
-      <trainability>Intermediate</trainability>
-      <lifeExpectancy>9</lifeExpectancy>
-      <nameGenerator>Biomes_NamerCrab</nameGenerator>
-      <manhunterOnTameFailChance>0.15</manhunterOnTameFailChance>
-      <manhunterOnDamageChance>0.05</manhunterOnDamageChance>
-      <lifeStageAges>
-        <li>
-          <def>AnimalBabyTiny</def>
-          <minAge>0</minAge>
-        </li>
-        <li>
-          <def>AnimalJuvenile</def>
-          <minAge>0.14</minAge>
-        </li>
-        <li>
-          <def>AnimalAdult</def>
-          <minAge>0.27</minAge>
-          <soundDeath>Pawn_Rodent_Death</soundDeath>
-        </li>
-      </lifeStageAges>
-	  <soundMeleeHitPawn>Pawn_Melee_SmallScratch_HitPawn</soundMeleeHitPawn>
-      <soundMeleeHitBuilding>Pawn_Melee_SmallScratch_HitBuilding</soundMeleeHitBuilding>
-      <soundMeleeMiss>Pawn_Melee_SmallScratch_Miss</soundMeleeMiss>
-    </race>
-    <tradeTags>
-      <li>AnimalUncommon</li>
-      <li>AnimalExotic</li>
-    </tradeTags>
-  </ThingDef>
 </Defs>
