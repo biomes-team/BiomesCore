@@ -57,7 +57,7 @@ namespace BiomesCore
                 parent.BroadcastCompSignal(PowerOn ? CompSignals.PowerTurnedOn : CompSignals.PowerTurnedOff);
                 curSignal = PowerOn;
             }
-            if (!PowerOn && Find.TickManager.TicksGame % tickInterval == this.HashCodeToMod(tickInterval))
+            if (this.IsHashIntervalTick(tickInterval))
             {
                 var comp = ActiveTerrainUtility.TryFindNearestPowerConduitFloor(parent.Position, parent.Map);
                 if (comp != null)

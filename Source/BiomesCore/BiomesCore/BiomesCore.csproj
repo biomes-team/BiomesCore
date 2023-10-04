@@ -79,6 +79,7 @@
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
     <Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
+    <Compile Include="HashExtension.cs" />
     <Compile Include="Incidents\IncidentWorker_HungeringAnimals.cs" />
     <Compile Include="Jobs\JobDriver_HermaphroditicMate.cs" />
     <Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />

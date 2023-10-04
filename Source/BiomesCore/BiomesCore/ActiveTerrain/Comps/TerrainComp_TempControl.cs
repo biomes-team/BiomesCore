@@ -73,7 +73,7 @@ namespace BiomesCore
         public override void CompTick()
         {
             base.CompTick();
-            if (Props.cleansSnow && Find.TickManager.TicksGame % 60 == this.HashCodeToMod(60))
+            if (this.IsHashIntervalTick(60))
             {
                 CleanSnow();
                 UpdatePowerConsumption();

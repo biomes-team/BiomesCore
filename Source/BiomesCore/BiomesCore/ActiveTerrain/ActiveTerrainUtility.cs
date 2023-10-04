@@ -32,15 +32,6 @@ namespace BiomesCore
         }
 
         //Misc
-
-        /// <summary>
-        /// Generates number between 0 and mod - 1 (inclusive) based on object's hash code.
-        /// </summary>
-        public static int HashCodeToMod(this object obj, int mod)
-        {
-            return Math.Abs(obj.GetHashCode()) % mod;
-        }
-
         public static CompTempControl GetTempControl(this Room room, TempControlType targetType)
         {
             foreach (var c in room.Cells)
@@ -94,7 +85,7 @@ namespace BiomesCore
         public static void RenderPulsingNeedsPowerOverlay(IntVec3 loc)
         {
             Vector3 drawPos = loc.ToVector3ShiftedWithAltitude(AltitudeLayer.MetaOverlays);
-            float num = (Time.realtimeSinceStartup + 397f * loc.HashCodeToMod(37)) * 4f;
+            float num = (Time.realtimeSinceStartup + 397f *  Math.Abs(loc.GetHashCode()) % 37) * 4f;
             float num2 = ((float)Math.Sin(num) + 1f) * 0.5f;
             num2 = 0.3f + num2 * 0.7f;
             Material material = FadedMaterialPool.FadedVersionOf(NeedsPowerMat, num2);

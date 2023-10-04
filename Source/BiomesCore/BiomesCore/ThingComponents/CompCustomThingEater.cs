@@ -14,9 +14,7 @@ namespace BiomesCore
 
         public override void CompTick()
         {
-            var couldLook = canLookForFood;
-            canLookForFood = canLookForFood ||
-                             Find.TickManager.TicksGame % TickInterval == this.HashCodeToMod(TickInterval);
+            canLookForFood = canLookForFood || this.IsHashIntervalTick(TickInterval);
         }
 
         public bool TryLookForFood()

@@ -37,7 +37,7 @@ namespace BiomesCore
         public override void CompTick()
         {
             base.CompTick();
-            if (Find.TickManager.TicksGame % 60 == this.HashCodeToMod(60))
+            if (this.IsHashIntervalTick(60))
             {
                 DamageThings(parent.Position);
 
