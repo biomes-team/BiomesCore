@@ -3,11 +3,11 @@
 
 	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase" Name="BiomeCore_Lava">
 		<defName>BiomeCore_Lava</defName>
+		<tickerType>Rare</tickerType>
 		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
 		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/Lava</pollutedTexturePath>
 		<label>lava</label>
 		<renderPrecedence>395</renderPrecedence>
-		<tickerType>Normal</tickerType>
 		<statBases>
 			<Beauty>-3</Beauty>
 			<Cleanliness>-4</Cleanliness>
@@ -40,11 +40,11 @@
 		</affordances>
 		<terrainComps>
 			<li Class="BiomesCore.TerrainCompProperties_HeatPush">
-				<pushAmount>20</pushAmount>
+				<pushAmount>100</pushAmount>
 				<targetTemp>120</targetTemp>
 			</li>
 			<li Class="BiomesCore.TerrainCompProperties_Glower">
-				<glowRadius>4</glowRadius>
+				<glowRadius>3</glowRadius>
 				<glowColor>(178,58,0,0)</glowColor>
 			</li>
 			<li Class="BiomesCore.TerrainCompProperties_BurnItems">

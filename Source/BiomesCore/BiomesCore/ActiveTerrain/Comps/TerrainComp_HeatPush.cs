@@ -16,7 +16,7 @@ namespace BiomesCore
         public override void CompTick()
         {
             base.CompTick();
-            if (this.IsHashIntervalTick(60) && ShouldPushHeat)
+            if (ShouldPushHeat)
             {
                 GenTemperature.PushHeat(parent.Position, parent.Map, PushAmount);
             }

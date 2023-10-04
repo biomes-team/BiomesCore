@@ -84,15 +84,16 @@ namespace BiomesCore
                         cycles += 1;
                     }
                     var terr = terrains[i];
+                    // See TickList.TickInterval
                     if (terr.def.tickerType == TickerType.Normal)
                     {
                         terr.Tick();
                     }
-                    else if (terr.def.tickerType == TickerType.Rare && cycles % 35 == 0)
+                    else if (terr.def.tickerType == TickerType.Rare && cycles % 250 == 0)
                     {
                         terr.TickRare();
                     }
-                    else if (terr.def.tickerType == TickerType.Long && cycles % 250 == 0)
+                    else if (terr.def.tickerType == TickerType.Long && cycles % 2000 == 0)
                     {
                         terr.TickLong();
                     }
