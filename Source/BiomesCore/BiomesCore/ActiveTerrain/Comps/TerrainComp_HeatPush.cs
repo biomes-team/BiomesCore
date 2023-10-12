@@ -3,22 +3,30 @@
 namespace BiomesCore
 {
     /// <summary>
-    /// This terrain comp will push heat endlessly with no regard for ambient temperature.
+    /// This terrain comp will push heat up to a maximum temperature.
     /// </summary>
     public class TerrainComp_HeatPush : TerrainComp
     {
-        public TerrainCompProperties_HeatPush Props { get { return (TerrainCompProperties_HeatPush)props; } }
+        public TerrainCompProperties_HeatPush Props => (TerrainCompProperties_HeatPush)props;
 
-        protected virtual bool ShouldPushHeat { get { return true; } }
+        protected virtual bool ShouldPushHeat => true;
 
-        protected virtual float PushAmount { get { return Props.pushAmount; } }
+        protected virtual float PushAmount => Props.pushAmount;
 
         public override void CompTick()
         {
             base.CompTick();
-            if (ShouldPushHeat)
+            if (!ShouldPushHeat)
             {
-                GenTemperature.PushHeat(parent.Position, parent.Map, PushAmount);
+                return;
+            }
+            IntVec3 position = parent.Position;
+            Map map = parent.Map;
+            Room room = position.GetRoom(map);
+
+            if (room != null && room.Temperature < Props.targetTemp)
+            {
+                room.PushHeat(PushAmount);
             }
         }
     }

@@ -1,186 +1,186 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using BiomesCore.ActiveTerrain;
 using Verse;
 
 namespace BiomesCore
 {
-    public class SpecialTerrainList : MapComponent
-    {
-        //.ctor... need we say more
-        public SpecialTerrainList(Map map) : base(map) { }
+	internal struct DefExtensionActiveEntry
+	{
+		public ActiveTerrainDef def;
+		public DefExtensionActive extension;
 
-        public List<TerrainInstance> terrainInstances = new List<TerrainInstance>();
+		public DefExtensionActiveEntry(ActiveTerrainDef newDef, DefExtensionActive newExtension)
+		{
+			def = newDef;
+			extension = newExtension;
+		}
+	}
 
-        public Dictionary<IntVec3, TerrainInstance> terrains = new Dictionary<IntVec3, TerrainInstance>();
+	public class SpecialTerrainList : MapComponent
+	{
+		/// <summary>
+		/// Keeps track of every terrain instance in the map, associating it to its position. This dictionary is stored
+		/// into savegames.
+		/// </summary>
+		private Dictionary<IntVec3, TerrainInstance> terrains = new Dictionary<IntVec3, TerrainInstance>();
 
-        public TerrainInstance[] terrainsArray;
+		/// <summary>
+		/// Tracks DefExtensionActive which are associated to some ActiveTerrainDef in the map.
+		/// This is kept updated when new terrains appear, but it does not track terrain removals.
+		/// This collection is not persisted into savegames and is reconstructed when the map finalizes its init phase.
+		/// </summary>
+		private HashSet<DefExtensionActiveEntry> defExtensionsActive = new HashSet<DefExtensionActiveEntry>();
 
-        public HashSet<TerrainDef> terrainDefs = new HashSet<TerrainDef>();
+		// Data structures used to optimize tick triggering.
+		private HashSet<TerrainInstance> tickTerrains = new HashSet<TerrainInstance>();
 
-        private bool dirty = false;
+		// See TickList.TickInterval for these two values.
+		private TickTerrain rareTickTerrains = new TickTerrain(250);
+		private TickTerrain longTickTerrains = new TickTerrain(2000);
 
-        private int index = 0;
+		public SpecialTerrainList(Map map) : base(map)
+		{
+		}
 
-        private int cycles = 1;
+		public override void ExposeData()
+		{
+			base.ExposeData();
+			Scribe_Collections.Look(ref terrains, "terrains", LookMode.Value, LookMode.Deep);
+		}
 
-        public override void ExposeData()
-        {
-            base.ExposeData();
-            Scribe_Collections.Look(ref terrains, "terrains", LookMode.Value, LookMode.Deep);
-            this.terrainDefs = new HashSet<TerrainDef>(this.terrains.Select(t => t.Value.def).Distinct());
-        }
+		/// <summary>
+		/// Calls Update() on terrain instances and DefExtensionActive instances. Intended for graphical updates.
+		/// </summary>
+		public override void MapComponentUpdate()
+		{
+			base.MapComponentUpdate();
+			foreach (var terr in terrains)
+			{
+				terr.Value.Update();
+			}
 
-        /// <summary>
-        /// Updater for terrains
-        /// </summary>
-        public override void MapComponentUpdate()
-        {
-            base.MapComponentUpdate();
-            foreach (var terr in terrains)
-            {
-                terr.Value.Update();
-            }
+			foreach (DefExtensionActiveEntry entry in defExtensionsActive)
+			{
+				entry.extension.DoWork(entry.def);
+			}
+		}
 
-            foreach (TerrainDef terrainDef in this.terrainDefs)
-            {
-                if (terrainDef.modExtensions != null)
-                {
-                    foreach (DefModExtension extension in terrainDef.modExtensions)
-                        if (extension is DefExtensionActive act)
-                            act.DoWork(terrainDef);
-                }
-            }
-        }
+		public override void MapComponentTick()
+		{
+			base.MapComponentTick();
 
-        /// <summary>
-        /// Ticker for terrains
-        /// </summary>
-        public void TerrainUpdate(long timeBudget)
-        {
-            if (this.terrains.Count != 0)
-            {
-                Stopwatch stopwatch = new Stopwatch();
-                TerrainInstance[] terrains;
+			foreach (TerrainInstance terrainInstance in tickTerrains)
+			{
+				terrainInstance.Tick();
+			}
 
-                if (terrainsArray == null || terrainsArray?.Length != this.terrains.Count || dirty)
-                {
-                    terrains = terrainsArray = this.terrains.Select(p => p.Value).ToArray();
-                    index = 0;
-                    dirty = false;
-                }
-                else
-                {
-                    terrains = terrainsArray;
-                }
-                int i = index;
-                int k = 0;
-                while (stopwatch.ElapsedTicks < timeBudget && k < terrains.Length / 6)
-                {
-                    if (i >= terrains.Length)
-                    {
-                        i = 0;
-                        cycles += 1;
-                    }
-                    var terr = terrains[i];
-                    // See TickList.TickInterval
-                    if (terr.def.tickerType == TickerType.Normal)
-                    {
-                        terr.Tick();
-                    }
-                    else if (terr.def.tickerType == TickerType.Rare && cycles % 250 == 0)
-                    {
-                        terr.TickRare();
-                    }
-                    else if (terr.def.tickerType == TickerType.Long && cycles % 2000 == 0)
-                    {
-                        terr.TickLong();
-                    }
-                    i++;
-                    k++;
-                }
-                stopwatch.Stop();
-                index = i;
-            }
-        }
+			int gameTick = Find.TickManager.TicksGame;
+			rareTickTerrains.Tick(gameTick);
+			longTickTerrains.Tick(gameTick);
+		}
 
-        public override void FinalizeInit()
-        {
-            base.FinalizeInit();
-            RefreshAllCurrentTerrain();
-            CallPostLoad();
-        }
+		public override void FinalizeInit()
+		{
+			base.FinalizeInit();
+			RefreshAllCurrentTerrain();
+			foreach (TerrainInstance terrainInstance in terrains.Values)
+			{
+				terrainInstance.PostLoad();
+			}
+		}
 
-        public void CallPostLoad()
-        {
-            foreach (var k in terrains.Keys)
-            {
-                terrains[k].PostLoad();
-            }
-        }
+		/// <summary>
+		/// Registers terrain currently present to terrain list, called on init
+		/// </summary>
+		private void RefreshAllCurrentTerrain()
+		{
+			foreach (IntVec3 cell in map)
+			{
+				TerrainDef terrain = map.terrainGrid.TerrainAt(cell);
+				if (terrain is ActiveTerrainDef special)
+				{
+					RegisterAt(special, cell);
+				}
+			}
+		}
 
-        /// <summary>
-        /// Registers terrain currently present to terrain list, called on init
-        /// </summary>
-        public void RefreshAllCurrentTerrain()
-        {
-            Reset();
-            foreach (var cell in map) //Map is IEnumerable...
-            {
-                TerrainDef terrain = map.terrainGrid.TerrainAt(cell);
-                if (terrain is ActiveTerrainDef special)
-                {
-                    RegisterAt(special, cell);
-                }
-            }
-        }
+		/// <summary>
+		/// Register the presence of an ActiveTerrainDef at a specific cell. Instantiate the terrain.
+		/// </summary>
+		/// <param name="activeTerrainDef">Definition being registered.</param>
+		/// <param name="cell">Position of the terrain.</param>
+		public void RegisterAt(ActiveTerrainDef activeTerrainDef, IntVec3 cell)
+		{
+			if (terrains.ContainsKey(cell))
+			{
+				Notify_RemovedTerrainAt(cell);
+			}
 
-        public void RegisterAt(ActiveTerrainDef special, int i)
-        {
-            RegisterAt(special, map.cellIndices.IndexToCell(i));
-        }
+			var newTerr = activeTerrainDef.MakeTerrainInstance(map, cell);
+			newTerr.Init();
+			terrains.Add(cell, newTerr);
 
-        public void RegisterAt(ActiveTerrainDef special, IntVec3 cell)
-        {
-            if (!terrains.ContainsKey(cell))
-            {
-                var newTerr = special.MakeTerrainInstance(map, cell);
-                newTerr.Init();
-                terrainInstances.Add(newTerr);
-                terrains.Add(cell, newTerr);
-                this.terrainDefs.Add(special);
-                FixAt(terrainInstances.Count);
-            }
-        }
+			int hash = cell.FastHashCode();
+			switch (activeTerrainDef.tickerType)
+			{
+				case TickerType.Normal:
+					tickTerrains.Add(newTerr);
+					break;
+				case TickerType.Rare:
+					rareTickTerrains.Add(hash, newTerr);
+					break;
+				case TickerType.Long:
+					longTickTerrains.Add(hash, newTerr);
+					break;
+				case TickerType.Never:
+				default:
+					break;
+			}
 
-        public void Notify_RemovedTerrainAt(IntVec3 c)
-        {
-            var terr = terrains[c];
-            var index = FixAt(terrainInstances.IndexOf(terr));
-            terrains.Remove(c);
-            terrainInstances.Remove(terr);
-            terrainsArray = terrainInstances.ToArray();
-            terr.PostRemove();
+			if (activeTerrainDef.modExtensions == null)
+			{
+				return;
+			}
 
-        }
+			foreach (DefModExtension extension in activeTerrainDef.modExtensions)
+			{
+				if (extension is DefExtensionActive activeExtension)
+				{
+					defExtensionsActive.Add(new DefExtensionActiveEntry(activeTerrainDef, activeExtension));
+				}
+			}
+		}
 
-        public int FixAt(int i = -1)
-        {
-            dirty = true;
-            if (i != -1)
-            {
-                if (i >= this.index)
-                    return i;
-                this.index = Mathf.Max(i - 1, 0);
-            }
-            return i;
-        }
+		public void Notify_RemovedTerrainAt(IntVec3 c)
+		{
+			if (!terrains.ContainsKey(c))
+			{
+				// This can happen if this cell contains an ActiveTerrainDef with the disableActiveTerrainDef flag set to true.
+				return;
+			}
 
-        public void Reset()
-        {
-            dirty = true;
-            index = 0;
-        }
-    }
+			TerrainInstance terrainInstance = terrains[c];
+			terrains.Remove(c);
+
+			int hash = c.FastHashCode();
+			switch (terrainInstance.def.tickerType)
+			{
+				case TickerType.Normal:
+					tickTerrains.Remove(terrainInstance);
+					break;
+				case TickerType.Rare:
+					rareTickTerrains.Remove(hash, terrainInstance);
+					break;
+				case TickerType.Long:
+					longTickTerrains.Remove(hash, terrainInstance);
+					break;
+				case TickerType.Never:
+				default:
+					break;
+			}
+
+			terrainInstance.PostRemove();
+		}
+	}
 }

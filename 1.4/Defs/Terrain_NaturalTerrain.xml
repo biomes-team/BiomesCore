@@ -40,7 +40,7 @@
 		</affordances>
 		<terrainComps>
 			<li Class="BiomesCore.TerrainCompProperties_HeatPush">
-				<pushAmount>100</pushAmount>
+				<pushAmount>20</pushAmount>
 				<targetTemp>120</targetTemp>
 			</li>
 			<li Class="BiomesCore.TerrainCompProperties_Glower">

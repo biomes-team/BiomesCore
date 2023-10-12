@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
 using System.Linq;
+using BiomesCore.ActiveTerrain;
 using Verse;
 
 namespace BiomesCore
@@ -37,16 +38,13 @@ namespace BiomesCore
         public override void CompTick()
         {
             base.CompTick();
-            if (this.IsHashIntervalTick(60))
-            {
-                DamageThings(parent.Position);
+            DamageThings(parent.Position);
 
-                InitializeAffectedTiles();
-                if (affectedTiles.Count != 0)
-                {
-                    int index = Rand.Range(0, affectedTiles.Count - 1);
-                    DamageThings(affectedTiles[index]);
-                }
+            InitializeAffectedTiles();
+            if (affectedTiles.Count != 0)
+            {
+                int index = Rand.Range(0, affectedTiles.Count - 1);
+                DamageThings(affectedTiles[index]);
             }
         }
 

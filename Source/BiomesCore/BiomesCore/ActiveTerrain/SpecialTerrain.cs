@@ -11,6 +11,7 @@ namespace BiomesCore
         public Type terrainInstanceClass = typeof(TerrainInstance);
 
         public TickerType tickerType;
+
         /// <summary>
         /// Gets the terrain comp properties for a SpecialTerrain.
         /// </summary>
@@ -87,26 +88,9 @@ namespace BiomesCore
                 comp.Initialize(prop);
     		}
         }
-        /// <summary>
-        /// Ticker for terrain
-        /// </summary>
+
     	public virtual void Tick()
     	{
-            for (int i = 0; i < comps.Count; i++)
-            {
-                comps[i].CompTick();
-            }
-        }
-
-        public virtual void TickRare()
-        {
-            for (int i = 0; i < comps.Count; i++)
-            {
-                comps[i].CompTick();
-            }
-        }
-        public virtual void TickLong()
-        {
             for (int i = 0; i < comps.Count; i++)
             {
                 comps[i].CompTick();

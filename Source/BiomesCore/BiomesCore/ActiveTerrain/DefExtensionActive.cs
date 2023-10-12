@@ -4,6 +4,9 @@ namespace BiomesCore
 {
     using Verse;
 
+    /// <summary>
+    /// Extensions which must be updated periodically. Can only be applied to ActiveTerrainDef.
+    /// </summary>
     public abstract class DefExtensionActive : DefModExtension
     {
         public abstract void DoWork(TerrainDef def);

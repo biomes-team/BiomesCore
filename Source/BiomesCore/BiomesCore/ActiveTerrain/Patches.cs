@@ -4,47 +4,13 @@ using Verse;
 
 namespace BiomesCore
 {
-    [HarmonyPatch(typeof(TickManager), nameof(TickManager.DoSingleTick))]
-    public static class DoSingleTick_Patch
-    {
-        static SpecialTerrainList[] terrainListers = new SpecialTerrainList[20];
-        static Map[] maps = new Map[20];
-
-        static void Prefix(out Stopwatch __state)
-        {
-            __state = new Stopwatch();
-            __state.Start();
-        }
-
-        static void Postfix(Stopwatch __state)
-        {
-            __state.Stop();
-            foreach (Map map in Find.Maps)
-            {
-                int index = map.Index;
-                SpecialTerrainList comp;
-                if (maps[index] != map)
-                {
-                    maps[index] = map;
-                    comp = terrainListers[index] = map.GetComponent<SpecialTerrainList>();
-                }
-                else
-                {
-                    comp = terrainListers[index];
-                }
-
-                comp.TerrainUpdate((long)(__state.ElapsedTicks * 0.25f));
-            }
-        }
-    }
-
     [HarmonyPatch(typeof(TerrainGrid), "SetTerrain")]
     public static class _TerrainGrid
     {
         static void Prefix(IntVec3 c, TerrainDef newTerr, TerrainGrid __instance, Map ___map)
         {
             var oldTerr = ___map.terrainGrid.TerrainAt(c);
-            if (oldTerr is ActiveTerrainDef special)
+            if (oldTerr is ActiveTerrainDef)
             {
                 ___map.GetComponent<SpecialTerrainList>()?.Notify_RemovedTerrainAt(c);
             }
@@ -53,8 +19,7 @@ namespace BiomesCore
         {
             if (newTerr is ActiveTerrainDef special)
             {
-                var specialTerrainList = ___map.GetComponent<SpecialTerrainList>();
-                specialTerrainList?.RegisterAt(special, c);
+                ___map.GetComponent<SpecialTerrainList>()?.RegisterAt(special, c);
             }
         }
     }
@@ -64,7 +29,7 @@ namespace BiomesCore
     {
         static void Prefix(IntVec3 c, TerrainGrid __instance, Map ___map)
         {
-            if (__instance.TerrainAt(c) is ActiveTerrainDef special)
+            if (__instance.TerrainAt(c) is ActiveTerrainDef)
             {
                 var specialTerrainList = ___map.GetComponent<SpecialTerrainList>();
                 specialTerrainList?.Notify_RemovedTerrainAt(c);

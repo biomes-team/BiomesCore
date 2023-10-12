@@ -65,10 +65,12 @@
     <Compile Include="ActiveTerrain\Comps\TerrainComp_SelfClean.cs" />
     <Compile Include="ActiveTerrain\Comps\TerrainComp_TempControl.cs" />
     <Compile Include="ActiveTerrain\DefExtensionActive.cs" />
+    <Compile Include="ActiveTerrain\ActiveTerrainHashExtension.cs" />
     <Compile Include="ActiveTerrain\Patches.cs" />
     <Compile Include="ActiveTerrain\SpecialTerrain.cs" />
     <Compile Include="ActiveTerrain\SpecialTerrainList.cs" />
     <Compile Include="ActiveTerrain\ThingComps.cs" />
+    <Compile Include="ActiveTerrain\TickTerrain.cs" />
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
