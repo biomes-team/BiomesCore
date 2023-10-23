@@ -21,12 +21,6 @@ namespace BiomesCore
             HarmonyInstance.PatchAll();
             LongEventHandler.ExecuteWhenFinished(Patches.ExtraStatInfo.Initialize);
 
-            // ToDo joseasoler This line unpatches a destructive prefix from TMK which prevents any patches to
-            // WildAnimalSpawner.SpawnRandomWildAnimalAt from working. This should be removed after TMK is reworked.
-            MethodInfo method = AccessTools.Method(typeof(WildAnimalSpawner),
-                nameof(WildAnimalSpawner.SpawnRandomWildAnimalAt));
-            HarmonyInstance.Unpatch(method, HarmonyPatchType.Prefix, "net.mseal.rimworld.mod.terrain.movement");
-
             // Conditional Harmony patches. Mostly intended for mod compatibility.
             PawnGroupKindWorker_Trader_GenerateCarriers.ModCompatibility();
             Log("Initialized");

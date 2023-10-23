@@ -126,9 +126,11 @@
 		<meleeDamageFactor>0.5</meleeDamageFactor>
 		<statFactors>
 			<MoveSpeed>0.5</MoveSpeed>
-			<DiggingSpeed MayRequire="biomesteam.biomesislands">0.5</DiggingSpeed>
+			<!-- ToDo PathfindingCode -->
+			<!-- <DiggingSpeed MayRequire="biomesteam.biomesislands">0.5</DiggingSpeed> -->
 			<!--SandDrillingSpeed>0.5</SandDrillingSpeed-->
 		</statFactors>
+		<!--
 		<modExtensions>
 			<li Class="TerrainMovement.TerrainMovementPawnKindGraphics" MayRequire="biomesteam.biomesislands">
 				<pawnSpeedStat>DiggingSpeed</pawnSpeedStat>
@@ -137,14 +139,8 @@
 					<drawSize>0.6</drawSize>
 				</bodyGraphicData>
 			</li>
-			<!--li Class="TerrainMovement.TerrainMovementPawnKindGraphics" MayRequire="biomesteam.biomesislands">
-				<pawnSpeedStat>SandDrillingSpeed</pawnSpeedStat>
-				<bodyGraphicData>
-					<texPath>BMT_Core/Things/Animal/Digging/BuriedThing</texPath>
-					<drawSize>1.0</drawSize>
-				</bodyGraphicData>
-			</li-->
 		</modExtensions>
+		-->
 	</LifeStageDef>
 
 	<LifeStageDef>
@@ -159,10 +155,11 @@
 		<meleeDamageFactor>0.75</meleeDamageFactor>
 		<statFactors>
 			<MoveSpeed>0.9</MoveSpeed>
-			<DiggingSpeed MayRequire="biomesteam.biomesislands">0.9</DiggingSpeed>
+			<!-- <DiggingSpeed MayRequire="biomesteam.biomesislands">0.9</DiggingSpeed> -->
 			<!--SandDrillingSpeed>0.9</SandDrillingSpeed-->
 		</statFactors>
 		<modExtensions>
+			<!--
 			<li Class="TerrainMovement.TerrainMovementPawnKindGraphics" MayRequire="biomesteam.biomesislands">
 				<pawnSpeedStat>DiggingSpeed</pawnSpeedStat>
 				<bodyGraphicData>
@@ -170,6 +167,7 @@
 					<drawSize>0.8</drawSize>
 				</bodyGraphicData>
 			</li>
+			-->
 			<!--li Class="TerrainMovement.TerrainMovementPawnKindGraphics" MayRequire="biomesteam.biomesislands">
 				<pawnSpeedStat>SandDrillingSpeed</pawnSpeedStat>
 				<bodyGraphicData>
@@ -188,13 +186,15 @@
 		<milkable>true</milkable>
 		<shearable>true</shearable>
 		<modExtensions>
-			<li Class="TerrainMovement.TerrainMovementPawnKindGraphics" MayRequire="biomesteam.biomesislands">
-				<pawnSpeedStat>DiggingSpeed</pawnSpeedStat>
-				<bodyGraphicData>
-					<texPath>BMT_Core/Things/Animal/Digging/Burrowed</texPath>
-					<drawSize>1.0</drawSize>
-				</bodyGraphicData>
-			</li>
+			<!--
+				<li Class="TerrainMovement.TerrainMovementPawnKindGraphics" MayRequire="biomesteam.biomesislands">
+					<pawnSpeedStat>DiggingSpeed</pawnSpeedStat>
+					<bodyGraphicData>
+						<texPath>BMT_Core/Things/Animal/Digging/Burrowed</texPath>
+						<drawSize>1.0</drawSize>
+					</bodyGraphicData>
+				</li>
+				-->
 			<!--li Class="TerrainMovement.TerrainMovementPawnKindGraphics" MayRequire="biomesteam.biomesislands">
 				<pawnSpeedStat>SandDrillingSpeed</pawnSpeedStat>
 				<bodyGraphicData>

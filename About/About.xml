@@ -23,15 +23,13 @@
     <li>Ludeon.RimWorld.Ideology</li>
     <li>Ludeon.RimWorld.Biotech</li>
     <li>brrainz.harmony</li>
-    <li>pyrce.terrain.movement.modkit</li>
-    <li>pyrce.swimming.modkit</li>
+    <li>pathfinding.framework</li>
   </loadAfter>
   <description>
 The core module for the Biomes! mods. Necessary for all of the Biomes! modules.
 
 [BiomesKit](https://steamcommunity.com/sharedfiles/filedetails/?id=2153006237) is included by default.
-This is added in a way that's compatible to having the mod present or not,
-either way your pawns and animals will be able to swim now in custom biomes!
+
 [[XND] Nocturnal Animals](https://steamcommunity.com/sharedfiles/filedetails/?id=2269731409) is included by default.
   </description>
   	
