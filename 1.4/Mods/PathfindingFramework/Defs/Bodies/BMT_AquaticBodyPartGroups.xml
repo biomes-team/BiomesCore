@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<BodyPartDef>
+		<defName>SharkTail</defName>
+		<label>tail</label>
+		<hitPoints>20</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>FishTail</defName>
+		<label>tail</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>WhaleTail</defName>
+		<label>tail</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>Blowhole</defName>
+		<label>blowhole</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>BreathingPathway</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BiomesIslands_FishGill</defName>
+		<label>gill</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>BreathingPathway</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartGroupDef>
+		<defName>BiomesIslands_Fins</defName>
+		<label>fin</label>
+		<listOrder>10</listOrder>
+	</BodyPartGroupDef>
+
+	<BodyPartDef>
+		<defName>BiomesIslands_Fin</defName>
+		<label>fin</label>
+		<hitPoints>30</hitPoints>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartGroupDef>
+		<defName>BiomesIslands_FrontLeftFin</defName>
+		<label>front left fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BiomesIslands_FrontRightFin</defName>
+		<label>front right fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BiomesIslands_RearLeftFin</defName>
+		<label>rear left fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BiomesIslands_RearRightFin</defName>
+		<label>rear right fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+</Defs>

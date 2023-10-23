@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AnimalThingBase" Name="BiomesCore_WaterAnimal" Abstract="true">
+		<statBases>
+			<MoveSpeed>6</MoveSpeed>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+		</statBases>
+		<race>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
+		</race>
+		<comps>
+		</comps>
+		<modExtensions>
+			<li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+				<movementDef>PF_Movement_Aquatic</movementDef>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_WaterAnimal" Name="BiomesCore_SaltWaterAnimal" Abstract="true">
+		<race>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
+		</race>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_WaterAnimal" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
+		<race>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
+		</race>
+	</ThingDef>
+</Defs>
