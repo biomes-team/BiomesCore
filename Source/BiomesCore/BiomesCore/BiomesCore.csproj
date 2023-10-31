@@ -203,6 +203,7 @@
     <Compile Include="ThingComponents\CompPlantReleaseSpore.cs" />
     <Compile Include="ThingComponents\CompPowerPlantLava.cs" />
     <Compile Include="ThingComponents\CompPowerPlant_PowerFungus.cs" />
+    <Compile Include="ThingComponents\CompProperties_InitialHediff.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
