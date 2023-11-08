@@ -48,6 +48,10 @@ namespace BiomesCore
                 };
 
                 var newPawn = PawnGenerator.GeneratePawn(request);
+                
+                if (newPawn.playerSettings != null && oldPawn.playerSettings != null)
+                    newPawn.playerSettings.AreaRestriction = oldPawn.playerSettings.AreaRestriction;
+                
                 return newPawn;
             }
             
