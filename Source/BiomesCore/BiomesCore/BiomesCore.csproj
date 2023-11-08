@@ -182,6 +182,7 @@
     <Compile Include="StockGenerators\HighQualityItems.cs" />
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
+    <Compile Include="ThingComponents\CompDefaultOffGlower.cs" />
     <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
     <Compile Include="ThingComponents\CompPlantProximityExplosive.cs" />

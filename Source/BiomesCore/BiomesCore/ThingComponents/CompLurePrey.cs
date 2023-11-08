@@ -22,6 +22,7 @@ namespace BiomesCore
     {
         public int preyApproachTimeout = 5000;
         public float attackOnDistance = 3;
+        public bool shouldGlow = false; // For this to work, you need to give them the comp "CompProperties_DefaultOffGlower", too.
 
         public CompProperties_LurePrey() => compClass = typeof(CompLurePrey);
     }

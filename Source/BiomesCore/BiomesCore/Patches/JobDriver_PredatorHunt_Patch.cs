@@ -47,7 +47,10 @@ namespace BiomesCore.Patches
         {
             var curJob = jobDriver.pawn.jobs.curJob;
             var prey = curJob.GetTarget(TargetIndex.A).Thing as Pawn;
-            
+
+            CompGlower compGlower = jobDriver.pawn.GetComp<CompDefaultOffGlower>();
+            bool pawnShouldGlow = compGlower != null && compLurePrey.shouldGlow == true;
+
             var toil = new Toil
             {
                 defaultCompleteMode = ToilCompleteMode.Delay,
@@ -62,9 +65,11 @@ namespace BiomesCore.Patches
                     jobDriver.ReadyForNextToil();
                     return;
                 }
-                
+
+                if (pawnShouldGlow) { EnableGlow(toil.actor, compGlower); }
+
                 toil.actor.pather.StopDead();
-                
+
                 var job = JobMaker.MakeJob(JobDefOf.Goto, toil.actor);
                 job.locomotionUrgency = LocomotionUrgency.Walk;
                 job.checkOverrideOnExpire = true;
@@ -79,10 +84,33 @@ namespace BiomesCore.Patches
                     jobDriver.ReadyForNextToil();
                 }
             };
-            
+
+            toil.AddFinishAction(delegate
+            {
+                if (pawnShouldGlow)
+                {
+                    DisableGlow(toil.actor, compGlower);
+                };
+            });
+
             return toil;
         }
 
+        private static void EnableGlow(Pawn pawn, CompGlower compGlower)
+        {
+            if (compGlower != null)
+            {
+                Log.Message(pawn.GetUniqueLoadID().ToString() + " Has enabled his glow");
+                pawn.Map.glowGrid.RegisterGlower(compGlower);
+            }
+        }
+
+        private static void DisableGlow(Pawn pawn, CompGlower compGlower)
+        {
+            Log.Warning(pawn.GetUniqueLoadID().ToString() + " Has disabled his glow");
+            pawn.Map.glowGrid.DeRegisterGlower(compGlower);
+            compGlower.UpdateLit(pawn.Map);
+        }
         private static Toil StartPackHunt(JobDriver_PredatorHunt jobDriver, CompProperties_PackHunter compPackHunter)
         {
             return Toils_General.Do(() =>
