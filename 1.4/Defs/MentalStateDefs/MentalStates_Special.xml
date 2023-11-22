@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<MentalStateDef ParentName="BaseMentalState" Name="Manhunter">
+	<MentalStateDef ParentName="BaseMentalState">
 		<defName>BMT_Hungering</defName>
 		<stateClass>BiomesCore.MentalState.MentalState_Hungering</stateClass>
 		<label>hungering</label>
