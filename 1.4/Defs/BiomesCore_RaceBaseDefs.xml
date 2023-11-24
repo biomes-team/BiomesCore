@@ -41,6 +41,8 @@
 		</race>
 		<tradeTags>
 			<li>AnimalUncommon</li>
+			<!-- Identifies an animal as a crab. Used for the crab migration incident in Biomes! Islands. -->
+			<li>BMT_TradeTag_Crab</li>
 		</tradeTags>
 		<modExtensions>
 			<li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
