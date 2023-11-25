@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<BiomesCore_SetCustomGrowingHoursToAllLabel>Plants with custom growing hours grow all the time</BiomesCore_SetCustomGrowingHoursToAllLabel>
+	<BiomesCore_SetCustomGrowingHoursToAllHover>Some of the plants in Biomes! have a custom growing hours interval. Mods that modify the growing hours of regular plants might fail to work with these plants. If this setting is set to true, Biomes! plants with custom growing hours will grow for the entire day period instead.</BiomesCore_SetCustomGrowingHoursToAllHover>
+
+	<BiomesCore_ResetSettingsLabel>Reset</BiomesCore_ResetSettingsLabel>
+	<BiomesCore_ResetSettingsHover>Reset all options of the mod to their default values.</BiomesCore_ResetSettingsHover>
+</LanguageData>

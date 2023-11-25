@@ -51,6 +51,11 @@
       <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveTerrain\ActiveTerrainUtility.cs" />
@@ -123,6 +128,8 @@
     <Compile Include="MapGeneration\MapGenerationPatch.cs" />
     <Compile Include="MapGeneration\RocksFromGrid_Cavern.cs" />
     <Compile Include="MentalState\MentalState_Hungering.cs" />
+    <Compile Include="ModSettings\Settings.cs" />
+    <Compile Include="ModSettings\SettingsWindow.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
     <Compile Include="Patches\CavePlants.cs" />

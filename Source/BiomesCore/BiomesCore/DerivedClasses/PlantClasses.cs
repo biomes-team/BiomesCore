@@ -1,4 +1,5 @@
 ﻿using BiomesCore.DefModExtensions;
+using BiomesCore.ModSettings;
 using RimWorld;
 
 namespace BiomesCore.DerivedClasses
@@ -14,7 +15,7 @@ namespace BiomesCore.DerivedClasses
 				if (def.HasModExtension<Biomes_PlantControl>())
 				{
 					Biomes_PlantControl ext = def.GetModExtension<Biomes_PlantControl>();
-					if (ext.needsRest)
+					if (ext.needsRest && !Settings.Values.SetCustomGrowingHoursToAll)
 					{
 						if (!(GenLocalDate.DayPercent(this) < ext.growingHours.min))
 						{

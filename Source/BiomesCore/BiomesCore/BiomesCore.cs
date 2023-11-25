@@ -1,29 +1,54 @@
 ﻿using HarmonyLib;
 using System;
-using System.Reflection;
+using BiomesCore.ModSettings;
 using BiomesCore.Patches;
-using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace BiomesCore
 {
-	[StaticConstructorOnStartup]
-	public static class BiomesCore
+	public class BiomesCore : Mod
 	{
 		public static Harmony HarmonyInstance;
 		public const string Id = "rimworld.biomes.core";
 		public const string Name = "Biomes! Core";
 		private static readonly Version Version = typeof(BiomesCore).Assembly.GetName().Version;
 
-		static BiomesCore()
+		public BiomesCore(ModContentPack content) : base(content)
 		{
-			HarmonyInstance = new Harmony(BiomesCore.Id);
+			// Regular harmony patches.
+			HarmonyInstance = new Harmony(Id);
 			HarmonyInstance.PatchAll();
-			LongEventHandler.ExecuteWhenFinished(Patches.ExtraStatInfo.Initialize);
-
 			// Conditional Harmony patches. Mostly intended for mod compatibility.
 			PawnGroupKindWorker_Trader_GenerateCarriers.ModCompatibility();
+
+			LongEventHandler.ExecuteWhenFinished(InitializeWhenLoadingFinished);
+		}
+
+		private void InitializeWhenLoadingFinished()
+		{
+			GetSettings<Settings>();
+			ExtraStatInfo.Initialize();
 			Log("Initialized");
+		}
+
+		/// <summary>
+		/// Name of the mod in the settings list.
+		/// </summary>
+		/// <returns>Name of the mod in the settings list.</returns>
+		public override string SettingsCategory()
+		{
+			return SettingsWindow.SettingsCategory();
+		}
+
+		/// <summary>
+		/// Contents of the mod settings window.
+		/// </summary>
+		/// <param name="inRect">Available area for drawing the settings.</param>
+		public override void DoSettingsWindowContents(Rect inRect)
+		{
+			SettingsWindow.DoWindowContents(inRect);
+			base.DoSettingsWindowContents(inRect);
 		}
 
 		public static void Log(string message) => Verse.Log.Message(PrefixMessage(message));

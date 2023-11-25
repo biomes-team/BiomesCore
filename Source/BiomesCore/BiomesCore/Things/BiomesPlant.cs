@@ -1,4 +1,5 @@
 using BiomesCore.DefModExtensions;
+using BiomesCore.ModSettings;
 using RimWorld;
 using Verse;
 
@@ -200,7 +201,7 @@ namespace BMT
 				return base.Resting;
 			}
 
-			if (!extension.needsRest)
+			if (!extension.needsRest || Settings.Values.SetCustomGrowingHoursToAll)
 			{
 				return false;
 			}
