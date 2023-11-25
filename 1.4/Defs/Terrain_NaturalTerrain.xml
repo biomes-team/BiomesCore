@@ -28,7 +28,7 @@
 		<pathCost>300</pathCost>
 		<passability>Impassable</passability>
 		<fertility>0</fertility>
-		<driesTo>BMT_MagmaStone</driesTo>
+		<driesTo>BMT_Terrain_Tachylite</driesTo>
 		<filthAcceptanceMask>
 			<li>None</li>
 		</filthAcceptanceMask>
@@ -70,8 +70,8 @@
 		<driesTo Inherit="False"/>
 	</BiomesCore.ActiveTerrainDef>
 
-	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase">
-		<defName>BMT_MagmaStone</defName>
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>BMT_Terrain_Tachylite</defName>
 		<label>tachylite</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
 		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath>
@@ -102,7 +102,7 @@
 				</terrainTags>
 			</li>
 		</modExtensions>
-	</BiomesCore.ActiveTerrainDef>
+	</TerrainDef>
 
   <TerrainAffordanceDef>
     <defName>Lava</defName>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+	Old version of tachylite. Tachylite should not be an ActiveTerrainDef, as they have a large performance cost and
+	tachylite is not making use of its features. The new terrain def is BMT_Terrain_Tachylite.
+	-->
+	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase">
+		<defName>BMT_MagmaStone</defName>
+		<label>tachylite [D]</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
+		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath>
+		<edgeType>Fade</edgeType>
+		<renderPrecedence>335</renderPrecedence>
+		<pathCost>16</pathCost>
+		<extraNonDraftedPerceivedPathCost>180</extraNonDraftedPerceivedPathCost>
+		<extraDraftedPerceivedPathCost>18</extraDraftedPerceivedPathCost>
+		<statBases>
+			<Beauty>2</Beauty>
+			<BeautyOutdoors>2</BeautyOutdoors>
+			<Cleanliness>0</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<fertility>0</fertility>
+		<takeFootprints>false</takeFootprints>
+		<tags>
+			<li>Glass</li>
+		</tags>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Glass</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
+	</BiomesCore.ActiveTerrainDef>
+
+</Defs>
