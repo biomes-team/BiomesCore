@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using BiomesCore.ModSettings;
 using RimWorld;
-using UnityEngine;
 using Verse;
 
 namespace BiomesCore
 {
 	public class CompPowerPlant_PowerFungus : CompPowerPlant
 	{
-		
-
 		public CompAffectedByFacilities Facilities => parent.TryGetComp<CompAffectedByFacilities>();
 
 		public override void UpdateDesiredPowerOutput()
 		{
-			if ((breakdownableComp != null && breakdownableComp.BrokenDown) || (refuelableComp != null && !refuelableComp.HasFuel) || (flickableComp != null && !flickableComp.SwitchIsOn) || (autoPoweredComp != null && !autoPoweredComp.WantsToBeOn) || (toxifier != null && !toxifier.CanPolluteNow) || !base.PowerOn)
+			if ((breakdownableComp != null && breakdownableComp.BrokenDown) ||
+			    (refuelableComp != null && !refuelableComp.HasFuel) || (flickableComp != null && !flickableComp.SwitchIsOn) ||
+			    (autoPoweredComp != null && !autoPoweredComp.WantsToBeOn) || (toxifier != null && !toxifier.CanPolluteNow) ||
+			    !base.PowerOn)
 			{
 				base.PowerOutput = 0f;
 			}
@@ -39,10 +39,8 @@ namespace BiomesCore
 					}
 				}
 			}
-			int powerPlantCost = (int)powerPlantCount;
-			return powerPlantCost;
+
+			return (int) (Settings.Values.PowerGenFungusMultiplier * powerPlantCount / 100.0F);
 		}
-
 	}
-
 }
