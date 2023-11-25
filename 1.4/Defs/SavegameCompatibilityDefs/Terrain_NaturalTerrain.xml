@@ -6,7 +6,7 @@
 	-->
 	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase">
 		<defName>BMT_MagmaStone</defName>
-		<label>tachylite [D]</label>
+		<label>tachylite (D)</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
 		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath>
 		<edgeType>Fade</edgeType>
