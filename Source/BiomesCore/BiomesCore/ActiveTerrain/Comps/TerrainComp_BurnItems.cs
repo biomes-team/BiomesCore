@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using RimWorld;
 using System.Linq;
-using BiomesCore.ActiveTerrain;
 using Verse;
 
 namespace BiomesCore
