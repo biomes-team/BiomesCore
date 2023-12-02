@@ -18,8 +18,9 @@ namespace BiomesCore.Patches
 			}
 
 			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-			
-			if (!plantDef.HasModExtension<Biomes_PlantControl>())//this section governs plants that should not use the BMT plant spawning system.
+			Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
+			//this section governs plants that should not use the BMT plant spawning system.
+			if (plantExt == null)
 			{
 				/*
 				if (map.Biome.HasModExtension<BiomesMap>())
@@ -52,8 +53,9 @@ namespace BiomesCore.Patches
 					}
 				}
 			}
-			
-			if (terrain.HasModExtension<Biomes_PlantControl>() && plantDef.HasModExtension<Biomes_PlantControl>()) //this section governs plants that should.
+
+			Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
+			if (terrainExt != null && plantExt != null)
 			{
 				/*
 				 no longer needed because of <applyToCaverns> biome tag which overrides the vanilla cave plant spawning system
@@ -72,17 +74,16 @@ namespace BiomesCore.Patches
 						}
 					}
 				}
-				*/
 				
-				Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
-				Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
+				
+
 				
 				if (plantExt.wallGrower)
                 {
 					
                 }
 				
-				/*if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
+				if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
 				{
 					if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
 					{
@@ -105,10 +106,10 @@ namespace BiomesCore.Patches
 				if (!plantExt.terrainTags.NullOrEmpty())
 				{
 					if (terrainExt.terrainTags.NullOrEmpty())
-                    {
+					{
 						__result = false;
 						return false;
-                    }
+					}
 					
 					foreach (string tag in terrainExt.terrainTags)
 					{
@@ -128,11 +129,19 @@ namespace BiomesCore.Patches
 					}
 				}
 			}
-			else if (!terrain.HasModExtension<Biomes_PlantControl>() && terrain.HasTag("Water"))
+			else if (terrainExt == null && terrain.HasTag("Water"))
 			{
 				__result = false;
 				return false;
 			}
+
+			// Prevent modded plants from spawning on unsupported terrains.
+			if (plantExt != null && !plantExt.terrainTags.NullOrEmpty() && (terrainExt == null || terrainExt.terrainTags.NullOrEmpty()))
+			{
+				__result = false;
+				return false;
+			}
+			
 			return true;
 		}
 	}
