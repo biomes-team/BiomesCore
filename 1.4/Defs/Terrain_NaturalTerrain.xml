@@ -5,7 +5,10 @@
 		<defName>BiomeCore_Lava</defName>
 		<tickerType>Rare</tickerType>
 		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
-		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/Lava</pollutedTexturePath>
+		<!-- Sergkart: pollutedTexturePath is needed only if such a texture is present; otherwise, a shader is used. -->
+		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/Lava</pollutedTexturePath> -->
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainWaterPolluted</pollutionShaderType>
+		<pollutionOverlayTexturePath>Terrain/Surfaces/MarshPollutionOverlay</pollutionOverlayTexturePath>
 		<label>lava</label>
 		<renderPrecedence>395</renderPrecedence>
 		<statBases>
@@ -65,7 +68,9 @@
 	<BiomesCore.ActiveTerrainDef ParentName="BiomeCore_Lava">
 		<defName>BiomeCore_Magma</defName>
 		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
-		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/Magma</pollutedTexturePath>
+		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/Magma</pollutedTexturePath> -->
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainWaterPolluted</pollutionShaderType>
+		<pollutionOverlayTexturePath>Terrain/Surfaces/MarshPollutionOverlay</pollutionOverlayTexturePath>
 		<label>magma</label>
 		<driesTo Inherit="False"/>
 	</BiomesCore.ActiveTerrainDef>
@@ -74,7 +79,13 @@
 		<defName>BMT_Terrain_Tachylite</defName>
 		<label>tachylite</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
-		<pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath>
+		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath> -->
+		<!-- Vanilla Pollution Stone -->
+		<pollutionOverlayTexturePath>Terrain/Surfaces/RoughStonePollutionOverlay</pollutionOverlayTexturePath>
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainFadeRoughLinearAdd</pollutionShaderType>
+		<pollutionColor>(1, 1, 1, 0.43)</pollutionColor>
+		<pollutionOverlayScale>(0.66, 0.66)</pollutionOverlayScale>
+		<!-- Vanilla Pollution Stone -->
 		<edgeType>Fade</edgeType>
 		<renderPrecedence>335</renderPrecedence>
 		<pathCost>16</pathCost>
