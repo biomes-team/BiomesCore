@@ -17,28 +17,7 @@
     <letterLabel>Cave-In</letterLabel>
     <letterText>A large chunk of rock has fallen from the cave ceiling, consisting of {0}.</letterText>
   </IncidentDef>
-  
-    <IncidentDef>
-    <defName>PhosphoricLights</defName>
-    <label>phosphoric lights</label>
-    <category>Misc</category>
-    <targetTags>
-      <li>Map_PlayerHome</li>
-    </targetTags>
-    <allowedBiomes>
-      <li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>
-      <li MayRequire="biomesteam.biomescaverns">BMT_EarthenDepths</li>
-      <li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
-    </allowedBiomes>
-    <workerClass>IncidentWorker_Aurora</workerClass>
-    <gameCondition>PhosphoricLights</gameCondition>
-    <letterLabel>Phosphoric Lights</letterLabel>
-    <letterDef>PositiveEvent</letterDef>
-    <baseChance>1.2</baseChance>
-    <minRefireDays>15</minRefireDays>
-    <durationDays>0.125~0.35</durationDays>
-  </IncidentDef>
-  
+
     <IncidentDef>
     <defName>Earthquake</defName>
     <label>earthquake</label>

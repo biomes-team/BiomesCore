@@ -388,10 +388,6 @@ namespace BiomesCore.Patches
 					"TryFindTravelDestFrom"); //I think this has to do with which direction they attempt to leave the map? Would stop them from finding edges with our roofs (if they use this method) if disabled.
 			typeof(RimWorld.QuestGen.QuestNode_Root_ShuttleCrash_Rescue).PatchToIgnoreCavernRoof_RoofedIntVec3(
 				"TryFindRaidWalkInPosition"); //If disabled the shuttle crash quests' raids will not be able to walk in from edges with our roof.
-			//These methods use RoofGrid.RoofAt(int) AND RoofGrid.Roofed(int)
-			typeof(SectionLayer_LightingOverlay)
-				.PatchToIgnoreCavernRoof_RoofAtInt("Regenerate"); //Lighting system ignores our roof.
-			typeof(SectionLayer_LightingOverlay).PatchToIgnoreCavernRoof_RoofedInt("Regenerate");
 			//These methods use RoofGrid.RoofAt(IntVec3)
 			typeof(RoofCollapseCellsFinder).PatchToIgnoreCavernRoof_RoofAtIntVec3(
 				"CheckCollapseFlyingRoofAtAndAdjInternal"); //Our roof does not collapse..

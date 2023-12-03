@@ -1,0 +1,20 @@
+<Defs>
+
+	<IncidentDef>
+		<defName>PhosphoricLights</defName>
+		<label>phosphoric lights (D)</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<allowedBiomes/>
+		<workerClass>IncidentWorker_Aurora</workerClass>
+		<gameCondition>PhosphoricLights</gameCondition>
+		<letterLabel>Phosphoric Lights</letterLabel>
+		<letterDef>PositiveEvent</letterDef>
+		<baseChance>1.2</baseChance>
+		<minRefireDays>15</minRefireDays>
+		<durationDays>0.125~0.35</durationDays>
+	</IncidentDef>
+
+</Defs>
