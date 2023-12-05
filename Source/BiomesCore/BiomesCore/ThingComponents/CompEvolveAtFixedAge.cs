@@ -37,12 +37,19 @@ namespace BiomesCore
 
         private Thing CreateNewThing(Pawn oldPawn)
         {
-            if (Props.evolveIntoPawnKindDef != null)
+            PawnKindDef newPawnKindDef = Props.evolveIntoPawnKindDef;
+            if (newPawnKindDef != null)
             {
-                var request = new PawnGenerationRequest(Props.evolveIntoPawnKindDef)
+                Gender? oldGender = oldPawn.gender;
+                if ((newPawnKindDef.race.race.hasGenders) == (oldGender == Gender.None))
+                {
+                    // Do not force a fixed gender if the previous gender is inconsistent with the new hasGenders value.
+                    oldGender = null;
+                }
+                PawnGenerationRequest request = new PawnGenerationRequest(newPawnKindDef)
                 {
                     Faction = oldPawn.Faction,
-                    FixedGender = oldPawn.gender,
+                    FixedGender = oldGender,
                     FixedBiologicalAge = Props.carryOverAge ? oldPawn.ageTracker.AgeBiologicalYearsFloat : 0f,
                     FixedChronologicalAge = Props.carryOverAge ? oldPawn.ageTracker.AgeChronologicalYearsFloat : 0f
                 };
