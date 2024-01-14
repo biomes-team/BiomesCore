@@ -9,6 +9,8 @@ namespace BiomesCore
         public EffecterDef effecterDef;
         public string feedingTerrainTag;
         public bool shouldGlow = false; // For this to work, you need to give them the comp "CompProperties_DefaultOffGlower", too.
+        public bool eatWhileMoving = false;
+        public float foodGainPerTick = 0.002f;
         public CompProperties_BottomFeeder() => this.compClass = typeof(CompBottomFeeder);
     }
     public class CompBottomFeeder : ThingComp
