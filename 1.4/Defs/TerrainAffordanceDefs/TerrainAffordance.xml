@@ -3,7 +3,7 @@
 
   <TerrainAffordanceDef>
     <defName>BMT_DeepWaterBridgeable</defName>
-    <label>AAAAAAAAAAAAAAAAAAAAAAAAAAAA</label>
+    <label>Water of any depth</label>
     <order>2350</order>
   </TerrainAffordanceDef>
 
