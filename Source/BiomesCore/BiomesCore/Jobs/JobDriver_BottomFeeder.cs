@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using System;
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 using Verse.AI;
@@ -10,27 +11,54 @@ namespace BiomesCore
         public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
         protected override IEnumerable<Toil> MakeNewToils()
         {
-            yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
             var compBottomFeeder = pawn.GetComp<CompBottomFeeder>();
-            CompGlower compGlower = pawn.GetComp<CompDefaultOffGlower>();
-            bool pawnShouldGlow = compGlower != null && compBottomFeeder.Props.shouldGlow == true;
             if (compBottomFeeder == null) yield break;
-            Toil wait = new Toil();
-            wait.defaultCompleteMode = ToilCompleteMode.Delay;
-            wait.WithEffect(() => compBottomFeeder.Props.effecterDef, () => TargetLocA);
-            wait.defaultDuration = 1000;
-            wait.socialMode = RandomSocialMode.Off;
-            wait.FailOnCannotTouch<Toil>(TargetIndex.A, PathEndMode.Touch);
-            wait.AddPreTickAction(delegate
+
+            Toil toil;
+
+            if (compBottomFeeder.Props.eatWhileMoving)
             {
-                if (pawnShouldGlow) { EnableGlow(pawn, compGlower); }
-            });
-            wait.AddFinishAction(delegate
+                toil = Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
+            }
+            else
             {
-                if (pawnShouldGlow) { DisableGlow(pawn, compGlower); };
+                yield return Toils_Goto.GotoCell(TargetIndex.A, PathEndMode.OnCell);
+
+                toil = new Toil
+                {
+                    defaultCompleteMode = ToilCompleteMode.Delay,
+                    socialMode = RandomSocialMode.Off,
+                    defaultDuration = 1000
+                };
+
+                toil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
+
+                var compGlower = pawn.GetComp<CompDefaultOffGlower>();
+
+                if (compGlower != null && compBottomFeeder.Props.shouldGlow)
+                {
+                    toil.AddPreInitAction(delegate
+                    {
+                        EnableGlow(pawn, compGlower);
+                    });
+
+                    toil.AddFinishAction(delegate
+                    {
+                        DisableGlow(pawn, compGlower);
+                    });
+                }
+            }
+
+            toil.WithEffect(() => compBottomFeeder.Props.effecterDef, () => pawn);
+
+            toil.AddPreTickAction(() =>
+            {
+                pawn.needs.food.CurLevel += compBottomFeeder.Props.foodGainPerTick;
             });
-            yield return wait.WithProgressBarToilDelay(TargetIndex.A, true);
-            yield return Toils_General.Do(() => ++this.pawn.needs.food.CurLevel);
+
+            toil.endConditions.Add(() => pawn.needs.food.CurLevel >= pawn.needs.food.MaxLevel ? JobCondition.Succeeded : JobCondition.Ongoing);
+
+            yield return toil;
         }
 
         private void EnableGlow(Pawn pawn, CompGlower compGlower)
