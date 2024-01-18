@@ -72,6 +72,16 @@
 		</tags>
 	</BodyPartDef>
 
+	<BodyPartDef>
+		<defName>BiomesIslands_OrcaphibianLeg</defName>
+		<label>leg</label>
+		<hitPoints>30</hitPoints>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
 	<BodyPartGroupDef>
 		<defName>BiomesIslands_FrontLeftFin</defName>
 		<label>front left fin</label>
