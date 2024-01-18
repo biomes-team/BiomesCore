@@ -53,7 +53,7 @@
 		</graphicData>
 		<statBases>
 			<MarketValue>4.0</MarketValue>
-			<StuffPower_Armor_Sharp>1.29</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Sharp>1.25</StuffPower_Armor_Sharp>
 			<StuffPower_Insulation_Cold>14</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>14</StuffPower_Insulation_Heat>
 		</statBases>
@@ -62,6 +62,29 @@
 			<commonality>0.015</commonality>
 			<statFactors>
 				<Beauty>1.6</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+	
+	<ThingDef ParentName="LeatherBase">
+		<defName>BiomesIslands_Leather_Pinnipedskin</defName>
+		<label>pinnipedskin</label>
+		<description>Leather from an animal like a walrus or seal. Fairly weak in combat, but provides some insulation against the cold. It is reasonably pretty.</description>
+		<graphicData>
+			<color>(145,108,75)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>4.0</MarketValue>
+			<StuffPower_Armor_Sharp>0.60</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.1</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Cold>25</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>14</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(50,50,70)</color>
+			<commonality>0.015</commonality>
+			<statFactors>
+				<Beauty>1.15</Beauty>
 			</statFactors>
 		</stuffProps>
 	</ThingDef>
