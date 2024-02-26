@@ -81,6 +81,7 @@
     <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefModExtensions\CustomGraphicsPlantDef.cs" />
+    <Compile Include="DefModExtensions\DisableIncidentsExtension.cs" />
     <Compile Include="DefModExtensions\DropChunksWhenDestroyed.cs" />
     <Compile Include="DefModExtensions\RockNoiseConfig.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
@@ -143,7 +144,6 @@
     <Compile Include="Patches\Caverns\Utility.cs" />
     <Compile Include="Patches\CompCauseGameCondition_ForceWeather_RandomizeSettings_Patch.cs" />
     <Compile Include="Patches\ComplexThreatWorker_SleepingInsects_GetPawnKindsForPoints_Patch.cs" />
-    <Compile Include="Patches\DisableBiomeIncidents.cs" />
     <Compile Include="Patches\CavernRoofs.cs" />
     <Compile Include="Patches\Caverns\AnimaTreeSpawn.cs" />
     <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomSpotJustOutsideColony.cs" />
@@ -163,6 +163,7 @@
     <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
     <Compile Include="Patches\GenTemperature_Patch.cs" />
     <Compile Include="Patches\Immunities_TakeDamage_Patch.cs" />
+    <Compile Include="Patches\Incidents\IncidentWorker_CanFireNow_Patch.cs" />
     <Compile Include="Patches\IslandGeysers.cs" />
     <Compile Include="Patches\IslandHilliness.cs" />
     <Compile Include="Patches\IslandScatterables.cs" />
