@@ -60,21 +60,14 @@
   <ItemGroup>
     <Compile Include="ActiveTerrain\ActiveTerrainUtility.cs" />
     <Compile Include="ActiveTerrain\Comps\TerrainCompBase.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainCompProperties.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComps_Power.cs" />
     <Compile Include="ActiveTerrain\Comps\TerrainComp_BurnItems.cs" />
     <Compile Include="ActiveTerrain\Comps\TerrainComp_Glower.cs" />
     <Compile Include="ActiveTerrain\Comps\TerrainComp_HeatPush.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComp_MoteSpawner.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComp_Healer.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComp_SelfClean.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComp_TempControl.cs" />
     <Compile Include="ActiveTerrain\DefExtensionActive.cs" />
     <Compile Include="ActiveTerrain\ActiveTerrainHashExtension.cs" />
     <Compile Include="ActiveTerrain\Patches.cs" />
     <Compile Include="ActiveTerrain\SpecialTerrain.cs" />
     <Compile Include="ActiveTerrain\SpecialTerrainList.cs" />
-    <Compile Include="ActiveTerrain\ThingComps.cs" />
     <Compile Include="ActiveTerrain\TickTerrain.cs" />
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />

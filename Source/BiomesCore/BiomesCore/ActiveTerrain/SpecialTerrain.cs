@@ -137,18 +137,7 @@ namespace BiomesCore
                 comps[i].PostPostLoad();
             }
         }
-        /// <summary>
-        /// Comp signals - just like regular comps in game
-        /// </summary>
-        public virtual void BroadcastCompSignal(string sig)
-        {
-            for (int i = 0; i < comps.Count; i++)
-            {
-                comps[i].ReceiveCompSignal(sig);
-            }
-            //MoteMaker.ThrowText(Position.ToVector3ShiftedWithAltitude(AltitudeLayer.MoteLow), Map, sig, 1);
-            //Above line for debugging purposes
-        }
+
         /// <summary>
         /// Saving/loading
         /// </summary>
