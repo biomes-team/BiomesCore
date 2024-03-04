@@ -58,17 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveTerrain\ActiveTerrainUtility.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainCompBase.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComp_BurnItems.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComp_Glower.cs" />
-    <Compile Include="ActiveTerrain\Comps\TerrainComp_HeatPush.cs" />
-    <Compile Include="ActiveTerrain\DefExtensionActive.cs" />
-    <Compile Include="ActiveTerrain\ActiveTerrainHashExtension.cs" />
-    <Compile Include="ActiveTerrain\Patches.cs" />
-    <Compile Include="ActiveTerrain\SpecialTerrain.cs" />
-    <Compile Include="ActiveTerrain\SpecialTerrainList.cs" />
-    <Compile Include="ActiveTerrain\TickTerrain.cs" />
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
@@ -182,10 +171,22 @@
     <Compile Include="Reflections\Reflection.cs" />
     <Compile Include="Reflections\TranspilerHelper.cs" />
     <Compile Include="RoofExtensions.cs" />
+    <Compile Include="SpecialTerrainList.cs" />
     <Compile Include="StockGenerators\Herder.cs" />
     <Compile Include="StockGenerators\HighQualityItems.cs" />
     <Compile Include="StockGenerators\ButcheredPrey.cs" />
     <Compile Include="StockGenerators\Util.cs" />
+    <Compile Include="Locations\TerrainLocation.cs" />
+    <Compile Include="Locations\BurnThingsLocation.cs" />
+    <Compile Include="Locations\LavaTerrainDefExtension.cs" />
+    <Compile Include="Locations\LavaTerrainLocation.cs" />
+    <Compile Include="Locations\Patches\TerrainGrid_RemoveTopLayer_Patch.cs" />
+    <Compile Include="Locations\Patches\TerrainGrid_SetTerrain_Patch.cs" />
+    <Compile Include="Locations\LocationGrid.cs" />
+    <Compile Include="Locations\TerrainLocationDefExtension.cs" />
+    <Compile Include="Locations\TickableLocationsByTickerType.cs" />
+    <Compile Include="Locations\Location.cs" />
+    <Compile Include="Locations\TickerTypeInterval.cs" />
     <Compile Include="ThingComponents\CompDefaultOffGlower.cs" />
     <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />

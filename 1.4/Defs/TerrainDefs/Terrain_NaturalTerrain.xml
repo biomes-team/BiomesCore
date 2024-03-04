@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-	<BiomesCore.ActiveTerrainDef ParentName="NaturalTerrainBase" Name="BiomeCore_Lava">
-		<defName>BiomeCore_Lava</defName>
-		<tickerType>Rare</tickerType>
-		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
+	<TerrainDef ParentName="NaturalTerrainBase" Name="BiomesCore_Lava_Base" Abstract="true">
 		<!-- Sergkart: pollutedTexturePath is needed only if such a texture is present; otherwise, a shader is used. -->
 		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/Lava</pollutedTexturePath> -->
 		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainWaterPolluted</pollutionShaderType>
 		<pollutionOverlayTexturePath>Terrain/Surfaces/MarshPollutionOverlay</pollutionOverlayTexturePath>
-		<label>lava</label>
 		<renderPrecedence>395</renderPrecedence>
 		<statBases>
 			<Beauty>-3</Beauty>
@@ -17,8 +12,8 @@
 		</statBases>
 		<waterDepthShader>Map/WaterDepth</waterDepthShader>
 		<waterDepthShaderParameters>
-			<_WaterRippleIntensity>2</_WaterRippleIntensity>
-			<_WaterDepthIntensity>1.62</_WaterDepthIntensity>
+			<_WaterRippleIntensity>0.1</_WaterRippleIntensity>
+			<_WaterDepthIntensity>1.1</_WaterDepthIntensity>
 		</waterDepthShaderParameters>
 		<edgeType>Water</edgeType>
 		<avoidWander>true</avoidWander>
@@ -26,8 +21,6 @@
 		<takeSplashes>true</takeSplashes>
 		<extinguishesFire>false</extinguishesFire>
 		<extraDeteriorationFactor>12</extraDeteriorationFactor>
-		<extraNonDraftedPerceivedPathCost>360</extraNonDraftedPerceivedPathCost>
-		<extraDraftedPerceivedPathCost>90</extraDraftedPerceivedPathCost>
 		<pathCost>300</pathCost>
 		<passability>Impassable</passability>
 		<fertility>0</fertility>
@@ -41,21 +34,13 @@
 		<affordances>
 			<li>Lava</li>
 		</affordances>
-		<terrainComps>
-			<li Class="BiomesCore.TerrainCompProperties_HeatPush">
-				<pushAmount>20</pushAmount>
-				<targetTemp>120</targetTemp>
-			</li>
-			<li Class="BiomesCore.TerrainCompProperties_Glower">
+		<modExtensions>
+			<li Class="BiomesCore.Locations.LavaTerrainDefExtension">
+				<heatPerSecond>3</heatPerSecond>
+				<heatPushMaxTemperature>120</heatPushMaxTemperature>
+				<overlightRadius>1</overlightRadius>
 				<glowRadius>3</glowRadius>
 				<glowColor>(178,58,0,0)</glowColor>
-			</li>
-			<li Class="BiomesCore.TerrainCompProperties_BurnItems">
-			</li>
-		</terrainComps>
-		<modExtensions>
-			<li Class="BiomesCore.DefExtension_ShaderSpeedMult">
-				<timeMult>0.005</timeMult>
 			</li>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -63,17 +48,19 @@
 				</terrainTags>
 			</li>
 		</modExtensions>
-	</BiomesCore.ActiveTerrainDef>
+	</TerrainDef>
 
-	<BiomesCore.ActiveTerrainDef ParentName="BiomeCore_Lava">
+	<TerrainDef ParentName="BiomesCore_Lava_Base">
+		<defName>BiomeCore_Lava</defName>
+		<label>lava</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BiomesCore_Lava_Base">
 		<defName>BiomeCore_Magma</defName>
-		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
-		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/Magma</pollutedTexturePath> -->
-		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainWaterPolluted</pollutionShaderType>
-		<pollutionOverlayTexturePath>Terrain/Surfaces/MarshPollutionOverlay</pollutionOverlayTexturePath>
 		<label>magma</label>
-		<driesTo Inherit="False"/>
-	</BiomesCore.ActiveTerrainDef>
+		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
+	</TerrainDef>
 
 	<TerrainDef ParentName="NaturalTerrainBase">
 		<defName>BMT_Terrain_Tachylite</defName>
