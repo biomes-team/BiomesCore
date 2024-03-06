@@ -15,20 +15,12 @@ namespace BiomesCore.Locations
 		// Burn things locations are stored separately, as other locations need to retrieve and instantiate them.
 		private TickableLocationsByTickerType burnThingsInLocation = new TickableLocationsByTickerType(TickerType.Rare);
 
-		private bool mapGenerated = false;
-
 		public LocationGrid(Map map) : base(map)
 		{
 		}
 
 		public void TerrainChanged(IntVec3 position, TerrainDef previousTerrainDef)
 		{
-			if (!mapGenerated)
-			{
-				// Terrain changes prior to the map being fully generated are dropped.
-				return;
-			}
-
 			TerrainLocationDefExtension previousDefExtension = GetExtension(previousTerrainDef);
 			if (previousDefExtension != null)
 			{
@@ -57,7 +49,6 @@ namespace BiomesCore.Locations
 		/// </summary>
 		public override void FinalizeInit()
 		{
-			mapGenerated = true;
 			foreach (IntVec3 cell in map.AllCells)
 			{
 				TerrainChanged(cell, null);

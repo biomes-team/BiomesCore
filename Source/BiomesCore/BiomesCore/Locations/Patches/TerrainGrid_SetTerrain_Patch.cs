@@ -18,7 +18,10 @@ namespace BiomesCore.Locations.Patches
 
 		public static void Postfix(Map ___map, IntVec3 c, TerrainDef __state)
 		{
-			___map.GetComponent<LocationGrid>().TerrainChanged(c, __state);
+			if (MapGenerator.mapBeingGenerated != ___map)
+			{
+				___map.GetComponent<LocationGrid>().TerrainChanged(c, __state);
+			}
 		}
 	}
 }
