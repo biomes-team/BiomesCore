@@ -1,4 +1,5 @@
 using BiomesCore.DefModExtensions;
+using BiomesCore.Locations;
 using BiomesCore.ModSettings;
 using RimWorld;
 using Verse;
@@ -7,16 +8,24 @@ namespace BMT
 {
 	/// <summary>
 	/// Special class used for certain Biomes! plants. It extends plant functionality with some features that would be too
-	/// performance-heavy if they were implemented as comps.
+	/// performance-heavy if they were implemented as comps or Harmony patches. Enables the following features:
 	///
 	/// * Enables the use of custom textures with the CustomGraphicsPlantDef DefModExtension.
+	///
 	/// * The plant can be sown and will grow indoors outside of the vanilla temperature range if it has a
 	///   Biomes_PlantControl.optimalTemperature and the current temperature is inside of that range.
+	///
+	/// * If Biomes_PlantControl.needsRest is set to false, the plant will never rest.
 	/// </summary>
 	public class BiomesPlant : Plant
 	{
 		private CustomGraphicsPlantDef customGraphicsDef;
-		private FloatRange optimalTemperature = new FloatRange(float.MinValue, float.MinValue);
+
+		private FloatRange? optimalTemperature;
+
+		private bool? needsRest;
+
+		private FloatRange? growingHours;
 
 		private BiomeGraphics customBiomeGraphic;
 
@@ -32,7 +41,6 @@ namespace BMT
 			var size = def.graphicData.drawSize;
 			var color = def.graphicData.color;
 			var colorTwo = def.graphicData.colorTwo;
-
 
 			if (entry.graphicPath != null)
 			{
@@ -92,9 +100,15 @@ namespace BMT
 			if (controlDef != null)
 			{
 				optimalTemperature = controlDef.optimalTemperature;
+				needsRest = controlDef.needsRest;
+				growingHours = controlDef.growingHours;
 			}
 		}
 
+		/// <summary>
+		/// Overrides plant graphics according to the CustomGraphicsPlantDef instance.
+		/// This feature is in a derived class to avoid Harmony patching vanilla plants, as that would have a huge cost.
+		/// </summary>
 		public override Graphic Graphic
 		{
 			get
@@ -140,15 +154,32 @@ namespace BMT
 			}
 		}
 
-		private bool GrowthSeasonNow()
+		/// <summary>
+		/// True if the plant has a Biomes_PlantControl.optimalTemperature and the current temperature is optimal.
+		/// </summary>
+		/// <returns>True if the plant is using the extension and if it should be growing now.</returns>
+		private bool ExtendedGrowthSeasonNow()
 		{
-			return optimalTemperature.Includes(Position.GetTemperature(Map)) || PlantUtility.GrowthSeasonNow(Position, Map);
+			return optimalTemperature != null && optimalTemperature.Value.Includes(Position.GetTemperature(Map));
 		}
 
+		/// <summary>
+		/// Returns true if the plant is in growth season, regardless of if it is using the vanilla check or the extended
+		/// check.
+		/// </summary>
+		/// <returns>True if the plant should be growing now.</returns>
+		private bool GrowthSeasonNow()
+		{
+			return ExtendedGrowthSeasonNow() || PlantUtility.GrowthSeasonNow(Position, Map);
+		}
+
+		/// <summary>
+		/// Identical to the parent function, except for using the custom GrowthSeasonNow implementation.
+		/// </summary>
 		public override float GrowthRate => Blighted || Spawned && !GrowthSeasonNow()
 			? 0.0f
 			: GrowthRateFactor_Fertility * GrowthRateFactor_Temperature * GrowthRateFactor_Light *
-			GrowthRateFactor_NoxiousHaze;
+			  GrowthRateFactor_NoxiousHaze;
 
 		public override void TickLong()
 		{
@@ -158,15 +189,16 @@ namespace BMT
 				return;
 			}
 
-			// Check Plant.TickLong would not execute its growth code but BiomesPlant needs it.
-			if (PlantUtility.GrowthSeasonNow(Position, Map) || !GrowthSeasonNow())
+			// Check if Plant.TickLong would not execute its growth code but the BiomesPlant needs it due to having an
+			// optimal temperature range coming from the extension.
+			if (PlantUtility.GrowthSeasonNow(Position, Map) || !ExtendedGrowthSeasonNow())
 			{
 				return;
 			}
 
-			// Duplication of the Growth code in base.TickLong.
+			// Duplication of the Growth code in Plant.TickLong.
 			var wasNotMature = LifeStage != PlantLifeStage.Mature;
-			growthInt += GrowthPerTick * 2000f;
+			growthInt += GrowthPerTick * TickerTypeInterval.LongTickerInterval;
 			if (growthInt > 1.0F)
 			{
 				growthInt = 1.0F;
@@ -180,9 +212,9 @@ namespace BMT
 
 		public override string GetInspectString()
 		{
-			var inspectString = base.GetInspectString();
+			string inspectString = base.GetInspectString();
 
-			if (!PlantUtility.GrowthSeasonNow(Position, Map) && GrowthSeasonNow())
+			if (!PlantUtility.GrowthSeasonNow(Position, Map) && ExtendedGrowthSeasonNow())
 			{
 				// Remove the now incorrect string in base.
 				inspectString = inspectString.Replace("OutOfIdealTemperatureRangeNotGrowing".Translate(), "");
@@ -195,19 +227,23 @@ namespace BMT
 
 		private bool IsResting()
 		{
-			var extension = def.GetModExtension<Biomes_PlantControl>();
-			if (extension == null)
-			{
-				return base.Resting;
-			}
-
-			if (!extension.needsRest || Settings.Values.SetCustomGrowingHoursToAll)
+			if (needsRest.HasValue && !needsRest.Value)
 			{
 				return false;
 			}
 
-			var date = GenLocalDate.DayPercent(this);
-			return date >= extension.growingHours.min && date <= extension.growingHours.max;
+			if (growingHours.HasValue)
+			{
+				if (Settings.Values.SetCustomGrowingHoursToAll)
+				{
+					return true;
+				}
+
+				float date = GenLocalDate.DayPercent(this);
+				return date >= growingHours.Value.min && date <= growingHours.Value.max;
+			}
+
+			return base.Resting;
 		}
 	}
 }

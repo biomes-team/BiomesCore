@@ -29,21 +29,6 @@ namespace BiomesCore.DerivedClasses
 				return base.Resting;
 			}
 		}
-		//public override bool DyingBecauseExposedToLight
-		//{
-		//	get
-		//	{
-		//		if (def.HasModExtension<Biomes_PlantControl>())
-		//		{
-		//			Biomes_PlantControl ext = def.GetModExtension<Biomes_PlantControl>();
-		//			if (base.Map.glowGrid.GameGlowAt(base.Position, ignoreCavePlants: true) < ext.lightRange.min)
-		//				return false;
-		//			if (base.Map.glowGrid.GameGlowAt(base.Position, ignoreCavePlants: true) > ext.lightRange.max)
-		//				return false;
-		//			return true;
-		//		}
-		//		return base.DyingBecauseExposedToLight;
-		//	}
-		//}
+
 	}
 }

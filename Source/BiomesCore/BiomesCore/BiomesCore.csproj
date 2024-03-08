@@ -113,7 +113,6 @@
     <Compile Include="ModSettings\SettingsWindow.cs" />
     <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
-    <Compile Include="Patches\CavePlants.cs" />
     <Compile Include="Patches\Caverns\CellOutsideBeauty.cs" />
     <Compile Include="Patches\Caverns\FindPlayerStartSpot.cs" />
     <Compile Include="Patches\Caverns\GauranlenPodSpawn.cs" />
