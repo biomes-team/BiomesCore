@@ -3,35 +3,32 @@ using Verse;
 
 namespace BiomesCore
 {
-    public class CompMakeFilthTrail : ThingComp
-    {
-        public CompProperties_MakeFilthTrail Props => (CompProperties_MakeFilthTrail)props;
+	public class CompMakeFilthTrail : ThingComp
+	{
+		public ThingDef filthDef;
 
-        private int _cooldownTicks;
-        private IntVec3 _lastPos = IntVec3.Invalid;
+		private IntVec3 lastPos = IntVec3.Invalid;
 
-        public override void CompTick()
-        {
-            _cooldownTicks--;
-            
-            if (parent.Map == null || parent.Position == _lastPos) return;
-            
-            _lastPos = parent.Position;
+		public override void Initialize(CompProperties props)
+		{
+			base.Initialize(props);
+			filthDef = ((CompProperties_MakeFilthTrail) props).filthDef;
+		}
 
-            if (_cooldownTicks <= 0)
-            {
-                _cooldownTicks = Props.cooldown;
+		public override void CompTickRare()
+		{
+			if (parent.Spawned && parent.Position != lastPos)
+			{
+				lastPos = parent.Position;
+				FilthMaker.TryMakeFilth(lastPos, parent.Map, filthDef);
+			}
+		}
+	}
 
-                FilthMaker.TryMakeFilth(parent.Position, parent.Map, Props.filthDef);
-            }
-        }
-    }
-    
-    public class CompProperties_MakeFilthTrail : CompProperties
-    {
-        public int cooldown;
-        public ThingDef filthDef;
+	public class CompProperties_MakeFilthTrail : CompProperties
+	{
+		public ThingDef filthDef;
 
-        public CompProperties_MakeFilthTrail() => compClass = typeof(CompMakeFilthTrail);
-    }
+		public CompProperties_MakeFilthTrail() => compClass = typeof(CompMakeFilthTrail);
+	}
 }
