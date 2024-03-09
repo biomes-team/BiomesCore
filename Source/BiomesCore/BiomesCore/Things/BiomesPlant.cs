@@ -236,11 +236,11 @@ namespace BMT
 			{
 				if (Settings.Values.SetCustomGrowingHoursToAll)
 				{
-					return true;
+					return false;
 				}
 
 				float date = GenLocalDate.DayPercent(this);
-				return date >= growingHours.Value.min && date <= growingHours.Value.max;
+				return date < growingHours.Value.min || date > growingHours.Value.max;
 			}
 
 			return base.Resting;
