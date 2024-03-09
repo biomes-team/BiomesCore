@@ -151,6 +151,8 @@
     <Compile Include="Patches\JobGiver_GetFood_GetPriority_Patch.cs" />
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\PlantGrowth.cs" />
+    <Compile Include="Patches\Plants\PlantUtility_GrowthSeasonNow_Patch.cs" />
+    <Compile Include="Patches\Plants\WorkGiver_GrowerSow_JobOnCell_Patch.cs" />
     <Compile Include="Patches\PollutionUtility_StimulatedByPollution_Patch.cs" />
     <Compile Include="Patches\PreceptWorker_Animal_ThingDefs_Patch.cs" />
     <Compile Include="Patches\PredatorHuntingBehaviour.cs" />

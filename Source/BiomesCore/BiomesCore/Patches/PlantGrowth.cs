@@ -9,29 +9,6 @@ using Verse;
 
 namespace BiomesCore.Patches
 {
-	[HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.GrowthSeasonNow))]
-	internal static class PlantUtility_GrowthSeasonNow_Patch
-	{
-		// See WorkGiver_GrowerSow_JobOnCell_Patch for details.
-		public static ThingDef CalculateWantedPlantDef = null;
-
-		internal static void Postfix(IntVec3 c, Map map, ref bool __result)
-		{
-			var modExtension = map.Biome.GetModExtension<BiomesMap>();
-			if (modExtension is {alwaysGrowthSeason: true})
-			{
-				__result = true;
-			}
-			else if (CalculateWantedPlantDef != null && CalculateWantedPlantDef.thingClass == typeof(BiomesPlant))
-			{
-				Biomes_PlantControl controlDef = CalculateWantedPlantDef.GetModExtension<Biomes_PlantControl>();
-				if (controlDef != null && controlDef.optimalTemperature.Includes(c.GetTemperature(map)))
-				{
-					__result = true;
-				}
-			}
-		}
-	}
 
 	[HarmonyPatch(typeof(Zone_Growing), "GrowingQuadrumsDescription")]
 	internal static class Zone_Growing_GrowingQuadrumsDescription
@@ -109,22 +86,5 @@ namespace BiomesCore.Patches
 		}
 	}
 
-	/// <summary>
-	/// The prefix of this patch makes PlantUtility.GrowthSeasonNow aware of the type of plant which is going to be
-	/// planted. The postfix removes the change to restore GrowthSeasonNow to vanilla functionality.
-	/// </summary>
-	[HarmonyPatch(typeof(WorkGiver_GrowerSow), nameof(WorkGiver_GrowerSow.JobOnCell))]
-	internal static class WorkGiver_GrowerSow_JobOnCell_Patch
-	{
-		private static void Prefix(Pawn pawn, IntVec3 c)
-		{
-			Map map = pawn.Map;
-			PlantUtility_GrowthSeasonNow_Patch.CalculateWantedPlantDef = WorkGiver_Grower.CalculateWantedPlantDef(c, map);
-		}
 
-		private static void Postfix()
-		{
-			PlantUtility_GrowthSeasonNow_Patch.CalculateWantedPlantDef = null;
-		}
-	}
 }
