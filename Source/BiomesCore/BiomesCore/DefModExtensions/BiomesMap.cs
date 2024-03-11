@@ -52,6 +52,11 @@ namespace BiomesCore.DefModExtensions
 		/// If enabled, the BiomeDef.texture will be drawn using the Ocean material. Useful for islands.
 		/// </summary>
 		public bool useOceanMaterial;
+
+		/// <summary>
+		/// Texture to be drawn as a transparent overlay on top of the normal biome texture.
+		/// </summary>
+		public string overlayTexturePath;
 	}
 
 	public enum IslandShape

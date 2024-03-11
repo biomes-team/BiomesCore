@@ -197,6 +197,7 @@
 		<Compile Include="ThingComponents\Spawner_Comp.cs" />
 		<Compile Include="ThingComponents\Spawner_CompProperties.cs" />
 		<Compile Include="Things\BiomesPlant.cs" />
+		<Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
 		<PackageReference Include="Krafs.Publicizer" Version="2.2.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
