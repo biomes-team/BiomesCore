@@ -25,8 +25,6 @@ namespace BiomesCore.WorldMap
 					continue;
 				}
 
-				string str = $"Found material {extension.overlayTexturePath}";
-				Log.ErrorOnce(str, str.GetHashCode());
 				// Right before hill materials.
 				const int renderQueue = 3509;
 				Material material = MaterialPool.MatFrom(extension.overlayTexturePath,
