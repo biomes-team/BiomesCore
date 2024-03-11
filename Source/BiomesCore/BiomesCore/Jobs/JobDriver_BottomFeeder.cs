@@ -39,12 +39,13 @@ namespace BiomesCore
                 {
                     toil.AddPreInitAction(delegate
                     {
-                        EnableGlow(pawn, compGlower);
+                        pawn.Map.glowGrid.RegisterGlower(compGlower);
                     });
 
                     toil.AddFinishAction(delegate
                     {
-                        DisableGlow(pawn, compGlower);
+                        pawn.Map.glowGrid.DeRegisterGlower(compGlower);
+                        compGlower.UpdateLit(pawn.Map); ;
                     });
                 }
             }
@@ -59,20 +60,6 @@ namespace BiomesCore
             toil.endConditions.Add(() => pawn.needs.food.CurLevel >= pawn.needs.food.MaxLevel ? JobCondition.Succeeded : JobCondition.Ongoing);
 
             yield return toil;
-        }
-
-        private void EnableGlow(Pawn pawn, CompGlower compGlower)
-        {
-            if (compGlower != null)
-            {
-                pawn.Map.glowGrid.RegisterGlower(compGlower);
-            }
-        }
-
-        private void DisableGlow(Pawn pawn, CompGlower compGlower)
-        {
-            pawn.Map.glowGrid.DeRegisterGlower(compGlower);
-            compGlower.UpdateLit(pawn.Map);
         }
     }
 }
