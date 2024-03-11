@@ -47,6 +47,11 @@ namespace BiomesCore.DefModExtensions
 		/// These weathers will never happen in the biome.
 		/// </summary>
 		public List<WeatherDef> disallowedWeathers;
+
+		/// <summary>
+		/// If enabled, the BiomeDef.texture will be drawn using the Ocean material. Useful for islands.
+		/// </summary>
+		public bool useOceanMaterial;
 	}
 
 	public enum IslandShape
