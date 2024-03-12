@@ -22,30 +22,46 @@ namespace BiomesCore.WorldMap
 		}
 
 		/// <summary>
-		/// Determines where to spawn boreal islands. Uses the same scoring as RimWorld.Planet.BiomeWorker_BorealForest.
+		/// Replicates the scoring calculation in RimWorld.Planet.BiomeWorker_BorealForest.
+		/// This function does not check for water presence.
 		/// </summary>
 		/// <param name="tile">Tile to check.</param>
-		/// <returns>Boreal island / archipelago score.</returns>
+		/// <returns>Biome score.</returns>
 		public static float BorealScore(Tile tile)
 		{
 			return tile.temperature < -10.0F || tile.rainfall < 600.0F ? 0.0F : 15F;
 		}
 
 		/// <summary>
-		/// Determines where to spawn desert islands. Uses the same scoring as RimWorld.Planet.BiomeWorker_Desert.
+		/// Replicates the scoring calculation in RimWorld.Planet.BiomeWorker_Desert.
+		/// This function does not check for water presence.
 		/// </summary>
 		/// <param name="tile">Tile to check.</param>
-		/// <returns>Desert island / archipelago score.</returns>
+		/// <returns>Biome score.</returns>
 		public static float DesertScore(Tile tile)
 		{
 			return tile.rainfall >= 600.0F ? 0.0F : tile.temperature + 0.0001F;
 		}
 
 		/// <summary>
-		/// Determines where to spawn temperate islands. Uses the same scoring as RimWorld.Planet.BiomeWorker_Temperate.
+		/// Replicates the scoring calculation in RimWorld.Planet.BiomeWorker_ExtremeDesert.
+		/// This function does not check for water presence.
 		/// </summary>
 		/// <param name="tile">Tile to check.</param>
-		/// <returns>Temperate island / archipelago score.</returns>
+		/// <returns>Biome score.</returns>
+		public static float ExtremeDesertScore(Tile tile)
+		{
+			return tile.rainfall >= 340.0
+				? 0.0F
+				: tile.temperature * 2.7F - 13.0F - tile.rainfall * 0.14F;
+		}
+
+		/// <summary>
+		/// Replicates the scoring calculation in RimWorld.Planet.BiomeWorker_Temperate.
+		/// This function does not check for water presence.
+		/// </summary>
+		/// <param name="tile">Tile to check.</param>
+		/// <returns>Biome score.</returns>
 		public static float TemperateScore(Tile tile)
 		{
 			return tile.temperature < -10.0F || tile.rainfall < 600.0F
@@ -55,10 +71,11 @@ namespace BiomesCore.WorldMap
 
 
 		/// <summary>
-		/// Determines where to spawn tropical islands. Uses the same scoring as RimWorld.Planet.BiomeWorker_Tropical.
+		/// Replicates the scoring calculation in RimWorld.Planet.BiomeWorker_Tropical.
+		/// This function does not check for water presence.
 		/// </summary>
 		/// <param name="tile">Tile to check.</param>
-		/// <returns>Tropical island / archipelago score.</returns>
+		/// <returns>Biome score.</returns>
 		public static float TropicalScore(Tile tile)
 		{
 			return tile.temperature < 15.0F || tile.rainfall < 2000.0F
@@ -67,10 +84,11 @@ namespace BiomesCore.WorldMap
 		}
 
 		/// <summary>
-		/// Determines where to spawn tundra islands. Uses the same scoring as RimWorld.Planet.BiomeWorker_Tundra.
+		/// Replicates the scoring calculation in RimWorld.Planet.BiomeWorker_Tundra.
+		/// This function does not check for water presence.
 		/// </summary>
 		/// <param name="tile">Tile to check.</param>
-		/// <returns>Tundra island / archipelago score.</returns>
+		/// <returns>Biome score.</returns>
 		public static float TundraScore(Tile tile)
 		{
 			return -tile.temperature;
