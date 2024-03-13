@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Verse;
 
-namespace BiomesCore
+namespace BiomesCore.Defs
 {
 	public class AvoidTerrainOnGameStartDef : Def
 	{

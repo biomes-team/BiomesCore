@@ -1,17 +1,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using BiomesCore.Defs;
+using BiomesCore.Patches.Caverns;
 using BiomesCore.Reflections;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 
-namespace BiomesCore.Patches.Caverns
+namespace BiomesCore.Patches.MapGen
 {
 	[HarmonyPatch]
-	internal static class FindPlayerStartSpot
+	internal static class GenStep_FindPlayerStartSpot_AvoidTerrainOnGameStartDef_Patch
 	{
-		static MethodBase TargetMethod()
+		private static MethodBase TargetMethod()
 		{
 			return typeof(GenStep_FindPlayerStartSpot).GetLambda(nameof(GenStep_FindPlayerStartSpot.Generate));
 		}
@@ -55,7 +57,7 @@ namespace BiomesCore.Patches.Caverns
 		private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
 			MethodInfo newMethod =
-				AccessTools.Method(typeof(FindPlayerStartSpot), nameof(InvalidStartSpot));
+				AccessTools.Method(typeof(GenStep_FindPlayerStartSpot_AvoidTerrainOnGameStartDef_Patch), nameof(InvalidStartSpot));
 
 			return TranspilerHelper.ReplaceCall(instructions.ToList(), Methods.CellRoofedMethod, newMethod);
 		}

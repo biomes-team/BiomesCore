@@ -6,12 +6,16 @@ using RimWorld;
 
 namespace BiomesCore.Patches.Caverns
 {
+	/// <summary>
+	/// Gauranlen pods can spawn on cells with cavern roof. They can also spawn on cavern rooms that are considered to be
+	/// outdoors.
+	/// </summary>
 	[HarmonyPatch(typeof(IncidentWorker_GauranlenPodSpawn), "CanSpawnPodAt")]
-	internal static class GauranlenPodSpawn
+	internal static class IncidentWorker_GauranlenPodSpawn_CanSpawnPodAt_Patch
 	{
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
-			var newInstructions = Transpilers.CellPsychologicallyOutdoors(instructions.ToList(), OpCodes.Ldarg_0);
+			var newInstructions = Transpilers.CavernsAwarePsychologicallyOutdoors(instructions.ToList(), OpCodes.Ldarg_0);
 			var secondList = Transpilers.CellUnbreachableRoofed(newInstructions);
 
 			return secondList;

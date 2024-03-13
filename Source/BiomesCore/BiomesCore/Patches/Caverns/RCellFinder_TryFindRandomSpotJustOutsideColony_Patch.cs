@@ -10,14 +10,13 @@ using Verse;
 
 namespace BiomesCore.Patches.Caverns
 {
-	// 
 	/// <summary>
-	/// Used by caravans (both from the colony and friendly traders) when they want to leave.
+	/// Caravans (both from the colony and friendly traders) can gather at points considered to be outdoors in caverns.
 	/// </summary>
 	[HarmonyPatch]
-	public class RCellFinder_TryFindRandomSpotJustOutsideColony
+	public static class RCellFinder_TryFindRandomSpotJustOutsideColony_Patch
 	{
-		static MethodBase TargetMethod()
+		private static MethodBase TargetMethod()
 		{
 			return typeof(RCellFinder).GetLambda(nameof(RCellFinder.TryFindRandomSpotJustOutsideColony), parentArgs: new[]
 			{
@@ -27,7 +26,9 @@ namespace BiomesCore.Patches.Caverns
 
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
-			return Transpilers.CellPsychologicallyOutdoors(instructions.ToList(), OpCodes.Ldarg_1);
+			return Transpilers.CavernsAwarePsychologicallyOutdoors(instructions.ToList(),
+				OpCodes.Ldarg_1 // Cell
+			);
 		}
 	}
 }

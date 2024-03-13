@@ -6,11 +6,14 @@ using RimWorld;
 
 namespace BiomesCore.Patches.Caverns
 {
+	/// <summary>
+	/// Cells with cavern roof are considered valid entry points for pawns.
+	/// </summary>
 	[HarmonyPatch]
-	public class RCellFinder_TryFindRandomPawnEntryCell
+	public class RCellFinder_TryFindRandomPawnEntryCell_Patch
 	{
 		[HarmonyTargetMethods]
-		static IEnumerable<MethodInfo> TargetMethods()
+		private static IEnumerable<MethodInfo> TargetMethods()
 		{
 			foreach (var nestedType in typeof(RCellFinder).GetNestedTypes(AccessTools.all))
 			{

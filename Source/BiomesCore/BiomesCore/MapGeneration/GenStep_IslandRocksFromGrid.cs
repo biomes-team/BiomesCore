@@ -21,13 +21,7 @@ namespace BiomesCore.MapGeneration
 
         private const int MinRoofedCellsPerGroup = 20;
 
-        public override int SeedPart
-        {
-            get
-            {
-                return 1182952823;
-            }
-        }
+        public override int SeedPart => -386892601;
 
         public override void Generate(Map map, GenStepParams parms)
         {

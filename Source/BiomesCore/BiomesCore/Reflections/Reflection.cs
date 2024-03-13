@@ -267,7 +267,7 @@ namespace BiomesCore.Reflections
             }
             if (!found)
             {
-                Log.ErrorOnce(String.Format("[BiomesCaverns] Cannot find {0} in {1}, skipping patch", patchCallName, originalFuncName), patchCallName.GetHashCode() + originalFuncName.GetHashCode());
+                Log.ErrorOnce(String.Format("[BiomesCore] Cannot find {0} in {1}, skipping patch", patchCallName, originalFuncName), patchCallName.GetHashCode() + originalFuncName.GetHashCode());
             }
             return runningChanges.AsEnumerable();
         }

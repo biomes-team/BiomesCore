@@ -18,11 +18,11 @@ namespace BiomesCore.Patches.Caverns
 		/// <param name="instructions">Original instructions to be patched.</param>
 		/// <param name="cellCode">OpCode to use for loading the current cell.</param>
 		/// <returns>Patched instructions.</returns>
-		public static List<CodeInstruction> CellPsychologicallyOutdoors(List<CodeInstruction> instructions, OpCode cellCode)
+		public static List<CodeInstruction> CavernsAwarePsychologicallyOutdoors(List<CodeInstruction> instructions, OpCode cellCode)
 		{
 			return TranspilerHelper.ReplaceCall(instructions, Methods.PsychologicallyOutdoorsMethod,
 				Methods.PsychologicallyOutdoorsOrCavernMethod,
-				new List<CodeInstruction> { new CodeInstruction(cellCode) });
+				new List<CodeInstruction> {new CodeInstruction(cellCode)});
 		}
 
 		/// <summary>
@@ -39,6 +39,11 @@ namespace BiomesCore.Patches.Caverns
 		{
 			return TranspilerHelper.ReplaceCall(instructions, Methods.RoofGridRoofedOriginal, Methods.RoofGridRoofedPatched);
 		}
+
+		public static List<CodeInstruction> GetNonCavernRoof(List<CodeInstruction> instructions)
+		{
+			return TranspilerHelper.ReplaceCall(instructions, Methods.GetRoofMethod, Methods.GetNonCavernRoofMethod);
+		}
 	}
 
 	[StaticConstructorOnStartup]
@@ -51,13 +56,10 @@ namespace BiomesCore.Patches.Caverns
 			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed));
 
 		public static readonly MethodInfo RoofGridRoofedOriginal =
-			AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] { typeof(IntVec3) });
-
-		public static readonly MethodInfo GetRoofMethod =
-			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.GetRoof));
+			AccessTools.Method(typeof(RoofGrid), nameof(RoofGrid.Roofed), new[] {typeof(IntVec3)});
 
 		public static readonly MethodInfo PsychologicallyOutdoorsOrCavernMethod =
-			AccessTools.Method(typeof(Utility), nameof(Utility.PsychologicallyOutdoorsOrCavern));
+			AccessTools.Method(typeof(Utility), nameof(Utility.CavernAwarePsychologicallyOutdoors));
 
 		public static readonly MethodInfo CellUnbreachableRoofedMethod =
 			AccessTools.Method(typeof(IntVec3Extensions), nameof(IntVec3Extensions.UnbreachableRoofed));
@@ -70,7 +72,19 @@ namespace BiomesCore.Patches.Caverns
 
 		public static readonly MethodInfo RoofGridRoofedPatched =
 			AccessTools.Method(typeof(RoofGridExtensions), nameof(RoofGridExtensions.UnbreachableRoofed),
-				new[] { typeof(RoofGrid), typeof(IntVec3) });
+				new[] {typeof(RoofGrid), typeof(IntVec3)});
+
+		public static readonly MethodInfo UsesOutdoorTemperatureMethod =
+			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.UsesOutdoorTemperature));
+
+		public static readonly MethodInfo NotCavernAndUsesOutdoorTemperatureMethod =
+			AccessTools.Method(typeof(Utility), nameof(Utility.NotCavernAndUsesOutdoorTemperature));
+
+		public static readonly MethodInfo GetRoofMethod =
+			AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.GetRoof));
+
+		public static readonly MethodInfo GetNonCavernRoofMethod =
+			AccessTools.Method(typeof(Utility), nameof(Utility.GetNonCavernRoof));
 
 		static Methods()
 		{

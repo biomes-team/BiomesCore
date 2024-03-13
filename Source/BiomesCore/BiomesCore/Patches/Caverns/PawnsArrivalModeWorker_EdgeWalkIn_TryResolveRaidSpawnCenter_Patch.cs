@@ -3,15 +3,17 @@ using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
-using Verse;
 
 namespace BiomesCore.Patches.Caverns
 {
+	/// <summary>
+	/// Pawns can arrive walking in cells having cavern roof.
+	/// </summary>
 	[HarmonyPatch]
-	public class PawnsArrivalEdgeWalkIn
+	public static class PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch
 	{
 		[HarmonyTargetMethods]
-		static IEnumerable<MethodInfo> TargetMethods()
+		private static IEnumerable<MethodInfo> TargetMethods()
 		{
 			foreach (var nestedType in typeof(PawnsArrivalModeWorker_EdgeWalkIn).GetNestedTypes(AccessTools.all))
 			{

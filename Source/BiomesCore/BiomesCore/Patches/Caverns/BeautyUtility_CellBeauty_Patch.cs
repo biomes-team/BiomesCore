@@ -6,12 +6,17 @@ using RimWorld;
 
 namespace BiomesCore.Patches.Caverns
 {
+	/// <summary>
+	/// Tiles under cavern roof use outside beauty stats.
+	/// </summary>
 	[HarmonyPatch(typeof(BeautyUtility), nameof(BeautyUtility.CellBeauty))]
-	public class CellOutsideBeauty
+	public class BeautyUtility_CellBeauty_Patch
 	{
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
-			return Transpilers.CellPsychologicallyOutdoors(instructions.ToList(), OpCodes.Ldarg_0);
+			return Transpilers.CavernsAwarePsychologicallyOutdoors(instructions.ToList(),
+				OpCodes.Ldarg_0 // Cell
+				);
 		}
 	}
 }

@@ -16,13 +16,7 @@ namespace BiomesCore.MapGeneration
         private float islandHillCenter = 16f;
         private float islandHillTuning = 0.1f;
 
-        public override int SeedPart
-        {
-            get
-            {
-                return 1182952823;
-            }
-        }
+        public override int SeedPart => 584864096;
 
         public override void Generate(Map map, GenStepParams parms)
         {
