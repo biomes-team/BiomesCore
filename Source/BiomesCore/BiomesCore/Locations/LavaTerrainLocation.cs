@@ -47,7 +47,7 @@ namespace BiomesCore.Locations
 
 		public override void TerrainRegistered(LocationGrid grid)
 		{
-			Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things);
+			Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
 			Map.glowGrid.RegisterGlower(instanceGlowerComp);
 			grid.AddThingBurnerAt(Position);
 		}
@@ -65,7 +65,7 @@ namespace BiomesCore.Locations
 
 		public override void TerrainRemoved(LocationGrid grid)
 		{
-			Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things);
+			Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
 			Map.glowGrid.DeRegisterGlower(instanceGlowerComp);
 			grid.RemoveThingBurnerAt(Position);
 		}

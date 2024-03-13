@@ -2,17 +2,18 @@
 using UnityEngine;
 using System.Collections.Generic;
 using BiomesCore.DefModExtensions;
+using RimWorld;
 
 namespace BiomesCore.Bridges
 {
 	static class BridgeExtensions
-    {
+	{
 		// Use cache to avoid repeated material file loads on rendering
 		public static Dictionary<TerrainDef, Material> BridgeLoopMats = new Dictionary<TerrainDef, Material>();
 		public static Dictionary<TerrainDef, Material> BridgeRightMats = new Dictionary<TerrainDef, Material>();
 
 		public static Material BiomesBridgeLoopMat(this TerrainDef terrain)
-        {
+		{
 			if (terrain.HasModExtension<TerrainDef_Bridge>())
 			{
 				if (!BridgeLoopMats.TryGetValue(terrain, out Material mat))
@@ -28,10 +29,13 @@ namespace BiomesCore.Bridges
 						mat = null;
 					}
 				}
+
 				return mat;
 			}
-            return null;
+
+			return null;
 		}
+
 		public static Material BiomesBridgeRightMat(this TerrainDef terrain)
 		{
 			if (terrain.HasModExtension<TerrainDef_Bridge>())
@@ -49,27 +53,29 @@ namespace BiomesCore.Bridges
 						mat = null;
 					}
 				}
+
 				return mat;
 			}
+
 			return null;
 		}
 
 		public static bool IsBiomesBridge(this TerrainDef terrain)
-        {
-            return terrain.HasModExtension<TerrainDef_Bridge>();
-        }
-    }
+		{
+			return terrain.HasModExtension<TerrainDef_Bridge>();
+		}
+	}
 
 
-    [StaticConstructorOnStartup]
-    public class SectionLayer_BridgeProps : SectionLayer
-    {
+	[StaticConstructorOnStartup]
+	public class SectionLayer_BridgeProps : SectionLayer
+	{
 		public override bool Visible => DebugViewSettings.drawTerrain;
 
 		public SectionLayer_BridgeProps(Section section)
 			: base(section)
 		{
-			relevantChangeTypes = MapMeshFlag.Terrain;
+			relevantChangeTypes = (ulong) MapMeshFlagDefOf.Terrain;
 		}
 
 		public override void Regenerate()
@@ -86,7 +92,9 @@ namespace BiomesCore.Bridges
 					IntVec3 c = item;
 					TerrainDef terrainDef = terrainGrid.TerrainAt(c);
 					c.x++;
-					Material material = (!c.InBounds(map) || !ShouldDrawPropsBelow(c, terrainGrid)) ? terrainDef.BiomesBridgeRightMat() : terrainDef.BiomesBridgeLoopMat();
+					Material material = (!c.InBounds(map) || !ShouldDrawPropsBelow(c, terrainGrid))
+						? terrainDef.BiomesBridgeRightMat()
+						: terrainDef.BiomesBridgeLoopMat();
 					LayerSubMesh subMesh = GetSubMesh(material);
 					int count = subMesh.verts.Count;
 					subMesh.verts.Add(new Vector3((float) item.x, y, (float) item.z - 0.9f));
@@ -105,16 +113,19 @@ namespace BiomesCore.Bridges
 					subMesh.tris.Add(count + 3);
 				}
 			}
+
 			FinalizeMesh(MeshParts.All);
 		}
 
 		public bool ShouldDrawPropsBelow(IntVec3 c, TerrainGrid terrGrid)
 		{
 			TerrainDef terrainDef = terrGrid.TerrainAt(c);
-			if (terrainDef == null || !terrainDef.IsBiomesBridge() || terrainDef.BiomesBridgeLoopMat() == null || terrainDef.BiomesBridgeRightMat() == null)
+			if (terrainDef == null || !terrainDef.IsBiomesBridge() || terrainDef.BiomesBridgeLoopMat() == null ||
+			    terrainDef.BiomesBridgeRightMat() == null)
 			{
 				return false;
 			}
+
 			IntVec3 c2 = c;
 			c2.z--;
 			Map map = base.Map;
@@ -122,15 +133,19 @@ namespace BiomesCore.Bridges
 			{
 				return false;
 			}
+
 			TerrainDef terrainDef2 = terrGrid.TerrainAt(c2);
 			if (terrainDef2.IsBiomesBridge())
 			{
 				return false;
 			}
-			if (terrainDef2.passability != Traversability.Impassable && !c2.SupportsStructureType(map, terrainDef.terrainAffordanceNeeded))
+
+			if (terrainDef2.passability != Traversability.Impassable &&
+			    !c2.SupportsStructureType(map, terrainDef.terrainAffordanceNeeded))
 			{
 				return false;
 			}
+
 			return true;
 		}
 	}

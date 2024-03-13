@@ -31,7 +31,7 @@ namespace BiomesCore
             if (plant.Growth >= Props.growthProgress && !plant.Dying)
             {
                 ThrowPoisonSmoke();
-                List<Pawn> allPawnsSpawned = plant.Map.mapPawns.AllPawnsSpawned;
+                IReadOnlyList<Pawn> allPawnsSpawned = plant.Map.mapPawns.AllPawnsSpawned;
                 for (int pawnIndex = 0; pawnIndex < allPawnsSpawned.Count; pawnIndex++)
                 {
                     Pawn pawn = allPawnsSpawned[pawnIndex];

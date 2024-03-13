@@ -32,7 +32,7 @@ namespace BiomesCore.Locations
 			float chance = FireUtility.ChanceToStartFireIn(Position, Map) / 4.0F;
 			if (Rand.Chance(chance))
 			{
-				FireUtility.TryStartFireIn(Position, Map, 0.1F);
+				FireUtility.TryStartFireIn(Position, Map, 0.1F, null);
 			}
 			else if (chance > 0.0F)
 			{

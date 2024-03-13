@@ -206,7 +206,7 @@ namespace BMT
 
 			if (wasNotMature && LifeStage == PlantLifeStage.Mature && CurrentlyCultivated())
 			{
-				Map.mapDrawer.MapMeshDirty(Position, MapMeshFlag.Things);
+				Map.mapDrawer.MapMeshDirty(Position, MapMeshFlagDefOf.Things);
 			}
 		}
 

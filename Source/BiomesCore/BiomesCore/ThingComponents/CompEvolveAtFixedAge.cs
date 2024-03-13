@@ -24,7 +24,7 @@ namespace BiomesCore
                 if (Props.filthDef != null) for (int i = 0; i < Props.filthAmount; i++)
                 {
                     var parms = TraverseParms.For(TraverseMode.NoPassClosedDoors);
-                    if (CellFinder.TryFindRandomReachableCellNear(parent.Position, parent.Map, 2, parms, null, null, out var c))
+                    if (CellFinder.TryFindRandomReachableCellNearPosition(parent.Position, parent.Position, parent.Map, 2, parms, null, null, out var c))
                     {
                         FilthMaker.TryMakeFilth(c, parent.Map, Props.filthDef);
                     }
@@ -57,7 +57,7 @@ namespace BiomesCore
                 var newPawn = PawnGenerator.GeneratePawn(request);
                 
                 if (newPawn.playerSettings != null && oldPawn.playerSettings != null)
-                    newPawn.playerSettings.AreaRestriction = oldPawn.playerSettings.AreaRestriction;
+                    newPawn.playerSettings.AreaRestrictionInPawnCurrentMap = oldPawn.playerSettings.AreaRestrictionInPawnCurrentMap;
                 
                 return newPawn;
             }

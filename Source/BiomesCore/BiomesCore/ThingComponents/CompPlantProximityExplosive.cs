@@ -146,7 +146,7 @@ namespace BiomesCore
             Detonate();
         }
 
-        public override void PostPreApplyDamage(DamageInfo dinfo, out bool absorbed)
+        public override void PostPreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
         {
             absorbed = false;
             if (dinfo.Def.ExternalViolenceFor(parent) && dinfo.Amount >= (double)parent.HitPoints && CanExplodeFromDamageType(dinfo.Def))

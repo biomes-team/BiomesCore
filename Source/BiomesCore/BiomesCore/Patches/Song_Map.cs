@@ -5,6 +5,7 @@ using BiomesCore.DefModExtensions;
 using System.Linq;
 using System.Text;
 using System.Reflection;
+using LudeonTK;
 
 namespace BiomesCore.Patches
 {

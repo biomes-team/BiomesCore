@@ -5,6 +5,8 @@ using Verse;
 
 namespace BiomesCore.Patches
 {
+	// ToDo: https://github.com/biomes-team/BiomesCore/issues/14
+	/*
 	[HarmonyPatch(typeof(PawnGraphicSet), nameof(PawnGraphicSet.ResolveAllGraphics))]
 	internal static class AlternativePawnGraphics
 	{
@@ -64,4 +66,6 @@ namespace BiomesCore.Patches
 
 		}
 	}
+		*/
+
 }

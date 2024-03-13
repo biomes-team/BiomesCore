@@ -71,11 +71,12 @@ namespace BiomesCore.ThingComponents
 		}
 	}
 
+	// ToDo: https://github.com/biomes-team/BiomesCore/issues/14
 	public class CompSleepGraphic : CompDynamicPawnGraphic
 	{
 		public CompProperties_CompSleepGraphic Props => (CompProperties_CompSleepGraphic) props;
 
-		[Unsaved] private bool wasAwake;
+		// [Unsaved] private bool wasAwake;
 
 		public CompSleepGraphic()
 		{
@@ -89,6 +90,7 @@ namespace BiomesCore.ThingComponents
 				return;
 			}
 
+			/*
 			wasAwake = pawn.Awake();
 			if (wasAwake)
 			{
@@ -103,6 +105,7 @@ namespace BiomesCore.ThingComponents
 					SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
 				}
 			}
+			*/
 		}
 
 		public override void CompTick()
@@ -113,6 +116,7 @@ namespace BiomesCore.ThingComponents
 				return;
 			}
 
+			/*
 			var isAwake = pawn.Awake();
 			if (wasAwake == isAwake)
 			{
@@ -135,6 +139,7 @@ namespace BiomesCore.ThingComponents
 					SleepingPawnAngle.OverrideAngle[pawn] = 0.0F;
 				}
 			}
+			*/
 		}
 
 		public override void PostDeSpawn(Map map)
@@ -142,8 +147,10 @@ namespace BiomesCore.ThingComponents
 			base.PostDeSpawn(map);
 			if (parent is Pawn pawn)
 			{
+				/*
 				SleepingPawnAngle.OverrideAngle.Remove(pawn);
 				SleepingPawnLayFacing.OverrideDirection.Remove(pawn);
+				*/
 			}
 		}
 

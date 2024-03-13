@@ -34,7 +34,7 @@ namespace BiomesCore.Incidents
 				return false;
 			}
 
-			var target = (Map)parms.target;
+			var target = (Map) parms.target;
 			var pawnKindDef = HungeringAnimalDef(parms);
 			if (pawnKindDef == null)
 			{
@@ -42,12 +42,12 @@ namespace BiomesCore.Incidents
 			}
 
 			return GetAnimalsCount(pawnKindDef, parms.points) > 0 &&
-				RCellFinder.TryFindRandomPawnEntryCell(out _, target, CellFinder.EdgeRoadChance_Animal);
+			       RCellFinder.TryFindRandomPawnEntryCell(out _, target, CellFinder.EdgeRoadChance_Animal);
 		}
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
 		{
-			var target = (Map)parms.target;
+			var target = (Map) parms.target;
 			var kind = HungeringAnimalDef(parms);
 			var count = GetAnimalsCount(kind, parms.points);
 			if (count == 0)
@@ -62,7 +62,7 @@ namespace BiomesCore.Incidents
 				return false;
 			}
 
-			var animals = ManhunterPackIncidentUtility.GenerateAnimals(kind, target.Tile, 0, count);
+			var animals = AggressiveAnimalIncidentUtility.GenerateAnimals(kind, target.Tile, 0, count);
 			var rot = Rot4.FromAngleFlat((target.Center - spawnPoint).AngleFlat);
 
 			for (int index = 0; index < animals.Count; ++index)
@@ -79,8 +79,8 @@ namespace BiomesCore.Incidents
 			}
 
 			SendStandardLetter("BMT_LetterLabelHungeringPackArrived".Translate(),
-				"BMT_LetterTextHungeringPackArrived".Translate((NamedArgument)kind.GetLabelPlural()), LetterDefOf.ThreatBig,
-				parms, (Thing)animals[0]);
+				"BMT_LetterTextHungeringPackArrived".Translate((NamedArgument) kind.GetLabelPlural()), LetterDefOf.ThreatBig,
+				parms, (Thing) animals[0]);
 
 			Find.TickManager.slower.SignalForceNormalSpeedShort();
 			return true;
