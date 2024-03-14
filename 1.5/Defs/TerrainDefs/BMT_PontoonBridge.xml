@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<TerrainDef>
+		<defName>BMT_PontoonBridge</defName>
+		<label>pontoon bridge</label>
+		<description>todo.</description>
+		<texturePath>Terrain/Surfaces/WoodFloor</texturePath>
+		<uiIconPath>BiomesCore_Terrain/Bridges/PontoonBridge_MenuIcon</uiIconPath>
+		<layerable>true</layerable>
+		<bridge>true</bridge>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<designationCategory>Structure</designationCategory>
+		<fertility>0</fertility>
+		<constructEffect>ConstructWood</constructEffect>
+		<terrainAffordanceNeeded>BMT_DeepWaterBridgeable</terrainAffordanceNeeded>
+		<edgeType>Hard</edgeType>
+		<renderPrecedence>400</renderPrecedence>
+		<autoRebuildable>true</autoRebuildable>
+		<statBases>
+			<WorkToBuild>1500</WorkToBuild>
+			<Flammability>0.8</Flammability>
+		</statBases>
+		<costList>
+			<WoodLog>8</WoodLog>
+			<Cloth>8</Cloth>
+		</costList>
+		<tags>
+			<li>Floor</li>
+		</tags>
+		<destroyOnBombDamageThreshold>35</destroyOnBombDamageThreshold>
+		<destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+		<destroyEffect>Bridge_Collapse</destroyEffect>
+		<destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.TerrainDef_Bridge">
+				<loopTexPath>BiomesCore_Terrain/Bridges/PontoonBridgeProps_Loop</loopTexPath>
+				<rightTexPath>BiomesCore_Terrain/Bridges/PontoonBridgeProps_Right</rightTexPath>
+			</li>
+		</modExtensions>
+	</TerrainDef>
+
+</Defs>

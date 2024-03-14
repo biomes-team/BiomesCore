@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ConceptDef ParentName="NotedOpportunisticBase">
+		<defName>BMT_HungeringAnimalsConcept</defName>
+		<label>Hungering animals</label>
+		<helpText>Hungering animals will try to eat the food and sown plants of your colony by any means. This pack will even destroy walls to steal your food.</helpText>
+	</ConceptDef>
+</Defs>

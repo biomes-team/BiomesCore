@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+	Terrains are loaded in a different way which does not support BackCompatibilityConverter.
+	These terrains were deprecated during the 1.5 update.
+	-->
+
+	<TerrainDef ParentName="BMT_Chinampa_Base">
+		<defName>FloatinggardenSandstone</defName>
+		<label>sandstone chinampa (D)</label>
+		<costList>
+			<ChunkSandstone>1</ChunkSandstone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Chinampa_Base">
+		<defName>FloatinggardenGranite</defName>
+		<label>Granite chinampa (D)</label>
+		<costList>
+			<ChunkGranite>1</ChunkGranite>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Chinampa_Base">
+		<defName>floatinggardenLimestone</defName>
+		<label>Limestone chinampa (D)</label>
+		<costList>
+			<ChunkLimestone>1</ChunkLimestone>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Chinampa_Base">
+		<defName>FloatinggardenSlate</defName>
+		<label>Slate chinampa (D)</label>
+		<costList>
+			<ChunkSlate>1</ChunkSlate>
+		</costList>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Chinampa_Base">
+		<defName>FloatinggardenMarble</defName>
+		<label>Marble chinampa (D)</label>
+		<costList>
+			<ChunkMarble>1</ChunkMarble>
+		</costList>
+	</TerrainDef>
+
+</Defs>

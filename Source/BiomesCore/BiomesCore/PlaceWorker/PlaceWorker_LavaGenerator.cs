@@ -30,7 +30,7 @@ namespace BiomesCore
         {
             foreach (IntVec3 item in CompPowerPlantLava.LavaCells(loc, rot))
             {
-                if (!map.terrainGrid.TerrainAt(item).affordances.Contains(BiomesCoreDefOf.Lava))
+                if (!map.terrainGrid.TerrainAt(item).affordances.Contains(BiomesCoreDefOf.BMT_TerrainAffordance_Lava))
                 {
                     return false;
                 }
@@ -71,7 +71,7 @@ namespace BiomesCore
         public override IEnumerable<TerrainAffordanceDef> DisplayAffordances()
         {
             yield return TerrainAffordanceDefOf.Heavy;
-            yield return BiomesCoreDefOf.Lava;
+            yield return BiomesCoreDefOf.BMT_TerrainAffordance_Lava;
         }
     }
 }

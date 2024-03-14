@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<HediffDef>
+		<defName>BMT_HungeringHediff</defName>
+		<label>hungering</label>
+		<description>A disease causing a state of perpetual starvation. Afflicted creatures search for food near human settlements, destroying doors and buildings to reach food.</description>
+		<descriptionShort>A disease causing a state of perpetual starvation.</descriptionShort>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.7, 0.15, 0.4)</defaultLabelColor>
+		<initialSeverity>1</initialSeverity>
+		<comps>
+			<li Class="HediffCompProperties_KillAfterDays">
+				<days>5</days>
+			</li>
+			<li Class="HediffCompProperties_CauseMentalState">
+				<animalMentalState>BMT_Hungering</animalMentalState>
+				<humanMentalState>BMT_Hungering</humanMentalState>
+				<letterDef>ThreatSmall</letterDef>
+				<mtbDaysToCauseMentalState>1</mtbDaysToCauseMentalState>
+				<endMentalStateOnCure>false</endMentalStateOnCure>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<hungerRateFactor>2</hungerRateFactor>
+				<painFactor>0.3</painFactor>
+				<totalBleedFactor>0.8</totalBleedFactor>
+				<statFactors>
+					<!-- Hungering creatures need to eat 10 times as much food to reach 100%!. -->
+					<MaxNutrition>10</MaxNutrition>
+				</statFactors>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<MentalStateDef ParentName="BaseMentalState">
+		<defName>BMT_Hungering</defName>
+		<stateClass>BiomesCore.MentalState.MentalState_Hungering</stateClass>
+		<label>hungering</label>
+		<nameColor>(0.7, 0.15, 0.4)</nameColor>
+		<baseInspectLine>Maddened: Hungering</baseInspectLine>
+		<inCaravanCanDo>true</inCaravanCanDo>
+		<minTicksBeforeRecovery>99999999</minTicksBeforeRecovery>
+		<recoverFromSleep>false</recoverFromSleep>
+		<recoverFromDowned>false</recoverFromDowned>
+		<recoverFromCollapsingExhausted>false</recoverFromCollapsingExhausted>
+	</MentalStateDef>
+</Defs>

@@ -60,7 +60,7 @@ namespace BiomesCore
             lavaUsable = true;
             foreach (IntVec3 item in LavaCells())
             {
-                if (item.InBounds(parent.Map) && !parent.Map.terrainGrid.TerrainAt(item).affordances.Contains(BiomesCoreDefOf.Lava))
+                if (item.InBounds(parent.Map) && !parent.Map.terrainGrid.TerrainAt(item).affordances.Contains(BiomesCoreDefOf.BMT_TerrainAffordance_Lava))
                 {
                     lavaUsable = false;
                     break;

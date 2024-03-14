@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+	<BodyPartDef>
+		<defName>BMT_MucousGland</defName>
+		<label>mucous gland</label>
+		<hitPoints>20</hitPoints>
+		<skinCovered>true</skinCovered>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BMT_RightEyeStalk</defName>
+		<label>eyestalk</label>
+		<hitPoints>10</hitPoints>
+		<skinCovered>false</skinCovered>
+		<tags>
+			<li>SightSource</li>
+		</tags>
+		<hitChanceFactors>
+			<li>
+				<key>Blunt</key>
+				<value>0</value>
+			</li>
+		</hitChanceFactors>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BMT_LeftEyeStalk</defName>
+		<label>eyestalk</label>
+		<hitPoints>10</hitPoints>
+		<skinCovered>false</skinCovered>
+		<tags>
+			<li>SightSource</li>
+		</tags>
+		<hitChanceFactors>
+			<li>
+				<key>Blunt</key>
+				<value>0</value>
+			</li>
+		</hitChanceFactors>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BMT_SnailMouth</defName>
+		<label>mouth</label>
+		<hitPoints>20</hitPoints>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>EatingSource</li>
+			<li>TalkingSource</li>
+			<li>ManipulationLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BMT_SnailFoot</defName>
+		<label>snail foot</label>
+		<hitPoints>30</hitPoints>
+		<skinCovered>false</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+</Defs>

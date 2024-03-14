@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<SoundDef>
+		<defName>BMT_GiantSnail_Wounded</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Animal/GiantSnail/Wounded</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>25~35</volumeRange>
+				<pitchRange>0.9311765~1.091765</pitchRange>
+				<distRange>0~70</distRange>
+				<repeatMode>NeverTwice</repeatMode>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>BMT_GiantSnail_Death</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Animal/GiantSnail/Death</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>25~35</volumeRange>
+				<pitchRange>0.9311764~1.068824</pitchRange>
+				<distRange>0~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>BMT_GiantSnail_Call</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Animal/GiantSnail/Call</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>20~28</volumeRange>
+				<pitchRange>0.9770588~1.137647</pitchRange>
+				<distRange>0~50.40025</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+	<SoundDef>
+		<defName>BMT_GiantSnail_Angry</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Animal/GiantSnail/Angry</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>25~35</volumeRange>
+				<pitchRange>0.9541176~1.137647</pitchRange>
+				<distRange>0~70</distRange>
+				<sustainLoop>False</sustainLoop>
+			</li>
+		</subSounds>
+	</SoundDef>
+</Defs>

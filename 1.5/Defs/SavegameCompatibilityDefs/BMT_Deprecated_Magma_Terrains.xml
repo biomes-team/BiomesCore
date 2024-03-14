@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<!--
+	Terrains are loaded in a different way which does not support BackCompatibilityConverter.
+	These two terrains were deprecated during the 1.5 update.
+	-->
+	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
+		<defName>BiomeCore_Lava</defName>
+		<label>lava (D)</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
+		<defName>BiomeCore_Magma</defName>
+		<label>magma (D)</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
+	</TerrainDef>
+
+</Defs>

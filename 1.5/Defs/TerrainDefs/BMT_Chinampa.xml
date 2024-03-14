@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DesignatorDropdownGroupDef>
+    <defName>BMT_Designator_Chinampa</defName>
+    <label>tile</label>
+  </DesignatorDropdownGroupDef>
+
+  <TerrainDef Abstract="True" Name="BMT_Chinampa_Base">
+    <label>chinampa</label>
+    <description>A stationary artificial island used to cultivate crops in water.</description>
+    <texturePath>Terrain/Surfaces/Mud</texturePath>
+    <uiIconPath>BiomesCore_Terrain/Bridges/Chinampa_MenuIcon</uiIconPath>
+    <layerable>true</layerable>
+    <affordances>
+      <li>Light</li>
+    </affordances>
+    <designatorDropdown>BMT_Designator_Chinampa</designatorDropdown>
+    <modExtensions>
+      <li Class="BiomesCore.DefModExtensions.TerrainDef_Bridge">
+        <loopTexPath>BiomesCore_Terrain/Bridges/ChinampaProps_Loop</loopTexPath>
+        <rightTexPath>BiomesCore_Terrain/Bridges/ChinampaProps_Right</rightTexPath>
+      </li>
+    </modExtensions>
+    <designationCategory>Structure</designationCategory>
+    <fertility>1.0</fertility>
+    <constructEffect>ConstructWood</constructEffect>
+    <terrainAffordanceNeeded>Bridgeable</terrainAffordanceNeeded>
+    <edgeType>Hard</edgeType>
+    <renderPrecedence>400</renderPrecedence>
+    <statBases>
+      <WorkToBuild>2500</WorkToBuild>
+      <Flammability>0.2</Flammability>
+    </statBases>
+    <costList>
+      <WoodLog>5</WoodLog>
+      <Hay>36</Hay>
+    </costList>
+    <designationHotKey>Misc4</designationHotKey>
+    <destroyOnBombDamageThreshold>50</destroyOnBombDamageThreshold>
+    <destroyBuildingsOnDestroyed>true</destroyBuildingsOnDestroyed>
+    <destroyEffect>Bridge_Collapse</destroyEffect>
+    <destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
+  </TerrainDef>
+
+  <TerrainDef ParentName="BMT_Chinampa_Base">
+    <defName>BMT_Chinampa_Sandstone</defName>
+    <label>sandstone chinampa</label>
+    <costList>
+      <ChunkSandstone>1</ChunkSandstone>
+    </costList>
+  </TerrainDef>
+
+  <TerrainDef ParentName="BMT_Chinampa_Base">
+    <defName>BMT_Chinampa_Granite</defName>
+    <label>Granite chinampa</label>
+    <costList>
+      <ChunkGranite>1</ChunkGranite>
+    </costList>
+  </TerrainDef>
+
+  <TerrainDef ParentName="BMT_Chinampa_Base">
+    <defName>BMT_Chinampa_Limestone</defName>
+    <label>Limestone chinampa</label>
+    <costList>
+      <ChunkLimestone>1</ChunkLimestone>
+    </costList>
+  </TerrainDef>
+
+  <TerrainDef ParentName="BMT_Chinampa_Base">
+    <defName>BMT_Chinampa_Slate</defName>
+    <label>Slate chinampa</label>
+    <costList>
+      <ChunkSlate>1</ChunkSlate>
+    </costList>
+  </TerrainDef>
+
+  <TerrainDef ParentName="BMT_Chinampa_Base">
+    <defName>BMT_Chinampa_Marble</defName>
+    <label>Marble chinampa</label>
+    <costList>
+      <ChunkMarble>1</ChunkMarble>
+    </costList>
+  </TerrainDef>
+
+</Defs>

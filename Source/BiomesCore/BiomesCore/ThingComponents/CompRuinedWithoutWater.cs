@@ -6,7 +6,7 @@ namespace BiomesCore.ThingComponents
     public class CompRuinedWithoutWater : CompTemperatureRuinable
     {
 		private IntVec3 positionOnLastCheck = IntVec3.Invalid;
-		bool ruinedByLackOfWater = false;
+		bool BMT_RuinedByLackOfWater = false;
 
 		private void DoTicks(int ticks)
 		{
@@ -29,7 +29,7 @@ namespace BiomesCore.ThingComponents
 					if (!pos.GetTerrain(parent.MapHeld).IsWater)
 					{
 						ruinedPercent = 1f; //Ruined!
-						ruinedByLackOfWater = true;
+						BMT_RuinedByLackOfWater = true;
 					}
 				}
 				if (ruinedPercent >= 1f)
@@ -46,8 +46,8 @@ namespace BiomesCore.ThingComponents
 
         public override string CompInspectStringExtra()
         {
-			if (ruinedByLackOfWater)
-				return "RuinedByLackOfWater".Translate();
+			if (BMT_RuinedByLackOfWater)
+				return "BMT_RuinedByLackOfWater".Translate();
             return base.CompInspectStringExtra();
         }
     }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']/affordances</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']</xpath>
+			<value>
+				<affordances/>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']/affordances</xpath>
+		<value>
+			<li>BMT_DeepWaterBridgeable</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TerrainDef[defName='WaterMovingChestDeep']/affordances</xpath>
+		<value>
+			<li>BMT_DeepWaterBridgeable</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TerrainDef[@Name='WaterShallowBase']/affordances</xpath>
+		<value>
+			<li>BMT_DeepWaterBridgeable</li>
+		</value>
+	</Operation>
+
+</Patch>

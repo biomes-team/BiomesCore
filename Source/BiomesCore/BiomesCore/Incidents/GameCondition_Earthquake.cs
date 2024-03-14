@@ -24,7 +24,7 @@ namespace BiomesCore
 
             //Stuff that would happen if you do it with GameConditionMaker..
             startTick = Find.TickManager.TicksGame;
-            def = BiomesCoreDefOf.Earthquake;
+            def = BiomesCoreDefOf.BMT_Earthquake;
             uniqueID = Find.UniqueIDsManager.GetNextGameConditionID();
             PostMake();
         }
@@ -38,7 +38,7 @@ namespace BiomesCore
             {
                 Find.Storyteller.incidentQueue.Add(
                     new QueuedIncident(
-                        new FiringIncident(BiomesCoreDefOf.CaveIn, null, StorytellerUtility.DefaultParmsNow(IncidentCategoryDefOf.Misc, Find.CurrentMap)), ticks, Duration)); //Cave-In!
+                        new FiringIncident(BiomesCoreDefOf.BMT_CaveIn, null, StorytellerUtility.DefaultParmsNow(IncidentCategoryDefOf.Misc, Find.CurrentMap)), ticks, Duration)); //Cave-In!
                 LastCaveInTick = ticks;
             }
             if (ticks % 250 == 0) //Only stun every so often.
@@ -48,7 +48,7 @@ namespace BiomesCore
                         p.stances.stunner.StunFor(250, null, false);
                 });
             if (Rand.Value > .9) //10% chance per tick for another sound.
-                BiomesCoreDefOf.EarthquakeSound.PlayOneShot(SoundInfo.OnCamera(MaintenanceType.PerTick));
+                BiomesCoreDefOf.BMT_EarthquakeSound.PlayOneShot(SoundInfo.OnCamera(MaintenanceType.PerTick));
         }
     }
 }
