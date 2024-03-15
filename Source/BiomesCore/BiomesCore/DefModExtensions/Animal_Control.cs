@@ -17,6 +17,8 @@ namespace BiomesCore.DefModExtensions
         public bool isCustomThingEater;
         public bool isBottomFeeder;
 
+        public List<ThingDef> canHuntOnlyOnDefs;
+
         /// <summary>
         /// Unless set to true, the animal will not be considered insectoid even if they have insectoid fleshtype or are
         /// an insect.

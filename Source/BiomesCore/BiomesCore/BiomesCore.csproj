@@ -1,251 +1,251 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<ProjectGuid>{736186CB-9BA6-409D-8EE7-5FF8D62D4927}</ProjectGuid>
-		<OutputType>Library</OutputType>
-		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>BiomesCore</RootNamespace>
-		<AssemblyName>BiomesCore</AssemblyName>
-		<TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-		<FileAlignment>512</FileAlignment>
-		<Deterministic>true</Deterministic>
-		<TargetFrameworkProfile/>
-		<LangVersion>8</LangVersion>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DebugSymbols>false</DebugSymbols>
-		<DebugType>none</DebugType>
-		<Optimize>false</Optimize>
-		<OutputPath>..\..\..\1.5\Assemblies\</OutputPath>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-		<Prefer32Bit>false</Prefer32Bit>
-	</PropertyGroup>
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DebugType>none</DebugType>
-		<Optimize>true</Optimize>
-		<OutputPath>..\..\..\1.5\Assemblies\</OutputPath>
-		<DefineConstants>TRACE</DefineConstants>
-		<ErrorReport>prompt</ErrorReport>
-		<WarningLevel>4</WarningLevel>
-		<Prefer32Bit>false</Prefer32Bit>
-	</PropertyGroup>
-	<ItemGroup>
-		<Compile Include="BackCompatibilities\BackCompatibilityDefOf.cs" />
-		<Compile Include="BackCompatibilities\BiomesBackCompatibilityConverter_1_4.cs" />
-		<Compile Include="BiomesCore.cs" />
-		<Compile Include="Bridges\Bridge.cs" />
-		<Compile Include="Compatability\FertileFields.cs" />
-		<Compile Include="DefModExtensions\Animal_Control.cs" />
-		<Compile Include="DefModExtensions\CustomGraphicsPlantDef.cs" />
-		<Compile Include="DefModExtensions\DisableIncidentsExtension.cs" />
-		<Compile Include="DefModExtensions\DropChunksWhenDestroyed.cs" />
-		<Compile Include="DefModExtensions\RockNoiseConfig.cs" />
-		<Compile Include="DefOfs\BiomesCoreDefOf.cs" />
-		<Compile Include="DefOfs\StatCategoryDefOf.cs" />
-		<Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
-		<Compile Include="HashExtension.cs" />
-		<Compile Include="Incidents\IncidentWorker_HungeringAnimals.cs" />
-		<Compile Include="Jobs\JobDriver_HermaphroditicMate.cs" />
-		<Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />
-		<Compile Include="Jobs\JobDriver_HarvestAnimalProduct.cs" />
-		<Compile Include="Jobs\JobDriver_BottomFeeder.cs" />
-		<Compile Include="DefModExtensions\BiomesMap.cs" />
-		<Compile Include="DerivedClasses\PlantClasses.cs" />
-		<Compile Include="Incidents\GameCondition_Earthquake.cs" />
-		<Compile Include="Incidents\IncidentWorker_CaveIn.cs" />
-		<Compile Include="Incidents\IncidentWorker_Earthquake.cs" />
-		<Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
-		<Compile Include="Incidents\PlantSproutIncidentDef.cs" />
-		<Compile Include="Jobs\JobDriver_EatCustomThing.cs" />
-		<Compile Include="Jobs\JobGiver_Hungering.cs" />
-		<Compile Include="LordJobs\WanderAroundThing.cs" />
-		<Compile Include="LordToils\WanderAroundThing.cs" />
-		<Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
-		<Compile Include="MapGeneration\GenStep_CavernShape_LargeChambers.cs" />
-		<Compile Include="MapGeneration\GenStep_CavernShape_Smoth.cs" />
-		<Compile Include="MapGeneration\GenStep_CavernShape_Tubes.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandShape_Broken.cs" />
-		<Compile Include="MapGeneration\GenStep_Cavern.cs" />
-		<Compile Include="MapGeneration\GenStep_Valley.cs" />
-		<Compile Include="MapGeneration\GenStep_Island.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandShape_Crescent.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandElevation.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandShape_Cluster.cs" />
-		<Compile Include="MapGeneration\GenStep_CavernShape_TunnelNetwork.cs" />
-		<Compile Include="MapGeneration\GenStep_ValleyShape_Linear.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandShape_Pair.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandRockChunks.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandRocksFromGrid.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandShape_Rough.cs" />
-		<Compile Include="MapGeneration\GenStep_IslandShape_Smooth.cs" />
-		<Compile Include="MapGeneration\GenStep_Oasis.cs" />
-		<Compile Include="MapGeneration\MapGenerationPatch.cs" />
-		<Compile Include="MapGeneration\GenStep_CavernRocksFromGrid.cs" />
-		<Compile Include="MentalState\MentalState_Hungering.cs" />
-		<Compile Include="ModSettings\Settings.cs" />
-		<Compile Include="ModSettings\SettingsWindow.cs" />
-		<Compile Include="Patches\AlternativePawnGraphics.cs" />
-		<Compile Include="Patches\BackwardsCompatibility\BackCompatibility_BackCompatibleTerrainWithShortHash_Patch.cs" />
-		<Compile Include="Patches\BackwardsCompatibility\BackCompatibility_PreLoadSavegame_Patch.cs" />
-		<Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
-		<Compile Include="Patches\Caverns\BeautyUtility_CellBeauty_Patch.cs" />
-		<Compile Include="Patches\Caverns\DropCellFinder_CanPhysicallyDropInto_Patch.cs" />
-		<Compile Include="Patches\Caverns\DropCellFinder_FindRaidDropCenterDistant_Patch.cs" />
-		<Compile Include="Patches\Caverns\DropCellFinder_TradeDropSpot_Patch.cs" />
-		<Compile Include="Patches\Caverns\DropCellFinder_TryFindSafeLandingSpotCloseToColony_Patch.cs" />
-		<Compile Include="Patches\Caverns\GenStep_RocksFromGrid_Generate_Patch.cs" />
-		<Compile Include="Patches\Caverns\IncidentWorker_GauranlenPodSpawn_CanSpawnPodAt_Patch.cs" />
-		<Compile Include="Patches\Caverns\InfestationCellFinder_GetMountainousnessScoreAt_Patch.cs" />
-		<Compile Include="Patches\Caverns\PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch.cs" />
-		<Compile Include="Patches\Caverns\RaidStrategyWorker_Siege_CanUseWith_Patch.cs" />
-		<Compile Include="Patches\Caverns\RCellFinder_TryFindRandomPawnEntryCell_Patch.cs" />
-		<Compile Include="Patches\Caverns\RoofGrid_GetCellExtraColor_Patch.cs" />
-		<Compile Include="Patches\Caverns\RoyalTitlePermitWorker_CallShuttle_GetReportFromCell_Patch.cs" />
-		<Compile Include="Patches\Caverns\StatPart_WorkTableOutdoors_Applies_Patch.cs" />
-		<Compile Include="Patches\Caverns\ThoughtWorker_IsIndoorsForUndergrounder_IsAwakeAndIndoors_Patch.cs" />
-		<Compile Include="Patches\Caverns\ThoughtWorker_IsOutdoorsForUndergrounder_CurrentStateInternal_Patch.cs" />
-		<Compile Include="Patches\Caverns\ThoughtWorker_NeedRoomSize_CurrentStateInternal_Patch.cs" />
-		<Compile Include="Patches\Caverns\Toils_LayDown_ApplyBedThoughts_Patch.cs" />
-		<Compile Include="Patches\Caverns\Transpilers.cs" />
-		<Compile Include="Patches\Caverns\Utility.cs" />
-		<Compile Include="Patches\CompCauseGameCondition_ForceWeather_RandomizeSettings_Patch.cs" />
-		<Compile Include="Patches\ComplexThreatWorker_SleepingInsects_GetPawnKindsForPoints_Patch.cs" />
-		<Compile Include="Patches\Caverns\GenStep_SpecialTrees_CanSpawnAt_Patch.cs" />
-		<Compile Include="Patches\Caverns\RCellFinder_TryFindRandomSpotJustOutsideColony_Patch.cs" />
-		<Compile Include="Patches\ChangeStockQuality.cs" />
-		<Compile Include="Patches\CustomMeat.cs" />
-		<Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
-		<Compile Include="Patches\ChunksOnKilled.cs" />
-		<Compile Include="Patches\ExtendCaravanCarriers.cs" />
-		<Compile Include="Patches\ExtraStatInfo.cs" />
-		<Compile Include="Patches\GenStep_ValleyPatch.cs" />
-		<Compile Include="DefModExtensions\OrePreferredBiome.cs" />
-		<Compile Include="DefModExtensions\Biomes_PlantControl.cs" />
-		<Compile Include="DefModExtensions\Song_MapRestrictions.cs" />
-		<Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />
-		<Compile Include="Patches\Bridges_NewTypeCheck.cs" />
-		<Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
-		<Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
-		<Compile Include="Patches\GenTemperature_Patch.cs" />
-		<Compile Include="Patches\Immunities_TakeDamage_Patch.cs" />
-		<Compile Include="Patches\Incidents\IncidentWorker_CanFireNow_Patch.cs" />
-		<Compile Include="Patches\IslandGeysers.cs" />
-		<Compile Include="Patches\IslandHilliness.cs" />
-		<Compile Include="Patches\IslandScatterables.cs" />
-		<Compile Include="Jobs\JobDriver_BloodDrinking.cs" />
-		<Compile Include="Patches\JobDriver_PredatorHunt_Patch.cs" />
-		<Compile Include="Patches\JobGiver_GetFood_GetPriority_Patch.cs" />
-		<Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
-		<Compile Include="Patches\MapGen\GenStep_FindPlayerStartSpot_AvoidTerrainOnGameStartDef_Patch.cs" />
-		<Compile Include="Patches\PlantGrowth.cs" />
-		<Compile Include="Patches\Plants\PlantUtility_GrowthSeasonNow_Patch.cs" />
-		<Compile Include="Patches\Plants\WorkGiver_GrowerSow_JobOnCell_Patch.cs" />
-		<Compile Include="Patches\PollutionUtility_StimulatedByPollution_Patch.cs" />
-		<Compile Include="Patches\PreceptWorker_Animal_ThingDefs_Patch.cs" />
-		<Compile Include="Patches\PredatorHuntingBehaviour.cs" />
-		<Compile Include="Patches\RockNoises_Init.cs" />
-		<Compile Include="Patches\Song_Map.cs" />
-		<Compile Include="Patches\PlantSpawning.cs" />
-		<Compile Include="Patches\SymbolResolver_Interior_SleepingInsects_Resolve_Patch.cs" />
-		<Compile Include="Patches\WeatherDecider_WeatherCommonalities_Patch.cs" />
-		<Compile Include="Patches\WorldGen\WorldGenStep_Terrain_BiomeFrom_Patch.cs" />
-		<Compile Include="Patches\WorldGen\WorldGenStep_Terrain_SetupSwampinessNoise_Patch.cs" />
-		<Compile Include="Patches\WorldMap\BiomeDef_DrawMaterial_Patch.cs" />
-		<Compile Include="PlaceWorker\PlaceWorker_Aquatic.cs" />
-		<Compile Include="PlaceWorker\PlaceWorker_LavaGenerator.cs" />
-		<Compile Include="Planet\WorldGenInfoHandler.cs" />
-		<Compile Include="Planet\WorldGenInfo.cs" />
-		<Compile Include="Properties\AssemblyInfo.cs" />
-		<Compile Include="Reflections\Reflection.cs" />
-		<Compile Include="Reflections\TranspilerHelper.cs" />
-		<Compile Include="RoofExtensions.cs" />
-		<Compile Include="SpecialTerrainList.cs" />
-		<Compile Include="StockGenerators\Herder.cs" />
-		<Compile Include="StockGenerators\HighQualityItems.cs" />
-		<Compile Include="StockGenerators\ButcheredPrey.cs" />
-		<Compile Include="StockGenerators\Util.cs" />
-		<Compile Include="Locations\TerrainLocation.cs" />
-		<Compile Include="Locations\BurnThingsLocation.cs" />
-		<Compile Include="Locations\LavaTerrainDefExtension.cs" />
-		<Compile Include="Locations\LavaTerrainLocation.cs" />
-		<Compile Include="Locations\Patches\TerrainGrid_RemoveTopLayer_Patch.cs" />
-		<Compile Include="Locations\Patches\TerrainGrid_SetTerrain_Patch.cs" />
-		<Compile Include="Locations\LocationGrid.cs" />
-		<Compile Include="Locations\TerrainLocationDefExtension.cs" />
-		<Compile Include="Locations\TickableLocationsByTickerType.cs" />
-		<Compile Include="Locations\Location.cs" />
-		<Compile Include="Locations\TickerTypeInterval.cs" />
-		<Compile Include="ThingComponents\CompDefaultOffGlower.cs" />
-		<Compile Include="ThingComponents\CompDefensiveReaction.cs" />
-		<Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
-		<Compile Include="ThingComponents\CompPlantProximityExplosive.cs" />
-		<Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
-		<Compile Include="ThingComponents\CompHarvestAnimalProduct.cs" />
-		<Compile Include="ThingComponents\CompCorpseThingSpawner.cs" />
-		<Compile Include="ThingComponents\CompCleanFilthAround.cs" />
-		<Compile Include="ThingComponents\CompAnimalThingSpawner.cs" />
-		<Compile Include="ThingComponents\CompBottomFeeder.cs" />
-		<Compile Include="ThingComponents\CompCustomThingEater.cs" />
-		<Compile Include="ThingComponents\CompDamageImmunities.cs" />
-		<Compile Include="ThingComponents\CompEvolveAtFixedAge.cs" />
-		<Compile Include="ThingComponents\CompHediffImmunities.cs" />
-		<Compile Include="ThingComponents\CompLurePrey.cs" />
-		<Compile Include="ThingComponents\CompMakeFilthTrail.cs" />
-		<Compile Include="ThingComponents\CompPackDefense.cs" />
-		<Compile Include="ThingComponents\CompPackHunter.cs" />
-		<Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
-		<Compile Include="ThingComponents\CompPlantReleaseSpore.cs" />
-		<Compile Include="ThingComponents\CompPowerPlantLava.cs" />
-		<Compile Include="ThingComponents\CompPowerPlant_PowerFungus.cs" />
-		<Compile Include="ThingComponents\CompProperties_InitialHediff.cs" />
-		<Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
-		<Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
-		<Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
-		<Compile Include="ThingComponents\CompSleepGraphic.cs" />
-		<Compile Include="ThingComponents\CompDynamicPawnGraphic.cs" />
-		<Compile Include="ThingComponents\CompTerrainRecolor.cs" />
-		<Compile Include="ThingComponents\Spawner_Comp.cs" />
-		<Compile Include="ThingComponents\Spawner_CompProperties.cs" />
-		<Compile Include="Things\BiomesPlant.cs" />
-		<Compile Include="WorldMap\BiomeWorkerUtil.cs" />
-		<Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
-		<PackageReference Include="Krafs.Publicizer" Version="2.2.1">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Lib.Harmony" Version="2.3.1.1" ExcludeAssets="runtime" />
-		<Reference Include="Assembly-CSharp">
-			<HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-			<HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\Assembly-CSharp.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="System" />
-		<Reference Include="System.Xml" />
-		<Reference Include="UnityEngine.CoreModule">
-			<HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-			<HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-		<Reference Include="UnityEngine.TextRenderingModule">
-			<HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-			<HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-			<Private>False</Private>
-		</Reference>
-	</ItemGroup>
-	<ItemGroup>
-		<Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
-		<Publicize Include="Assembly-CSharp:RimWorld.Plant.GraphicSowing" />
-		<!-- ToDo https://github.com/biomes-team/BiomesCore/issues/14 -->
-		<Publicize Include="Assembly-CSharp:Verse.Pawn.drawer" />
-		<Publicize Include="Assembly-CSharp:Verse.PawnRenderer.pawn" />
-	</ItemGroup>
-
-	<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
-	<PropertyGroup>
-		<PublicizerClearCacheOnClean>true</PublicizerClearCacheOnClean>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{736186CB-9BA6-409D-8EE7-5FF8D62D4927}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BiomesCore</RootNamespace>
+    <AssemblyName>BiomesCore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\1.5\Assemblies\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\1.5\Assemblies\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BackCompatibilities\BackCompatibilityDefOf.cs" />
+    <Compile Include="BackCompatibilities\BiomesBackCompatibilityConverter_1_4.cs" />
+    <Compile Include="BiomesCore.cs" />
+    <Compile Include="Bridges\Bridge.cs" />
+    <Compile Include="Compatability\FertileFields.cs" />
+    <Compile Include="DefModExtensions\Animal_Control.cs" />
+    <Compile Include="DefModExtensions\CustomGraphicsPlantDef.cs" />
+    <Compile Include="DefModExtensions\DisableIncidentsExtension.cs" />
+    <Compile Include="DefModExtensions\DropChunksWhenDestroyed.cs" />
+    <Compile Include="DefModExtensions\RockNoiseConfig.cs" />
+    <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
+    <Compile Include="DefOfs\StatCategoryDefOf.cs" />
+    <Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
+    <Compile Include="HashExtension.cs" />
+    <Compile Include="Incidents\IncidentWorker_HungeringAnimals.cs" />
+    <Compile Include="Jobs\JobDriver_HermaphroditicMate.cs" />
+    <Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />
+    <Compile Include="Jobs\JobDriver_HarvestAnimalProduct.cs" />
+    <Compile Include="Jobs\JobDriver_BottomFeeder.cs" />
+    <Compile Include="DefModExtensions\BiomesMap.cs" />
+    <Compile Include="DerivedClasses\PlantClasses.cs" />
+    <Compile Include="Incidents\GameCondition_Earthquake.cs" />
+    <Compile Include="Incidents\IncidentWorker_CaveIn.cs" />
+    <Compile Include="Incidents\IncidentWorker_Earthquake.cs" />
+    <Compile Include="Incidents\IncidentWorker_PlantSprout.cs" />
+    <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
+    <Compile Include="Jobs\JobDriver_EatCustomThing.cs" />
+    <Compile Include="Jobs\JobGiver_Hungering.cs" />
+    <Compile Include="LordJobs\WanderAroundThing.cs" />
+    <Compile Include="LordToils\WanderAroundThing.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_LargeChambers.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_Smoth.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_Tubes.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Broken.cs" />
+    <Compile Include="MapGeneration\GenStep_Cavern.cs" />
+    <Compile Include="MapGeneration\GenStep_Valley.cs" />
+    <Compile Include="MapGeneration\GenStep_Island.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Crescent.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandElevation.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Cluster.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernShape_TunnelNetwork.cs" />
+    <Compile Include="MapGeneration\GenStep_ValleyShape_Linear.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Pair.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandRockChunks.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandRocksFromGrid.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Rough.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Smooth.cs" />
+    <Compile Include="MapGeneration\GenStep_Oasis.cs" />
+    <Compile Include="MapGeneration\MapGenerationPatch.cs" />
+    <Compile Include="MapGeneration\GenStep_CavernRocksFromGrid.cs" />
+    <Compile Include="MentalState\MentalState_Hungering.cs" />
+    <Compile Include="ModSettings\Settings.cs" />
+    <Compile Include="ModSettings\SettingsWindow.cs" />
+    <Compile Include="Patches\AlternativePawnGraphics.cs" />
+    <Compile Include="Patches\BackwardsCompatibility\BackCompatibility_BackCompatibleTerrainWithShortHash_Patch.cs" />
+    <Compile Include="Patches\BackwardsCompatibility\BackCompatibility_PreLoadSavegame_Patch.cs" />
+    <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
+    <Compile Include="Patches\Caverns\BeautyUtility_CellBeauty_Patch.cs" />
+    <Compile Include="Patches\Caverns\DropCellFinder_CanPhysicallyDropInto_Patch.cs" />
+    <Compile Include="Patches\Caverns\DropCellFinder_FindRaidDropCenterDistant_Patch.cs" />
+    <Compile Include="Patches\Caverns\DropCellFinder_TradeDropSpot_Patch.cs" />
+    <Compile Include="Patches\Caverns\DropCellFinder_TryFindSafeLandingSpotCloseToColony_Patch.cs" />
+    <Compile Include="Patches\Caverns\GenStep_RocksFromGrid_Generate_Patch.cs" />
+    <Compile Include="Patches\Caverns\IncidentWorker_GauranlenPodSpawn_CanSpawnPodAt_Patch.cs" />
+    <Compile Include="Patches\Caverns\InfestationCellFinder_GetMountainousnessScoreAt_Patch.cs" />
+    <Compile Include="Patches\Caverns\PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch.cs" />
+    <Compile Include="Patches\Caverns\RaidStrategyWorker_Siege_CanUseWith_Patch.cs" />
+    <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomPawnEntryCell_Patch.cs" />
+    <Compile Include="Patches\Caverns\RoofGrid_GetCellExtraColor_Patch.cs" />
+    <Compile Include="Patches\Caverns\RoyalTitlePermitWorker_CallShuttle_GetReportFromCell_Patch.cs" />
+    <Compile Include="Patches\Caverns\StatPart_WorkTableOutdoors_Applies_Patch.cs" />
+    <Compile Include="Patches\Caverns\ThoughtWorker_IsIndoorsForUndergrounder_IsAwakeAndIndoors_Patch.cs" />
+    <Compile Include="Patches\Caverns\ThoughtWorker_IsOutdoorsForUndergrounder_CurrentStateInternal_Patch.cs" />
+    <Compile Include="Patches\Caverns\ThoughtWorker_NeedRoomSize_CurrentStateInternal_Patch.cs" />
+    <Compile Include="Patches\Caverns\Toils_LayDown_ApplyBedThoughts_Patch.cs" />
+    <Compile Include="Patches\Caverns\Transpilers.cs" />
+    <Compile Include="Patches\Caverns\Utility.cs" />
+    <Compile Include="Patches\CompCauseGameCondition_ForceWeather_RandomizeSettings_Patch.cs" />
+    <Compile Include="Patches\ComplexThreatWorker_SleepingInsects_GetPawnKindsForPoints_Patch.cs" />
+    <Compile Include="Patches\Caverns\GenStep_SpecialTrees_CanSpawnAt_Patch.cs" />
+    <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomSpotJustOutsideColony_Patch.cs" />
+    <Compile Include="Patches\ChangeStockQuality.cs" />
+    <Compile Include="Patches\CustomMeat.cs" />
+    <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
+    <Compile Include="Patches\ChunksOnKilled.cs" />
+    <Compile Include="Patches\ExtendCaravanCarriers.cs" />
+    <Compile Include="Patches\ExtraStatInfo.cs" />
+    <Compile Include="Patches\GenStep_ValleyPatch.cs" />
+    <Compile Include="DefModExtensions\OrePreferredBiome.cs" />
+    <Compile Include="DefModExtensions\Biomes_PlantControl.cs" />
+    <Compile Include="DefModExtensions\Song_MapRestrictions.cs" />
+    <Compile Include="DefModExtensions\TerrainDef_Bridge.cs" />
+    <Compile Include="Patches\Bridges_NewTypeCheck.cs" />
+    <Compile Include="Patches\GenStep_ScatterLumpsMineable_OrePreferredBiome.cs" />
+    <Compile Include="Patches\BeachMaker_NoBeachBiomes.cs" />
+    <Compile Include="Patches\GenTemperature_Patch.cs" />
+    <Compile Include="Patches\Harmony_PredatorPrey.cs" />
+    <Compile Include="Patches\Immunities_TakeDamage_Patch.cs" />
+    <Compile Include="Patches\Incidents\IncidentWorker_CanFireNow_Patch.cs" />
+    <Compile Include="Patches\IslandGeysers.cs" />
+    <Compile Include="Patches\IslandHilliness.cs" />
+    <Compile Include="Patches\IslandScatterables.cs" />
+    <Compile Include="Jobs\JobDriver_BloodDrinking.cs" />
+    <Compile Include="Patches\JobDriver_PredatorHunt_Patch.cs" />
+    <Compile Include="Patches\JobGiver_GetFood_GetPriority_Patch.cs" />
+    <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
+    <Compile Include="Patches\MapGen\GenStep_FindPlayerStartSpot_AvoidTerrainOnGameStartDef_Patch.cs" />
+    <Compile Include="Patches\PlantGrowth.cs" />
+    <Compile Include="Patches\Plants\PlantUtility_GrowthSeasonNow_Patch.cs" />
+    <Compile Include="Patches\Plants\WorkGiver_GrowerSow_JobOnCell_Patch.cs" />
+    <Compile Include="Patches\PollutionUtility_StimulatedByPollution_Patch.cs" />
+    <Compile Include="Patches\PreceptWorker_Animal_ThingDefs_Patch.cs" />
+    <Compile Include="Patches\PredatorHuntingBehaviour.cs" />
+    <Compile Include="Patches\RockNoises_Init.cs" />
+    <Compile Include="Patches\Song_Map.cs" />
+    <Compile Include="Patches\PlantSpawning.cs" />
+    <Compile Include="Patches\SymbolResolver_Interior_SleepingInsects_Resolve_Patch.cs" />
+    <Compile Include="Patches\WeatherDecider_WeatherCommonalities_Patch.cs" />
+    <Compile Include="Patches\WorldGen\WorldGenStep_Terrain_BiomeFrom_Patch.cs" />
+    <Compile Include="Patches\WorldGen\WorldGenStep_Terrain_SetupSwampinessNoise_Patch.cs" />
+    <Compile Include="Patches\WorldMap\BiomeDef_DrawMaterial_Patch.cs" />
+    <Compile Include="PlaceWorker\PlaceWorker_Aquatic.cs" />
+    <Compile Include="PlaceWorker\PlaceWorker_LavaGenerator.cs" />
+    <Compile Include="Planet\WorldGenInfoHandler.cs" />
+    <Compile Include="Planet\WorldGenInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflections\Reflection.cs" />
+    <Compile Include="Reflections\TranspilerHelper.cs" />
+    <Compile Include="RoofExtensions.cs" />
+    <Compile Include="SpecialTerrainList.cs" />
+    <Compile Include="StockGenerators\Herder.cs" />
+    <Compile Include="StockGenerators\HighQualityItems.cs" />
+    <Compile Include="StockGenerators\ButcheredPrey.cs" />
+    <Compile Include="StockGenerators\Util.cs" />
+    <Compile Include="Locations\TerrainLocation.cs" />
+    <Compile Include="Locations\BurnThingsLocation.cs" />
+    <Compile Include="Locations\LavaTerrainDefExtension.cs" />
+    <Compile Include="Locations\LavaTerrainLocation.cs" />
+    <Compile Include="Locations\Patches\TerrainGrid_RemoveTopLayer_Patch.cs" />
+    <Compile Include="Locations\Patches\TerrainGrid_SetTerrain_Patch.cs" />
+    <Compile Include="Locations\LocationGrid.cs" />
+    <Compile Include="Locations\TerrainLocationDefExtension.cs" />
+    <Compile Include="Locations\TickableLocationsByTickerType.cs" />
+    <Compile Include="Locations\Location.cs" />
+    <Compile Include="Locations\TickerTypeInterval.cs" />
+    <Compile Include="ThingComponents\CompDefaultOffGlower.cs" />
+    <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
+    <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
+    <Compile Include="ThingComponents\CompPlantProximityExplosive.cs" />
+    <Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
+    <Compile Include="ThingComponents\CompHarvestAnimalProduct.cs" />
+    <Compile Include="ThingComponents\CompCorpseThingSpawner.cs" />
+    <Compile Include="ThingComponents\CompCleanFilthAround.cs" />
+    <Compile Include="ThingComponents\CompAnimalThingSpawner.cs" />
+    <Compile Include="ThingComponents\CompBottomFeeder.cs" />
+    <Compile Include="ThingComponents\CompCustomThingEater.cs" />
+    <Compile Include="ThingComponents\CompDamageImmunities.cs" />
+    <Compile Include="ThingComponents\CompEvolveAtFixedAge.cs" />
+    <Compile Include="ThingComponents\CompHediffImmunities.cs" />
+    <Compile Include="ThingComponents\CompLurePrey.cs" />
+    <Compile Include="ThingComponents\CompMakeFilthTrail.cs" />
+    <Compile Include="ThingComponents\CompPackDefense.cs" />
+    <Compile Include="ThingComponents\CompPackHunter.cs" />
+    <Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
+    <Compile Include="ThingComponents\CompPlantReleaseSpore.cs" />
+    <Compile Include="ThingComponents\CompPowerPlantLava.cs" />
+    <Compile Include="ThingComponents\CompPowerPlant_PowerFungus.cs" />
+    <Compile Include="ThingComponents\CompProperties_InitialHediff.cs" />
+    <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
+    <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
+    <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
+    <Compile Include="ThingComponents\CompSleepGraphic.cs" />
+    <Compile Include="ThingComponents\CompDynamicPawnGraphic.cs" />
+    <Compile Include="ThingComponents\CompTerrainRecolor.cs" />
+    <Compile Include="ThingComponents\Spawner_Comp.cs" />
+    <Compile Include="ThingComponents\Spawner_CompProperties.cs" />
+    <Compile Include="Things\BiomesPlant.cs" />
+    <Compile Include="WorldMap\BiomeWorkerUtil.cs" />
+    <Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
+    <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony" Version="2.3.1.1" ExcludeAssets="runtime" />
+    <Reference Include="Assembly-CSharp">
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
+    <Publicize Include="Assembly-CSharp:RimWorld.Plant.GraphicSowing" />
+    <!-- ToDo https://github.com/biomes-team/BiomesCore/issues/14 -->
+    <Publicize Include="Assembly-CSharp:Verse.Pawn.drawer" />
+    <Publicize Include="Assembly-CSharp:Verse.PawnRenderer.pawn" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PublicizerClearCacheOnClean>true</PublicizerClearCacheOnClean>
+  </PropertyGroup>
 </Project>
