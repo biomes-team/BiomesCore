@@ -34,6 +34,7 @@
 		<Prefer32Bit>false</Prefer32Bit>
 	</PropertyGroup>
 	<ItemGroup>
+		<Compile Include="BackCompatibilities\BackCompatibilityDefOf.cs" />
 		<Compile Include="BackCompatibilities\BiomesBackCompatibilityConverter_1_4.cs" />
 		<Compile Include="BiomesCore.cs" />
 		<Compile Include="Bridges\Bridge.cs" />
@@ -52,8 +53,6 @@
 		<Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />
 		<Compile Include="Jobs\JobDriver_HarvestAnimalProduct.cs" />
 		<Compile Include="Jobs\JobDriver_BottomFeeder.cs" />
-		<Compile Include="DefOfs\PawnKindDefOf.cs" />
-		<Compile Include="DefOfs\BiomeDefOf.cs" />
 		<Compile Include="DefModExtensions\BiomesMap.cs" />
 		<Compile Include="DerivedClasses\PlantClasses.cs" />
 		<Compile Include="Incidents\GameCondition_Earthquake.cs" />
@@ -90,7 +89,8 @@
 		<Compile Include="ModSettings\Settings.cs" />
 		<Compile Include="ModSettings\SettingsWindow.cs" />
 		<Compile Include="Patches\AlternativePawnGraphics.cs" />
-		<Compile Include="Patches\BackCompatibility_PreLoadSavegame_Patch.cs" />
+		<Compile Include="Patches\BackwardsCompatibility\BackCompatibility_BackCompatibleTerrainWithShortHash_Patch.cs" />
+		<Compile Include="Patches\BackwardsCompatibility\BackCompatibility_PreLoadSavegame_Patch.cs" />
 		<Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
 		<Compile Include="Patches\Caverns\BeautyUtility_CellBeauty_Patch.cs" />
 		<Compile Include="Patches\Caverns\DropCellFinder_CanPhysicallyDropInto_Patch.cs" />

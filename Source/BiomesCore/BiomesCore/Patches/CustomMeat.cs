@@ -5,36 +5,41 @@ using Verse;
 
 namespace BiomesCore.Patches
 {
-    [HarmonyPatch(typeof(ThingDefGenerator_Meat), "ImpliedMeatDefs")]
-    class BiomesCoreMeatGenerator
-    {
-        static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> meatThings)
-        {
-            foreach (var thingDef in meatThings)
-            {
-                if (thingDef.defName == "Meat_BiomesIslands_WhiteShark")
-                {
-                    thingDef.graphicData.texPath = "BiomesIslands_Things/Item/Meat/Meat_Fish";
-                }
-                if (thingDef.defName == "Meat_BiomesIslands_BlueSeaSnail")
-                {
-                    thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
-                }
-                if (thingDef.defName == "Meat_BiomesIslands_RimCrab")
-                {
-                    thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
-                    thingDef.description = "Raw butchered crab flesh. Delicious when cooked into meals, but can also be eaten raw.";
-                    thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BiomesIslands_Crab");
-                }
-                if (thingDef.defName == "Meat_BiomesIslands_Whale")
-                {
-                    thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
-                    thingDef.description = "Raw fat from an aquatic mammal. Not as tasty as meat, but nutrient dense.";
-                    thingDef.stackLimit = 150;
-                    //thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BiomesIslands_Whale");
-                }
-                yield return thingDef;
-            }
-        }
-    }
+	[HarmonyPatch(typeof(ThingDefGenerator_Meat), "ImpliedMeatDefs")]
+	public static class BiomesCoreMeatGenerator
+	{
+		public static IEnumerable<ThingDef> Postfix(IEnumerable<ThingDef> meatThings)
+		{
+			foreach (var thingDef in meatThings)
+			{
+				if (thingDef.defName == "Meat_BMT_WhiteShark")
+				{
+					thingDef.graphicData.texPath = "BiomesIslands_Things/Item/Meat/Meat_Fish";
+				}
+
+				if (thingDef.defName == "Meat_BMT_BlueSeaSnail")
+				{
+					thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
+				}
+
+				if (thingDef.defName == "Meat_BMT_RimCrab")
+				{
+					thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
+					thingDef.description =
+						"Raw butchered crab flesh. Delicious when cooked into meals, but can also be eaten raw.";
+					thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BMT_Crab");
+				}
+
+				if (thingDef.defName == "Meat_BMT_Whale")
+				{
+					thingDef.graphicData.texPath = "Things/Item/Resource/MeatFoodRaw/Meat_Insect";
+					thingDef.description = "Raw fat from an aquatic mammal. Not as tasty as meat, but nutrient dense.";
+					thingDef.stackLimit = 150;
+					// thingDef.ingestible.specialThoughtAsIngredient = ThoughtDef.Named("BMT_Whale");
+				}
+
+				yield return thingDef;
+			}
+		}
+	}
 }
