@@ -30,8 +30,6 @@
 			</li>
 		</modExtensions>
 		<affordances>
-			<!-- Technically incorrect, but for gameplay we allow it -->
-			<li>BMT_FreshWater_Bridgeable</li>
 			<li>Bridgeable</li>
 		</affordances>
 	</TerrainDef>

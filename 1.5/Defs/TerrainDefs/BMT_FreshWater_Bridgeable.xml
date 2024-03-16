@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Defs>
-	<TerrainAffordanceDef>
-		<defName>BMT_FreshWater_Bridgeable</defName>
-		<label>fresh water bridgeable</label>
-		<order>2460</order>
-	</TerrainAffordanceDef>
-</Defs>
