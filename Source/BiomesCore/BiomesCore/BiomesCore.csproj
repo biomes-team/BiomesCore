@@ -88,7 +88,6 @@
     <Compile Include="MentalState\MentalState_Hungering.cs" />
     <Compile Include="ModSettings\Settings.cs" />
     <Compile Include="ModSettings\SettingsWindow.cs" />
-    <Compile Include="Patches\AlternativePawnGraphics.cs" />
     <Compile Include="Patches\BackwardsCompatibility\BackCompatibility_BackCompatibleTerrainWithShortHash_Patch.cs" />
     <Compile Include="Patches\BackwardsCompatibility\BackCompatibility_PreLoadSavegame_Patch.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
@@ -142,6 +141,9 @@
     <Compile Include="Patches\JobGiver_GetFood_GetPriority_Patch.cs" />
     <Compile Include="Patches\JobGiver_GetFood_TryGiveJob_Patch.cs" />
     <Compile Include="Patches\MapGen\GenStep_FindPlayerStartSpot_AvoidTerrainOnGameStartDef_Patch.cs" />
+    <Compile Include="Patches\ModThingComps\PawnRenderer_BodyAngle_Patch.cs" />
+    <Compile Include="Patches\ModThingComps\PawnRenderer_LayingFacing_Patch.cs" />
+    <Compile Include="Patches\ModThingComps\PawnRenderNode_AnimalPart_GraphicsFor_Patch.cs" />
     <Compile Include="Patches\PlantGrowth.cs" />
     <Compile Include="Patches\Plants\PlantUtility_GrowthSeasonNow_Patch.cs" />
     <Compile Include="Patches\Plants\WorkGiver_GrowerSow_JobOnCell_Patch.cs" />
@@ -202,12 +204,13 @@
     <Compile Include="ThingComponents\CompPlantReleaseSpore.cs" />
     <Compile Include="ThingComponents\CompPowerPlantLava.cs" />
     <Compile Include="ThingComponents\CompPowerPlant_PowerFungus.cs" />
+    <Compile Include="ThingComponents\CompProperties_DynamicAnimalGraphic.cs" />
     <Compile Include="ThingComponents\CompProperties_InitialHediff.cs" />
     <Compile Include="ThingComponents\CompRuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompProperties_RuinedWithoutWater.cs" />
     <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
     <Compile Include="ThingComponents\CompSleepGraphic.cs" />
-    <Compile Include="ThingComponents\CompDynamicPawnGraphic.cs" />
+    <Compile Include="ThingComponents\CompDynamicAnimalGraphic.cs" />
     <Compile Include="ThingComponents\CompTerrainRecolor.cs" />
     <Compile Include="ThingComponents\Spawner_Comp.cs" />
     <Compile Include="ThingComponents\Spawner_CompProperties.cs" />
@@ -240,9 +243,6 @@
   <ItemGroup>
     <Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
     <Publicize Include="Assembly-CSharp:RimWorld.Plant.GraphicSowing" />
-    <!-- ToDo https://github.com/biomes-team/BiomesCore/issues/14 -->
-    <Publicize Include="Assembly-CSharp:Verse.Pawn.drawer" />
-    <Publicize Include="Assembly-CSharp:Verse.PawnRenderer.pawn" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
