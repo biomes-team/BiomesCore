@@ -2,7 +2,7 @@
 <Defs>
 
 	<TerrainDef ParentName="NaturalTerrainBase">
-		<defName>BMT_Pebbles</defName>
+		<defName>BiomesCore_Pebbles</defName>
 		<label>pebbles</label>
 		<tags>
 			<li>Sandy</li>

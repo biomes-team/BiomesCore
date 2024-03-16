@@ -16,7 +16,7 @@ namespace BiomesCore
 
     public class WorkGiver_HarvestAnimalProduct : WorkGiver_GatherAnimalBodyResources
     {
-        protected override JobDef JobDef => BiomesCoreDefOf.BMT_HarvestAnimalProduct;
+        protected override JobDef JobDef => BiomesCoreDefOf.BC_HarvestAnimalProduct;
 
         protected override CompHasGatherableBodyResource GetComp(
           Pawn animal)

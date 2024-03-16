@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<JobDef>
-		<defName>BMT_BottomFeeder</defName>
+		<defName>BC_BottomFeeder</defName>
 		<driverClass>BiomesCore.JobDriver_BottomFeeder</driverClass>
 		<reportString>eating.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
 
 	<JobDef>
-		<defName>BMT_BloodDrinking</defName>
+		<defName>BC_BloodDrinking</defName>
 		<driverClass>BiomesCore.JobDriver_BloodDrinking</driverClass>
 		<reportString>blood drinking from TargetA.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
 
 	<JobDef>
-		<defName>BMT_EatCustomThing</defName>
+		<defName>BC_EatCustomThing</defName>
 		<driverClass>BiomesCore.JobDriver_EatCustomThing</driverClass>
 		<reportString>eating TargetA.</reportString>
 		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
 	</JobDef>
 
 	<JobDef>
-		<defName>BMT_HarvestAnimalProduct</defName>
+		<defName>BC_HarvestAnimalProduct</defName>
 		<driverClass>BiomesCore.JobDriver_HarvestAnimalProduct</driverClass>
 		<reportString>harvesting animal product from TargetA.</reportString>
 	</JobDef>
 
 	<JobDef>
-		<defName>BMT_HermaphroditicMate</defName>
+		<defName>BC_HermaphroditicMate</defName>
 		<driverClass>BiomesCore.JobDriver_HermaphroditicMate</driverClass>
 		<reportString>mating with TargetA.</reportString>
 		<casualInterruptible>false</casualInterruptible>

@@ -1,6 +1,6 @@
 <Defs>
 	<IncidentDef>
-		<defName>BMT_CaveIn</defName>
+		<defName>CaveIn</defName>
 		<label>cave-in</label>
 		<category>Misc</category>
 		<targetTags>

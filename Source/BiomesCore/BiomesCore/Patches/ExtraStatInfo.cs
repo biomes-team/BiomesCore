@@ -130,7 +130,7 @@ namespace BiomesCore.Patches
 			foreach (var biomeEntry in _biomesPerAnimal[parentDef])
 			{
 				yield return new StatDrawEntry(
-					StatCategories.BMT_BiomeCommonality,
+					StatCategories.BC_BiomeCommonality,
 					biomeEntry.Key.label.ToLower().CapitalizeFirst(),
 					"BMT_SpawnPercentage".Translate(biomeEntry.Value.ToString("0.###")),
 					biomeEntry.Key.description,
@@ -160,7 +160,7 @@ namespace BiomesCore.Patches
 			foreach (var animalEntry in _animalsPerBiome[biomeDef])
 			{
 				yield return new StatDrawEntry(
-					StatCategories.BMT_AnimalCommonality,
+					StatCategories.BC_AnimalCommonality,
 					animalEntry.Key.label.ToLower().CapitalizeFirst(),
 					"BMT_SpawnPercentage".Translate(animalEntry.Value.ToString("0.###")),
 					animalEntry.Key.description,

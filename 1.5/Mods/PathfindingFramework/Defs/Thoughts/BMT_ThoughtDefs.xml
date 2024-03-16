@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThoughtDef>
-		<defName>BMT_Crab</defName>
+		<defName>BiomesIslands_Crab</defName>
 		<durationDays>0.5</durationDays>
 		<stackLimit>1</stackLimit>
 		<stages>
@@ -15,7 +15,7 @@
 	</ThoughtDef>
 
 	<ThoughtDef>
-		<defName>BMT_Whale</defName>
+		<defName>BiomesIslands_Whale</defName>
 		<durationDays>0.5</durationDays>
 		<stackLimit>1</stackLimit>
 		<stages>

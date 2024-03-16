@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<WorkGiverDef>
-		<defName>BMT_HarvestAnimalProduct</defName>
+		<defName>BC_HarvestAnimalProduct</defName>
 		<label>harvest animal product</label>
 		<giverClass>BiomesCore.WorkGiver_HarvestAnimalProduct</giverClass>
 		<workType>Handling</workType>

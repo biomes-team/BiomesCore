@@ -1,7 +1,7 @@
 <Defs>
 
 	<GameConditionDef>
-		<defName>BMT_Earthquake</defName>
+		<defName>Earthquake</defName>
 		<conditionClass>BiomesCore.GameCondition_Earthquake</conditionClass>
 		<label>earthquake</label>
 		<description>An earthquake has begun! The cavern may destabilize and pawns will have trouble moving around and may be stunned!</description>
@@ -12,7 +12,7 @@
 	</GameConditionDef>
 
 	<IncidentDef>
-		<defName>BMT_Earthquake</defName>
+		<defName>Earthquake</defName>
 		<label>earthquake</label>
 		<category>Misc</category>
 		<targetTags>
@@ -30,7 +30,7 @@
 	</IncidentDef>
 
 	<SoundDef>
-		<defName>BMT_EarthquakeSound</defName>
+		<defName>EarthquakeSound</defName>
 		<context>MapOnly</context>
 		<maxSimultaneous>100</maxSimultaneous>
 		<subSounds>

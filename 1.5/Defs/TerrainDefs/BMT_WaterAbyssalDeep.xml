@@ -2,7 +2,7 @@
 <Defs>
 
 	<TerrainDef ParentName="WaterShallowBase">
-		<defName>BMT_WaterAbyssalDeep</defName>
+		<defName>BiomesCore_WaterAbyssalDeep</defName>
 		<label>abyssal deep water</label>
 		<tags>
 			<!-- Support for Thanks For All The Fish -->
@@ -11,7 +11,7 @@
 		</tags>
 		<fertility>0.0</fertility>
 		<texturePath>BiomesCore_Terrain/Surfaces/WaterAbysalDeepRamp</texturePath>
-		<traversedThought>BMT_AbysalWater</traversedThought>
+		<traversedThought>BiomesCore_AbysalWater</traversedThought>
 		<waterDepthShader>Map/WaterDepth</waterDepthShader>
 		<renderPrecedence>394</renderPrecedence>
 		<driesTo>Gravel</driesTo>

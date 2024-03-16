@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ThingDef ParentName="AnimalThingBase" Name="BMT_CrabThingBase" Abstract="true">
+	<ThingDef ParentName="AnimalThingBase" Name="BiomesIslands_CrabThingBase" Abstract="true">
 		<label>crab</label>
 		<description>A crab</description>
 		<statBases>
@@ -10,13 +10,13 @@
 			<MoveSpeed>3.5</MoveSpeed>
 		</statBases>
 		<race>
-			<leatherDef>BMT_CrabShell</leatherDef>
+			<leatherDef>BiomesCore_CrabShell</leatherDef>
 			<body>BeetleLikeWithClaw</body>
 			<foodType>OmnivoreRoughAnimal</foodType>
 			<wildness>0.75</wildness>
 			<trainability>Intermediate</trainability>
 			<lifeExpectancy>9</lifeExpectancy>
-			<nameGenerator>BMT_NamerCrab</nameGenerator>
+			<nameGenerator>Biomes_NamerCrab</nameGenerator>
 			<manhunterOnTameFailChance>0.15</manhunterOnTameFailChance>
 			<manhunterOnDamageChance>0.05</manhunterOnDamageChance>
 			<lifeStageAges>

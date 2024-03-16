@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThingDef ParentName="BigBirdThingBase">
-		<defName>BMT_Flamingo</defName>
+		<defName>BiomesIslands_Flamingo</defName>
 		<label>flamingo</label>
 		<description>Wading birds that get their color from the krill they eat by filtering food out of the water with their beaks. They thrive anywhere with warm, shallow water.</description>
 		<statBases>
@@ -22,7 +22,7 @@
 			<useMeatFrom>Cassowary</useMeatFrom>
 			<manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
 			<manhunterOnDamageChance>0.01</manhunterOnDamageChance>
-			<leatherDef>BMT_Leather_Flamingo</leatherDef>
+			<leatherDef>BiomesIslands_Leather_Flamingo</leatherDef>
 			<lifeStageAges inherit="false">
 				<li>
 					<def>AnimalBaby</def>
@@ -40,7 +40,7 @@
 		</race>
 		<comps>
 			<li Class="CompProperties_EggLayer">
-				<eggFertilizedDef>BMT_EggFlamingoFertilized</eggFertilizedDef>
+				<eggFertilizedDef>BiomesIslands_EggFlamingoFertilized</eggFertilizedDef>
 				<eggFertilizationCountMax>1</eggFertilizationCountMax>
 				<eggLayIntervalDays>16</eggLayIntervalDays>
 				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
@@ -100,9 +100,9 @@
 	</ThingDef>
 
 	<PawnKindDef ParentName="BigBirdKindBase">
-		<defName>BMT_Flamingo</defName>
+		<defName>BiomesIslands_Flamingo</defName>
 		<label>flamingo</label>
-		<race>BMT_Flamingo</race>
+		<race>BiomesIslands_Flamingo</race>
 		<ecoSystemWeight>0.45</ecoSystemWeight>
 		<wildGroupSize>
 			<min>4</min>
@@ -156,7 +156,7 @@
 
 
 	<ThingDef ParentName="EggFertBase">
-		<defName>BMT_EggFlamingoFertilized</defName>
+		<defName>BiomesIslands_EggFlamingoFertilized</defName>
 		<label>flamingo egg (fert.)</label>
 		<description>A fertilized flamingo egg. If all goes well, it should hatch into a baby flamingo. It can be eaten raw, but it's much better cooked.</description>
 		<graphicData>
@@ -169,13 +169,13 @@
 		<comps>
 			<li Class="CompProperties_Hatcher">
 				<hatcherDaystoHatch>8</hatcherDaystoHatch>
-				<hatcherPawn>BMT_Flamingo</hatcherPawn>
+				<hatcherPawn>BiomesIslands_Flamingo</hatcherPawn>
 			</li>
 		</comps>
 	</ThingDef>
 
 	<ThingDef ParentName="LeatherBase">
-		<defName>BMT_Leather_Flamingo</defName>
+		<defName>BiomesIslands_Leather_Flamingo</defName>
 		<label>flamingo leather</label>
 		<description>Bright pink leather from a flamingo. It's somewhat stronger than your typical birdskin.</description>
 		<graphicData>

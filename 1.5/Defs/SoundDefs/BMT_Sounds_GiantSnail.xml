@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<SoundDef>
-		<defName>BMT_GiantSnail_Wounded</defName>
+		<defName>Biomes_GiantSnail_Wounded</defName>
 		<context>MapOnly</context>
 		<subSounds>
 			<li>
@@ -19,7 +19,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>BMT_GiantSnail_Death</defName>
+		<defName>Biomes_GiantSnail_Death</defName>
 		<context>MapOnly</context>
 		<subSounds>
 			<li>
@@ -36,7 +36,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>BMT_GiantSnail_Call</defName>
+		<defName>Biomes_GiantSnail_Call</defName>
 		<context>MapOnly</context>
 		<subSounds>
 			<li>
@@ -53,7 +53,7 @@
 		</subSounds>
 	</SoundDef>
 	<SoundDef>
-		<defName>BMT_GiantSnail_Angry</defName>
+		<defName>Biomes_GiantSnail_Angry</defName>
 		<context>MapOnly</context>
 		<subSounds>
 			<li>

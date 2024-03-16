@@ -2,7 +2,7 @@
 <Defs>
 
 	<BodyPartDef>
-		<defName>BMT_FishTail</defName>
+		<defName>FishTail</defName>
 		<label>tail</label>
 		<hitPoints>15</hitPoints>
 		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
@@ -13,7 +13,7 @@
 	</BodyPartDef>
 
 	<BodyPartDef>
-		<defName>BMT_FishGill</defName>
+		<defName>BiomesIslands_FishGill</defName>
 		<label>gill</label>
 		<hitPoints>15</hitPoints>
 		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
@@ -24,7 +24,7 @@
 	</BodyPartDef>
 
 	<BodyPartDef>
-		<defName>BMT_Fin</defName>
+		<defName>BiomesIslands_Fin</defName>
 		<label>fin</label>
 		<hitPoints>30</hitPoints>
 		<skinCovered>true</skinCovered>
@@ -34,7 +34,7 @@
 	</BodyPartDef>
 
 	<BodyPartDef>
-		<defName>BMT_OrcaphibianLeg</defName>
+		<defName>BiomesIslands_OrcaphibianLeg</defName>
 		<label>leg</label>
 		<hitPoints>30</hitPoints>
 		<skinCovered>true</skinCovered>
@@ -44,25 +44,25 @@
 	</BodyPartDef>
 
 	<BodyPartGroupDef>
-		<defName>BMT_FrontLeftFin</defName>
+		<defName>BiomesIslands_FrontLeftFin</defName>
 		<label>front left fin</label>
 		<labelShort>fin</labelShort>
 	</BodyPartGroupDef>
 
 	<BodyPartGroupDef>
-		<defName>BMT_FrontRightFin</defName>
+		<defName>BiomesIslands_FrontRightFin</defName>
 		<label>front right fin</label>
 		<labelShort>fin</labelShort>
 	</BodyPartGroupDef>
 
 	<BodyPartGroupDef>
-		<defName>BMT_RearLeftFin</defName>
+		<defName>BiomesIslands_RearLeftFin</defName>
 		<label>rear left fin</label>
 		<labelShort>fin</labelShort>
 	</BodyPartGroupDef>
 
 	<BodyPartGroupDef>
-		<defName>BMT_RearRightFin</defName>
+		<defName>BiomesIslands_RearRightFin</defName>
 		<label>rear right fin</label>
 		<labelShort>fin</labelShort>
 	</BodyPartGroupDef>

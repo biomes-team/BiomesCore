@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThoughtDef>
-		<defName>BMT_AteRawGastropod</defName>
+		<defName>AteRawGastropod</defName>
 		<thoughtClass>Thought_FoodEaten</thoughtClass>
 		<showBubble>true</showBubble>
 		<icon>Things/Mote/ThoughtSymbol/Food</icon>

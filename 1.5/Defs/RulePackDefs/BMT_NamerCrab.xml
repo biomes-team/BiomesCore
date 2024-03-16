@@ -2,7 +2,7 @@
 <Defs>
 
 	<RulePackDef>
-		<defName>BMT_NamerCrab</defName>
+		<defName>Biomes_NamerCrab</defName>
 		<include>
 			<li>NamerAnimalUtility</li>
 		</include>

@@ -21,7 +21,7 @@
 			<StuffPower_Armor_Heat>1.5</StuffPower_Armor_Heat>
 			<StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.2</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<stuffProps>
 			<categories>
@@ -39,7 +39,7 @@
 	<!-- ================== Chitin ================== -->
 
 	<ThingDef ParentName="BMT_ChitinBase">
-		<defName>BMT_CrabShell</defName>
+		<defName>BiomesCore_CrabShell</defName>
 		<label>crabshell</label>
 		<description>A strong chitinous shell taken from a crustacean.</description>
 		<graphicData>
@@ -51,7 +51,7 @@
 			<StuffPower_Armor_Blunt>0.42</StuffPower_Armor_Blunt>
 			<StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.3</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.3</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<stuffProps>
 			<color>(80,118,120)</color>
@@ -62,7 +62,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="BMT_ChitinBase">
-		<defName>BMT_GreenChitin</defName>
+		<defName>BiomesCore_GreenChitin</defName>
 		<label>green shell</label>
 		<description>A strong, green, chitinous shell.</description>
 		<graphicData>
@@ -74,7 +74,7 @@
 			<StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
 			<StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.3</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.3</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<stuffProps>
 			<color>(134,190,105)</color>
@@ -97,7 +97,7 @@
 			<StuffPower_Armor_Blunt>0.81</StuffPower_Armor_Blunt>
 			<StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.2</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<stuffProps>
 			<color>(56,56,56)</color>
@@ -121,7 +121,7 @@
 			<StuffPower_Armor_Blunt>0.52</StuffPower_Armor_Blunt>
 			<StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.1</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.1</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<stuffProps>
 			<color>(100,68,36)</color>
@@ -145,7 +145,7 @@
 			<StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
 			<StuffPower_Insulation_Cold>10</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.05</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.05</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<graphicData>
 			<color>(153,150,117)</color>
@@ -171,7 +171,7 @@
 			<StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
 			<StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.2</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<graphicData>
 			<color>(255,237,237)</color>
@@ -197,7 +197,7 @@
 			<StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
 			<StuffPower_Insulation_Cold>5</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>50</StuffPower_Insulation_Heat>
-			<BMT_StuffPower_FlammabilityOffset>-0.8</BMT_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.8</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<graphicData>
 			<color>(128,128,128)</color>

@@ -34,8 +34,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="BackCompatibilities\BackCompatibilityDefOf.cs" />
-    <Compile Include="BackCompatibilities\BiomesBackCompatibilityConverter_1_4.cs" />
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
@@ -88,8 +86,6 @@
     <Compile Include="MentalState\MentalState_Hungering.cs" />
     <Compile Include="ModSettings\Settings.cs" />
     <Compile Include="ModSettings\SettingsWindow.cs" />
-    <Compile Include="Patches\BackwardsCompatibility\BackCompatibility_BackCompatibleTerrainWithShortHash_Patch.cs" />
-    <Compile Include="Patches\BackwardsCompatibility\BackCompatibility_PreLoadSavegame_Patch.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
     <Compile Include="Patches\Caverns\BeautyUtility_CellBeauty_Patch.cs" />
     <Compile Include="Patches\Caverns\DropCellFinder_CanPhysicallyDropInto_Patch.cs" />
@@ -116,7 +112,6 @@
     <Compile Include="Patches\Caverns\GenStep_SpecialTrees_CanSpawnAt_Patch.cs" />
     <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomSpotJustOutsideColony_Patch.cs" />
     <Compile Include="Patches\ChangeStockQuality.cs" />
-    <Compile Include="Patches\CustomMeat.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
     <Compile Include="Patches\ChunksOnKilled.cs" />
     <Compile Include="Patches\ExtendCaravanCarriers.cs" />
@@ -243,6 +238,9 @@
   <ItemGroup>
     <Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
     <Publicize Include="Assembly-CSharp:RimWorld.Plant.GraphicSowing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BackCompatibilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -61,10 +61,10 @@
 				<li>
 					<def>AnimalAdult</def>
 					<minAge>0.333</minAge>
-					<soundWounded>BMT_GiantSnail_Wounded</soundWounded>
-					<soundDeath>BMT_GiantSnail_Death</soundDeath>
-					<soundCall>BMT_GiantSnail_Call</soundCall>
-					<soundAngry>BMT_GiantSnail_Angry</soundAngry>
+					<soundWounded>Biomes_GiantSnail_Wounded</soundWounded>
+					<soundDeath>Biomes_GiantSnail_Death</soundDeath>
+					<soundCall>Biomes_GiantSnail_Call</soundCall>
+					<soundAngry>Biomes_GiantSnail_Angry</soundAngry>
 				</li>
 			</lifeStageAges>
 			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>

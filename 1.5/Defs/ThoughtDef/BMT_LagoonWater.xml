@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThoughtDef>
-		<defName>BMT_LagoonWater</defName>
+		<defName>BiomesCore_LagoonWater</defName>
 		<durationDays>0.1</durationDays>
 		<stackLimit>1</stackLimit>
 		<stages>

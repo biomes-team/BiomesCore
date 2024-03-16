@@ -6,7 +6,7 @@
 			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
 		</statBases>
 		<race>
-			<nameGenerator>BMT_NamerAquatic</nameGenerator>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
 			<herdMigrationAllowed>false</herdMigrationAllowed>
 		</race>
 		<comps>
@@ -20,13 +20,13 @@
 
 	<ThingDef ParentName="BMT_WaterAnimal" Name="BMT_SaltWaterAnimal" Abstract="true">
 		<race>
-			<nameGenerator>BMT_NamerAquatic</nameGenerator>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
 		</race>
 	</ThingDef>
 
 	<ThingDef ParentName="BMT_WaterAnimal" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
 		<race>
-			<nameGenerator>BMT_NamerAquatic</nameGenerator>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
 		</race>
 	</ThingDef>
 </Defs>

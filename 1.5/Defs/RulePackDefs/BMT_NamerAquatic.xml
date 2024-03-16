@@ -2,7 +2,7 @@
 <Defs>
 
 	<RulePackDef>
-		<defName>BMT_NamerAquatic</defName>
+		<defName>Biomes_NamerAquatic</defName>
 		<include>
 			<li>NamerAnimalUtility</li>
 		</include>

@@ -51,13 +51,13 @@
 	</TerrainDef>
 
 	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
-		<defName>BMT_Lava</defName>
+		<defName>BiomeCore_Lava</defName>
 		<label>lava</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
 	</TerrainDef>
 
 	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
-		<defName>BMT_Magma</defName>
+		<defName>BiomeCore_Magma</defName>
 		<label>magma</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
 	</TerrainDef>

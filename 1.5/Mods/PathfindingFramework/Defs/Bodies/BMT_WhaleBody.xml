@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<BodyDef>
-		<defName>BMT_WhaleBody</defName>
+		<defName>Biomes_WhaleBody</defName>
 		<label>fish</label>
 		<corePart>
 			<def>Body</def>
@@ -9,18 +9,18 @@
 			<depth>Outside</depth>
 			<parts>
 				<li>
-					<def>BMT_FishTail</def>
+					<def>FishTail</def>
 					<height>Middle</height>
 					<coverage>0.1</coverage>
 					<parts>
 						<li>
-							<def>BMT_Fin</def>
+							<def>BiomesIslands_Fin</def>
 							<customLabel>right tail fin</customLabel>
 							<coverage>0.07</coverage>
 							<height>Middle</height>
 						</li>
 						<li>
-							<def>BMT_Fin</def>
+							<def>BiomesIslands_Fin</def>
 							<customLabel>left tail fin</customLabel>
 							<coverage>0.07</coverage>
 							<height>Middle</height>
@@ -114,19 +114,19 @@
 					</parts>
 				</li>
 				<li>
-					<def>BMT_Fin</def>
+					<def>BiomesIslands_Fin</def>
 					<customLabel>left flipper</customLabel>
 					<coverage>0.07</coverage>
 					<height>Bottom</height>
 				</li>
 				<li>
-					<def>BMT_Fin</def>
+					<def>BiomesIslands_Fin</def>
 					<customLabel>right flipper</customLabel>
 					<coverage>0.07</coverage>
 					<height>Bottom</height>
 				</li>
 				<li>
-					<def>BMT_Fin</def>
+					<def>BiomesIslands_Fin</def>
 					<customLabel>dorsal fin</customLabel>
 					<coverage>0.07</coverage>
 					<height>Top</height>

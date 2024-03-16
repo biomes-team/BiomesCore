@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThingDef ParentName="LeatherBase">
-		<defName>BMT_Leather_Sharkskin</defName>
+		<defName>BiomesIslands_Leather_Sharkskin</defName>
 		<label>sharkskin</label>
 		<description>Sharkskin. Tough, but insulates poorly.</description>
 		<graphicData>
@@ -24,7 +24,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="LeatherBase">
-		<defName>BMT_Leather_Fishskin</defName>
+		<defName>BiomesIslands_Leather_Fishskin</defName>
 		<label>fishskin</label>
 		<description>Leather from a fish. It doesn't protect very well.</description>
 		<graphicData>
@@ -45,7 +45,7 @@
 	</ThingDef>
 
 	<ThingDef ParentName="LeatherBase">
-		<defName>BMT_Leather_Whaleskin</defName>
+		<defName>BiomesIslands_Leather_Whaleskin</defName>
 		<label>whaleskin</label>
 		<description>Leather from a whale. Durable in combat, but doesn't provide much insulation.</description>
 		<graphicData>
@@ -67,7 +67,7 @@
 	</ThingDef>
 	
 	<ThingDef ParentName="LeatherBase">
-		<defName>BMT_Leather_Pinnipedskin</defName>
+		<defName>BiomesIslands_Leather_Pinnipedskin</defName>
 		<label>pinnipedskin</label>
 		<description>Leather from an animal like a walrus or seal. Fairly weak in combat, but provides some insulation against the cold. It is reasonably pretty.</description>
 		<graphicData>

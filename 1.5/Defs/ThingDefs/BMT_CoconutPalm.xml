@@ -4,7 +4,7 @@
 	<!--====================	Fruit Trees		=====================-->
 
 	<ThingDef ParentName="BMT_FruitTreeBase">
-		<defName>BMT_CoconutPalm</defName>
+		<defName>BiomesIslands_CoconutPalm</defName>
 		<label>coral coconut tree</label>
 		<description>A tropical tree with a tall, naked trunk topped by a cluster of very broad leaves. This variety produces coconuts.</description>
 		<graphicData>
@@ -17,7 +17,7 @@
 			<immatureGraphicPath>BiomesCore_Things/Plant/CoconutPalm/CoconutPalm_immature</immatureGraphicPath>
 			<harvestYield>10</harvestYield>
 			<harvestWork>400</harvestWork>
-			<harvestedThingDef>BMT_Coconuts</harvestedThingDef>
+			<harvestedThingDef>BiomesIslands_Coconuts</harvestedThingDef>
 			<mustBeWildToSow>true</mustBeWildToSow>
 		</plant>
 	</ThingDef>
@@ -25,7 +25,7 @@
 	<!-- Coconut fruit -->
 
 	<ThingDef ParentName="BMT_FruitBase">
-		<defName>BMT_Coconuts</defName>
+		<defName>BiomesIslands_Coconuts</defName>
 		<label>coral coconuts</label>
 		<description>Big round fruit with a hard shell and a milky center</description>
 		<graphicData>

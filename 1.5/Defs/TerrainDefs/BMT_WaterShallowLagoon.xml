@@ -2,7 +2,7 @@
 <Defs>
 
 	<TerrainDef ParentName="WaterShallowBase">
-		<defName>BMT_WaterShallowLagoon</defName>
+		<defName>BiomesCore_WaterShallowLagoon</defName>
 		<label>lagoon water</label>
 		<tags>
 			<!-- Support for Thanks For All The Fish -->
@@ -13,7 +13,7 @@
 		</tags>
 		<fertility>0.3</fertility>
 		<texturePath>BiomesCore_Terrain/Surfaces/WaterShallowLagoon</texturePath>
-		<traversedThought>BMT_LagoonWater</traversedThought>
+		<traversedThought>BiomesCore_LagoonWater</traversedThought>
 		<waterDepthShader>Map/WaterDepth</waterDepthShader>
 		<renderPrecedence>394</renderPrecedence>
 		<driesTo>Gravel</driesTo>

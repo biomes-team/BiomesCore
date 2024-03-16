@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThoughtDef>
-		<defName>BMT_AbysalWater</defName>
+		<defName>BiomesCore_AbysalWater</defName>
 		<durationDays>0.1</durationDays>
 		<stackLimit>1</stackLimit>
 		<stages>

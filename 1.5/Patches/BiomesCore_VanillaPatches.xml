@@ -19,7 +19,7 @@
 			<value>
 				<parts>
 					<li Class="StatPart_ApparelStatOffset">
-						<apparelStat>BMT_FlammabilityOffset</apparelStat>
+						<apparelStat>BC_FlammabilityOffset</apparelStat>
 					</li>
 				</parts>
 			</value>
@@ -28,7 +28,7 @@
 			<xpath>Defs/StatDef[defName="Flammability"]/parts</xpath>
 			<value>
 				<li Class="StatPart_ApparelStatOffset">
-					<apparelStat>BMT_FlammabilityOffset</apparelStat>
+					<apparelStat>BC_FlammabilityOffset</apparelStat>
 				</li>
 			</value>
 		</match>

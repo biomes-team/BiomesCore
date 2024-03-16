@@ -45,7 +45,7 @@ namespace BiomesCore.Patches
 
                 if (nearestPawn != null)
                 {
-                    __result = JobMaker.MakeJob(BiomesCoreDefOf.BMT_BloodDrinking, nearestPawn);
+                    __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BloodDrinking, nearestPawn);
                     return false;
                 }
             }
@@ -84,7 +84,7 @@ namespace BiomesCore.Patches
 
                     if (targetCell.IsValid)
                     {
-                        __result = JobMaker.MakeJob(BiomesCoreDefOf.BMT_BottomFeeder, targetCell);
+                        __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_BottomFeeder, targetCell);
                         return false;
                     }
                 }
@@ -99,7 +99,7 @@ namespace BiomesCore.Patches
 
                     if (nearestCustomThing != null && !nearestCustomThing.Destroyed)
                     {
-                        __result = JobMaker.MakeJob(BiomesCoreDefOf.BMT_EatCustomThing, nearestCustomThing);
+                        __result = JobMaker.MakeJob(BiomesCoreDefOf.BC_EatCustomThing, nearestCustomThing);
                         return false;
                     }
                 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<EffecterDef>
-		<defName>BMT_EatFish</defName>
+		<defName>EatFish</defName>
 		<children>
 			<li>
 				<subEffecterClass>SubEffecter_SprayerContinuous</subEffecterClass>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 	<BodyDef>
-		<defName>BMT_MantaBody</defName>
+		<defName>Biomes_MantaBody</defName>
 		<label>manta</label>
 		<corePart>
 			<def>Body</def>
@@ -29,13 +29,13 @@
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>BMT_FishGill</def>
+					<def>BiomesIslands_FishGill</def>
 					<customLabel>left gill</customLabel>
 					<coverage>0.02</coverage>
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>BMT_FishGill</def>
+					<def>BiomesIslands_FishGill</def>
 					<customLabel>right gill</customLabel>
 					<coverage>0.02</coverage>
 					<depth>Inside</depth>
@@ -59,13 +59,13 @@
 				</li>
 
 				<li>
-					<def>BMT_Fin</def>
+					<def>BiomesIslands_Fin</def>
 					<customLabel>left fin</customLabel>
 					<coverage>0.22</coverage>
 					<depth>Outside</depth>
 				</li>
 				<li>
-					<def>BMT_Fin</def>
+					<def>BiomesIslands_Fin</def>
 					<customLabel>right fin</customLabel>
 					<coverage>0.22</coverage>
 					<depth>Outside</depth>
