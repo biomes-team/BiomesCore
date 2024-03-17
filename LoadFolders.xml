@@ -15,11 +15,13 @@
 	<v1.4>
 		<li>1.4</li>
 		<li>\</li>
+		<li IfModActive="pathfinding.framework">Common/Mods/PathfindingFramework</li>
 		<li IfModActive="pathfinding.framework">1.4/Mods/PathfindingFramework</li>
 	</v1.4>
 	<v1.5>
 		<li>1.5</li>
 		<li>\</li>
+		<li IfModActive="pathfinding.framework">Common/Mods/PathfindingFramework</li>
 		<li IfModActive="pathfinding.framework">1.5/Mods/PathfindingFramework</li>
 	</v1.5>
 </loadFolders>

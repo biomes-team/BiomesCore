@@ -239,9 +239,6 @@
     <Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
     <Publicize Include="Assembly-CSharp:RimWorld.Plant.GraphicSowing" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BackCompatibilities\" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PublicizerClearCacheOnClean>true</PublicizerClearCacheOnClean>
