@@ -10,15 +10,13 @@
 		</value>
 	</Operation>
 
-	<!-- ToDo https://github.com/biomes-team/BiomesCore/issues/15 -->
-	<!--
 	<Operation Class="PatchOperationConditional">
 		<xpath>Defs/StatDef[defName="Flammability"]/parts</xpath>
 		<nomatch Class="PatchOperationAdd">
 			<xpath>Defs/StatDef[defName="Flammability"]</xpath>
 			<value>
 				<parts>
-					<li Class="StatPart_ApparelStatOffset">
+					<li Class="StatPart_GearStatOffset">
 						<apparelStat>BC_FlammabilityOffset</apparelStat>
 					</li>
 				</parts>
@@ -27,12 +25,11 @@
 		<match Class="PatchOperationAdd">
 			<xpath>Defs/StatDef[defName="Flammability"]/parts</xpath>
 			<value>
-				<li Class="StatPart_ApparelStatOffset">
+				<li Class="StatPart_GearStatOffset">
 					<apparelStat>BC_FlammabilityOffset</apparelStat>
 				</li>
 			</value>
 		</match>
 	</Operation>
-	-->
 
 </Patch>

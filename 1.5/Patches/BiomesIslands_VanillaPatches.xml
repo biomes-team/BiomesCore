@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-<!-- add gensteps -->
+	<!-- add gensteps -->
 	<Operation Class="PatchOperationAdd">
 		<xpath>Defs/MapGeneratorDef[@Name="MapCommonBase"]/genSteps</xpath>
 		<value>
@@ -9,6 +9,6 @@
 			<li>BMT_GenIslandRocksFromGrid</li>
 		</value>
 	</Operation>
-	
+
 
 </Patch>
