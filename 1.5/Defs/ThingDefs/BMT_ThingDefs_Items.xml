@@ -132,6 +132,31 @@
 
 	</ThingDef>
 
+	<ThingDef ParentName="BiomesCore_ChitinBase">
+		<defName>BMT_WeakChitin</defName>
+		<label>brittle chitin</label>
+		<!-- small chitin t1 -->
+		<description>Chitin of a giant insect. It doesn't protect very well.</description>
+		<graphicData>
+			<color>(61,48,70)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.0</MarketValue>
+			<StuffPower_Armor_Sharp>0.4</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.4</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Cold>10</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<stuffProps>
+			<color>(61,48,70)</color>
+			<statFactors>
+				<MaxHitPoints>1.0</MaxHitPoints>
+				<Beauty>1</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
 	<!-- ================== Leather ================== -->
 	<ThingDef ParentName="LeatherBase">
 		<defName>BMT_Leather_Gastropoda</defName>

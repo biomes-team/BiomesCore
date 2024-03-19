@@ -37,6 +37,7 @@
     <Compile Include="BiomesCore.cs" />
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
+    <Compile Include="DeathActionWorkers\DeathActionWorker_ReleaseGasCloud.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefModExtensions\CustomGraphicsPlantDef.cs" />
     <Compile Include="DefModExtensions\DisableIncidentsExtension.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="MapGeneration\MapGenerationPatch.cs" />
     <Compile Include="MapGeneration\GenStep_CavernRocksFromGrid.cs" />
     <Compile Include="MentalState\MentalState_Hungering.cs" />
+    <Compile Include="DefModExtensions\ModExtension_ReleaseGasCloud.cs" />
     <Compile Include="ModSettings\Settings.cs" />
     <Compile Include="ModSettings\SettingsWindow.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
