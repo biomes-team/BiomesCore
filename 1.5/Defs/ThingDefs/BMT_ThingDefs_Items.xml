@@ -2,7 +2,7 @@
 <Defs>
 
 	<!-- ================== Bases ================== -->
-	<ThingDef Abstract="True" Name="BMT_ChitinBase" ParentName="LeatherBase">
+	<ThingDef Abstract="True" Name="BiomesCore_ChitinBase" ParentName="LeatherBase">
 		<label>chitin</label>
 		<description>A strong chitinous shell.</description>
 		<graphicData>
@@ -38,7 +38,7 @@
 
 	<!-- ================== Chitin ================== -->
 
-	<ThingDef ParentName="BMT_ChitinBase">
+	<ThingDef ParentName="BiomesCore_ChitinBase">
 		<defName>BiomesCore_CrabShell</defName>
 		<label>crabshell</label>
 		<description>A strong chitinous shell taken from a crustacean.</description>
@@ -61,7 +61,7 @@
 		</stuffProps>
 	</ThingDef>
 
-	<ThingDef ParentName="BMT_ChitinBase">
+	<ThingDef ParentName="BiomesCore_ChitinBase">
 		<defName>BiomesCore_GreenChitin</defName>
 		<label>green shell</label>
 		<description>A strong, green, chitinous shell.</description>
@@ -84,7 +84,7 @@
 		</stuffProps>
 	</ThingDef>
 
-	<ThingDef ParentName="BMT_ChitinBase">
+	<ThingDef ParentName="BiomesCore_ChitinBase">
 		<defName>BMT_GrayChitin</defName>
 		<label>gray shell</label>
 		<description>A strong, gray, chitinous shell.</description>
@@ -108,7 +108,7 @@
 		</stuffProps>
 	</ThingDef>
 
-	<ThingDef ParentName="BMT_ChitinBase">
+	<ThingDef ParentName="BiomesCore_ChitinBase">
 		<defName>BMT_Molluskshell</defName>
 		<label>molluskshell</label>
 		<description>Hard shell plates from Mollusks like snails or clams.</description>

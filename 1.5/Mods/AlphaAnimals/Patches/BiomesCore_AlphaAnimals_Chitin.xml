@@ -2,7 +2,7 @@
 <Patch>
 
 	<Operation Class="PatchOperationAdd">
-		<xpath>/Defs/ThingDef[defName="Leather_Chitin" or defName="Leather_IronChitin" or defName="Leather_RaptorPlates"
+		<xpath>Defs/ThingDef[defName="Leather_Chitin" or defName="Leather_IronChitin" or defName="Leather_RaptorPlates"
 			or DefName="Leather_BlackChitin"]/stuffProps
 		</xpath>
 		<value>

@@ -12,21 +12,9 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']/affordances</xpath>
-		<value>
-			<li>BMT_DeepWaterBridgeable</li>
-		</value>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/TerrainDef[defName='WaterMovingChestDeep']/affordances</xpath>
-		<value>
-			<li>BMT_DeepWaterBridgeable</li>
-		</value>
-	</Operation>
-
-	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/TerrainDef[@Name='WaterShallowBase']/affordances</xpath>
+		<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep' or
+			defName='WaterMovingChestDeep' or @Name='WaterShallowBase']/affordances
+		</xpath>
 		<value>
 			<li>BMT_DeepWaterBridgeable</li>
 		</value>

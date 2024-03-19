@@ -27,6 +27,8 @@
 		<li IfModActive="pathfinding.framework">1.5/Mods/PathfindingFramework</li>
 		<li IfModActive="ReGrowth.BOTR.Core">1.5/Mods/ReGrowthCore</li>
 		<li IfModActive="VanillaExpanded.VCEF">1.5/Mods/VanillaFishingExpanded</li>
+		<li IfModActive="VanillaExpanded.VFEArchitect">1.5/Mods/VanillaFurnitureExpandedArchitect</li>
+		<li IfModActive="VanillaExpanded.VPlantsEMore">1.5/Mods/VanillaPlantsExpandedMore</li>
 
 	</v1.5>
 </loadFolders>

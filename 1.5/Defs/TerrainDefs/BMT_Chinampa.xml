@@ -6,7 +6,7 @@
     <label>tile</label>
   </DesignatorDropdownGroupDef>
 
-  <TerrainDef Abstract="True" Name="BMT_Chinampa_Base">
+  <TerrainDef Abstract="True" Name="BiomesCore_FloatingGarden">
     <label>chinampa</label>
     <description>A stationary artificial island used to cultivate crops in water.</description>
     <texturePath>Terrain/Surfaces/Mud</texturePath>
@@ -43,7 +43,7 @@
     <destroyEffectWater>Bridge_CollapseWater</destroyEffectWater>
   </TerrainDef>
 
-  <TerrainDef ParentName="BMT_Chinampa_Base">
+  <TerrainDef ParentName="BiomesCore_FloatingGarden">
     <defName>BMT_Chinampa_Sandstone</defName>
     <label>sandstone chinampa</label>
     <costList>
@@ -51,7 +51,7 @@
     </costList>
   </TerrainDef>
 
-  <TerrainDef ParentName="BMT_Chinampa_Base">
+  <TerrainDef ParentName="BiomesCore_FloatingGarden">
     <defName>BMT_Chinampa_Granite</defName>
     <label>Granite chinampa</label>
     <costList>
@@ -59,7 +59,7 @@
     </costList>
   </TerrainDef>
 
-  <TerrainDef ParentName="BMT_Chinampa_Base">
+  <TerrainDef ParentName="BiomesCore_FloatingGarden">
     <defName>BMT_Chinampa_Limestone</defName>
     <label>Limestone chinampa</label>
     <costList>
@@ -67,7 +67,7 @@
     </costList>
   </TerrainDef>
 
-  <TerrainDef ParentName="BMT_Chinampa_Base">
+  <TerrainDef ParentName="BiomesCore_FloatingGarden">
     <defName>BMT_Chinampa_Slate</defName>
     <label>Slate chinampa</label>
     <costList>
@@ -75,7 +75,7 @@
     </costList>
   </TerrainDef>
 
-  <TerrainDef ParentName="BMT_Chinampa_Base">
+  <TerrainDef ParentName="BiomesCore_FloatingGarden">
     <defName>BMT_Chinampa_Marble</defName>
     <label>Marble chinampa</label>
     <costList>

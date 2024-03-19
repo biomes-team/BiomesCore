@@ -3,7 +3,7 @@
 
 	<!--====================	Fruit Trees		=====================-->
 
-	<ThingDef ParentName="BMT_FruitTreeBase">
+	<ThingDef ParentName="BiomesCore_FruitTreeBase">
 		<defName>BiomesIslands_CoconutPalm</defName>
 		<label>coral coconut tree</label>
 		<description>A tropical tree with a tall, naked trunk topped by a cluster of very broad leaves. This variety produces coconuts.</description>
@@ -24,7 +24,7 @@
 
 	<!-- Coconut fruit -->
 
-	<ThingDef ParentName="BMT_FruitBase">
+	<ThingDef ParentName="BiomesCore_FruitBase">
 		<defName>BiomesIslands_Coconuts</defName>
 		<label>coral coconuts</label>
 		<description>Big round fruit with a hard shell and a milky center</description>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-	<ThingDef ParentName="AnimalThingBase" Name="BMT_WaterAnimal" Abstract="true">
+	<ThingDef ParentName="AnimalThingBase" Name="BiomesCore_WaterAnimal" Abstract="true">
 		<statBases>
 			<MoveSpeed>6</MoveSpeed>
 			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
@@ -18,13 +18,13 @@
 		</modExtensions>
 	</ThingDef>
 
-	<ThingDef ParentName="BMT_WaterAnimal" Name="BMT_SaltWaterAnimal" Abstract="true">
+	<ThingDef ParentName="BiomesCore_WaterAnimal" Name="BiomesCore_SaltWaterAnimal" Abstract="true">
 		<race>
 			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
 		</race>
 	</ThingDef>
 
-	<ThingDef ParentName="BMT_WaterAnimal" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
+	<ThingDef ParentName="BiomesCore_WaterAnimal" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
 		<race>
 			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
 		</race>

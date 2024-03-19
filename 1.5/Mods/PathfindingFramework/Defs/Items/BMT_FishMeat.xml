@@ -26,6 +26,7 @@
 		</ingestible>
 		<thingCategories>
 			<li>MeatRaw</li>
+			<li MayRequire="VanillaExpanded.VCookESushi">VCEF_RawFishCategory</li>
 		</thingCategories>
 		<ingredient>
 			<mergeCompatibilityTags>

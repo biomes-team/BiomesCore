@@ -29,7 +29,7 @@
 
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "WaterDeep"]</xpath>
+		<xpath>Defs/TerrainDef[defName="WaterDeep"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -42,7 +42,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "WaterOceanDeep"]</xpath>
+		<xpath>Defs/TerrainDef[defName="WaterOceanDeep"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -55,7 +55,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "WaterMovingChestDeep"]</xpath>
+		<xpath>Defs/TerrainDef[defName="WaterMovingChestDeep"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -68,7 +68,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "WaterShallow"]</xpath>
+		<xpath>Defs/TerrainDef[defName="WaterShallow"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -81,7 +81,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "WaterOceanShallow"]</xpath>
+		<xpath>Defs/TerrainDef[defName="WaterOceanShallow"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -94,7 +94,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "WaterMovingShallow"]</xpath>
+		<xpath>Defs/TerrainDef[defName="WaterMovingShallow"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -107,7 +107,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "Marsh"]</xpath>
+		<xpath>Defs/TerrainDef[defName="Marsh"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -120,7 +120,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "Soil"]</xpath>
+		<xpath>Defs/TerrainDef[defName="Soil"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -131,7 +131,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "MossyTerrain"]</xpath>
+		<xpath>Defs/TerrainDef[defName="MossyTerrain"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -142,7 +142,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "MarshyTerrain"]</xpath>
+		<xpath>Defs/TerrainDef[defName="MarshyTerrain"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -153,7 +153,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "SoilRich"]</xpath>
+		<xpath>Defs/TerrainDef[defName="SoilRich"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -164,7 +164,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "Gravel"]</xpath>
+		<xpath>Defs/TerrainDef[defName="Gravel"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -177,7 +177,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "Sand"]</xpath>
+		<xpath>Defs/TerrainDef[defName="Sand"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -189,7 +189,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "SoftSand"]</xpath>
+		<xpath>Defs/TerrainDef[defName="SoftSand"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -201,7 +201,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "Mud"]</xpath>
+		<xpath>Defs/TerrainDef[defName="Mud"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -212,7 +212,7 @@
 	</Operation>
 
 	<Operation Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "Ice"]</xpath>
+		<xpath>Defs/TerrainDef[defName="Ice"]</xpath>
 		<value>
 			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 				<terrainTags>
@@ -275,14 +275,14 @@
 	</Operation>
 
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/TerrainDef[defName = "Marsh"]/fertility</xpath>
+		<xpath>Defs/TerrainDef[defName="Marsh"]/fertility</xpath>
 		<value>
 			<fertility>0.5</fertility>
 		</value>
 	</Operation>
 
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/TerrainDef[defName = "Mud"]/fertility</xpath>
+		<xpath>Defs/TerrainDef[defName="Mud"]/fertility</xpath>
 		<value>
 			<fertility>0.3</fertility>
 		</value>
@@ -292,11 +292,11 @@
 			<success>Always</success>
 			<operations>
 					<li Class="PatchOperationTest">
-							<xpath>/Defs/TerrainDef[@Name = "WaterChestDeepBase"]/fertility</xpath>
+							<xpath>Defs/TerrainDef[@Name = "WaterChestDeepBase"]/fertility</xpath>
 							<success>Invert</success>
 					</li>
 					<li Class="PatchOperationAdd">
-							<xpath>/Defs/TerrainDef[@Name = "WaterChestDeepBase"]</xpath>
+							<xpath>Defs/TerrainDef[@Name = "WaterChestDeepBase"]</xpath>
 							<value>
 									<fertility>0.5</fertility>
 							</value>
@@ -305,7 +305,7 @@
 </Operation-->
 
 	<!--Operation Class="PatchOperationAdd">
-		<xpath>/Defs/TerrainDef[@Name = "WaterShallowBase"]</xpath>
+		<xpath>Defs/TerrainDef[@Name = "WaterShallowBase"]</xpath>
 		<value>
 			<fertility>0.8</fertility>
 		</value>
@@ -315,11 +315,11 @@
 	<!-- <success>Always</success> -->
 	<!-- <operations> -->
 	<!-- <li Class="PatchOperationTest"> -->
-	<!-- <xpath>/Defs/TerrainDef[@Name = "Sand"]/fertility</xpath> -->
+	<!-- <xpath>Defs/TerrainDef[@Name = "Sand"]/fertility</xpath> -->
 	<!-- <success>Invert</success> -->
 	<!-- </li> -->
 	<!-- <li Class="PatchOperationAdd"> -->
-	<!-- <xpath>/Defs/TerrainDef[@Name = "Sand"]</xpath> -->
+	<!-- <xpath>Defs/TerrainDef[@Name = "Sand"]</xpath> -->
 	<!-- <value> -->
 	<!-- <fertility>0.2</fertility> -->
 	<!-- </value> -->
@@ -331,11 +331,11 @@
 	<!-- <success>Always</success> -->
 	<!-- <operations> -->
 	<!-- <li Class="PatchOperationTest"> -->
-	<!-- <xpath>/Defs/TerrainDef[@Name = "SoftSand"]/fertility</xpath> -->
+	<!-- <xpath>Defs/TerrainDef[@Name = "SoftSand"]/fertility</xpath> -->
 	<!-- <success>Invert</success> -->
 	<!-- </li> -->
 	<!-- <li Class="PatchOperationAdd"> -->
-	<!-- <xpath>/Defs/TerrainDef[@Name = "SoftSand"]</xpath> -->
+	<!-- <xpath>Defs/TerrainDef[@Name = "SoftSand"]</xpath> -->
 	<!-- <value> -->
 	<!-- <fertility>0.1</fertility> -->
 	<!-- </value> -->

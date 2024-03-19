@@ -2,15 +2,18 @@
 <Defs>
 
 
-	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BMT_FruitBase">
-		<thingCategories/>
+	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_FruitBase">
+		<thingCategories>
+			<li MayRequire="VanillaExpanded.VPlantsE">VCE_Fruit</li>
+			<li MayRequire="dismarzero.VGP.VGPVegetableGarden">FruitFoodRaw</li>
+		</thingCategories>
 	</ThingDef>
-	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BMT_VegBase">
+	<ThingDef Abstract="True" ParentName="PlantFoodRawBase" Name="BiomesCore_VegBase">
 		<!--For VGP compatibility. Leave empty-->
 	</ThingDef>
 
-	<ThingDef ParentName="PlantBase" Name="BMT_FruitTreeBase" Abstract="true">
-		<defName>BMT_FruitTreeBase</defName>
+	<ThingDef ParentName="PlantBase" Name="BiomesCore_FruitTreeBase" Abstract="true">
+		<defName>BiomesCore_FruitTreeBase</defName>
 		<label>fruit tree</label>
 		<description>A tree that produces edible fruit.</description>
 		<statBases>

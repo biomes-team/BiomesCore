@@ -7,7 +7,7 @@
 		<match Class="PatchOperationSequence">
 			<operations>
 				<li Class="PatchOperationAdd">
-					<xpath>/Defs/ThingDef[defName="BiomeCore_LavaGenerator"]</xpath>
+					<xpath>Defs/ThingDef[defName="BMT_LavaGenerator"]</xpath>
 					<value>
 						<thingClass>Building</thingClass>
 						<drawerType>MapMeshAndRealTime</drawerType>
@@ -53,12 +53,12 @@
 								<compClass>BiomesCore.CompPowerPlantLava</compClass>
 								<basePowerConsumption>-2000</basePowerConsumption>
 								<transmitsPower>true</transmitsPower>
-								<soundAmbientProducingPower></soundAmbientProducingPower>
+								<soundAmbientProducingPower/>
 							</li>
 							<li Class="CompProperties_Breakdownable"/>
 						</comps>
 						<rotatable>true</rotatable>
-						<terrainAffordanceNeeded></terrainAffordanceNeeded>
+						<terrainAffordanceNeeded/>
 						<designationCategory>Power</designationCategory>
 						<uiOrder>2100</uiOrder>
 						<placeWorkers>

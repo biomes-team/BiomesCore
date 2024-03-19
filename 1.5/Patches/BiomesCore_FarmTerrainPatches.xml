@@ -2,9 +2,9 @@
 <Patch>
 
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/TerrainDef[defName = "VCE_TilledSoil"]</xpath>
+		<xpath>Defs/TerrainDef[defName="VCE_TilledSoil"]</xpath>
 		<match Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "VCE_TilledSoil"]</xpath>
+		<xpath>Defs/TerrainDef[defName="VCE_TilledSoil"]</xpath>
 			<value>
 				<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 					<terrainTags>
@@ -16,9 +16,9 @@
 	</Operation>
 	
 	<Operation Class="PatchOperationConditional">
-		<xpath>/Defs/TerrainDef[defName = "DankPyon_PlowedSoil"]</xpath>
+		<xpath>Defs/TerrainDef[defName="DankPyon_PlowedSoil"]</xpath>
 		<match Class="PatchOperationAddModExtension">
-		<xpath>/Defs/TerrainDef[defName = "DankPyon_PlowedSoil"]</xpath>
+		<xpath>Defs/TerrainDef[defName="DankPyon_PlowedSoil"]</xpath>
 			<value>
 				<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
 					<terrainTags>
