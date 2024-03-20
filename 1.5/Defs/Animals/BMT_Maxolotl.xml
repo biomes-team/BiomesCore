@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+    <ThingDef ParentName="AnimalThingBase">
+		<defName>BMT_Maxolotl</defName>
+		<label>maxolotl</label>
+		<description>These large salamanders prefer wet environments with pools of water they can comfortably slip into. While they lack teeth, their strong jaws can crush the shells of most insects. They are capable of fertilizing multiple batches of eggs in one go.</description>
+		<statBases>
+			<MoveSpeed>5.1</MoveSpeed>
+			<MarketValue>900</MarketValue>
+			<ComfyTemperatureMin>-55</ComfyTemperatureMin>
+			<ComfyTemperatureMax>50</ComfyTemperatureMax>
+			<CaravanRidingSpeedFactor>1.2</CaravanRidingSpeedFactor>
+			<FilthRate>4</FilthRate>
+		</statBases>
+		<tools>
+			<li>
+				<label>left claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontLeftPaw</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<label>right claw</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>FrontRightPaw</linkedBodyPartsGroup>
+			</li>
+			<li>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>20</power>
+				<cooldownTime>2.6</cooldownTime>
+				<linkedBodyPartsGroup>Teeth</linkedBodyPartsGroup>
+				<chanceFactor>0.7</chanceFactor>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_AnimalControl">
+				<isBottomFeeder>true</isBottomFeeder>
+			</li>
+			<li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
+				<movementDef>PF_Movement_Amphibious</movementDef>
+			</li>
+		</modExtensions>
+		<comps>
+			<li MayRequire="biomesteam.biomescaverns" Class="CompProperties_EggLayer">
+				<eggFertilizedDef>BMT_EggMaxolotlFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>10</eggFertilizationCountMax>
+				<eggLayIntervalDays>8</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~2</eggCountRange>
+			</li>
+			<li Class="AnimalBehaviours.CompProperties_Regeneration" MayRequire="oskarpotocki.vanillafactionsexpanded.core">
+				<rateInTicks>400</rateInTicks>
+			</li>
+			<li Class="BiomesCore.CompProperties_BottomFeeder">
+				<feedingTerrainTag>Water</feedingTerrainTag>
+				<consumingFoodReportString>Fishing.</consumingFoodReportString>
+				<effecterDef>EatFish</effecterDef>
+			</li>
+		</comps>
+		<race>
+			<body>QuadrupedAnimalWithPawsAndTail</body>
+			<baseBodySize>2.4</baseBodySize>
+			<baseHealthScale>1.5</baseHealthScale>
+			<baseHungerRate>0.535</baseHungerRate>
+			<predator>true</predator>
+			<maxPreyBodySize>1</maxPreyBodySize>
+			<foodType>CarnivoreAnimal,AnimalProduct</foodType>
+			<leatherDef>BMT_Leather_Amphibian</leatherDef>
+			<meatLabel>amphibian meat</meatLabel>
+			<wildness>0.75</wildness>
+			<manhunterOnTameFailChance>0.10</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.45</manhunterOnDamageChance>
+			<trainability>Intermediate</trainability>
+			<petness>0.05</petness>
+			<nuzzleMtbHours>48</nuzzleMtbHours>
+			<lifeExpectancy>11</lifeExpectancy>
+			<packAnimal>true</packAnimal>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.2222</minAge>
+					<soundWounded>Pawn_Rodent_Wounded</soundWounded>
+					<soundDeath>Pawn_Rodent_Death</soundDeath>
+					<soundCall>Pawn_Rodent_Call</soundCall>
+					<soundAngry>Pawn_Rodent_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+			<li>AnimalFighter</li>
+		</tradeTags>
+	</ThingDef>
+</Defs>
