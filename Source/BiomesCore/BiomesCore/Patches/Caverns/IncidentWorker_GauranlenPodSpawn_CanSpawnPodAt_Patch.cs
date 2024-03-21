@@ -16,7 +16,7 @@ namespace BiomesCore.Patches.Caverns
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
 			var newInstructions = Transpilers.CavernsAwarePsychologicallyOutdoors(instructions.ToList(), OpCodes.Ldarg_0);
-			var secondList = Transpilers.CellUnbreachableRoofed(newInstructions);
+			var secondList = Transpilers.CellHasNonCavernRoof(newInstructions);
 
 			return secondList;
 		}

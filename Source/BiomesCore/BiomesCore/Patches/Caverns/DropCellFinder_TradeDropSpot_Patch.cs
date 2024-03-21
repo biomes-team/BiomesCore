@@ -21,7 +21,7 @@ namespace BiomesCore.Patches.Caverns
 
 		public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
-			return Transpilers.RoofGridUnbreachableRoofed(instructions.ToList());
+			return Transpilers.RoofGridHasNonCavernRoof(instructions.ToList());
 		}
 	}
 }

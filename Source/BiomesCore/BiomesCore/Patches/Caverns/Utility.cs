@@ -35,10 +35,10 @@ namespace BiomesCore.Patches.Caverns
 		/// <param name="cell">Cell to be checked</param>
 		/// <param name="map">Map of the cell.</param>
 		/// <returns>Roof of the cell. Return null if the roof is a cavern roof, or if there is no roof.</returns>
-		public static RoofDef GetNonCavernRoof(IntVec3 cell, Map map)
+		public static RoofDef CellGetNonCavernRoof(IntVec3 cell, Map map)
 		{
-			RoofDef roof = cell.GetRoof(map);
-			return roof != BiomesCoreDefOf.BMT_RockRoofStable ? roof : null;
+			RoofDef roofDef = cell.GetRoof(map);
+			return roofDef != BiomesCoreDefOf.BMT_RockRoofStable ? roofDef : null;
 		}
 
 		/// <summary>
@@ -47,21 +47,21 @@ namespace BiomesCore.Patches.Caverns
 		/// <param name="cell">Cell to check.</param>
 		/// <param name="map">Map of this cell.</param>
 		/// <returns>True if the cell has any kind of roof, except for cavern stable rock roof.</returns>
-		public static bool HasNonCavernRoof(IntVec3 cell, Map map)
+		public static bool CellHasNonCavernRoof(IntVec3 cell, Map map)
 		{
-			return GetNonCavernRoof(cell, map) != null;
+			return CellGetNonCavernRoof(cell, map) != null;
 		}
 
-		/// <summary>
-		/// Translates BMT_RockRoofStable into the def for vanilla thick rock roof.
-		/// </summary>
-		/// <param name="cell">Current cell.</param>
-		/// <param name="map">Map of the cell.</param>
-		/// <returns>RoofDefOf.RoofRockThick if the roof is BMT_RockRoofStable, the vanilla value otherwise.</returns>
+		public static bool RoofGridHasNonCavernRoof(RoofGrid roofGrid, IntVec3 cell)
+		{
+			RoofDef roofDef = roofGrid.RoofAt(cell);
+			return roofDef != null && roofDef != BiomesCoreDefOf.BMT_RockRoofStable;
+		}
+
 		public static RoofDef GetRoofThickIfCavern(IntVec3 cell, Map map)
 		{
-			var roof = cell.GetRoof(map);
-			return roof == BiomesCoreDefOf.BMT_RockRoofStable ? RoofDefOf.RoofRockThick : roof;
+			RoofDef roofDef = cell.GetRoof(map);
+			return roofDef == BiomesCoreDefOf.BMT_RockRoofStable ? RoofDefOf.RoofRockThick : roofDef;
 		}
 
 		/// <summary>

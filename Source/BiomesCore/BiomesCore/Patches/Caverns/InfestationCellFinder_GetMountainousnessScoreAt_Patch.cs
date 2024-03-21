@@ -14,7 +14,7 @@ namespace BiomesCore.Patches.Caverns
 		{
 			if (map.roofGrid.RoofAt(cell) == BiomesCoreDefOf.BMT_RockRoofStable)
 			{
-				__result *= 0.25f;
+				__result *= 0.25F;
 			}
 		}
 	}

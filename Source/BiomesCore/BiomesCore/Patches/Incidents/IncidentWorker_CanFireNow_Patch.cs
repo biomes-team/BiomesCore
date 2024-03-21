@@ -6,6 +6,9 @@ using Verse;
 
 namespace BiomesCore.Patches.Incidents
 {
+	/// <summary>
+	/// Implementation of DisableIncidentsExtension.
+	/// </summary>
 	[HarmonyPatch(typeof(IncidentWorker), nameof(IncidentWorker.CanFireNow))]
 	public static class IncidentWorker_CanFireNow_Patch
 	{

@@ -17,7 +17,7 @@ namespace BiomesCore.Patches.Caverns
 			var firstList = Transpilers.CavernsAwarePsychologicallyOutdoors(instructions.ToList(),
 				OpCodes.Ldarg_1 // Cell
 				);
-			return Transpilers.CellUnbreachableRoofed(firstList);
+			return Transpilers.CellHasNonCavernRoof(firstList);
 		}
 	}
 }

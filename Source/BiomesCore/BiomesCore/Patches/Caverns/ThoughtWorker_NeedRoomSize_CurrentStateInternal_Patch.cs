@@ -20,7 +20,7 @@ namespace BiomesCore.Patches.Caverns
 			MethodInfo pawnPositionMethod = AccessTools.PropertyGetter(typeof(Pawn), nameof(Pawn.Position));
 
 			return TranspilerHelper.ReplaceCall(instructions.ToList(), Methods.PsychologicallyOutdoorsMethod,
-				Methods.PsychologicallyOutdoorsOrCavernMethod,
+				Methods.CavernAwarePsychologicallyOutdoorsMethod,
 				new List<CodeInstruction>
 				{
 					new CodeInstruction(OpCodes.Ldarg_1), // Pawn
