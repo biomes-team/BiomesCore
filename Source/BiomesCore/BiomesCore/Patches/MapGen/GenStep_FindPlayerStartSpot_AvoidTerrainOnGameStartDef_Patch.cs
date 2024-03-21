@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using BiomesCore.Defs;
-using BiomesCore.Patches.Caverns;
 using BiomesCore.Reflections;
 using HarmonyLib;
 using RimWorld;
@@ -56,10 +55,13 @@ namespace BiomesCore.Patches.MapGen
 
 		private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
 		{
+			MethodInfo cellRoofedMethod =
+				AccessTools.Method(typeof(GridsUtility), nameof(GridsUtility.Roofed));
 			MethodInfo newMethod =
-				AccessTools.Method(typeof(GenStep_FindPlayerStartSpot_AvoidTerrainOnGameStartDef_Patch), nameof(InvalidStartSpot));
+				AccessTools.Method(typeof(GenStep_FindPlayerStartSpot_AvoidTerrainOnGameStartDef_Patch),
+					nameof(InvalidStartSpot));
 
-			return TranspilerHelper.ReplaceCall(instructions.ToList(), Methods.CellRoofedMethod, newMethod);
+			return TranspilerHelper.ReplaceCall(instructions.ToList(), cellRoofedMethod, newMethod);
 		}
 	}
 }

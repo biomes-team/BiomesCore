@@ -89,30 +89,8 @@
     <Compile Include="ModSettings\Settings.cs" />
     <Compile Include="ModSettings\SettingsWindow.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
-    <Compile Include="Patches\Caverns\BeautyUtility_CellBeauty_Patch.cs" />
-    <Compile Include="Patches\Caverns\DropCellFinder_CanPhysicallyDropInto_Patch.cs" />
-    <Compile Include="Patches\Caverns\DropCellFinder_FindRaidDropCenterDistant_Patch.cs" />
-    <Compile Include="Patches\Caverns\DropCellFinder_TradeDropSpot_Patch.cs" />
-    <Compile Include="Patches\Caverns\DropCellFinder_TryFindSafeLandingSpotCloseToColony_Patch.cs" />
-    <Compile Include="Patches\Caverns\GenStep_RocksFromGrid_Generate_Patch.cs" />
-    <Compile Include="Patches\Caverns\IncidentWorker_GauranlenPodSpawn_CanSpawnPodAt_Patch.cs" />
-    <Compile Include="Patches\Caverns\InfestationCellFinder_GetMountainousnessScoreAt_Patch.cs" />
-    <Compile Include="Patches\Caverns\PawnsArrivalModeWorker_EdgeWalkIn_TryResolveRaidSpawnCenter_Patch.cs" />
-    <Compile Include="Patches\Caverns\RaidStrategyWorker_Siege_CanUseWith_Patch.cs" />
-    <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomPawnEntryCell_Patch.cs" />
-    <Compile Include="Patches\Caverns\RoofGrid_GetCellExtraColor_Patch.cs" />
-    <Compile Include="Patches\Caverns\RoyalTitlePermitWorker_CallShuttle_GetReportFromCell_Patch.cs" />
-    <Compile Include="Patches\Caverns\StatPart_WorkTableOutdoors_Applies_Patch.cs" />
-    <Compile Include="Patches\Caverns\ThoughtWorker_IsIndoorsForUndergrounder_IsAwakeAndIndoors_Patch.cs" />
-    <Compile Include="Patches\Caverns\ThoughtWorker_IsOutdoorsForUndergrounder_CurrentStateInternal_Patch.cs" />
-    <Compile Include="Patches\Caverns\ThoughtWorker_NeedRoomSize_CurrentStateInternal_Patch.cs" />
-    <Compile Include="Patches\Caverns\Toils_LayDown_ApplyBedThoughts_Patch.cs" />
-    <Compile Include="Patches\Caverns\Transpilers.cs" />
-    <Compile Include="Patches\Caverns\Utility.cs" />
     <Compile Include="Patches\CompCauseGameCondition_ForceWeather_RandomizeSettings_Patch.cs" />
     <Compile Include="Patches\ComplexThreatWorker_SleepingInsects_GetPawnKindsForPoints_Patch.cs" />
-    <Compile Include="Patches\Caverns\GenStep_SpecialTrees_CanSpawnAt_Patch.cs" />
-    <Compile Include="Patches\Caverns\RCellFinder_TryFindRandomSpotJustOutsideColony_Patch.cs" />
     <Compile Include="Patches\ChangeStockQuality.cs" />
     <Compile Include="Patches\DangerWatcher_CalculateDangerRating.cs" />
     <Compile Include="Patches\ChunksOnKilled.cs" />
@@ -213,10 +191,6 @@
     <Compile Include="Things\BiomesPlant.cs" />
     <Compile Include="WorldMap\BiomeWorkerUtil.cs" />
     <Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
-    <PackageReference Include="Krafs.Publicizer" Version="2.2.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Lib.Harmony" Version="2.3.1.1" ExcludeAssets="runtime" />
     <Reference Include="Assembly-CSharp">
       <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -236,12 +210,5 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Publicize Include="Assembly-CSharp:RimWorld.BiomeDef.allowedPackAnimals" />
-    <Publicize Include="Assembly-CSharp:RimWorld.Plant.GraphicSowing" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PublicizerClearCacheOnClean>true</PublicizerClearCacheOnClean>
-  </PropertyGroup>
 </Project>
