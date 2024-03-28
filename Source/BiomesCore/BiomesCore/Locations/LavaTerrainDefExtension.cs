@@ -19,9 +19,27 @@ namespace BiomesCore.Locations
 
 		/// <summary>
 		/// LavaTerrainLocation requires a dummy CompProperties_Glower to implement its features. To avoid creating multiple
-		/// identical instances of this class, it is allocated here in the DefExtension instead.
+		/// identical instances of this class, it is kept in the DefExtension instead.
 		/// </summary>
-		public CompProperties_Glower CompPropertiesGlower = null;
+		private CompProperties_Glower compPropertiesGlower;
+
+		public CompProperties_Glower CompPropertiesGlower
+		{
+			get
+			{
+				if (compPropertiesGlower == null)
+				{
+					compPropertiesGlower = new CompProperties_Glower()
+					{
+						glowColor = glowColor,
+						glowRadius = glowRadius,
+						overlightRadius = overlightRadius
+					};
+				}
+
+				return compPropertiesGlower;
+			}
+		}
 
 		public LavaTerrainDefExtension()
 		{
@@ -65,13 +83,6 @@ namespace BiomesCore.Locations
 			{
 				yield return FormatConfigError($"{nameof(glowRadius)} value of {glowRadius} must be larger than zero.");
 			}
-
-			CompPropertiesGlower = new CompProperties_Glower()
-			{
-				glowColor = glowColor,
-				glowRadius = glowRadius,
-				overlightRadius = overlightRadius
-			};
 		}
 	}
 }
