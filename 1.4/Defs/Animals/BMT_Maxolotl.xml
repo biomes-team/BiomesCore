@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
-    <ThingDef ParentName="AnimalThingBase">
+	<ThingDef ParentName="AnimalThingBase">
 		<defName>BMT_Maxolotl</defName>
 		<label>maxolotl</label>
 		<description>These large salamanders prefer wet environments with pools of water they can comfortably slip into. While they lack teeth, their strong jaws can crush the shells of most insects. They are capable of fertilizing multiple batches of eggs in one go.</description>
@@ -61,7 +61,7 @@
 			</li>
 		</modExtensions>
 		<comps>
-			<li MayRequire="biomesteam.biomescaverns" Class="CompProperties_EggLayer">
+			<li Class="CompProperties_EggLayer">
 				<eggFertilizedDef>BMT_EggMaxolotlFertilized</eggFertilizedDef>
 				<eggFertilizationCountMax>10</eggFertilizationCountMax>
 				<eggLayIntervalDays>8</eggLayIntervalDays>
@@ -121,5 +121,68 @@
 			<li>AnimalUncommon</li>
 			<li>AnimalFighter</li>
 		</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>BMT_Maxolotl</defName>
+		<label>maxolotl</label>
+		<race>BMT_Maxolotl</race>
+		<combatPower>180</combatPower>
+		<ecoSystemWeight>0.5</ecoSystemWeight>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Maxolotl</texPath>
+					<drawSize>1.3</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
+					<drawSize>1.3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Maxolotl</texPath>
+					<drawSize>2.15</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
+					<drawSize>2.15</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Maxolotl</texPath>
+					<drawSize>3.2</drawSize>
+					<shadowData>
+						<volume>(0.25, 0.3, 0.25)</volume>
+						<offset>(0,0,0)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
+					<drawSize>3.2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>BMT_EggMaxolotlFertilized</defName>
+		<label>maxolotl egg (fert.)</label>
+		<description>A fertilized maxolotl egg. If all goes well, it should hatch into a maxolotl. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<texPath>BMT_Caverns/Things/Item/Eggs/SalamanderEggs</texPath>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<statBases>
+			<Mass>0.50</Mass>
+			<MarketValue>24.0</MarketValue>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>4</hatcherDaystoHatch>
+				<hatcherPawn>BMT_Maxolotl</hatcherPawn>
+			</li>
+		</comps>
 	</ThingDef>
 </Defs>
