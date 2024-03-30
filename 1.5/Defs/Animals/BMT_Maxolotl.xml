@@ -131,27 +131,27 @@
 		<lifeStages>
 			<li>
 				<bodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Maxolotl</texPath>
+					<texPath>BiomesCore_Things/Animal/Maxolotl/Maxolotl</texPath>
 					<drawSize>1.3</drawSize>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
+					<texPath>BiomesCore_Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
 					<drawSize>1.3</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
 			<li>
 				<bodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Maxolotl</texPath>
+					<texPath>BiomesCore_Things/Animal/Maxolotl/Maxolotl</texPath>
 					<drawSize>2.15</drawSize>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
+					<texPath>BiomesCore_Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
 					<drawSize>2.15</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
 			<li>
 				<bodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Maxolotl</texPath>
+					<texPath>BiomesCore_Things/Animal/Maxolotl/Maxolotl</texPath>
 					<drawSize>3.2</drawSize>
 					<shadowData>
 						<volume>(0.25, 0.3, 0.25)</volume>
@@ -159,7 +159,7 @@
 					</shadowData>
 				</bodyGraphicData>
 				<dessicatedBodyGraphicData>
-					<texPath>BMT_Caverns/Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
+					<texPath>BiomesCore_Things/Animal/Maxolotl/Dessicated_Salamander</texPath>
 					<drawSize>3.2</drawSize>
 				</dessicatedBodyGraphicData>
 			</li>
@@ -170,7 +170,7 @@
 		<label>maxolotl egg (fert.)</label>
 		<description>A fertilized maxolotl egg. If all goes well, it should hatch into a maxolotl. It can be eaten raw, but it's much better cooked.</description>
 		<graphicData>
-			<texPath>BMT_Caverns/Things/Item/Eggs/SalamanderEggs</texPath>
+			<texPath>BiomesCore_Things/Items/Eggs/SalamanderEggs</texPath>
 			<drawSize>2</drawSize>
 		</graphicData>
 		<statBases>
