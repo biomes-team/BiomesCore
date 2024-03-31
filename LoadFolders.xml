@@ -17,6 +17,9 @@
 		<li>\</li>
 		<li IfModActive="pathfinding.framework">Common/Mods/PathfindingFramework</li>
 		<li IfModActive="pathfinding.framework">1.4/Mods/PathfindingFramework</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest">1.4/LoadFolders/ReGrowthAspen</li>
+		<li IfModActive="ReGrowth.BOTR.Core">1.4/Mods/ReGrowthCore</li>
+		<li IfModActive="ReGrowth.BOTR.Wastelands">1.4/Mods/ReGrowthWastelands</li>
 	</v1.4>
 	<v1.5>
 		<li>1.5</li>
@@ -25,10 +28,11 @@
 		<li IfModActive="sarg.alphabiomes">1.5/Mods/AlphaBiomes</li>
 		<li IfModActive="pathfinding.framework">Common/Mods/PathfindingFramework</li>
 		<li IfModActive="pathfinding.framework">1.5/Mods/PathfindingFramework</li>
+		<li IfModActive="ReGrowth.BOTR.AspenForest">1.5/LoadFolders/ReGrowthAspen</li>
 		<li IfModActive="ReGrowth.BOTR.Core">1.5/Mods/ReGrowthCore</li>
+		<li IfModActive="ReGrowth.BOTR.Wastelands">1.5/Mods/ReGrowth-Wastelands</li>
 		<li IfModActive="VanillaExpanded.VCEF">1.5/Mods/VanillaFishingExpanded</li>
 		<li IfModActive="VanillaExpanded.VFEArchitect">1.5/Mods/VanillaFurnitureExpandedArchitect</li>
 		<li IfModActive="VanillaExpanded.VPlantsEMore">1.5/Mods/VanillaPlantsExpandedMore</li>
-
 	</v1.5>
 </loadFolders>
