@@ -33,9 +33,9 @@ namespace BiomesCore.StockGenerators
 		private float butcheringEfficiency = 0.75f;
 
 		/// <summary>
-		/// Obtaining all special butchered products is costly. This cache stores them so they are only calculated once.
+		/// Butchery rules are not straightforward. These products are cached only once.
 		/// </summary>
-		private static HashSet<ThingDef> _butcheredProducts;
+		private static HashSet<ThingDef> _huntingProducts;
 
 		/// <summary>
 		/// Favors animals common in the current biome, with low wildness.
@@ -45,7 +45,7 @@ namespace BiomesCore.StockGenerators
 		/// <returns>Random weight for the current animal.</returns>
 		private static float SelectionChance(PawnKindDef kind, BiomeDef biome)
 		{
-			var fromWildness = Util.SelectionChanceFromWildnessCurve.Evaluate(kind.RaceProps.wildness);
+			float fromWildness = Util.SelectionChanceFromWildnessCurve.Evaluate(kind.RaceProps.wildness);
 			return 100.0f * biome.CommonalityOfAnimal(kind) + fromWildness;
 		}
 
@@ -57,32 +57,32 @@ namespace BiomesCore.StockGenerators
 				yield break;
 			}
 
-			var biome = Find.World.grid.tiles[forTile].biome;
-			var biomeAnimals = biome.AllWildAnimals
+			BiomeDef biome = Find.World.grid.tiles[forTile].biome;
+			List<PawnKindDef> biomeAnimalPawnKindDefs = biome.AllWildAnimals
 				.Where(def => def.RaceProps.Animal && wildnessRange.Includes(def.RaceProps.wildness) &&
 				              (!checkTemperature || Util.AcceptableTemperature(def, forTile))).ToList();
 
-			var kindCount = Math.Min(kindCountRange.RandomInRange, biomeAnimals.Count);
+			int kindCount = Math.Min(kindCountRange.RandomInRange, biomeAnimalPawnKindDefs.Count);
 			if (kindCount <= 0)
 			{
 				yield break;
 			}
 
-			var chosenKinds = new HashSet<PawnKindDef>();
-			while (chosenKinds.Count < kindCount)
+			var pawnKindDefs = new HashSet<PawnKindDef>();
+			while (pawnKindDefs.Count < kindCount)
 			{
-				biomeAnimals.TryRandomElementByWeight(def => SelectionChance(def, biome), out var chosenKind);
-				chosenKinds.Add(chosenKind);
+				biomeAnimalPawnKindDefs.TryRandomElementByWeight(def => SelectionChance(def, biome), out var pawnKindDef);
+				pawnKindDefs.Add(pawnKindDef);
 			}
 
-			foreach (var chosenKind in chosenKinds)
+			foreach (var pawnKindDef in pawnKindDefs)
 			{
 				// Simulate butchering n animals
-				var animalCount = RandomCountOf(chosenKind.race);
-				var meatDef = chosenKind.RaceProps.meatDef;
+				int animalCount = RandomCountOf(pawnKindDef.race);
+				ThingDef meatDef = pawnKindDef.RaceProps.meatDef;
 				if (meatDef != null && meatDef.tradeability.TraderCanSell())
 				{
-					var meatAmount = AnimalProductionUtility.AdultMeatAmount(chosenKind.race) * animalCount *
+					var meatAmount = AnimalProductionUtility.AdultMeatAmount(pawnKindDef.race) * animalCount *
 					                 butcheringEfficiency;
 					foreach (var thing in StockGeneratorUtility.TryMakeForStock(meatDef, (int) meatAmount, faction))
 					{
@@ -90,23 +90,27 @@ namespace BiomesCore.StockGenerators
 					}
 				}
 
-				var leatherDef = chosenKind.RaceProps.leatherDef;
+				ThingDef leatherDef = pawnKindDef.RaceProps.leatherDef;
 				if (leatherDef != null && leatherDef.tradeability.TraderCanSell())
 				{
-					var leatherAmount = AnimalProductionUtility.AdultLeatherAmount(chosenKind.race) * animalCount *
-					                    butcheringEfficiency;
-					foreach (var thing in StockGeneratorUtility.TryMakeForStock(leatherDef, (int) leatherAmount, faction))
+					float leatherAmount = AnimalProductionUtility.AdultLeatherAmount(pawnKindDef.race) * animalCount *
+					                      butcheringEfficiency;
+					foreach (Thing thing in StockGeneratorUtility.TryMakeForStock(leatherDef, (int) leatherAmount, faction))
 					{
 						yield return thing;
 					}
 				}
 
-				if (chosenKind.race.butcherProducts != null)
+				if (pawnKindDef.race.butcherProducts != null)
 				{
-					foreach (var butcherProduct in chosenKind.race.butcherProducts)
+					foreach (ThingDefCountClass butcherProduct in pawnKindDef.race.butcherProducts)
 					{
-						if (!butcherProduct.thingDef.tradeability.TraderCanSell()) continue;
-						var count = butcherProduct.count * butcheringEfficiency;
+						if (!butcherProduct.thingDef.tradeability.TraderCanSell())
+						{
+							continue;
+						}
+
+						float count = butcherProduct.count * butcheringEfficiency;
 						foreach (var thing in StockGeneratorUtility.TryMakeForStock(butcherProduct.thingDef, (int) count, faction))
 						{
 							yield return thing;
@@ -115,12 +119,12 @@ namespace BiomesCore.StockGenerators
 				}
 
 				// Assume adult individuals.
-				var lifeStage = chosenKind.lifeStages.Count == 0 ? null : chosenKind.lifeStages.Last();
+				PawnKindLifeStage lifeStage = pawnKindDef.lifeStages.Count == 0 ? null : pawnKindDef.lifeStages.Last();
 				if (lifeStage?.butcherBodyPart != null &&
 				    lifeStage.butcherBodyPart.thing.tradeability.TraderCanSell())
 				{
 					// Random gender.
-					var gender = chosenKind.fixedGender ?? (chosenKind.RaceProps.hasGenders
+					var gender = pawnKindDef.fixedGender ?? (pawnKindDef.RaceProps.hasGenders
 						? Rand.Value >= 0.5 ? Gender.Female : Gender.Male
 						: Gender.None);
 					if (gender == Gender.None ||
@@ -136,36 +140,60 @@ namespace BiomesCore.StockGenerators
 			}
 		}
 
-		private static void PopulateButcheredProductsCache()
+		private static void PopulateHuntingProductsCache()
 		{
-			if (_butcheredProducts != null)
+			if (_huntingProducts != null)
 			{
 				return;
 			}
 
-			_butcheredProducts = new HashSet<ThingDef>();
+			_huntingProducts = new HashSet<ThingDef>();
 
-			var animals = DefDatabase<PawnKindDef>.AllDefsListForReading
-				.Where(def => def.RaceProps.Animal && def.race.butcherProducts != null)
-				.ToList();
-			foreach (var animal in animals)
+			foreach (PawnKindDef pawnKindDef in DefDatabase<PawnKindDef>.AllDefsListForReading)
 			{
-				foreach (var butcherProduct in animal.race.butcherProducts)
+				if (!pawnKindDef.RaceProps.Animal)
 				{
-					if (butcherProduct.thingDef.tradeability.TraderCanSell())
+					continue;
+				}
+
+				ThingDef meatThingDef = pawnKindDef.RaceProps.meatDef;
+				if (meatThingDef != null && meatThingDef.tradeability.TraderCanSell())
+				{
+					_huntingProducts.Add(meatThingDef);
+				}
+
+				ThingDef leatherThingDef = pawnKindDef.RaceProps.leatherDef;
+				if (leatherThingDef != null && leatherThingDef.tradeability.TraderCanSell())
+				{
+					_huntingProducts.Add(leatherThingDef);
+				}
+
+				if (pawnKindDef.race.butcherProducts != null)
+				{
+					foreach (ThingDefCountClass butcherProduct in pawnKindDef.race.butcherProducts)
 					{
-						_butcheredProducts.Add(butcherProduct.thingDef);
+						if (butcherProduct.thingDef.tradeability.TraderCanSell())
+						{
+							_huntingProducts.Add(butcherProduct.thingDef);
+						}
 					}
+				}
+
+				// Assume adult individuals.
+				PawnKindLifeStage lifeStage = pawnKindDef.lifeStages.Count == 0 ? null : pawnKindDef.lifeStages.Last();
+				if (lifeStage?.butcherBodyPart != null &&
+				    lifeStage.butcherBodyPart.thing.tradeability.TraderCanSell())
+				{
+					_huntingProducts.Add(lifeStage.butcherBodyPart.thing);
 				}
 			}
 		}
 
 		public override bool HandlesThingDef(ThingDef thingDef)
 		{
-			PopulateButcheredProductsCache();
+			PopulateHuntingProductsCache();
 			return thingDef.tradeability != Tradeability.None &&
-			       (thingDef.IsLeather || thingDef.IsMeat || Util.ExoticAnimalPart(thingDef) ||
-			        _butcheredProducts.Contains(thingDef));
+			       (Util.ExoticAnimalPart(thingDef) || _huntingProducts.Contains(thingDef));
 		}
 	}
 }

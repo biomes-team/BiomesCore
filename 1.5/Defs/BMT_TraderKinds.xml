@@ -94,7 +94,7 @@
 				<maxQuality>Legendary</maxQuality>
 			</li>
 			<li Class="BiomesCore.StockGenerators.ButcheredPrey">
-				<kindCountRange>2~3</kindCountRange>
+				<kindCountRange>400~500</kindCountRange>
 				<countRange>1</countRange>
 				<wildnessRange>0.3~0.8</wildnessRange>
 			</li>
