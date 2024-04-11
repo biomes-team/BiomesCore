@@ -85,15 +85,5 @@
 			</li>
 		</value>
 	</Operation>
-	<Operation Class="PatchOperationAddModExtension">
-		<xpath>Defs/TerrainDef[defName="RG_TundraSoil"]</xpath>
-		<value>
-			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
-				<terrainTags>
-					<li>Soil</li>
-				</terrainTags>
-			</li>
-		</value>
-	</Operation>
 
 </Patch>
