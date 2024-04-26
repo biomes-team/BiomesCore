@@ -240,6 +240,12 @@ namespace BMT
 				}
 
 				float date = GenLocalDate.DayPercent(this);
+
+				if (growingHours.Value.min > growingHours.Value.max)
+				{
+					return date < growingHours.Value.min && date > growingHours.Value.max;
+				}
+
 				return date < growingHours.Value.min || date > growingHours.Value.max;
 			}
 
