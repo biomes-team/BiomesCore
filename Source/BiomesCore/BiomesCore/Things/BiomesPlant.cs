@@ -190,9 +190,7 @@ namespace BMT
 			get
 			{
 				var vanillaValue = base.LeaflessTemperatureThresh;
-				Log.Message($"vanilla {vanillaValue}");
 				if (optimalTemperature == null || vanillaValue < optimalTemperature.Value.min) return vanillaValue;
-				Log.Message($"new {optimalTemperature.Value.min - Rand.RangeSeeded(0, 8f, this.thingIDNumber ^ 838051265)}");
 				return optimalTemperature.Value.min - Rand.RangeSeeded(0, 8f, this.thingIDNumber ^ 838051265);
 			}
 		}
