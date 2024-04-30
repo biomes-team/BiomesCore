@@ -9,6 +9,7 @@
 		<uiIconPath>BiomesCore_Terrain/Bridges/PontoonBridge_MenuIcon</uiIconPath>
 		<layerable>true</layerable>
 		<bridge>true</bridge>
+		<color>(108,78,55)</color>
 		<affordances>
 			<li>Light</li>
 			<li>Medium</li>

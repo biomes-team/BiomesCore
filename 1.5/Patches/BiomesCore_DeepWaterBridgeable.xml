@@ -1,20 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Patch>
 
-	<Operation Class="PatchOperationConditional">
-		<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']/affordances</xpath>
-		<nomatch Class="PatchOperationAdd">
-			<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']</xpath>
-			<value>
+	<!-- <Operation Class="PatchOperationConditional"> -->
+		<!-- <xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']/affordances</xpath> -->
+		<!-- <nomatch Class="PatchOperationAdd"> -->
+			<!-- <xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep']</xpath> -->
+			<!-- <value> -->
+				<!-- <affordances/> -->
+			<!-- </value> -->
+		<!-- </nomatch> -->
+	<!-- </Operation> -->
+
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep' or -->
+			<!-- defName='WaterMovingChestDeep' or @Name='WaterShallowBase']/affordances -->
+		<!-- </xpath> -->
+		<!-- <value> -->
+			<!-- <li>BMT_DeepWaterBridgeable</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/passability</xpath>
+		<success>Always</success>
+	</Operation>
+	<Operation Class="PatchOperationRemove">
+		<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/changeable</xpath>
+		<success>Always</success>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+			  <xpath>/Defs/TerrainDef[@Name="WaterBase"]/affordances</xpath>
+			  <success>Invert</success>
+			</li>
+			<li Class="PatchOperationAdd">
+			  <xpath>/Defs/TerrainDef[@Name="WaterBase"]</xpath>
+			  <success>Always</success>
+			  <value>
 				<affordances/>
-			</value>
-		</nomatch>
+			  </value>
+			</li>
+		</operations>
 	</Operation>
 
 	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/TerrainDef[defName='WaterDeep' or defName='WaterOceanDeep' or
-			defName='WaterMovingChestDeep' or @Name='WaterShallowBase']/affordances
-		</xpath>
+		<xpath>/Defs/TerrainDef[@Name="WaterBase"]/affordances</xpath>
 		<value>
 			<li>BMT_DeepWaterBridgeable</li>
 		</value>
