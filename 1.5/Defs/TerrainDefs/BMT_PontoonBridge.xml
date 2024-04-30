@@ -4,7 +4,7 @@
 	<TerrainDef>
 		<defName>BMT_PontoonBridge</defName>
 		<label>pontoon bridge</label>
-		<description>todo.</description>
+		<description>A flat wooden surface on supportive beams which can be built over any water.</description>
 		<texturePath>Terrain/Surfaces/WoodFloor</texturePath>
 		<uiIconPath>BiomesCore_Terrain/Bridges/PontoonBridge_MenuIcon</uiIconPath>
 		<layerable>true</layerable>
