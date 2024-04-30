@@ -92,10 +92,6 @@ namespace BMT
 
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
 		{
-			base.SpawnSetup(map, respawningAfterLoad);
-			customGraphicsDef = def.GetModExtension<CustomGraphicsPlantDef>();
-			SetCustomBiomeGraphic(map);
-
 			var controlDef = def.GetModExtension<Biomes_PlantControl>();
 			if (controlDef != null)
 			{
@@ -103,6 +99,11 @@ namespace BMT
 				needsRest = controlDef.needsRest;
 				growingHours = controlDef.growingHours;
 			}
+
+			base.SpawnSetup(map, respawningAfterLoad);
+
+			customGraphicsDef = def.GetModExtension<CustomGraphicsPlantDef>();
+			SetCustomBiomeGraphic(map);
 		}
 
 		/// <summary>
@@ -180,6 +181,19 @@ namespace BMT
 			? 0.0f
 			: GrowthRateFactor_Fertility * GrowthRateFactor_Temperature * GrowthRateFactor_Light *
 			  GrowthRateFactor_NoxiousHaze;
+
+		/// <summary>
+		/// Prevent plants from becoming leafless and/or dying while within their extended temperature range.
+		/// </summary>
+		protected override float LeaflessTemperatureThresh
+		{
+			get
+			{
+				var vanillaValue = base.LeaflessTemperatureThresh;
+				if (optimalTemperature == null || vanillaValue < optimalTemperature.Value.min) return vanillaValue;
+				return optimalTemperature.Value.min - Rand.RangeSeeded(0, 8f, this.thingIDNumber ^ 838051265);
+			}
+		}
 
 		public override void TickLong()
 		{
