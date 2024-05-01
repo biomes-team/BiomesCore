@@ -9,6 +9,7 @@
 		<statBases>
 			<Beauty>-3</Beauty>
 			<Cleanliness>-4</Cleanliness>
+			<ContainmentStrength MayRequire="Ludeon.RimWorld.Anomaly">15</ContainmentStrength>
 		</statBases>
 		<waterDepthShader>Map/WaterDepth</waterDepthShader>
 		<waterDepthShaderParameters>
