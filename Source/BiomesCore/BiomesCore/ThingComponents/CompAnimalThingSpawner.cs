@@ -4,7 +4,6 @@ using Verse;
 
 namespace BiomesCore.ThingComponents
 {
-
 	public class CompProperties_AnimalThingSpawner : Verse.CompProperties
 	{
 		public ThingDef thingToSpawn;
@@ -26,12 +25,22 @@ namespace BiomesCore.ThingComponents
 	{
 		private int ticksUntilSpawn;
 
-		public CompProperties_AnimalThingSpawner PropsSpawner => (CompProperties_AnimalThingSpawner)props;
+		private CompProperties_AnimalThingSpawner PropsSpawner => (CompProperties_AnimalThingSpawner) props;
 
-		//private bool PowerOn => parent.GetComp<CompPowerTrader>()?.PowerOn ?? false;
+		private Pawn parentPawn;
+
+		private CompActivity compActivity;
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
+			parentPawn = parent as Pawn;
+			if (parentPawn == null)
+			{
+				Log.Warning($"CompAnimalThingSpawner is only allowed in pawns, but it has been assigned to a {parent}");
+			}
+
+			compActivity = parentPawn?.GetComp<CompActivity>();
+
 			if (!respawningAfterLoad)
 			{
 				ResetCountdown();
@@ -48,9 +57,15 @@ namespace BiomesCore.ThingComponents
 			TickInterval(250);
 		}
 
+		private bool ThingSpawningDormant()
+		{
+			return !parent.Spawned || parent.Position.Fogged(parent.Map) || parentPawn.Downed ||
+			       (compActivity != null && compActivity.IsDormant);
+		}
+
 		private void TickInterval(int interval)
 		{
-			if (!parent.Spawned || parent.Position.Fogged(parent.Map))
+			if (ThingSpawningDormant())
 			{
 				return;
 			}
@@ -74,6 +89,7 @@ namespace BiomesCore.ThingComponents
 			{
 				return false;
 			}
+
 			if (TryFindSpawnCell(parent, PropsSpawner.thingToSpawn, PropsSpawner.spawnCount, out var result))
 			{
 				Thing thing = ThingMaker.MakeThing(PropsSpawner.thingToSpawn);
@@ -88,21 +104,17 @@ namespace BiomesCore.ThingComponents
 				GenPlace.TryPlaceThing(thing, result, parent.Map, ThingPlaceMode.Direct, out var lastResultingThing);
 
 
-				Pawn animal = parent as Pawn;
-
-				if (animal != null)
+				if (parentPawn != null && parentPawn.Faction?.IsPlayer != true)
 				{
-					if (animal.Faction?.IsPlayer != true)
+					if (!parent.Map.areaManager.Home[parentPawn.Position])
 					{
-						if(!parent.Map.areaManager.Home[animal.Position])
-						{
-							lastResultingThing.SetForbidden(value: true);
-						}
+						lastResultingThing.SetForbidden(value: true);
 					}
 				}
 
 				return true;
 			}
+
 			return false;
 		}
 
@@ -114,32 +126,40 @@ namespace BiomesCore.ThingComponents
 				{
 					continue;
 				}
+
 				Building edifice = item.GetEdifice(parent.Map);
 				if (edifice != null && thingToSpawn.IsEdifice())
 				{
 					continue;
 				}
+
 				Building_Door building_Door = edifice as Building_Door;
-				if ((building_Door != null && !building_Door.FreePassage) || (parent.def.passability != Traversability.Impassable && !GenSight.LineOfSight(parent.Position, item, parent.Map)))
+				if ((building_Door != null && !building_Door.FreePassage) ||
+				    (parent.def.passability != Traversability.Impassable &&
+				     !GenSight.LineOfSight(parent.Position, item, parent.Map)))
 				{
 					continue;
 				}
+
 				bool flag = false;
 				List<Thing> thingList = item.GetThingList(parent.Map);
 				foreach (var thing in thingList)
 				{
-					if (thing.def.category == ThingCategory.Item && (thing.def != thingToSpawn || thing.stackCount > thingToSpawn.stackLimit - spawnCount))
+					if (thing.def.category == ThingCategory.Item &&
+					    (thing.def != thingToSpawn || thing.stackCount > thingToSpawn.stackLimit - spawnCount))
 					{
 						flag = true;
 						break;
 					}
 				}
+
 				if (!flag)
 				{
 					result = item;
 					return true;
 				}
 			}
+
 			result = IntVec3.Invalid;
 			return false;
 		}
@@ -151,9 +171,9 @@ namespace BiomesCore.ThingComponents
 
 		public override string CompInspectStringExtra()
 		{
-			return parent.Spawned
-				? "BMT_AnimalThingSpawner".Translate(PropsSpawner.thingToSpawn.label, ticksUntilSpawn.ToStringTicksToPeriod())
-				: null;
+			return ThingSpawningDormant()
+				? null
+				: "BMT_AnimalThingSpawner".Translate(PropsSpawner.thingToSpawn.label, ticksUntilSpawn.ToStringTicksToPeriod());
 		}
 
 		public override void PostExposeData()
@@ -177,8 +197,5 @@ namespace BiomesCore.ThingComponents
 				yield return command_Action;
 			}
 		}
-
 	}
-
 }
-
