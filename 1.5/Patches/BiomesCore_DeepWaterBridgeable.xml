@@ -20,10 +20,10 @@
 		<!-- </value> -->
 	<!-- </Operation> -->
 
-	<Operation Class="PatchOperationRemove">
-		<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/passability</xpath>
-		<success>Always</success>
-	</Operation>
+	<!-- <Operation Class="PatchOperationRemove"> -->
+		<!-- <xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/passability</xpath> -->
+		<!-- <success>Always</success> -->
+	<!-- </Operation> -->
 	<Operation Class="PatchOperationRemove">
 		<xpath>/Defs/TerrainDef[@Name="WaterDeepBase"]/changeable</xpath>
 		<success>Always</success>
