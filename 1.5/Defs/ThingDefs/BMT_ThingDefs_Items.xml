@@ -259,5 +259,30 @@
 			</statFactors>
 		</stuffProps>
 	</ThingDef>
+	
+		<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Pinnipedskin</defName>
+		<label>pinnipedskin</label>
+		<description>The tanned skin of a pinniped, such as a seal or walrus. It protects well against  the cold and blunt damage.</description>
+		<statBases>
+			<MarketValue>2.2</MarketValue>
+			<Flammability>0.1</Flammability>
+			<StuffPower_Armor_Sharp>0.44</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.81</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>1</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>8</StuffPower_Insulation_Heat>
+		</statBases>
+		<graphicData>
+			<color>(132,112,106)</color>
+		</graphicData>
+		<stuffProps>
+			<color>(132,112,106)</color>
+			<commonality>0.025</commonality>
+			<statFactors>
+				<MaxHitPoints>0.8</MaxHitPoints>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
 
 </Defs>
