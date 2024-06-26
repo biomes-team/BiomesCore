@@ -14,6 +14,9 @@
 				<baseMoodEffect>-2</baseMoodEffect>
 			</li>
 		</stages>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">RobustDigestion</li>
+		</nullifyingGenes>
 	</ThoughtDef>
 
 </Defs>
