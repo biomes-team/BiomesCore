@@ -159,6 +159,7 @@
     <Compile Include="ThingComponents\CompDefaultOffGlower.cs" />
     <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
     <Compile Include="ThingComponents\CompExplodeOnDeath.cs" />
+    <Compile Include="ThingComponents\CompDieOnDamage.cs" />
     <Compile Include="ThingComponents\CompPlantPolluteOverTime.cs" />
     <Compile Include="ThingComponents\CompPlantProximityExplosive.cs" />
     <Compile Include="ThingComponents\CompPlantReleaseGas.cs" />
