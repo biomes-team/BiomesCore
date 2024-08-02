@@ -51,6 +51,14 @@
 		<reproductive>true</reproductive>
 	</LifeStageDef>
 
+	<LifeStageDef>
+		<defName>BMT_LarvalAdult</defName>
+		<label>adult</label>
+		<visible>false</visible>
+		<reproductive>true</reproductive>
+		<caravanRideable>true</caravanRideable>
+	</LifeStageDef>
+
 	<!--Nymph-->
 	<LifeStageDef>
 		<defName>BMT_EusocialInsectNymphFirst</defName>
