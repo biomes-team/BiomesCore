@@ -187,6 +187,7 @@
     <Compile Include="ThingComponents\CompPawnsAroundThing.cs" />
     <Compile Include="ThingComponents\CompSleepGraphic.cs" />
     <Compile Include="ThingComponents\CompDynamicAnimalGraphic.cs" />
+    <Compile Include="ThingComponents\CompSpawnGasOnTakeDamage.cs" />
     <Compile Include="ThingComponents\CompTerrainRecolor.cs" />
     <Compile Include="ThingComponents\Spawner_Comp.cs" />
     <Compile Include="ThingComponents\Spawner_CompProperties.cs" />
