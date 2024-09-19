@@ -51,6 +51,22 @@
 		</modExtensions>
 	</TerrainDef>
 
+	<TerrainDef ParentName="BMT_Terrain_Lava_Base" Name="BMT_Terrain_LavaMoving_Base" Abstract="true">
+		<waterDepthShaderParameters>
+			<_WaterRippleIntensity>0.1</_WaterRippleIntensity>
+			<_WaterDepthIntensity>1.1</_WaterDepthIntensity>
+			<_UseWaterOffset>1</_UseWaterOffset>
+		</waterDepthShaderParameters>
+		<tags>
+			<li>Lava</li>
+			<li>River</li>
+		</tags>
+		<affordances>
+			<li>BMT_TerrainAffordance_Lava</li>
+			<li>MovingFluid</li>
+		</affordances>
+	</TerrainDef>
+
 	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
 		<defName>BiomeCore_Lava</defName>
 		<label>lava</label>
@@ -60,6 +76,18 @@
 	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
 		<defName>BiomeCore_Magma</defName>
 		<label>magma</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Terrain_LavaMoving_Base">
+		<defName>BiomeCore_LavaMoving</defName>
+		<label>moving lava</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Terrain_LavaMoving_Base">
+		<defName>BiomeCore_MagmaMoving</defName>
+		<label>moving magma</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
 	</TerrainDef>
 

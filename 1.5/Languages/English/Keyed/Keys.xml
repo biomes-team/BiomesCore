@@ -9,4 +9,7 @@
 	<BMT_SpawnPercentage>{0} %</BMT_SpawnPercentage>
 
 	<BMT_AnimalThingSpawner>Producing {0} in {1}.</BMT_AnimalThingSpawner>
+
+	<GeologicalLandforms.Landform.BMT_LavaFlowTerrain>lava flow terrain</GeologicalLandforms.Landform.BMT_LavaFlowTerrain>
+
 </LanguageData>
