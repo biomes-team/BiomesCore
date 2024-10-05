@@ -8,9 +8,14 @@ using Verse;
 
 namespace BiomesCore.Patches
 {
+	[StaticConstructorOnStartup]
 	[HarmonyPatch]
 	public static class ExtraStatInfo
 	{
+		static ExtraStatInfo()
+		{
+			Initialize();
+		}
 		// Ensures that the new stats will always be shown at the end, before the mod information.
 		private const int displayPriority = 89998;
 

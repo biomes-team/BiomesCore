@@ -28,7 +28,6 @@ namespace BiomesCore
 		private void InitializeWhenLoadingFinished()
 		{
 			GetSettings<Settings>();
-			ExtraStatInfo.Initialize();
 			Log("Initialized");
 		}
 
