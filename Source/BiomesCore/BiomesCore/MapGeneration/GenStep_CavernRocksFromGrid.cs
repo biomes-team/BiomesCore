@@ -35,7 +35,7 @@ namespace BiomesCore.MapGeneration
 
 			GenStep_ScatterLumpsMineable genStep_ScatterLumpsMineable = new GenStep_ScatterLumpsMineable();
 			genStep_ScatterLumpsMineable.maxValue = MaxMineableValue;
-			float scatterLumpsCount = Find.WorldGrid[map.Tile].hilliness switch
+			float scatterLumpsCount = map.TileInfo.hilliness switch
 			{
 				Hilliness.Flat => 4f,
 				Hilliness.SmallHills => 8f,

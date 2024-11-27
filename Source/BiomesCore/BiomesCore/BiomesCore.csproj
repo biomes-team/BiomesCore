@@ -45,6 +45,7 @@
     <Compile Include="DefModExtensions\DropChunksWhenDestroyed.cs" />
     <Compile Include="DefModExtensions\PreferenceHunterModExtension.cs" />
     <Compile Include="DefModExtensions\RockNoiseConfig.cs" />
+    <Compile Include="DefModExtensions\StuffQualityOffset.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
     <Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Patches\PreceptWorker_Animal_ThingDefs_Patch.cs" />
     <Compile Include="Patches\PredatorHuntingBehaviour.cs" />
     <Compile Include="Patches\PreferenceHunterPatches.cs" />
+    <Compile Include="Patches\StuffQualityOffset_Patch.cs" />
     <Compile Include="Patches\RockNoises_Init.cs" />
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
