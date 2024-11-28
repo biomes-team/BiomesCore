@@ -35,7 +35,7 @@ namespace BiomesCore
                 for (int pawnIndex = 0; pawnIndex < allPawnsSpawned.Count; pawnIndex++)
                 {
                     Pawn pawn = allPawnsSpawned[pawnIndex];
-                    if (!pawn.Position.InHorDistOf(plant.Position, Props.cellsToFill * Props.growthProgress) || !pawn.RaceProps.IsFlesh)
+                    if (!pawn.Position.InHorDistOf(plant.Position, Props.cellsToFill) || !pawn.RaceProps.IsFlesh)
                     {
                         continue;
                     }
@@ -65,14 +65,14 @@ namespace BiomesCore
                 }
             }
         }
-        
+
         public void ThrowPoisonSmoke()
         {
             if (parent.Map == null || !(parent is Plant plant))
                 return;
             Vector3 spawnPosition = plant.Position.ToVector3Shifted() + Vector3Utility.RandomHorizontalOffset(3f);
             if (spawnPosition.ShouldSpawnMotesAt(plant.Map) && !plant.Map.moteCounter.SaturatedLowPriority)
-            {   
+            {
                 MoteThrown moteThrown = ThingMaker.MakeThing(DefDatabase<ThingDef>.GetNamedSilentFail(Props.moteDef)) as MoteThrown;
                 moteThrown.Scale = (Props.cellsToFill * Props.growthProgress) + 1f;
                 moteThrown.rotationRate = Rand.Range(-4, 4);
