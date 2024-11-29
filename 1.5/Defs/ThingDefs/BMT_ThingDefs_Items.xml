@@ -285,4 +285,25 @@
 		</stuffProps>
 	</ThingDef>
 
+  <ThingDef ParentName="LeatherBase">
+    <defName>BMT_Fishskin</defName>
+    <label>fishskin</label>
+    <description>Leather from a fish. It doesn't protect very well.</description>
+    <graphicData>
+      <color>(160,190,170)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>2.1</MarketValue>
+      <StuffPower_Armor_Sharp>0.55</StuffPower_Armor_Sharp>
+      <StuffPower_Insulation_Cold>6</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(160,190,170)</color>
+      <commonality>0.06</commonality>
+	  <statFactors>
+        <Beauty>1.0</Beauty>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
 </Defs>
