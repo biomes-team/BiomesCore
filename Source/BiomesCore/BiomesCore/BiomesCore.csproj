@@ -183,6 +183,8 @@
     <Compile Include="ThingComponents\CompPackDefense.cs" />
     <Compile Include="ThingComponents\CompPackHunter.cs" />
     <Compile Include="ThingComponents\CompPassiveSelfHeal.cs" />
+    <Compile Include="ThingComponents\CompPlantReleaseGasOnDamage.cs" />
+    <Compile Include="ThingComponents\CompPlantReleaseGasOnDeath.cs" />
     <Compile Include="ThingComponents\CompPlantReleaseSpore.cs" />
     <Compile Include="ThingComponents\CompPowerPlantLava.cs" />
     <Compile Include="ThingComponents\CompPowerPlant_PowerFungus.cs" />
