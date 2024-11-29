@@ -43,6 +43,7 @@
     <Compile Include="DefModExtensions\CustomGraphicsPlantDef.cs" />
     <Compile Include="DefModExtensions\DisableIncidentsExtension.cs" />
     <Compile Include="DefModExtensions\DropChunksWhenDestroyed.cs" />
+    <Compile Include="DefModExtensions\PlantHarvestMemoryExtension.cs" />
     <Compile Include="DefModExtensions\PreferenceHunterModExtension.cs" />
     <Compile Include="DefModExtensions\RockNoiseConfig.cs" />
     <Compile Include="DefModExtensions\StuffQualityOffset.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Patches\ModThingComps\PawnRenderNode_AnimalPart_GraphicsFor_Patch.cs" />
     <Compile Include="Patches\PlantGrowth.cs" />
     <Compile Include="Patches\Plants\PlantUtility_GrowthSeasonNow_Patch.cs" />
+    <Compile Include="Patches\Plants\Plant_PlantCollected_Patch.cs" />
     <Compile Include="Patches\Plants\WorkGiver_GrowerSow_JobOnCell_Patch.cs" />
     <Compile Include="Patches\PollutionUtility_StimulatedByPollution_Patch.cs" />
     <Compile Include="Patches\PreceptWorker_Animal_ThingDefs_Patch.cs" />
