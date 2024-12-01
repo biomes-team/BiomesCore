@@ -8,7 +8,7 @@
 		  <height>Middle</height>
 		  <depth>Outside</depth>
 		  <parts>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>FishTail</def>
 					<height>Middle</height>
 					<coverage>0.1</coverage>
@@ -36,13 +36,13 @@
 					<coverage>0.02</coverage>
 					<depth>Inside</depth>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_FishGill</def>
 					<customLabel>left gill</customLabel>
 					<coverage>0.02</coverage>
 					<depth>Inside</depth>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_FishGill</def>
 					<customLabel>right gill</customLabel>
 					<coverage>0.02</coverage>
@@ -107,37 +107,37 @@
 						</li>
 					</parts>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_Fin</def>
 					<customLabel>left pectoral fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_Fin</def>
 					<customLabel>right pectoral fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_Fin</def>
 					<customLabel>left pelvic fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_Fin</def>
 					<customLabel>right pelvic fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_Fin</def>
 					<customLabel>dorsal fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Top</height>
 				</li>
-				<li>
+				<li MayRequire="biomesteam.biomesislands">
 					<def>BiomesIslands_Fin</def>
 					<customLabel>anal fin</customLabel>
 					<coverage>0.05</coverage>
