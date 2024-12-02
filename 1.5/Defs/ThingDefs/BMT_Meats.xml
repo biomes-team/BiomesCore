@@ -20,7 +20,7 @@
     <ingestible>
       <foodType>Meat</foodType>
       <preferability>RawTasty</preferability>
-      <tasteThought MayRequire="biomesteam.biomesislands">AteRawFish</tasteThought>
+      <tasteThought>AteRawFish</tasteThought>
       <ingestEffect>EatMeat</ingestEffect>
       <ingestSound>RawMeat_Eat</ingestSound>
     </ingestible>
