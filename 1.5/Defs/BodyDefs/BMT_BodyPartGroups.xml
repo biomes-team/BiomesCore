@@ -93,7 +93,7 @@
 	</BodyPartGroupDef>
 
 	<BodyPartDef>
-		<defName>BiomesIslands_FishGill</defName>
+		<defName>BMT_FishGill</defName>
 		<label>gill</label>
 		<hitPoints>15</hitPoints>
 		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
@@ -104,7 +104,7 @@
 	</BodyPartDef>
 
 	<BodyPartDef>
-		<defName>FishTail</defName>
+		<defName>BMT_FishTail</defName>
 		<label>tail</label>
 		<hitPoints>15</hitPoints>
 		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
@@ -115,7 +115,7 @@
 	</BodyPartDef>
 
 	<BodyPartDef>
-		<defName>BiomesIslands_Fin</defName>
+		<defName>BMT_Fin</defName>
 		<label>fin</label>
 		<hitPoints>30</hitPoints>
 		<skinCovered>true</skinCovered>
