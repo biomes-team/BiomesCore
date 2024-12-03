@@ -51,6 +51,8 @@
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
     <Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
     <Compile Include="HashExtension.cs" />
+    <Compile Include="HediffComponents\HediffCompProperties_CorpseSpawner.cs" />
+    <Compile Include="HediffComponents\HediffComp_CorpseSpawner.cs" />
     <Compile Include="Incidents\IncidentWorker_HungeringAnimals.cs" />
     <Compile Include="Jobs\JobDriver_HermaphroditicMate.cs" />
     <Compile Include="Jobs\JobGiver_HermaphroditicMate.cs" />
@@ -206,22 +208,11 @@
     <Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
     <PackageReference Include="Lib.Harmony" Version="2.3.1.1" ExcludeAssets="runtime" />
     <Reference Include="Assembly-CSharp">
-      <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath Condition="$([MSBuild]::IsOSPlatform('Windows'))">..\..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <HintPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">..\..\..\..\..\RimWorldLinux_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Compile Include="ThingComponents\CompProperties_HungerReaction.cs" />
     <Compile Include="ThingComponents\CompHungerReaction.cs" />
     <Compile Include="Jobs\JobGiver_StealPlayerFood.cs" />
@@ -229,6 +220,14 @@
     <Compile Include="Jobs\JobDriver_DigUpCorpse.cs" />
     <Compile Include="ThingComponents\Comp_PermanentManhunter.cs" />
     <Compile Include="ThingComponents\CompProperties_PermanentManhunter.cs" />
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
