@@ -92,4 +92,36 @@
 		<label>shoulder spikes</label>
 	</BodyPartGroupDef>
 
+	<BodyPartDef>
+		<defName>BiomesIslands_FishGill</defName>
+		<label>gill</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>BreathingPathway</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>FishTail</defName>
+		<label>tail</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BiomesIslands_Fin</defName>
+		<label>fin</label>
+		<hitPoints>30</hitPoints>
+		<skinCovered>true</skinCovered>
+		<tags>
+		  <li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
 </Defs>
