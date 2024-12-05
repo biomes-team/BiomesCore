@@ -206,11 +206,12 @@
     <Compile Include="Things\BiomesPlant.cs" />
     <Compile Include="WorldMap\BiomeWorkerUtil.cs" />
     <Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
-    <PackageReference Include="Lib.Harmony" Version="2.3.1.1" ExcludeAssets="runtime" />
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+    <PackageReference Include="Krafs.Rimworld.Ref">
+      <Version>1.5.4297</Version>
+    </PackageReference>
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" ExcludeAssets="runtime">
+      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Compile Include="ThingComponents\CompProperties_HungerReaction.cs" />
@@ -220,14 +221,6 @@
     <Compile Include="Jobs\JobDriver_DigUpCorpse.cs" />
     <Compile Include="ThingComponents\Comp_PermanentManhunter.cs" />
     <Compile Include="ThingComponents\CompProperties_PermanentManhunter.cs" />
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>..\..\..\..\..\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

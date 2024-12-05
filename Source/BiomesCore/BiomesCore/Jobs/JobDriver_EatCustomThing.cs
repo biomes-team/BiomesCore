@@ -31,13 +31,22 @@ namespace BiomesCore
 				yield break;
 			}
 
+			//Log.Error("0");
 			Dictionary<ThingDef, float> thingsToNutrition = customThingEater.Props.thingsToNutrition;
 			yield return Toils_General.Do(() =>
 			{
-				if (TargetA.Thing is Filth filth && thingsToNutrition.TryGetValue(filth.def, out var nutrition))
+				if (TargetA.Thing is Thing filth && thingsToNutrition.TryGetValue(filth.def, out var nutrition))
 				{
+					//Log.Error("1");
 					pawn.needs.food.CurLevel += nutrition;
-					filth.Destroy();
+					if (filth.stackCount > 1)
+                    {
+						filth.stackCount--;
+					}
+					else
+					{
+						filth.Destroy();
+					}
 				}
 				ReadyForNextToil();
 			});
