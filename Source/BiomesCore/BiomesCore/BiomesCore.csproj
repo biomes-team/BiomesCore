@@ -201,6 +201,7 @@
     <Compile Include="ThingComponents\CompDynamicAnimalGraphic.cs" />
     <Compile Include="ThingComponents\CompSpawnGasOnTakeDamage.cs" />
     <Compile Include="ThingComponents\CompTerrainRecolor.cs" />
+    <Compile Include="ThingComponents\Comp_HiveSpawner.cs" />
     <Compile Include="ThingComponents\Spawner_Comp.cs" />
     <Compile Include="ThingComponents\Spawner_CompProperties.cs" />
     <Compile Include="Things\BiomesPlant.cs" />
