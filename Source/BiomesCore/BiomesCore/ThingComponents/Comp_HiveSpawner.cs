@@ -14,7 +14,8 @@ namespace BiomesCore
 
 		public SoundDef spawnSound;
 
-		public float defendRadius = 20f;
+		public float defendRadius = 7f;
+		public float wanderRadius = 6f;
 
 		public int initialPawnCount;
 
@@ -103,7 +104,7 @@ namespace BiomesCore
 						}
 						if (lord == null)
 						{
-							lord = LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(parent.Position, 10f), parent.Map);
+							lord = LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(parent.Position, Props.wanderRadius, defendRadius: Props.defendRadius), parent.Map);
 						}
 						lord.AddPawn(pawnToCreate);
 					}
