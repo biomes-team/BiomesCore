@@ -21,6 +21,8 @@ namespace BiomesCore
 
 		public int maxPawnCount = 20;
 
+		public PawnKindDef pawnKindSpawnAfterKill;
+
 		public FloatRange pawnSpawnIntervalDays = new FloatRange(0.5f, 2f);
 
 		public int pawnSpawnRadius = 2;
@@ -162,6 +164,17 @@ namespace BiomesCore
 				return "DormantHiveNotReproducing".Translate();
 			}
 			return canSpawnPawns ? ((string)("HiveReproducesIn".Translate() + ": " + (nextPawnSpawnTick - Find.TickManager.TicksGame).ToStringTicksToPeriod())) : null;
+		}
+
+		public override void Notify_Killed(Map prevMap, DamageInfo? dinfo = null)
+		{
+			if (Props.pawnKindSpawnAfterKill != null)
+			{
+				Faction faction = ((Props.faction != null && FactionUtility.DefaultFactionFrom(Props.faction) != null) ? FactionUtility.DefaultFactionFrom(Props.faction) : null);
+				PawnGenerationRequest request = new PawnGenerationRequest(Props.pawnKindSpawnAfterKill, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: true, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: true, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: false, allowPregnant: true, allowFood: true, allowAddictions: false);
+				Pawn pawnToCreate = PawnGenerator.GeneratePawn(request);
+				GenSpawn.Spawn(pawnToCreate, parent.Position, prevMap);
+			}
 		}
 
 		public override void PostExposeData()
