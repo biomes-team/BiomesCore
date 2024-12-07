@@ -17,9 +17,9 @@ namespace BiomesCore
 		public float defendRadius = 7f;
 		public float wanderRadius = 6f;
 
-		public int initialPawnCount;
+		public IntRange initialPawnCount = new IntRange(0,0);
 
-		public int maxPawnCount = 20;
+		public int maxPawnCount = 6;
 
 		public PawnKindDef pawnKindSpawnAfterKill;
 
@@ -60,9 +60,10 @@ namespace BiomesCore
 
 		private void SpawnInitialPawns()
 		{
-			for (int i = 0; i < Props.initialPawnCount; i++)
+			int spawnCount = Props.initialPawnCount.RandomInRange;
+			for (int i = 0; i < spawnCount; i++)
 			{
-				if (!TrySpawnPawn(out var _))
+				if (!TrySpawnPawn(out var _, true))
 				{
 					break;
 				}
@@ -80,7 +81,7 @@ namespace BiomesCore
 			nextPawnSpawnTick = Find.TickManager.TicksGame + (int)((double)delayTicks / (1.0 * (double)Find.Storyteller.difficulty.enemyReproductionRateFactor));
 		}
 
-		private bool TrySpawnPawn(out Pawn pawn)
+		private bool TrySpawnPawn(out Pawn pawn, bool ignoreLimit = false)
 		{
 			int num = 0;
 			foreach (string item in Props.spawnablePawnKinds.Distinct())
@@ -88,7 +89,7 @@ namespace BiomesCore
 				string text = item;
 				num += parent.Map.listerThings.ThingsOfDef(ThingDef.Named(item)).Count;
 			}
-			if (num < Props.maxPawnCount)
+			if (ignoreLimit || num < Props.maxPawnCount)
 			{
 				PawnKindDef named = DefDatabase<PawnKindDef>.GetNamed(Props.spawnablePawnKinds.RandomElement(), errorOnFail: false);
 				if (named != null)
