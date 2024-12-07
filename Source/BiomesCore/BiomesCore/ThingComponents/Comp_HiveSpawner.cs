@@ -43,7 +43,7 @@ namespace BiomesCore
 	{
 		public int nextPawnSpawnTick = -1;
 
-		public bool aggressive = true;
+		//public bool aggressive = true;
 
 		public bool canSpawnPawns = true;
 
@@ -51,8 +51,8 @@ namespace BiomesCore
 
 		public override void PostSpawnSetup(bool respawningAfterLoad)
 		{
-			base.PostSpawnSetup(respawningAfterLoad);
-			if (!respawningAfterLoad && nextPawnSpawnTick == -1)
+			//base.PostSpawnSetup(respawningAfterLoad);
+			if (!respawningAfterLoad)
 			{
 				SpawnInitialPawns();
 			}
@@ -127,10 +127,10 @@ namespace BiomesCore
 
 		public override void CompTick()
 		{
-			if (parent.Spawned && nextPawnSpawnTick == -1)
-			{
-				SpawnInitialPawns();
-			}
+			//if (parent.Spawned && nextPawnSpawnTick == -1)
+			//{
+			//	SpawnInitialPawns();
+			//}
 			if (parent.Spawned && Find.TickManager.TicksGame >= nextPawnSpawnTick)
 			{
 				if (TrySpawnPawn(out var pawn) && pawn.caller != null)
@@ -181,7 +181,7 @@ namespace BiomesCore
 		{
 			base.PostExposeData();
 			Scribe_Values.Look(ref nextPawnSpawnTick, "nextPawnSpawnTick", 0);
-			Scribe_Values.Look(ref aggressive, "aggressive", defaultValue: false);
+			//Scribe_Values.Look(ref aggressive, "aggressive", defaultValue: false);
 			Scribe_Values.Look(ref canSpawnPawns, "canSpawnPawns", defaultValue: false);
 		}
 	}
