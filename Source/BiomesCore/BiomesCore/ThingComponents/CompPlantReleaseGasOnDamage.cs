@@ -2,7 +2,7 @@
 using UnityEngine;
 using Verse;
 
-namespace BiomesCore.ThingComponents
+namespace BiomesCore
 {
     public class CompProperties_PlantReleaseGasOnDamage : CompProperties
     {
