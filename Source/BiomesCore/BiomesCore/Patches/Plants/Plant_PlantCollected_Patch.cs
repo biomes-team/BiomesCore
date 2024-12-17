@@ -14,7 +14,7 @@ namespace BiomesCore.Patches.Plants
             {
                 var plantHarvestMemoryExtension =
                     __instance.def.GetModExtension<PlantHarvestMemoryExtension>();
-                by.needs.mood.thoughts.memories.TryGainMemory(plantHarvestMemoryExtension
+                by?.needs?.mood?.thoughts?.memories.TryGainMemory(plantHarvestMemoryExtension
                     .memory);
             }
         }
