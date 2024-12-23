@@ -51,6 +51,7 @@
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
     <Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
     <Compile Include="HashExtension.cs" />
+    <Compile Include="HediffComponents\HediffCompClearHediffPeriodic.cs" />
     <Compile Include="HediffComponents\HediffCompProperties_CorpseSpawner.cs" />
     <Compile Include="HediffComponents\HediffComp_CorpseSpawner.cs" />
     <Compile Include="Incidents\IncidentWorker_HungeringAnimals.cs" />
@@ -166,7 +167,6 @@
     <Compile Include="Locations\TickableLocationsByTickerType.cs" />
     <Compile Include="Locations\Location.cs" />
     <Compile Include="Locations\TickerTypeInterval.cs" />
-    <Compile Include="ThingComponents\CompClearHediffPeriodic.cs" />
     <Compile Include="ThingComponents\CompDefaultOffGlower.cs" />
     <Compile Include="ThingComponents\CompDefensiveReaction.cs" />
     <Compile Include="ThingComponents\CompExplodeOnDeath.cs" />

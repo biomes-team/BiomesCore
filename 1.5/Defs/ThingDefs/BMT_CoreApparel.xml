@@ -114,10 +114,31 @@
         <li>SpacerMilitary</li>
       </tags>
     </apparel>
+	  <comps>
+		  <li Class="CompProperties_CauseHediff_Apparel">
+			  <hediff>BMT_HermeticSuitHediff</hediff>
+		  </li>
+	  </comps>
     <recipeMaker>
       <displayPriority>105</displayPriority>
     </recipeMaker>
   </ThingDef>
+
+
+	<HediffDef>
+		<defName>BMT_HermeticSuitHediff</defName>
+		<label>hermetic suit</label>
+		<description>Clears Toxic Buildup periodically</description>
+		<defaultLabelColor>(0.4, 0.9, 0.35)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="BiomesCore.HediffCompProperties_ClearHediffPeriodic">
+				<hediffDef>ToxicBuildup</hediffDef>
+				<daysCooldown>0.8</daysCooldown>
+			</li>
+			<li Class="HediffCompProperties_RemoveIfApparelDropped"/>
+		</comps>
+	</HediffDef>
 
 <!--Hermetic Helmet-->
 
