@@ -17,14 +17,14 @@ namespace BiomesCore.Patches
     public class GenHostilityIsActiveThreatTo_HiveDefensePatch
     {
 
-        static bool Prefix(IAttackTarget target, ref bool result__)
+        static bool Prefix(IAttackTarget target, ref bool __result)
         {
             if (target.Thing is Pawn thing)
             {
                 Lord lord = thing.GetLord();
                 if (lord != null && lord.LordJob is LordJob_DefendHive && (thing.mindState.duty == null || thing.mindState.duty.def != DutyDefOf.AssaultColony))
                 {
-                    result__ = true;
+                    __result = true;
                     return true;
                 }
 
