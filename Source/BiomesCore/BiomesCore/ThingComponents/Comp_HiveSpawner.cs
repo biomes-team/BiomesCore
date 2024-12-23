@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using BiomesCore.LordJobs;
+using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
 using Verse;
@@ -107,7 +108,7 @@ namespace BiomesCore
 						}
 						if (lord == null)
 						{
-							lord = LordMaker.MakeNewLord(faction, new LordJob_DefendPoint(parent.Position, Props.wanderRadius, defendRadius: Props.defendRadius), parent.Map);
+							lord = LordMaker.MakeNewLord(faction, new LordJob_DefendHive(parent.Position, Props.wanderRadius, defendRadius: Props.defendRadius), parent.Map);
 						}
 						lord.AddPawn(pawnToCreate);
 					}

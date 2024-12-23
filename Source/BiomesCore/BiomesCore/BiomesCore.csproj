@@ -68,6 +68,7 @@
     <Compile Include="Incidents\PlantSproutIncidentDef.cs" />
     <Compile Include="Jobs\JobDriver_EatCustomThing.cs" />
     <Compile Include="Jobs\JobGiver_Hungering.cs" />
+    <Compile Include="LordJobs\LordJob_DefendHive.cs" />
     <Compile Include="LordJobs\WanderAroundThing.cs" />
     <Compile Include="LordToils\WanderAroundThing.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Patches\ChunksOnKilled.cs" />
     <Compile Include="Patches\ExtendCaravanCarriers.cs" />
     <Compile Include="Patches\ExtraStatInfo.cs" />
+    <Compile Include="Patches\GenHostilityIsActiveThreatTo_HiveDefensePatch.cs" />
     <Compile Include="Patches\GenStep_ValleyPatch.cs" />
     <Compile Include="DefModExtensions\OrePreferredBiome.cs" />
     <Compile Include="DefModExtensions\Biomes_PlantControl.cs" />
