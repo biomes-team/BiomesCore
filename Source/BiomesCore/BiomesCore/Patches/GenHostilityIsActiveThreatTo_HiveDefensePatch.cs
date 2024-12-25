@@ -13,6 +13,8 @@ using Verse.AI;
 
 namespace BiomesCore.Patches
 {
+
+
     [HarmonyPatch(typeof(GenHostility), nameof(GenHostility.IsActiveThreatTo))]
     public class GenHostilityIsActiveThreatTo_HiveDefensePatch
     {
@@ -25,12 +27,13 @@ namespace BiomesCore.Patches
                 if (lord != null && lord.LordJob is LordJob_DefendHive && (thing.mindState.duty == null || thing.mindState.duty.def != DutyDefOf.AssaultColony))
                 {
                     __result = true;
-                    return true;
+                    return false;
                 }
 
             }
 
-            return false;
+            return true;
         }
     }
+
 }
