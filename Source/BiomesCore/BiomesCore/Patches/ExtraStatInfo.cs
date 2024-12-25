@@ -58,41 +58,48 @@ namespace BiomesCore.Patches
 			// Calculate _animalsPerBiome. At this stage, _biomesPerAnimals is used to track which PawnKindDef races have
 			// already been checked.
 			foreach (var animalDef in DefDatabase<PawnKindDef>.AllDefsListForReading)
-			{
-				if (animalDef.race?.race == null || !animalDef.race.race.Animal ||
-				    // Mods may have different PawnKindDefs sharing the same race ThingDef.
-				    _biomesPerAnimal.ContainsKey(animalDef.race)
-				   )
-				{
-					continue;
-				}
+            {
+                try
+                {
+                    if (animalDef?.race?.race == null || animalDef?.race?.race?.Animal != true ||
+                        // Mods may have different PawnKindDefs sharing the same race ThingDef.
+                        _biomesPerAnimal.ContainsKey(animalDef.race)
+                       )
+                    {
+                        continue;
+                    }
 
-				foreach (var biomeDef in DefDatabase<BiomeDef>.AllDefsListForReading)
-				{
-					var commonality = Math.Max(biomeDef.CommonalityOfAnimal(animalDef),
-						biomeDef.CommonalityOfPollutionAnimal(animalDef));
-					if (commonality <= 0.0f)
-					{
-						continue;
-					}
+                    foreach (var biomeDef in DefDatabase<BiomeDef>.AllDefsListForReading)
+                    {
+                        var commonality = Math.Max(biomeDef.CommonalityOfAnimal(animalDef),
+                            biomeDef.CommonalityOfPollutionAnimal(animalDef));
+                        if (commonality <= 0.0f)
+                        {
+                            continue;
+                        }
 
-					if (!_animalsPerBiome.ContainsKey(biomeDef))
-					{
-						_animalsPerBiome[biomeDef] = new SortedDictionary<ThingDef, float>(Comparer);
-					}
+                        if (!_animalsPerBiome.ContainsKey(biomeDef))
+                        {
+                            _animalsPerBiome[biomeDef] = new SortedDictionary<ThingDef, float>(Comparer);
+                        }
 
-					_animalsPerBiome[biomeDef].Add(animalDef.race, commonality);
+                        _animalsPerBiome[biomeDef].Add(animalDef.race, commonality);
 
-					// Keep track of already processed race ThingDefs. Commonalities are added to the dictionary later.
-					if (!_biomesPerAnimal.ContainsKey(animalDef.race))
-					{
-						_biomesPerAnimal[animalDef.race] = new SortedDictionary<BiomeDef, float>(Comparer);
-					}
-				}
-			}
+                        // Keep track of already processed race ThingDefs. Commonalities are added to the dictionary later.
+                        if (!_biomesPerAnimal.ContainsKey(animalDef.race))
+                        {
+                            _biomesPerAnimal[animalDef.race] = new SortedDictionary<BiomeDef, float>(Comparer);
+                        }
+                    }
+                }
+                catch (Exception arg)
+                {
+					Log.Error("Failed add extra stat info for: " + animalDef.defName + ". This error has nothing to do with Biomes! Core, as it is caused by broken pawnkinds from another mod. Reason: " + arg);
+                }
+            }
 
-			// Calculate the percentages relative to each biome.
-			var animalsPerBiomeTemp =
+            // Calculate the percentages relative to each biome.
+            var animalsPerBiomeTemp =
 				new Dictionary<BiomeDef, SortedDictionary<ThingDef, float>>();
 			foreach (var entry in _animalsPerBiome)
 			{
