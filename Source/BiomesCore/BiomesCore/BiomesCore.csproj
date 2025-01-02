@@ -38,6 +38,7 @@
     <Compile Include="Bridges\Bridge.cs" />
     <Compile Include="Compatability\FertileFields.cs" />
     <Compile Include="DeathActionWorkers\DeathActionWorker_ReleaseGasCloud.cs" />
+    <Compile Include="DefModExtensions\AdditionalHarvestDrops.cs" />
     <Compile Include="DefModExtensions\Animal_Control.cs" />
     <Compile Include="DefModExtensions\CompetitionHunterModExtension.cs" />
     <Compile Include="DefModExtensions\CustomGraphicsPlantDef.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="DefModExtensions\ModExtension_ReleaseGasCloud.cs" />
     <Compile Include="ModSettings\Settings.cs" />
     <Compile Include="ModSettings\SettingsWindow.cs" />
+    <Compile Include="Patches\AdditionalHarvestDropsPatch.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
     <Compile Include="Patches\CompCauseGameCondition_ForceWeather_RandomizeSettings_Patch.cs" />
     <Compile Include="Patches\CompetitionHunterPatches.cs" />
