@@ -47,8 +47,12 @@ namespace BiomesCore.Patches
             {
                 if (iter[i].debugName == "MakeNewToils")
                 {
+                    AdditionalHarvestDrops drops = (__instance.job.targetA.Thing)?.def?.GetModExtension<AdditionalHarvestDrops>();
+                    if (drops == null)
+                    {
+                        break;
+                    }
                     Action act = iter[i].tickAction;
-                    AdditionalHarvestDrops drops = (__instance.job.targetA.Thing).def.GetModExtension<AdditionalHarvestDrops>();
                     Plant plant = (Plant)__instance.job.targetA.Thing;
                     Pawn pawn = __instance.pawn;
                     iter[i].tickAction = () =>
