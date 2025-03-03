@@ -26,7 +26,7 @@ namespace BiomesCore.Patches
             {
                 __state = -1;
             }
-            Log.Message("WoahEpic " + __state);
+            //Log.Message("WoahEpic " + __state);
 
 
         }
@@ -116,7 +116,6 @@ namespace BiomesCore.Patches
             }
 
             Caravan anyParent = ThingOwnerUtility.GetAnyParent<Caravan>((Thing)__instance);
-            ActiveDropPodInfo parentHolder = __instance.ParentHolder as ActiveDropPodInfo;
 
             List<Thing> thingList = new List<Thing>();
             for (int i = 0; i < drops.defs.Count; i++)
@@ -141,7 +140,7 @@ namespace BiomesCore.Patches
                 foreach (Thing thing in thingList)
                     anyParent.AddPawnOrItem(thing, true);
             }
-            else if (parentHolder != null)
+            else if (__instance.ParentHolder is ActiveDropPodInfo parentHolder)
             {
                 foreach (Thing thing in thingList)
                     parentHolder.innerContainer.TryAdd(thing);
