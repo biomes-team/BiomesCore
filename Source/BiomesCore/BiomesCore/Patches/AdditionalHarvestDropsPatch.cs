@@ -18,7 +18,7 @@ namespace BiomesCore.Patches
     {
         static void Prefix(JobDriver_PlantWork __instance, out float __state)
         {
-            if ((__instance.job.targetA.Thing).def.HasModExtension<AdditionalHarvestDrops>())
+            if ((__instance.job.targetA.Thing)?.def?.HasModExtension<AdditionalHarvestDrops>() == true)
             {
                 __state = __instance.pawn.records.GetValue(RecordDefOf.PlantsHarvested);
             }
