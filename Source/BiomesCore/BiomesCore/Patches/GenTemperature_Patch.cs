@@ -27,7 +27,7 @@ namespace BiomesCore.Patches
                 }
             }
 
-            __result *= _cache[Find.WorldGrid[tile].biome.index];
+            __result *= _cache[Find.WorldGrid[tile].PrimaryBiome.index];
         }
     }
 }

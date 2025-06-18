@@ -1,0 +1,50 @@
+<Defs>
+
+	<GameConditionDef>
+		<defName>Earthquake</defName>
+		<conditionClass>BiomesCore.GameCondition_Earthquake</conditionClass>
+		<label>earthquake</label>
+		<description>An earthquake has begun! The cavern may destabilize and pawns will have trouble moving around and may be stunned!</description>
+		<endMessage>The earthquake is subsiding.</endMessage>
+		<letterText>An earthquake has begun! The cavern may destabilize and pawns will have trouble moving around and may be stunned!</letterText>
+		<letterDef>NegativeEvent</letterDef>
+		<canBePermanent>true</canBePermanent>
+	</GameConditionDef>
+
+	<IncidentDef>
+		<defName>Earthquake</defName>
+		<label>earthquake</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<allowedBiomes>
+			<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>
+			<li MayRequire="biomesteam.biomescaverns">BMT_EarthenDepths</li>
+			<li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
+		</allowedBiomes>
+		<workerClass>BiomesCore.IncidentWorker_Earthquake</workerClass>
+		<baseChance>0.2</baseChance>
+		<letterLabel>Earthquake</letterLabel>
+		<letterText>An earthquake has begun, cave-ins may follow and pawns may have trouble moving or be stunned!</letterText>
+	</IncidentDef>
+
+	<SoundDef>
+		<defName>EarthquakeSound</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>100</maxSimultaneous>
+		<subSounds>
+			<li>
+				<onCamera>True</onCamera>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>Misc/RockCollapse</clipPath>
+					</li>
+				</grains>
+				<volumeRange>90~110</volumeRange>
+				<pitchRange>0.03~.3</pitchRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+</Defs>

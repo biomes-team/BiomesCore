@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThoughtDef>
+		<defName>BiomesIslands_Crab</defName>
+		<durationDays>0.5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>Crab delicacy</label>
+				<description>I can't believe we can get real crab on this planet. It really made my day.</description>
+				<baseMoodEffect>+2</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>BiomesIslands_Whale</defName>
+		<durationDays>0.5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>Ate fat</label>
+				<description>Chunks of fat in my food instead of real meat... At least it was flavorful.</description>
+				<baseMoodEffect>-1</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">RobustDigestion</li>
+		</nullifyingGenes>
+	</ThoughtDef>
+
+	<ThoughtDef>
+		<defName>AteRawFish</defName>
+		<thoughtClass>Thought_FoodEaten</thoughtClass>
+		<showBubble>true</showBubble>
+		<icon>Things/Mote/ThoughtSymbol/Food</icon>
+		<durationDays>1</durationDays>
+		<stages>
+			<li>
+				<label>ate raw fish</label>
+				<description>I had to eat raw fish. We should be cooking that kind of food before eating it or atleast add some rice.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">RobustDigestion</li>
+		</nullifyingGenes>
+	</ThoughtDef>
+
+</Defs>

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace BiomesCore.StockGenerators
@@ -45,11 +46,12 @@ namespace BiomesCore.StockGenerators
 		/// <returns>Random weight for the current animal.</returns>
 		private static float SelectionChance(PawnKindDef kind, BiomeDef biome)
 		{
-			float fromWildness = Util.SelectionChanceFromWildnessCurve.Evaluate(kind.RaceProps.wildness);
-			return 100.0f * biome.CommonalityOfAnimal(kind) + fromWildness;
+			//float fromWildness = Util.SelectionChanceFromWildnessCurve.Evaluate(kind.RaceProps.wildness);
+            float fromWildness = Util.SelectionChanceFromWildnessCurve.Evaluate(kind.race.GetStatValueAbstract(StatDefOf.Wildness));
+            return 100.0f * biome.CommonalityOfAnimal(kind) + fromWildness;
 		}
 
-		public override IEnumerable<Thing> GenerateThings(int forTile, Faction faction = null)
+		public override IEnumerable<Thing> GenerateThings(PlanetTile forTile, Faction faction = null)
 		{
 			// Get current biome.
 			if (forTile == -1)
@@ -57,9 +59,9 @@ namespace BiomesCore.StockGenerators
 				yield break;
 			}
 
-			BiomeDef biome = Find.World.grid.tiles[forTile].biome;
+			BiomeDef biome = Find.World.grid.Surface[forTile].PrimaryBiome;
 			List<PawnKindDef> biomeAnimalPawnKindDefs = biome.AllWildAnimals
-				.Where(def => def.RaceProps.Animal && wildnessRange.Includes(def.RaceProps.wildness) &&
+				.Where(def => def.RaceProps.Animal && wildnessRange.Includes(def.race.GetStatValueAbstract(StatDefOf.Wildness)) &&
 				              (!checkTemperature || Util.AcceptableTemperature(def, forTile))).ToList();
 
 			int kindCount = Math.Min(kindCountRange.RandomInRange, biomeAnimalPawnKindDefs.Count);

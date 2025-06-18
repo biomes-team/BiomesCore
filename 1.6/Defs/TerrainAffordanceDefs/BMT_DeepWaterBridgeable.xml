@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<TerrainAffordanceDef>
+		<defName>BMT_DeepWaterBridgeable</defName>
+		<label>Water of any depth</label>
+		<order>2350</order>
+	</TerrainAffordanceDef>
+
+</Defs>

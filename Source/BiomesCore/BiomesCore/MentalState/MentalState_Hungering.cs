@@ -33,9 +33,9 @@ namespace BiomesCore.MentalState
 
 		public override RandomSocialMode SocialModeMax() => RandomSocialMode.Off;
 
-		public override void MentalStateTick()
+		public override void MentalStateTick(int delta)
 		{
-			base.MentalStateTick();
+			base.MentalStateTick(delta);
 			if (!pawn.IsHashIntervalTick(33))
 			{
 				return;

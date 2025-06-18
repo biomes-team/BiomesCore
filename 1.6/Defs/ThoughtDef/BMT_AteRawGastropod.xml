@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThoughtDef>
+		<defName>AteRawGastropod</defName>
+		<thoughtClass>Thought_FoodEaten</thoughtClass>
+		<showBubble>true</showBubble>
+		<icon>Things/Mote/ThoughtSymbol/Food</icon>
+		<durationDays>1</durationDays>
+		<stages>
+			<li>
+				<label>ate raw gastropod</label>
+				<description>I had to eat raw gastropod. We should be cooking that kind of food before eating it, or at least add some salt.</description>
+				<baseMoodEffect>-2</baseMoodEffect>
+			</li>
+		</stages>
+		<nullifyingGenes>
+		  <li MayRequire="Ludeon.RimWorld.Biotech">RobustDigestion</li>
+		</nullifyingGenes>
+	</ThoughtDef>
+
+</Defs>

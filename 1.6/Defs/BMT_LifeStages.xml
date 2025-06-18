@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!--Larva-->
+	<LifeStageDef>
+		<defName>BMT_InsectLarvalFirst</defName>
+		<label>larva</label>
+		<voxPitch>1.6</voxPitch>
+		<voxVolume>0.4</voxVolume>
+		<healthScaleFactor>0.25</healthScaleFactor>
+		<hungerRateFactor>0.4</hungerRateFactor>
+		<marketValueFactor>0.4</marketValueFactor>
+		<meleeDamageFactor>0.5</meleeDamageFactor>
+		<visible>false</visible>
+		<reproductive>false</reproductive>
+		<bodySizeFactor>0.1</bodySizeFactor>
+		<foodMaxFactor>0.3</foodMaxFactor>
+		<statFactors>
+			<MoveSpeed>0.1</MoveSpeed>
+		</statFactors>
+	</LifeStageDef>
+
+	<LifeStageDef>
+		<defName>BMT_InsectLarvalSecound</defName>
+		<label>larva</label>
+		<voxPitch>1.2</voxPitch>
+		<healthScaleFactor>0.6</healthScaleFactor>
+		<hungerRateFactor>0.75</hungerRateFactor>
+		<marketValueFactor>0.75</marketValueFactor>
+		<meleeDamageFactor>0.75</meleeDamageFactor>
+		<visible>false</visible>
+		<reproductive>false</reproductive>
+		<bodySizeFactor>0.5</bodySizeFactor>
+		<foodMaxFactor>0.5</foodMaxFactor>
+		<statFactors>
+			<MoveSpeed>0.5</MoveSpeed>
+		</statFactors>
+	</LifeStageDef>
+
+	<LifeStageDef>
+		<defName>BMT_InsectLarvalThird</defName>
+		<label>larva</label>
+		<visible>false</visible>
+		<reproductive>false</reproductive>
+	</LifeStageDef>
+
+	<LifeStageDef>
+		<defName>BMT_InsectLarvalNeoteny</defName>
+		<label>larva</label>
+		<visible>false</visible>
+		<reproductive>true</reproductive>
+	</LifeStageDef>
+
+	<LifeStageDef>
+		<defName>BMT_LarvalAdult</defName>
+		<label>adult</label>
+		<visible>false</visible>
+		<reproductive>true</reproductive>
+		<caravanRideable>true</caravanRideable>
+	</LifeStageDef>
+
+	<!--Nymph-->
+	<LifeStageDef>
+		<defName>BMT_EusocialInsectNymphFirst</defName>
+		<label>nymph</label>
+		<voxPitch>1.6</voxPitch>
+		<voxVolume>0.4</voxVolume>
+		<bodySizeFactor>0.2</bodySizeFactor>
+		<foodMaxFactor>2</foodMaxFactor>
+		<healthScaleFactor>0.25</healthScaleFactor>
+		<hungerRateFactor>0.4</hungerRateFactor>
+		<marketValueFactor>0.4</marketValueFactor>
+		<meleeDamageFactor>0.5</meleeDamageFactor>
+		<statFactors>
+			<MoveSpeed>0.5</MoveSpeed>
+		</statFactors>
+		<visible>false</visible>
+		<reproductive>false</reproductive>
+		<shearable>true</shearable>
+		<milkable>true</milkable>
+		<caravanRideable>true</caravanRideable>
+	</LifeStageDef>
+
+	<LifeStageDef>
+		<defName>BMT_EusocialInsectNymphSecond</defName>
+		<label>immature</label>
+		<voxPitch>1.2</voxPitch>
+		<bodySizeFactor>0.5</bodySizeFactor>
+		<foodMaxFactor>1.5</foodMaxFactor>
+		<healthScaleFactor>0.6</healthScaleFactor>
+		<hungerRateFactor>0.75</hungerRateFactor>
+		<marketValueFactor>0.75</marketValueFactor>
+		<meleeDamageFactor>0.75</meleeDamageFactor>
+		<statFactors>
+			<MoveSpeed>0.9</MoveSpeed>
+		</statFactors>
+		<visible>false</visible>
+		<reproductive>false</reproductive>
+		<shearable>true</shearable>
+		<milkable>true</milkable>
+		<caravanRideable>true</caravanRideable>
+	</LifeStageDef>
+
+	<!--Adult-->
+	<LifeStageDef>
+		<defName>BMT_EusocialInsectAdult</defName>
+		<label>adult</label>
+		<visible>false</visible>
+		<shearable>true</shearable>
+		<milkable>true</milkable>
+		<caravanRideable>true</caravanRideable>
+	</LifeStageDef>
+
+	<!--Pupa-->
+	<LifeStageDef>
+		<defName>BMT_Pupa</defName>
+		<label>pupa</label>
+		<visible>false</visible>
+		<reproductive>false</reproductive>
+		<hungerRateFactor>0.000001</hungerRateFactor>
+	</LifeStageDef>
+
+	<!--Digger-->
+	<LifeStageDef>
+		<defName>BMT_DiggerBaby</defName>
+		<label>baby</label>
+		<voxPitch>1.6</voxPitch>
+		<voxVolume>0.8</voxVolume>
+		<bodySizeFactor>0.2</bodySizeFactor>
+		<foodMaxFactor>3</foodMaxFactor>
+		<healthScaleFactor>0.25</healthScaleFactor>
+		<hungerRateFactor>0.4</hungerRateFactor>
+		<marketValueFactor>0.4</marketValueFactor>
+		<meleeDamageFactor>0.5</meleeDamageFactor>
+		<statFactors>
+			<MoveSpeed>0.5</MoveSpeed>
+		</statFactors>
+	</LifeStageDef>
+
+	<LifeStageDef>
+		<defName>BMT_DiggerJuvenile</defName>
+		<label>juvenile</label>
+		<voxPitch>1.2</voxPitch>
+		<bodySizeFactor>0.5</bodySizeFactor>
+		<foodMaxFactor>1.5</foodMaxFactor>
+		<healthScaleFactor>0.6</healthScaleFactor>
+		<hungerRateFactor>0.75</hungerRateFactor>
+		<marketValueFactor>0.75</marketValueFactor>
+		<meleeDamageFactor>0.75</meleeDamageFactor>
+		<statFactors>
+			<MoveSpeed>0.9</MoveSpeed>
+		</statFactors>
+	</LifeStageDef>
+
+	<LifeStageDef>
+		<defName>BMT_DiggerAdult</defName>
+		<label>adult</label>
+		<visible>false</visible>
+		<reproductive>true</reproductive>
+		<milkable>true</milkable>
+		<shearable>true</shearable>
+	</LifeStageDef>
+
+</Defs>

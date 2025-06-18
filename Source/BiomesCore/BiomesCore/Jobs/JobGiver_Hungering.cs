@@ -106,7 +106,7 @@ namespace BiomesCore.Jobs
 
 			const TraverseMode traverseMode = TraverseMode.PassAllDestroyableThingsNotWater;
 			var parms = TraverseParms.For(eater, Danger.Deadly, traverseMode, true, false, true);
-			using var path = eater.Map.pathFinder.FindPath(eater.Position, destinationCell, parms);
+			using var path = eater.Map.pathFinder.FindPathNow(eater.Position, destinationCell, parms);
 			Job job = null;
 
 			if (!path.Found)

@@ -11,15 +11,15 @@ namespace BiomesCore.Patches
     {
         static void Postfix(int tileID, ref Tile __result)
         {
-            if (!__result.biome.HasModExtension<BiomesMap>())
+            if (!__result.PrimaryBiome.HasModExtension<BiomesMap>())
             {
                 return;
             }
-            if (!__result.biome.GetModExtension<BiomesMap>().isIsland)
+            if (!__result.PrimaryBiome.GetModExtension<BiomesMap>().isIsland)
             {
                 return;
             }
-            if (!__result.biome.GetModExtension<BiomesMap>().addIslandHills)
+            if (!__result.PrimaryBiome.GetModExtension<BiomesMap>().addIslandHills)
             {
                 return;
             }

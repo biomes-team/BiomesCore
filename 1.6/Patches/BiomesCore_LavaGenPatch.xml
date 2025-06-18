@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Biomes! Caverns</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName="BMT_LavaGenerator"]</xpath>
+					<value>
+						<thingClass>Building</thingClass>
+						<drawerType>MapMeshAndRealTime</drawerType>
+						<graphicData>
+							<texPath>BiomesCore_Things/LavaGen/LavaGen</texPath>
+							<graphicClass>Graphic_Multi</graphicClass>
+							<drawSize>(4,4)</drawSize>
+							<shadowData>
+								<volume>(2.6,1,2.16)</volume>
+								<offset>(-0.20,0,0)</offset>
+							</shadowData>
+							<damageData>
+								<rectN>(0.1,1.2,4.75,3.25)</rectN>
+								<rectE>(1.25,0.2,3.5,4.7)</rectE>
+								<rectS>(0.2,1.2,4.7,3.25)</rectS>
+								<rectW>(1.25,0.2,3.5,4.7)</rectW>
+							</damageData>
+						</graphicData>
+						<size>(3,4)</size>
+						<castEdgeShadows>false</castEdgeShadows>
+						<staticSunShadowHeight>0</staticSunShadowHeight>
+						<altitudeLayer>Building</altitudeLayer>
+						<passability>Impassable</passability>
+						<blockWind>true</blockWind>
+						<scatterableOnMapGen>false</scatterableOnMapGen>
+						<fillPercent>1</fillPercent>
+						<blockLight>true</blockLight>
+						<canOverlapZones>false</canOverlapZones>
+						<statBases>
+							<MaxHitPoints>1000</MaxHitPoints>
+							<WorkToBuild>4000</WorkToBuild>
+							<Flammability>0.0</Flammability>
+							<Beauty>-20</Beauty>
+						</statBases>
+						<tickerType>Normal</tickerType>
+						<costList>
+							<Steel>300</Steel>
+							<Plasteel>100</Plasteel>
+							<ComponentIndustrial>8</ComponentIndustrial>
+						</costList>
+						<comps>
+							<li Class="CompProperties_Power">
+								<compClass>BiomesCore.CompPowerPlantLava</compClass>
+								<basePowerConsumption>-2000</basePowerConsumption>
+								<transmitsPower>true</transmitsPower>
+								<soundAmbientProducingPower/>
+							</li>
+							<li Class="CompProperties_Breakdownable"/>
+						</comps>
+						<rotatable>true</rotatable>
+						<terrainAffordanceNeeded/>
+						<designationCategory>Power</designationCategory>
+						<uiOrder>2100</uiOrder>
+						<placeWorkers>
+							<li>BiomesCore.PlaceWorker_LavaGenerator</li>
+						</placeWorkers>
+						<building>
+							<ai_chillDestination>false</ai_chillDestination>
+							<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+						</building>
+						<researchPrerequisites>
+							<li>GeothermalPower</li>
+						</researchPrerequisites>
+						<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

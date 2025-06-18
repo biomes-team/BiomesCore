@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<TerrainDef ParentName="WaterShallowBase">
+		<defName>BiomesCore_WaterShallowLagoon</defName>
+		<label>lagoon water</label>
+		<tags>
+			<!-- Support for Thanks For All The Fish -->
+			<li>Fishable</li>
+			<!--Define water as salty.-->
+			<!-- <li>SaltWater</li> -->
+			<li>FreshWater</li>
+		</tags>
+		<fertility>0.3</fertility>
+		<texturePath>BiomesCore_Terrain/Surfaces/WaterShallowLagoon</texturePath>
+		<traversedThought>BiomesCore_LagoonWater</traversedThought>
+		<waterDepthShader>Map/WaterDepth</waterDepthShader>
+		<renderPrecedence>394</renderPrecedence>
+		<driesTo>Gravel</driesTo>
+		<statBases>
+			<Beauty>3</Beauty>
+		</statBases>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Shallow</li>
+					<li>Fresh</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
+		<affordances>
+			<li>Bridgeable</li>
+		</affordances>
+	</TerrainDef>
+
+</Defs>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<TerrainDef ParentName="NaturalTerrainBase" Name="BMT_Terrain_Lava_Base" Abstract="true">
+		<!-- Sergkart: pollutedTexturePath is needed only if such a texture is present; otherwise, a shader is used. -->
+		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/Lava</pollutedTexturePath> -->
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainWaterPolluted</pollutionShaderType>
+		<pollutionOverlayTexturePath>Terrain/Surfaces/MarshPollutionOverlay</pollutionOverlayTexturePath>
+		<renderPrecedence>395</renderPrecedence>
+		<statBases>
+			<Beauty>-3</Beauty>
+			<Cleanliness>-4</Cleanliness>
+			<ContainmentStrength MayRequire="Ludeon.RimWorld.Anomaly">15</ContainmentStrength>
+		</statBases>
+		<waterDepthShader>Map/WaterDepth</waterDepthShader>
+		<waterDepthShaderParameters>
+			<_WaterRippleIntensity>0.1</_WaterRippleIntensity>
+			<_WaterDepthIntensity>1.1</_WaterDepthIntensity>
+		</waterDepthShaderParameters>
+		<edgeType>Water</edgeType>
+		<avoidWander>true</avoidWander>
+		<holdSnow>false</holdSnow>
+		<takeSplashes>true</takeSplashes>
+		<extinguishesFire>false</extinguishesFire>
+		<extraDeteriorationFactor>12</extraDeteriorationFactor>
+		<pathCost>300</pathCost>
+		<passability>Impassable</passability>
+		<fertility>0</fertility>
+		<driesTo>BMT_Terrain_Tachylite</driesTo>
+		<filthAcceptanceMask>
+			<li>None</li>
+		</filthAcceptanceMask>
+		<tags>
+			<li>Lava</li>
+		</tags>
+		<affordances>
+			<li>BMT_TerrainAffordance_Lava</li>
+		</affordances>
+		<modExtensions>
+			<li Class="BiomesCore.Locations.LavaTerrainDefExtension">
+				<heatPerSecond>3</heatPerSecond>
+				<heatPushMaxTemperature>120</heatPushMaxTemperature>
+				<overlightRadius>1</overlightRadius>
+				<glowRadius>3</glowRadius>
+				<glowColor>(178,58,0,0)</glowColor>
+			</li>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Lava</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
+		<defName>BiomeCore_Lava</defName>
+		<label>lava</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath>
+	</TerrainDef>
+
+	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
+		<defName>BiomeCore_Magma</defName>
+		<label>magma</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath>
+	</TerrainDef>
+
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>BMT_Terrain_Tachylite</defName>
+		<label>tachylite</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
+		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath> -->
+		<!-- Vanilla Pollution Stone -->
+		<pollutionOverlayTexturePath>Terrain/Surfaces/RoughStonePollutionOverlay</pollutionOverlayTexturePath>
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainFadeRoughLinearAdd</pollutionShaderType>
+		<pollutionColor>(1, 1, 1, 0.43)</pollutionColor>
+		<pollutionOverlayScale>(0.66, 0.66)</pollutionOverlayScale>
+		<!-- Vanilla Pollution Stone -->
+		<edgeType>Fade</edgeType>
+		<renderPrecedence>335</renderPrecedence>
+		<pathCost>16</pathCost>
+		<extraNonDraftedPerceivedPathCost>180</extraNonDraftedPerceivedPathCost>
+		<extraDraftedPerceivedPathCost>18</extraDraftedPerceivedPathCost>
+		<statBases>
+			<Beauty>2</Beauty>
+			<BeautyOutdoors>2</BeautyOutdoors>
+			<Cleanliness>0</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<fertility>0</fertility>
+		<takeFootprints>false</takeFootprints>
+		<tags>
+			<li>Glass</li>
+		</tags>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Glass</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
+	</TerrainDef>
+
+  <TerrainAffordanceDef>
+    <defName>BMT_TerrainAffordance_Lava</defName>
+    <label>Lava</label>
+    <order>2200</order>
+    <visualizeOnAffordanceOverlay>true</visualizeOnAffordanceOverlay>
+    <affordanceOverlayColor>(0,0,100)</affordanceOverlayColor>
+  </TerrainAffordanceDef>
+
+</Defs>

@@ -7,12 +7,12 @@ using BiomesCore.Bridges;
 
 namespace BiomesCore.Patches
 {
-    [HarmonyPatch(typeof(Designator_RemoveBridge), "CanDesignateCell")]
+    [HarmonyPatch(typeof(Designator_RemoveFoundation), "CanDesignateCell")]
     public class Designator_RemoveBridge_CanDesignateCell_Patch
     {
         public static DynamicMethod BaseCanDesignateCellInfo = AccessTools.Method(typeof(Designator_RemoveFloor), "CanDesignateCell").CreateNonVirtualDynamicMethod();
 
-        public static bool Prefix(ref AcceptanceReport __result, Designator_RemoveBridge __instance, IntVec3 c)
+        public static bool Prefix(ref AcceptanceReport __result, Designator_RemoveFoundation __instance, IntVec3 c)
         {
             if (c.InBounds(__instance.Map) && c.GetTerrain(__instance.Map).IsBiomesBridge())
             {

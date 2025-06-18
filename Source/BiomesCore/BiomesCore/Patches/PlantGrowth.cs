@@ -15,7 +15,7 @@ namespace BiomesCore.Patches
 	{
 		internal static bool Prefix(int tile, ref string __result)
 		{
-			var modExtension = Find.WorldGrid[tile].biome.GetModExtension<BiomesMap>();
+			var modExtension = Find.WorldGrid[tile].PrimaryBiome.GetModExtension<BiomesMap>();
 			if (modExtension is {alwaysGrowthSeason: true})
 			{
 				__result = "GrowYearRound".Translate();

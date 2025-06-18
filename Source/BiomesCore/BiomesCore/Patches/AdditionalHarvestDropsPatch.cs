@@ -140,7 +140,7 @@ namespace BiomesCore.Patches
                 foreach (Thing thing in thingList)
                     anyParent.AddPawnOrItem(thing, true);
             }
-            else if (__instance.ParentHolder is ActiveDropPodInfo parentHolder)
+            else if (__instance.ParentHolder is ActiveTransporterInfo parentHolder)
             {
                 foreach (Thing thing in thingList)
                     parentHolder.innerContainer.TryAdd(thing);

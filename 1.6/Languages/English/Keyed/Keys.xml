@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<BMT_RuinedByLackOfWater>Ruined by lack of water.</BMT_RuinedByLackOfWater>
+
+	<DI_Immune>Immunity: {0}</DI_Immune>
+	<HE_Immune>Immunity: {0}</HE_Immune>
+
+	<BMT_SpawnPercentage>{0} %</BMT_SpawnPercentage>
+
+	<BMT_AnimalThingSpawner>Producing {0} in {1}.</BMT_AnimalThingSpawner>
+
+	<BMT_PermanentManhunterSpawned>manhunting {0}</BMT_PermanentManhunterSpawned>
+	<BMT_PermanentManhunterSpawnedDesc>A(n) {0} is trying to hunt any humanoid it can reach, and will not calm down even if it's put to sleep.</BMT_PermanentManhunterSpawnedDesc>
+</LanguageData>

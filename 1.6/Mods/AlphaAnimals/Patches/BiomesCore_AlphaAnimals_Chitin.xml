@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Leather_Chitin" or defName="Leather_IronChitin" or defName="Leather_RaptorPlates"
+			or DefName="Leather_BlackChitin"]/stuffProps
+		</xpath>
+		<value>
+			<categories>
+				<li>BMT_ChitinStuff</li>
+				<li>Leathery</li>
+			</categories>
+		</value>
+	</Operation>
+
+</Patch>

@@ -73,9 +73,9 @@ namespace BiomesCore.ThingComponents
 			ForceGraphicUpdateNow();
 		}
 
-		public override void PostDeSpawn(Map map)
+		public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
 		{
-			base.PostDeSpawn(map);
+			base.PostDeSpawn(map, mode);
 			if (parent is Pawn pawn)
 			{
 				PawnRenderer_BodyAngle_Patch.OverrideAngle.Remove(pawn);

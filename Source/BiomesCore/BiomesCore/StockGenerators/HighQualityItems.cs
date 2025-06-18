@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BiomesCore.Patches;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace BiomesCore.StockGenerators
@@ -55,7 +56,7 @@ namespace BiomesCore.StockGenerators
 			}
 		}
 
-		public override IEnumerable<Thing> GenerateThings(int forTile, Faction faction = null)
+		public override IEnumerable<Thing> GenerateThings(PlanetTile forTile, Faction faction = null)
 		{
 			maxTechLevelGenerate = faction != null ? faction.def.techLevel : TechLevel.Archotech;
 

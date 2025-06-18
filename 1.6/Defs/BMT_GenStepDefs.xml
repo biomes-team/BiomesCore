@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<GenStepDef>
+		<defName>BMT_GenIslandRockChunks</defName>
+		<order>270</order>
+		<genStep Class="BiomesCore.MapGeneration.GenStep_IslandRockChunks"/>
+	</GenStepDef>
+
+	<GenStepDef>
+		<defName>BMT_GenIslandRocksFromGrid</defName>
+		<order>200</order>
+		<genStep Class="BiomesCore.MapGeneration.GenStep_IslandRocksFromGrid"/>
+	</GenStepDef>
+
+</Defs>

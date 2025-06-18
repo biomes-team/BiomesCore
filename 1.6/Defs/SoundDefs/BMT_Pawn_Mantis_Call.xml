@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<SoundDef>
+		<defName>BMT_Pawn_Mantis_Call</defName>
+		<context>MapOnly</context>
+		<subSounds>
+			<li>
+				<grains>
+					<li Class="AudioGrain_Folder">
+						<clipFolderPath>Animal/Mantis/Biomes_MantisCall</clipFolderPath>
+					</li>
+				</grains>
+				<volumeRange>14~14</volumeRange>
+				<pitchRange>0.9082353~1.114706</pitchRange>
+				<distRange>0~50</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+</Defs>

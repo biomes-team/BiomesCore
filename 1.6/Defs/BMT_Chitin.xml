@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="BiomesCore_ChitinBase">
+		<defName>BMT_FragileChitin</defName>
+		<!-- light chitin t1 -->
+		<label>fragile chitin</label>
+		<description>Chitin of a giant insect. It doesn't protect very well.</description>
+		<graphicData>
+			<color>(124,140,60)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.0</MarketValue>
+			<StuffPower_Armor_Sharp>0.3</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.3</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Cold>10</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(124,140,60)</color>
+			<statFactors>
+				<MaxHitPoints>1.0</MaxHitPoints>
+				<Beauty>0.25</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_ChitinBase">
+		<defName>BMT_MediumChitin</defName>
+		<!-- medium chitin t2 -->
+		<label>tough chitin</label>
+		<description>Chitin of a giant insect. It's quite durable.</description>
+		<graphicData>
+			<color>(61,48,100)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>5.0</MarketValue>
+			<StuffPower_Armor_Sharp>1.1</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.6</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>15</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<stuffProps>
+			<color>(61,48,100)</color>
+			<statFactors>
+				<MaxHitPoints>1.2</MaxHitPoints>
+				<Beauty>3</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_ChitinBase">
+		<defName>BMT_CrystalChitin</defName>
+		<!-- large chitin t3 -->
+		<label>crystal carapace</label>
+		<description>A crystallized carapace that is commonly found on arthropods in crystal-heavy caverns.</description>
+		<graphicData>
+			<color>(21,244,238)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>7.5</MarketValue>
+			<StuffPower_Armor_Sharp>1.3</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.7</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Cold>18</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>8</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<stuffProps>
+			<color>(21,244,238)</color>
+			<statFactors>
+				<MaxHitPoints>1.4</MaxHitPoints>
+				<Beauty>4</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_ChitinBase">
+		<defName>BMT_RoyalChitin</defName>
+		<!-- large chitin t4 -->
+		<label>royal chitin</label>
+		<description>A legendary, royal, chitinous shell. It is only found on the strongest and or rarest creatures from within the bowels of the earth.</description>
+		<graphicData>
+			<color>(81,48,100)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>10.0</MarketValue>
+			<StuffPower_Armor_Sharp>1.8</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.8</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>20</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.5</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<stuffProps>
+			<color>(81,48,100)</color>
+			<statFactors>
+				<MaxHitPoints>1.8</MaxHitPoints>
+				<Beauty>6</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_ChitinBase">
+		<defName>BMT_DeepChitin</defName>
+		<!-- large chitin t5 -->
+		<label>deep chitin</label>
+		<description>A nearly inflammable and heat-proof chitin. It is only found on the creatures from the deepest and hottest environments within the UnderRim.</description>
+		<graphicData>
+			<color>(142,142,142)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>8.5</MarketValue>
+			<Flammability>0.05</Flammability>
+			<StuffPower_Armor_Sharp>1.5</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>1.0</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>6</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>50</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.15</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<stuffProps>
+			<color>(142,142,142)</color>
+			<statFactors>
+				<Flammability>0</Flammability>
+				<MaxHitPoints>1.1</MaxHitPoints>
+				<Beauty>2</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+	
+</Defs>

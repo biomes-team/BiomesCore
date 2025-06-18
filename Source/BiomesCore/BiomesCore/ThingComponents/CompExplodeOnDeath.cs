@@ -9,15 +9,15 @@ namespace BiomesCore.ThingComponents
         {
             GenExplosion.DoExplosion(
                 parent.Position, prevMap, Props.explosiveRadius,
-                Props.explosiveDamageType, parent, Props.damageAmountBase,
-                Props.armorPenetrationBase, Props.explosionSound, null, null, null,
-                Props.postExplosionSpawnThingDef, Props.postExplosionSpawnChance,
-                Props.postExplosionSpawnThingCount, Props.postExplosionGasType,
-                Props.applyDamageToExplosionCellsNeighbors,
-                Props.preExplosionSpawnThingDef, Props.preExplosionSpawnChance,
-                Props.preExplosionSpawnThingCount, Props.chanceToStartFire,
-                Props.damageFalloff, null, null, null, Props.doVisualEffects,
-                Props.propagationSpeed, 0f, Props.doSoundEffects
+                damType: Props.explosiveDamageType, instigator: parent, damAmount: Props.damageAmountBase,
+                armorPenetration: Props.armorPenetrationBase, explosionSound: Props.explosionSound, null, null, null,
+                Props.postExplosionSpawnThingDef, postExplosionSpawnChance: Props.postExplosionSpawnChance,
+                postExplosionSpawnThingCount: Props.postExplosionSpawnThingCount, postExplosionGasType: Props.postExplosionGasType, 0f, 0,
+                applyDamageToExplosionCellsNeighbors: Props.applyDamageToExplosionCellsNeighbors,
+                preExplosionSpawnThingDef: Props.preExplosionSpawnThingDef, preExplosionSpawnChance: Props.preExplosionSpawnChance,
+                preExplosionSpawnThingCount: Props.preExplosionSpawnThingCount, chanceToStartFire: Props.chanceToStartFire,
+                damageFalloff: Props.damageFalloff, null, null, null, doVisualEffects: Props.doVisualEffects,
+                propagationSpeed: Props.propagationSpeed, 0f, doSoundEffects: Props.doSoundEffects
             );
             base.Notify_Killed(prevMap, dinfo);
 

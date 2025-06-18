@@ -77,7 +77,7 @@ namespace BiomesCore
                 if (building != null)
                 {
                     ISlotGroupParent hopperSgp = building as ISlotGroupParent;
-                    Job job2 = WorkGiver_CookFillHopper.HopperFillFoodJob(pawn, hopperSgp);
+                    Job job2 = WorkGiver_CookFillHopper.HopperFillFoodJob(pawn, hopperSgp, false);
                     if (job2 != null)
                         return job2;
                 }
@@ -142,7 +142,7 @@ namespace BiomesCore
             int maxRegionsToScan = -1;
             filtered.Clear();
             foreach (Thing item in GenRadial.RadialDistinctThingsAround(pawn.Position, pawn.Map, 2f, true))
-                if (item is Pawn pawn2 && pawn != pawn2 && pawn.IsNonMutantAnimal && pawn.CurJob != null && pawn.CurJob.def == JobDefOf.Ingest && pawn.CurJob.GetTarget(TargetIndex.A).HasThing)
+                if (item is Pawn pawn2 && pawn != pawn2 && !pawn.IsSubhuman && pawn.CurJob != null && pawn.CurJob.def == JobDefOf.Ingest && pawn.CurJob.GetTarget(TargetIndex.A).HasThing)
                     filtered.Add(pawn.CurJob.GetTarget(TargetIndex.A).Thing);
 
             Predicate<Thing> validator = delegate (Thing t)

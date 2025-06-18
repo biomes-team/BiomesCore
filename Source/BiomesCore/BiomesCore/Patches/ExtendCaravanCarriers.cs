@@ -16,7 +16,7 @@ namespace BiomesCore.Patches
 		{
 			if (!__result && Find.WorldGrid.TilesCount > parms.tile)
 			{
-				var biomeDef = Find.WorldGrid.tiles[parms.tile].biome;
+				var biomeDef = Find.WorldGrid.Surface[parms.tile].PrimaryBiome;
 				var extension = biomeDef?.GetModExtension<BiomesMap>();
 				__result = extension != null && !extension.extraCarriers.NullOrEmpty();
 			}
@@ -34,7 +34,7 @@ namespace BiomesCore.Patches
 				return originalCarriers;
 			}
 
-			var biomeDef = Find.WorldGrid.tiles[parms.tile].biome;
+			var biomeDef = Find.WorldGrid.Surface[parms.tile].PrimaryBiome;
 			var extension = biomeDef?.GetModExtension<BiomesMap>();
 			if (extension == null || extension.extraCarriers.NullOrEmpty())
 			{

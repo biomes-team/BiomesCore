@@ -171,7 +171,7 @@ namespace BMT
 		/// <returns>True if the plant should be growing now.</returns>
 		private bool GrowthSeasonNow()
 		{
-			return ExtendedGrowthSeasonNow() || PlantUtility.GrowthSeasonNow(Position, Map);
+			return ExtendedGrowthSeasonNow() || PlantUtility.GrowthSeasonNow(Map, def);
 		}
 
 		/// <summary>
@@ -205,7 +205,7 @@ namespace BMT
 
 			// Check if Plant.TickLong would not execute its growth code but the BiomesPlant needs it due to having an
 			// optimal temperature range coming from the extension.
-			if (PlantUtility.GrowthSeasonNow(Position, Map) || !ExtendedGrowthSeasonNow())
+			if (PlantUtility.GrowthSeasonNow(Map, def) || !ExtendedGrowthSeasonNow())
 			{
 				return;
 			}
@@ -228,7 +228,7 @@ namespace BMT
 		{
 			string inspectString = base.GetInspectString();
 
-			if (!PlantUtility.GrowthSeasonNow(Position, Map) && ExtendedGrowthSeasonNow())
+			if (!PlantUtility.GrowthSeasonNow(Map, def) && ExtendedGrowthSeasonNow())
 			{
 				// Remove the now incorrect string in base.
 				inspectString = inspectString.Replace("OutOfIdealTemperatureRangeNotGrowing".Translate(), "");

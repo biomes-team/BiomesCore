@@ -1,0 +1,20 @@
+<Defs>
+	<IncidentDef>
+		<defName>CaveIn</defName>
+		<label>cave-in</label>
+		<category>Misc</category>
+		<targetTags>
+			<li>Map_PlayerHome</li>
+		</targetTags>
+		<allowedBiomes>
+			<li MayRequire="biomesteam.biomescaverns">BMT_CrystalCaverns</li>
+			<li MayRequire="biomesteam.biomescaverns">BMT_EarthenDepths</li>
+			<li MayRequire="biomesteam.biomescaverns">BMT_FungalForest</li>
+		</allowedBiomes>
+		<workerClass>BiomesCore.IncidentWorker_CaveIn</workerClass>
+		<baseChance>0.2</baseChance>
+		<letterLabel>Cave-In</letterLabel>
+		<letterText>A large chunk of rock has fallen from the cave ceiling, consisting of {0}.</letterText>
+	</IncidentDef>
+
+</Defs>

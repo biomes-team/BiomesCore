@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- Add new caravans to vanilla factions. -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[@Name="TribeBase" or @Name="OutlanderFactionBase"]/caravanTraderKinds</xpath>
+		<value>
+			<li>BMT_Caravan_Herder</li>
+			<li>BMT_Caravan_Hunter</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/StatDef[defName="Flammability"]/parts</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName="Flammability"]</xpath>
+			<value>
+				<parts>
+					<li Class="StatPart_GearStatOffset">
+						<apparelStat>BC_FlammabilityOffset</apparelStat>
+					</li>
+				</parts>
+			</value>
+		</nomatch>
+		<match Class="PatchOperationAdd">
+			<xpath>Defs/StatDef[defName="Flammability"]/parts</xpath>
+			<value>
+				<li Class="StatPart_GearStatOffset">
+					<apparelStat>BC_FlammabilityOffset</apparelStat>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>

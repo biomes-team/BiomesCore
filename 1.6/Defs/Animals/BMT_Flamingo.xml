@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="BigBirdThingBase">
+		<defName>BiomesIslands_Flamingo</defName>
+		<label>flamingo</label>
+		<description>Wading birds that get their color from the krill they eat by filtering food out of the water with their beaks. They thrive anywhere with warm, shallow water.</description>
+		<statBases>
+			<MoveSpeed>5.0</MoveSpeed>
+			<MarketValue>230</MarketValue>
+			<ComfyTemperatureMin>-8</ComfyTemperatureMin>
+			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+		</statBases>
+		<race>
+			<herdAnimal>true</herdAnimal>
+			<baseBodySize>0.7</baseBodySize>
+			<baseHealthScale>0.9</baseHealthScale>
+			<baseHungerRate>0.45</baseHungerRate>
+			<foodType>OmnivoreRoughAnimal</foodType>
+			<wildness>0.85</wildness>
+			<lifeExpectancy>45</lifeExpectancy>
+			<useMeatFrom>Cassowary</useMeatFrom>
+			<manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.01</manhunterOnDamageChance>
+			<leatherDef>BiomesIslands_Leather_Flamingo</leatherDef>
+			<lifeStageAges inherit="false">
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.22</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.4</minAge>
+				</li>
+			</lifeStageAges>
+		</race>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>BiomesIslands_EggFlamingoFertilized</eggFertilizedDef>
+				<eggFertilizationCountMax>1</eggFertilizationCountMax>
+				<eggLayIntervalDays>16</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1</eggCountRange>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>claws</label>
+				<capacities>
+					<li>Scratch</li>
+				</capacities>
+				<power>7</power>
+				<cooldownTime>1.5</cooldownTime>
+				<linkedBodyPartsGroup>Feet</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>beak</label>
+				<capacities>
+					<li>Bite</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>Beak</linkedBodyPartsGroup>
+				<surpriseAttack>
+					<extraMeleeDamages>
+						<li>
+							<def>Stun</def>
+							<amount>14</amount>
+						</li>
+					</extraMeleeDamages>
+				</surpriseAttack>
+			</li>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>6</power>
+				<cooldownTime>2</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+				<chanceFactor>0.2</chanceFactor>
+			</li>
+		</tools>
+		<tradeTags>
+			<li>AnimalUncommon</li>
+		</tradeTags>
+	</ThingDef>
+
+	<PawnKindDef ParentName="BigBirdKindBase">
+		<defName>BiomesIslands_Flamingo</defName>
+		<label>flamingo</label>
+		<race>BiomesIslands_Flamingo</race>
+		<ecoSystemWeight>0.45</ecoSystemWeight>
+		<wildGroupSize>
+			<min>4</min>
+			<max>8</max>
+		</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>BiomesCore_Things/Animal/Flamingo/FlamingoChick</texPath>
+					<drawSize>1.0</drawSize>
+					<shadowData>
+						<volume>(0.4, 0.3, 0.3)</volume>
+						<offset>(0,0,-0.2)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Emu/Dessicated_Emu</texPath>
+					<drawSize>1.0</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>BiomesCore_Things/Animal/Flamingo/Flamingo</texPath>
+					<drawSize>1.3</drawSize>
+					<shadowData>
+						<volume>(0.6, 0.45, 0.45)</volume>
+						<offset>(0,0,-0.25)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Emu/Dessicated_Emu</texPath>
+					<drawSize>1.3</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>BiomesCore_Things/Animal/Flamingo/Flamingo</texPath>
+					<drawSize>1.6</drawSize>
+					<shadowData>
+						<volume>(0.8, 0.6, 0.6)</volume>
+						<offset>(0,0,-0.3)</offset>
+					</shadowData>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>Things/Pawn/Animal/Emu/Dessicated_Emu</texPath>
+					<drawSize>1.6</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+
+
+	<ThingDef ParentName="EggFertBase">
+		<defName>BiomesIslands_EggFlamingoFertilized</defName>
+		<label>flamingo egg (fert.)</label>
+		<description>A fertilized flamingo egg. If all goes well, it should hatch into a baby flamingo. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(255,230,220)</color>
+			<drawSize>1.4</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>40.0</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>8</hatcherDaystoHatch>
+				<hatcherPawn>BiomesIslands_Flamingo</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="LeatherBase">
+		<defName>BiomesIslands_Leather_Flamingo</defName>
+		<label>flamingo leather</label>
+		<description>Bright pink leather from a flamingo. It's somewhat stronger than your typical birdskin.</description>
+		<graphicData>
+			<color>(255,125,100)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>2.9</MarketValue>
+			<StuffPower_Armor_Sharp>0.88</StuffPower_Armor_Sharp>
+			<StuffPower_Insulation_Heat>18</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(255,125,100)</color>
+			<commonality>0.04</commonality>
+			<statFactors>
+				<Beauty>1.7</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+
+</Defs>

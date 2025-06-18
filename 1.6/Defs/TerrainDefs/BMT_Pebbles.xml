@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>BiomesCore_Pebbles</defName>
+		<label>pebbles</label>
+		<tags>
+			<li>Sandy</li>
+		</tags>
+		<texturePath>BiomesCore_Terrain/Surfaces/Pebbles</texturePath>
+		<edgeType>FadeRough</edgeType>
+		<renderPrecedence>350</renderPrecedence>
+		<pathCost>4</pathCost>
+		<statBases>
+			<Beauty>-1</Beauty>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Rocky</li>
+					<li>Loose</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
+		<scatterType>Rocky</scatterType>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Dirt</generatedFilth>
+		<fertility>0.10</fertility>
+		<takeFootprints>True</takeFootprints>
+		<tools>
+			<li>
+				<label>sand</label>
+				<capacities>
+					<li>KickMaterialInEyes</li>
+				</capacities>
+				<hediff>SandInEyes</hediff>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+	</TerrainDef>
+</Defs>

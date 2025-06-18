@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AnimalThingBase">
+		<defName>BMT_LandOctopus</defName>
+		<label>terrestrial octopus</label>
+		<description>This land-dwelling octopus has somehow adapted to being fully amphibious, able to survive for long periods out of the water. Much like other octopi, it predates on anything small enough.</description>
+		<statBases>
+			<MoveSpeed>4</MoveSpeed>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+			<ComfyTemperatureMax>45</ComfyTemperatureMax>
+			<MarketValue>230</MarketValue>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_EggLayer">
+				<eggFertilizedDef>BMT_EggLandOctopusFertilized</eggFertilizedDef>
+				<eggLayIntervalDays>8</eggLayIntervalDays>
+				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
+				<eggCountRange>1~3</eggCountRange>
+				<eggLayFemaleOnly>true</eggLayFemaleOnly>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>head</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>10</power>
+				<cooldownTime>2.5</cooldownTime>
+				<linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+				<ensureLinkedBodyPartsGroupAlwaysUsable>true</ensureLinkedBodyPartsGroupAlwaysUsable>
+			</li>
+		</tools>
+		<race>
+			<hasGenders>true</hasGenders>
+			<herdAnimal>false</herdAnimal>
+			<maxPreyBodySize>1</maxPreyBodySize>
+			<!-- <body>BiomesCore_Slug</body> -->
+			<body>BMT_OctoLike</body>
+			<baseHungerRate>0.8</baseHungerRate>
+			<baseBodySize>0.8</baseBodySize>
+			<baseHealthScale>1</baseHealthScale>
+			<predator>true</predator>
+			<foodType>CarnivoreAnimal</foodType> <!-- xeye: could be onivore many slugs and especially snails eat other gastropods eggs. -->
+			<wildness>0.45</wildness>
+			<lifeExpectancy>12</lifeExpectancy>
+			<manhunterOnTameFailChance>0.15</manhunterOnTameFailChance>
+			<manhunterOnDamageChance>0.25</manhunterOnDamageChance>
+			<trainability>Advanced</trainability>
+			<leatherDef>BMT_Leather_Gastropoda</leatherDef>
+			<specificMeatDef>BMT_GastropodMeat</specificMeatDef>
+			<lifeStageAges>
+				<li>
+					<def>AnimalBaby</def>
+					<minAge>0</minAge>
+				</li>
+				<li>
+					<def>AnimalJuvenile</def>
+					<minAge>0.1</minAge>
+				</li>
+				<li>
+					<def>AnimalAdult</def>
+					<minAge>0.333</minAge>
+					<soundWounded>Biomes_GiantSnail_Wounded</soundWounded>
+					<soundDeath>Biomes_GiantSnail_Death</soundDeath>
+					<soundCall>Biomes_GiantSnail_Call</soundCall>
+					<soundAngry>Biomes_GiantSnail_Angry</soundAngry>
+				</li>
+			</lifeStageAges>
+			<soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+			<soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+			<soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+		</race>
+			<tradeTags>
+				<li>AnimalUncommon</li>
+			</tradeTags>
+	</ThingDef>
+	<PawnKindDef ParentName="AnimalKindBase">
+		<defName>BMT_LandOctopus</defName>
+		<label>terrestrial octopus</label>
+		<race>BMT_LandOctopus</race>
+		<combatPower>105</combatPower>
+		<ecoSystemWeight>0.8</ecoSystemWeight>
+		<wildGroupSize>1~2</wildGroupSize>
+		<lifeStages>
+			<li>
+				<bodyGraphicData>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/LandOctopi</texPath>
+					<drawSize>1.0</drawSize>
+					<!-- need texture for size -->
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
+					<drawSize>1.0</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/LandOctopi</texPath>
+					<drawSize>1.5</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
+					<drawSize>1.5</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+			<li>
+				<bodyGraphicData>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/LandOctopi</texPath>
+					<drawSize>2</drawSize>
+				</bodyGraphicData>
+				<dessicatedBodyGraphicData>
+					<texPath>BMT_Core/Things/Animal/LandOctopus/Dessicated_LandOctopi</texPath>
+					<drawSize>2</drawSize>
+				</dessicatedBodyGraphicData>
+			</li>
+		</lifeStages>
+	</PawnKindDef>
+	<ThingDef ParentName="EggFertBase">
+		<defName>BMT_EggLandOctopusFertilized</defName>
+		<label>terrestrial octopus egg (fert.)</label>
+		<description>A fertilized terrestrial octopus egg. If all goes well, it should hatch into a baby octopus. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<texPath>BMT_Core/Things/Item/Eggs/OvoidBugEggs</texPath>
+			<color>(109,137,70)</color>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20.0</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Hatcher">
+				<hatcherDaystoHatch>8</hatcherDaystoHatch>
+				<hatcherPawn>BMT_LandOctopus</hatcherPawn>
+			</li>
+		</comps>
+	</ThingDef>
+</Defs>

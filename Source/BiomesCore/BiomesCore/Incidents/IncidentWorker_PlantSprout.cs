@@ -20,8 +20,8 @@ namespace BiomesCore
 			PlantSproutIncidentDef incidentDef = def as PlantSproutIncidentDef;
 
 			return map != null && incidentDef != null && base.CanFireNowSub(parms) &&
-			       (incidentDef.ignoreSeason || map.weatherManager.growthSeasonMemory.GrowthSeasonOutdoorsNow) &&
-			       TryFindRootCell(map, out IntVec3 _);
+				   TryFindRootCell(map, out IntVec3 cell) &&
+                   (incidentDef.ignoreSeason || (incidentDef.plant != null && PlantUtility.GrowthSeasonNow(cell, parms.target as Map, incidentDef.plant)));
 		}
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
@@ -68,7 +68,7 @@ namespace BiomesCore
 			if (incidentDef == null || !c.Standable(map) || c.Fogged(map) ||
 			    map.fertilityGrid.FertilityAt(c) < incidentDef.plant.plant.fertilityMin ||
 			    (!incidentDef.allowIndoors && !c.GetRoom(map).PsychologicallyOutdoors) || c.GetEdifice(map) != null ||
-			    (incidentDef.ignoreSeason && !PlantUtility.GrowthSeasonNow(c, map)))
+			    (incidentDef.ignoreSeason && !PlantUtility.GrowthSeasonNow(map, incidentDef.plant)))
 			{
 				return false;
 			}

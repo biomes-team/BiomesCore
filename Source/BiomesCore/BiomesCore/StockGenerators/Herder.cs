@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace BiomesCore.StockGenerators
@@ -70,12 +71,12 @@ namespace BiomesCore.StockGenerators
 		private bool AcceptablePawnKindDef(PawnKindDef def, int forTile, Faction faction = null)
 		{
 			return def.RaceProps.Animal && def.race.tradeTags != null &&
-			       tradeTags.Any(tag => def.race.tradeTags.Contains(tag)) && wildnessRange.Includes(def.RaceProps.wildness);
+			       tradeTags.Any(tag => def.race.tradeTags.Contains(tag)) && wildnessRange.Includes(def.race.GetStatValueAbstract(StatDefOf.Wildness));
 		}
 
 
 		private static float SelectionChance(PawnKindDef kind) =>
-			Util.SelectionChanceFromWildnessCurve.Evaluate(kind.RaceProps.wildness);
+			Util.SelectionChanceFromWildnessCurve.Evaluate(kind.race.GetStatValueAbstract(StatDefOf.Wildness));
 
 		private static AnimalProductSet AnimalProducts(PawnKindDef pawnKind)
 		{
@@ -105,7 +106,7 @@ namespace BiomesCore.StockGenerators
 			return set;
 		}
 
-		public override IEnumerable<Thing> GenerateThings(int forTile, Faction faction = null)
+		public override IEnumerable<Thing> GenerateThings(PlanetTile forTile, Faction faction = null)
 		{
 			var acceptableKinds =
 				DefDatabase<PawnKindDef>.AllDefsListForReading.Where(kind =>
