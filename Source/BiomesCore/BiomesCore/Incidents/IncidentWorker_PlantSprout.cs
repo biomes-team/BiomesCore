@@ -20,8 +20,8 @@ namespace BiomesCore
 			PlantSproutIncidentDef incidentDef = def as PlantSproutIncidentDef;
 
 			return map != null && incidentDef != null && base.CanFireNowSub(parms) &&
-				   TryFindRootCell(map, out IntVec3 cell) &&
-                   (incidentDef.ignoreSeason || (incidentDef.plant != null && PlantUtility.GrowthSeasonNow(cell, parms.target as Map, incidentDef.plant)));
+                   (incidentDef.ignoreSeason || (incidentDef.plant != null && PlantUtility.GrowthSeasonNow(parms.target as Map, incidentDef.plant))) &&
+				   TryFindRootCell(map, out IntVec3 cell);
 		}
 
 		protected override bool TryExecuteWorker(IncidentParms parms)
