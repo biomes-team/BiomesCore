@@ -11,6 +11,7 @@
 			<ComfyTemperatureMax>50</ComfyTemperatureMax>
 			<CaravanRidingSpeedFactor>1.2</CaravanRidingSpeedFactor>
 			<FilthRate>4</FilthRate>
+			<Wildness>0.75</Wildness>
 		</statBases>
 		<tools>
 			<li>
@@ -87,7 +88,6 @@
 			<foodType>CarnivoreAnimal,AnimalProduct</foodType>
 			<leatherDef>BMT_Leather_Amphibian</leatherDef>
 			<meatLabel>amphibian meat</meatLabel>
-			<wildness>0.75</wildness>
 			<manhunterOnTameFailChance>0.10</manhunterOnTameFailChance>
 			<manhunterOnDamageChance>0.45</manhunterOnDamageChance>
 			<trainability>Intermediate</trainability>

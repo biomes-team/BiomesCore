@@ -9,6 +9,7 @@
 			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
 			<ComfyTemperatureMax>45</ComfyTemperatureMax>
 			<MarketValue>230</MarketValue>
+			<Wildness>0.45</Wildness>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_EggLayer">
@@ -42,7 +43,6 @@
 			<baseHealthScale>1</baseHealthScale>
 			<predator>true</predator>
 			<foodType>CarnivoreAnimal</foodType> <!-- xeye: could be onivore many slugs and especially snails eat other gastropods eggs. -->
-			<wildness>0.45</wildness>
 			<lifeExpectancy>12</lifeExpectancy>
 			<manhunterOnTameFailChance>0.15</manhunterOnTameFailChance>
 			<manhunterOnDamageChance>0.25</manhunterOnDamageChance>

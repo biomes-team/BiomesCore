@@ -10,6 +10,7 @@
 			<MarketValue>230</MarketValue>
 			<ComfyTemperatureMin>-8</ComfyTemperatureMin>
 			<ComfyTemperatureMax>60</ComfyTemperatureMax>
+			<Wildness>0.85</Wildness>
 		</statBases>
 		<race>
 			<herdAnimal>true</herdAnimal>
@@ -17,7 +18,6 @@
 			<baseHealthScale>0.9</baseHealthScale>
 			<baseHungerRate>0.45</baseHungerRate>
 			<foodType>OmnivoreRoughAnimal</foodType>
-			<wildness>0.85</wildness>
 			<lifeExpectancy>45</lifeExpectancy>
 			<useMeatFrom>Cassowary</useMeatFrom>
 			<manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
