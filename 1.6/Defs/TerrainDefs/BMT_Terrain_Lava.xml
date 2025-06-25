@@ -18,7 +18,7 @@
 		</waterDepthShaderParameters>
 		<edgeType>Water</edgeType>
 		<avoidWander>true</avoidWander>
-		<holdSnow>false</holdSnow>
+		<holdSnowOrSand>false</holdSnowOrSand>
 		<takeSplashes>true</takeSplashes>
 		<extinguishesFire>false</extinguishesFire>
 		<extraDeteriorationFactor>12</extraDeteriorationFactor>
