@@ -41,6 +41,7 @@
 		<comps>
 			<li Class="CompProperties_EggLayer">
 				<eggFertilizedDef>BiomesIslands_EggFlamingoFertilized</eggFertilizedDef>
+				<eggUnfertilizedDef>BiomesIslands_EggFlamingoUnfertilized</eggUnfertilizedDef>
 				<eggFertilizationCountMax>1</eggFertilizationCountMax>
 				<eggLayIntervalDays>16</eggLayIntervalDays>
 				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
@@ -172,6 +173,19 @@
 				<hatcherPawn>BiomesIslands_Flamingo</hatcherPawn>
 			</li>
 		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>BiomesIslands_EggFlamingoUnfertilized</defName>
+		<label>flamingo egg (unfert.)</label>
+		<description>An unfertilized flamingo egg. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<color>(255,230,220)</color>
+			<drawSize>1.4</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>40.0</MarketValue>
+		</statBases>
 	</ThingDef>
 
 	<ThingDef ParentName="LeatherBase">

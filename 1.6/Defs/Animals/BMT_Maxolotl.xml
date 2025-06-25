@@ -64,6 +64,7 @@
 		<comps>
 			<li Class="CompProperties_EggLayer">
 				<eggFertilizedDef>BMT_EggMaxolotlFertilized</eggFertilizedDef>
+				<eggUnfertilizedDef>BMT_EggMaxolotlUnfertilized</eggUnfertilizedDef>
 				<eggFertilizationCountMax>10</eggFertilizationCountMax>
 				<eggLayIntervalDays>8</eggLayIntervalDays>
 				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
@@ -184,5 +185,19 @@
 				<hatcherPawn>BMT_Maxolotl</hatcherPawn>
 			</li>
 		</comps>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>BMT_EggMaxolotlUnfertilized</defName>
+		<label>maxolotl egg (unfert.)</label>
+		<description>An unfertilized maxolotl egg. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<texPath>BiomesCore_Things/Items/Eggs/SalamanderEggs</texPath>
+			<drawSize>2</drawSize>
+		</graphicData>
+		<statBases>
+			<Mass>0.50</Mass>
+			<MarketValue>24.0</MarketValue>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
 	</ThingDef>
 </Defs>

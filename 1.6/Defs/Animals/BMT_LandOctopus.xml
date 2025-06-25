@@ -14,6 +14,7 @@
 		<comps>
 			<li Class="CompProperties_EggLayer">
 				<eggFertilizedDef>BMT_EggLandOctopusFertilized</eggFertilizedDef>
+				<eggUnfertilizedDef>BMT_EggLandOctopusUnfertilized</eggUnfertilizedDef>
 				<eggLayIntervalDays>8</eggLayIntervalDays>
 				<eggProgressUnfertilizedMax>0.5</eggProgressUnfertilizedMax>
 				<eggCountRange>1~3</eggCountRange>
@@ -135,5 +136,19 @@
 				<hatcherPawn>BMT_LandOctopus</hatcherPawn>
 			</li>
 		</comps>
+	</ThingDef>
+	<ThingDef ParentName="EggUnfertBase">
+		<defName>BMT_EggLandOctopusUnfertilized</defName>
+		<label>terrestrial octopus egg (unfert.)</label>
+		<description>An unfertilized terrestrial octopus egg. It can be eaten raw, but it's much better cooked.</description>
+		<graphicData>
+			<texPath>BMT_Core/Things/Item/Eggs/OvoidBugEggs</texPath>
+			<color>(109,137,70)</color>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<statBases>
+			<MarketValue>20.0</MarketValue>
+			<DeteriorationRate>0</DeteriorationRate>
+		</statBases>
 	</ThingDef>
 </Defs>
