@@ -28,16 +28,16 @@ namespace BiomesCore.Planet
 
 		protected abstract void Setup();
 
-		protected abstract float GenerateTileData(Tile tile, int tileID, Vector3 tileCenter);
+		protected abstract float GenerateTileData(PlanetTile tile, Vector3 tileCenter);
 
-		public void GenerateForTile(Tile tile, int tileID, Vector3 tileCenter)
+		public void GenerateForTile(PlanetTile tile, Vector3 tileCenter)
 		{
-			tileData[tileID] = GenerateTileData(tile, tileID, tileCenter);
+			tileData[tile] = GenerateTileData(tile, tileCenter);
 		}
 
-		public float GetValue(int tileId)
+		public float GetValue(PlanetTile tile)
 		{
-			return tileData[tileId];
+			return tileData[tile];
 		}
 	}
 }

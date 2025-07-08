@@ -65,12 +65,12 @@ namespace BiomesCore.Planet
 		/// <summary>
 		/// Generate world generation information data for each tile in the grid.
 		/// </summary>
-		public static void GenerateTileFor(Tile tile, int tileID)
+		public static void GenerateTileFor(PlanetTile tile, PlanetLayer layer)
 		{
-			Vector3 tileCenter = Find.WorldGrid.GetTileCenter(tileID);
+			Vector3 tileCenter = Find.WorldGrid.GetTileCenter(tile);
 			foreach (WorldGenInfo info in _infos.Values)
 			{
-				info.GenerateForTile(tile, tileID, tileCenter);
+				info.GenerateForTile(tile, tileCenter);
 			}
 		}
 	}
