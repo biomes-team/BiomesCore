@@ -1,5 +1,6 @@
 using HarmonyLib;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace BiomesCore.Patches
@@ -36,7 +37,7 @@ namespace BiomesCore.Patches
 			_qualityRange = null;
 		}
 
-		internal static bool Prefix(CompQuality __instance, TraderKindDef trader, int forTile, Faction forFaction)
+		internal static bool Prefix(CompQuality __instance, TraderKindDef trader, PlanetTile forTile, Faction forFaction)
 		{
 			if (_qualityRange == null)
 			{

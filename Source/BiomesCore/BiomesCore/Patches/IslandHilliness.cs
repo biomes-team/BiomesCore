@@ -9,7 +9,7 @@ namespace BiomesCore.Patches
     [HarmonyPatch("GenerateTileFor")]
     internal static class IslandHilliness
     {
-        static void Postfix(int tileID, ref Tile __result)
+        static void Postfix(PlanetTile tile, PlanetLayer layer, ref Tile __result)
         {
             if (!__result.PrimaryBiome.HasModExtension<BiomesMap>())
             {

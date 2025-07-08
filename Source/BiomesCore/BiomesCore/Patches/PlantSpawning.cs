@@ -7,7 +7,7 @@ using HarmonyLib;
 
 namespace BiomesCore.Patches
 {
-    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool))]
+    [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool), typeof(bool))]
 	internal static class PlantUtility_CanEverPlantAt
 	{
 		internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)

@@ -8,7 +8,7 @@
 			<ArmorRating_Blunt>0.25</ArmorRating_Blunt>
 			<ArmorRating_Sharp>0.40</ArmorRating_Sharp>
 			<MoveSpeed>3.5</MoveSpeed>
-			 <Wildness>0.75</Wildness>
+			<Wildness>0.75</Wildness>
 		</statBases>
 		<race>
 			<leatherDef>BiomesCore_CrabShell</leatherDef>

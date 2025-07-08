@@ -11,9 +11,9 @@ namespace BiomesCore.Patches.WorldGen
 	[HarmonyPatch(typeof(WorldGenStep_Terrain), "BiomeFrom")]
 	public class WorldGenStep_Terrain_BiomeFrom_Patch
 	{
-		public static void Prefix(Tile ws, int tileID)
+		public static void Prefix(Tile ws, PlanetTile tile, PlanetLayer layer)
 		{
-			WorldGenInfoHandler.GenerateTileFor(ws, tileID);
+			WorldGenInfoHandler.GenerateTileFor(tile, layer);
 		}
 	}
 }

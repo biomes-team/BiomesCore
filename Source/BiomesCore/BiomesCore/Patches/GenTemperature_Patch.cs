@@ -2,6 +2,7 @@ using System;
 using BiomesCore.DefModExtensions;
 using HarmonyLib;
 using RimWorld;
+using RimWorld.Planet;
 using Verse;
 
 namespace BiomesCore.Patches
@@ -14,7 +15,7 @@ namespace BiomesCore.Patches
         
         [HarmonyPostfix]
         [HarmonyPatch("SeasonalShiftAmplitudeAt")]
-        private static void SeasonalShiftAmplitudeAt(int tile, ref float __result)
+        private static void SeasonalShiftAmplitudeAt(PlanetTile tile, ref float __result)
         {
             if (_cache == null)
             {

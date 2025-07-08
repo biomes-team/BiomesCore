@@ -14,8 +14,9 @@ namespace BiomesCore.Patches.MapGen
 	{
 		private static MethodBase TargetMethod()
 		{
-			return typeof(GenStep_FindPlayerStartSpot).GetLambda(nameof(GenStep_FindPlayerStartSpot.Generate));
-		}
+            return typeof(GenStep_FindPlayerStartSpot).GetLocalFunc(nameof(GenStep_FindPlayerStartSpot.Generate),
+				localFunc: "Validator");
+        }
 
 		private static HashSet<TerrainDef> _terrainToAvoid;
 
