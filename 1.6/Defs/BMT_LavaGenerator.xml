@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
-
-	<ThingDef ParentName="BuildingBase">
-		<defName>BMT_LavaGenerator</defName>
-		<label>lava generator</label>
-		<description>Produces electricity from the intense heat of lava and magma. It pipes must be placed within the molten rock to function. If lava generators are placed too close together, the turbulence they generate will interfere and reduce power generation.</description>
-	</ThingDef>
 	
-	<!--	<ThingDef ParentName="BuildingBase">
+		<ThingDef ParentName="BuildingBase">
 		<defName>BMT_LavaGenerator</defName>
 		<label>lava generator</label>
 		<description>Produces electricity from the intense heat of lava and magma. It pipes must be placed within the molten rock to function. If lava generators are placed too close together, the turbulence they generate will interfere and reduce power generation.</description>
@@ -74,6 +68,6 @@
 			<li>GeothermalPower</li>
 		</researchPrerequisites>
 		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
-	</ThingDef> -->
+	</ThingDef> 
 
 </Defs>
