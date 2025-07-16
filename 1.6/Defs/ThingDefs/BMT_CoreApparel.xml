@@ -41,7 +41,7 @@
       <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.3</SlaveSuppressionOffset>
 	  <ToxicEnvironmentResistance>0.8</ToxicEnvironmentResistance>
 	  <ToxicResistance>0.8</ToxicResistance>
-	  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.67</VacuumResistance>
+	  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.3</VacuumResistance>
     </equippedStatOffsets>
     <thingCategories>
       <li>ApparelArmor</li>
@@ -182,7 +182,7 @@
       <SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">-0.1</SlaveSuppressionOffset>
 	  <ToxicEnvironmentResistance>0.2</ToxicEnvironmentResistance>
 	  <ToxicResistance>0.2</ToxicResistance>
-	  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.3</VacuumResistance>
+	  <VacuumResistance MayRequire="Ludeon.RimWorld.Odyssey">0.67</VacuumResistance>
     </equippedStatOffsets>
     <costList>
 	  <ComponentIndustrial>1</ComponentIndustrial>
