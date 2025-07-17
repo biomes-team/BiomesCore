@@ -30,7 +30,7 @@
 		</nullifyingGenes>
 	</ThoughtDef>
 
-	<ThoughtDef>
+<!--	<ThoughtDef>
 		<defName>AteRawFish</defName>
 		<thoughtClass>Thought_FoodEaten</thoughtClass>
 		<showBubble>true</showBubble>
@@ -46,6 +46,6 @@
 		<nullifyingGenes>
 		  <li MayRequire="Ludeon.RimWorld.Biotech">RobustDigestion</li>
 		</nullifyingGenes>
-	</ThoughtDef>
+	</ThoughtDef> -->
 
 </Defs>
