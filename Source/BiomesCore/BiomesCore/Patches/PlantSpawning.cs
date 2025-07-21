@@ -60,7 +60,7 @@ namespace BiomesCore.Patches
 				/*
 				 no longer needed because of <applyToCaverns> biome tag which overrides the vanilla cave plant spawning system
 				 with the normal <wildPlants> from the biome
-				 
+
 				BiomeDef biome = map.LocalBiome(c);
 				if (biome.HasModExtension<BiomesMap>())
 				{
@@ -74,15 +74,15 @@ namespace BiomesCore.Patches
 						}
 					}
 				}
-				
-				
 
-				
+
+
+
 				if (plantExt.wallGrower)
                 {
-					
+
                 }
-				
+
 				if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
 				{
 					if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
@@ -110,7 +110,7 @@ namespace BiomesCore.Patches
 						__result = false;
 						return false;
 					}
-					
+
 					foreach (string tag in terrainExt.terrainTags)
 					{
 						if (!plantExt.terrainTags.Contains(tag))
@@ -141,7 +141,7 @@ namespace BiomesCore.Patches
 				__result = false;
 				return false;
 			}
-			
+
 			return true;
 		}
 	}
@@ -149,15 +149,11 @@ namespace BiomesCore.Patches
 	[HarmonyPatch(typeof(WildPlantSpawner), "CalculatePlantsWhichCanGrowAt")]
 	internal static class WildPlantSpawner_CalculatePlantsWhichCanGrowAt
 	{
-		internal static void Prefix(Map ___map, ref bool cavePlants)
+		internal static void Prefix(Map ___map, IntVec3 c, ref bool cavePlants)
 		{
-			if (cavePlants)
+			if (cavePlants && ___map.BiomeAt(c).wildPlantsAreCavePlants)
 			{
-				var extension = ___map.Biome.GetModExtension<BiomesMap>();
-				if (extension is { isCavern: true })
-				{
-					cavePlants = false;
-				}
+				cavePlants = false;
 			}
 		}
 	}
