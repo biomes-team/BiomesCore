@@ -146,6 +146,22 @@ namespace BiomesCore.Patches
 		}
 	}
 
+	[HarmonyPatch(typeof(WildPlantSpawner), "CalculatePlantsWhichCanGrowAt")]
+	internal static class WildPlantSpawner_CalculatePlantsWhichCanGrowAt
+	{
+		internal static void Prefix(Map ___map, ref bool cavePlants)
+		{
+			if (cavePlants)
+			{
+				var extension = ___map.Biome.GetModExtension<BiomesMap>();
+				if (extension is { isCavern: true })
+				{
+					cavePlants = false;
+				}
+			}
+		}
+	}
+
 	//[HarmonyPatch(typeof(WildPlantSpawner), "GetDesiredPlantsCountAt")]
 	//internal static class WildPlantSpawner_GetDesiredPlantsCountAt
 	//{
