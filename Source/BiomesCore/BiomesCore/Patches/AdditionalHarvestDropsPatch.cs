@@ -108,7 +108,7 @@ namespace BiomesCore.Patches
     {
         static void Postfix(MinifiedTree __instance)
         {
-            AdditionalHarvestDrops drops = __instance.InnerThing.def.GetModExtension<AdditionalHarvestDrops>();
+            AdditionalHarvestDrops drops = __instance?.InnerThing?.def?.GetModExtension<AdditionalHarvestDrops>();
 
             if(drops == null)
             {
