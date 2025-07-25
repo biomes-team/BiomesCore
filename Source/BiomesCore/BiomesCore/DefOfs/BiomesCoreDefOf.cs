@@ -13,10 +13,10 @@ namespace BiomesCore
 
 		public static DutyDef BMT_WanderAroundPoint;
 
-		public static GameConditionDef Earthquake;
+		//public static GameConditionDef Earthquake;
 
 		public static HediffDef BMT_HungeringHediff;
-		public static IncidentDef CaveIn;
+		//public static IncidentDef CaveIn;
 
 		public static JobDef BC_BloodDrinking;
 		public static JobDef BC_BottomFeeder;
@@ -33,7 +33,7 @@ namespace BiomesCore
 		[MayRequireBiotech] public static EffecterDef CellPollution;
 		//public static EffecterDef BMT_CoughBlood;
 
-		public static SoundDef EarthquakeSound;
+		//public static SoundDef EarthquakeSound;
 		//public static SoundDef BMT_Cough;
 
 		//public static HediffDef BMT_Sputum;
