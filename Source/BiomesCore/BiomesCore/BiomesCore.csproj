@@ -94,7 +94,6 @@
     <Compile Include="DefModExtensions\ModExtension_ReleaseGasCloud.cs" />
     <Compile Include="ModSettings\Settings.cs" />
     <Compile Include="ModSettings\SettingsWindow.cs" />
-    <Compile Include="Patches\AdditionalHarvestDropsPatch.cs" />
     <Compile Include="Patches\Building_Door_PawnCanOpen_Patch.cs" />
     <Compile Include="Patches\CompCauseGameCondition_ForceWeather_RandomizeSettings_Patch.cs" />
     <Compile Include="Patches\CompetitionHunterPatches.cs" />
@@ -211,7 +210,7 @@
     <Compile Include="WorldMap\BiomeWorkerUtil.cs" />
     <Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.6.4489-beta</Version>
+      <Version>1.6.4528</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony" Version="2.3.6" ExcludeAssets="runtime">
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
