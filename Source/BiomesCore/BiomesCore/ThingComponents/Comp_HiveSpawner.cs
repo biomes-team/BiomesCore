@@ -84,47 +84,54 @@ namespace BiomesCore
 
 		private bool TrySpawnPawn(out Pawn pawn, bool ignoreLimit = false)
 		{
-			int num = 0;
-			foreach (string item in Props.spawnablePawnKinds.Distinct())
-			{
-				string text = item;
-				num += parent.Map.listerThings.ThingsOfDef(ThingDef.Named(item)).Count;
+			pawn = null;
+			try
+            {
+                int num = 0;
+                foreach (string item in Props.spawnablePawnKinds.Distinct())
+                {
+                    string text = item;
+                    num += parent.Map.listerThings.ThingsOfDef(ThingDef.Named(item)).Count;
+                }
+                if (ignoreLimit || num < Props.maxPawnCount)
+                {
+                    PawnKindDef named = DefDatabase<PawnKindDef>.GetNamed(Props.spawnablePawnKinds.RandomElement(), errorOnFail: false);
+                    if (named != null)
+                    {
+                        Faction faction = ((Props.faction != null && FactionUtility.DefaultFactionFrom(Props.faction) != null) ? FactionUtility.DefaultFactionFrom(Props.faction) : null);
+                        PawnGenerationRequest request = new PawnGenerationRequest(named, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: true, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: true, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: false, allowPregnant: true, allowFood: true, allowAddictions: false);
+                        Pawn pawnToCreate = PawnGenerator.GeneratePawn(request);
+                        GenSpawn.Spawn(pawnToCreate, CellFinder.RandomClosewalkCellNear(parent.Position, parent.Map, Props.pawnSpawnRadius), parent.Map);
+                        if (parent.Map != null)
+                        {
+                            Lord lord = null;
+                            if (parent.Map.mapPawns.SpawnedPawnsInFaction(faction).Any((Pawn p) => p != pawnToCreate))
+                            {
+                                lord = ((Pawn)GenClosest.ClosestThing_Global(parent.Position, parent.Map.mapPawns.SpawnedPawnsInFaction(faction), 30f, (Thing p) => p != pawnToCreate && ((Pawn)p).GetLord() != null)).GetLord();
+                            }
+                            if (lord == null)
+                            {
+                                lord = LordMaker.MakeNewLord(faction, new LordJob_DefendHive(parent.Position, Props.wanderRadius, defendRadius: Props.defendRadius), parent.Map);
+                            }
+                            lord.AddPawn(pawnToCreate);
+                        }
+                        pawn = pawnToCreate;
+                        if (Props.spawnSound != null)
+                        {
+                            Props.spawnSound.PlayOneShot(parent);
+                        }
+                        return true;
+                    }
+                    return false;
+                }
+                canSpawnPawns = false;
+                pawn = null;
 			}
-			if (ignoreLimit || num < Props.maxPawnCount)
+            catch
 			{
-				PawnKindDef named = DefDatabase<PawnKindDef>.GetNamed(Props.spawnablePawnKinds.RandomElement(), errorOnFail: false);
-				if (named != null)
-				{
-					Faction faction = ((Props.faction != null && FactionUtility.DefaultFactionFrom(Props.faction) != null) ? FactionUtility.DefaultFactionFrom(Props.faction) : null);
-					PawnGenerationRequest request = new PawnGenerationRequest(named, faction, PawnGenerationContext.NonPlayer, -1, forceGenerateNewPawn: false, allowDead: true, allowDowned: false, canGeneratePawnRelations: false, mustBeCapableOfViolence: true, 1f, forceAddFreeWarmLayerIfNeeded: false, allowGay: false, allowPregnant: true, allowFood: true, allowAddictions: false);
-					Pawn pawnToCreate = PawnGenerator.GeneratePawn(request);
-					GenSpawn.Spawn(pawnToCreate, CellFinder.RandomClosewalkCellNear(parent.Position, parent.Map, Props.pawnSpawnRadius), parent.Map);
-					if (parent.Map != null)
-					{
-						Lord lord = null;
-						if (parent.Map.mapPawns.SpawnedPawnsInFaction(faction).Any((Pawn p) => p != pawnToCreate))
-						{
-							lord = ((Pawn)GenClosest.ClosestThing_Global(parent.Position, parent.Map.mapPawns.SpawnedPawnsInFaction(faction), 30f, (Thing p) => p != pawnToCreate && ((Pawn)p).GetLord() != null)).GetLord();
-						}
-						if (lord == null)
-						{
-							lord = LordMaker.MakeNewLord(faction, new LordJob_DefendHive(parent.Position, Props.wanderRadius, defendRadius: Props.defendRadius), parent.Map);
-						}
-						lord.AddPawn(pawnToCreate);
-					}
-					pawn = pawnToCreate;
-					if (Props.spawnSound != null)
-					{
-						Props.spawnSound.PlayOneShot(parent);
-					}
-					return true;
-				}
-				pawn = null;
 				return false;
 			}
-			canSpawnPawns = false;
-			pawn = null;
-			return false;
+            return false;
 		}
 
 		public override void CompTick()
