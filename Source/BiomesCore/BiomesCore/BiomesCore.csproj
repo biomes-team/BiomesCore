@@ -140,6 +140,7 @@
     <Compile Include="Patches\Song_Map.cs" />
     <Compile Include="Patches\PlantSpawning.cs" />
     <Compile Include="Patches\SymbolResolver_Interior_SleepingInsects_Resolve_Patch.cs" />
+    <Compile Include="Patches\WaterWalker.cs" />
     <Compile Include="Patches\WeatherDecider_WeatherCommonalities_Patch.cs" />
     <Compile Include="Patches\WorldGen\WorldGenStep_Terrain_BiomeFrom_Patch.cs" />
     <Compile Include="Patches\WorldGen\WorldGenStep_Terrain_SetupSwampinessNoise_Patch.cs" />
