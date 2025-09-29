@@ -5,10 +5,10 @@ using RimWorld;
 using Verse;
 using Verse.AI;
 using System.Linq;
+using System.Reflection;
 
-namespace WaterWalker
+namespace BiomesCore.WaterWalker
 {
-    // Mod marker used in defs
     public class WaterWalkerExtension : DefModExtension { }
 
     [StaticConstructorOnStartup]
@@ -17,7 +17,18 @@ namespace WaterWalker
         static WaterWalkerPatcher()
         {
             var harmony = new Harmony("draegon.waterwalker");
-            harmony.PatchAll();
+
+            harmony.Patch(AccessTools.Method(typeof(RimWorld.JobGiver_GetRest), "TryGiveJob"),
+                postfix: new HarmonyMethod(typeof(JobGiver_GetRest_TryGiveJob_Patch), nameof(JobGiver_GetRest_TryGiveJob_Patch.Postfix)));
+
+            harmony.Patch(AccessTools.Method(typeof(Pawn_PathFollower), "CostToMoveIntoCell", new[] { typeof(IntVec3) }),
+                postfix: new HarmonyMethod(typeof(Pawn_PathFollower_CostToMoveIntoCell_Patch), nameof(Pawn_PathFollower_CostToMoveIntoCell_Patch.Postfix)));
+
+            harmony.Patch(AccessTools.Method(typeof(GenGrid), "WalkableBy", new[] { typeof(IntVec3), typeof(Map), typeof(Pawn) }),
+                postfix: new HarmonyMethod(typeof(GenGrid_WalkableBy_Patch), nameof(GenGrid_WalkableBy_Patch.Postfix)));
+
+            harmony.Patch(AccessTools.Method(typeof(Reachability), "CanReach", new[] { typeof(IntVec3), typeof(LocalTargetInfo), typeof(PathEndMode), typeof(TraverseParms) }),
+                prefix: new HarmonyMethod(typeof(Reachability_CanReach_Patch), nameof(Reachability_CanReach_Patch.Prefix)));
         }
 
         internal static void TryReplaceWithWaterSleepJobIfNeeded(ref Job __result, Pawn pawn)
@@ -74,7 +85,6 @@ namespace WaterWalker
         }
     }
 
-    // Harmony patches
     [HarmonyPatch(typeof(RimWorld.JobGiver_GetRest), "TryGiveJob")]
     public static class JobGiver_GetRest_TryGiveJob_Patch
     {

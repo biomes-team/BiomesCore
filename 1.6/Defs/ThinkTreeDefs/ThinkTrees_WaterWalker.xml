@@ -5,7 +5,7 @@
     <defName>WaterWalker_Animal</defName>
     <insertTag>Animal_PreMain</insertTag>
     <insertPriority>100</insertPriority> <!-- High priority to run before other things -->
-    <thinkRoot Class="WaterWalker.JobGiver_Unbeach" />
+    <thinkRoot Class="BiomesCore.WaterWalker.JobGiver_Unbeach" />
     
   </ThinkTreeDef>
 
