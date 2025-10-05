@@ -3,10 +3,11 @@ using Verse;
 
 namespace BiomesCore
 {
-
-	// Adds hediffs from the list when a pawn spawns and after a save-load.
-	// Created for animals from Polluted Lands
-	public class CompProperties_InitialHediff : CompProperties
+    /// <summary>
+    /// Adds hediffs from the list when a pawn spawns and after a save-load.
+    /// Created for animals from Polluted Lands
+    /// </summary>
+    public class CompProperties_InitialHediff : CompProperties
 	{
 
 		public List<HediffDef> hediffDefs;
