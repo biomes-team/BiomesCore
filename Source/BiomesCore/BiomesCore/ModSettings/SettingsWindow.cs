@@ -30,6 +30,10 @@ namespace BiomesCore.ModSettings
 				ref Settings.Values.SetCustomGrowingHoursToAll,
 				"BiomesCore_SetCustomGrowingHoursToAllHover".Translate());
 
+			// To-Do: Added Translate()
+			listing.CheckboxLabeled("Make deep water standable", ref Settings.Values.deepWaterStandable,
+				"When enabled, WaterDeep and WaterOceanDeep will be set to Standable. When disabled, they will be Impassable. Req restart.");
+
 			listing.End();
 		}
 

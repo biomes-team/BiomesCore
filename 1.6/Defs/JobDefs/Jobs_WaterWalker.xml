@@ -3,14 +3,14 @@
 
 	<JobDef>
 	  <defName>WaterWalker_Unbeach</defName>
-	  <driverClass>BiomesCore.WaterWalker.JobDriver_Unbeach</driverClass>
+	  <driverClass>BiomesCore.JobDriver_Unbeach</driverClass>
 	  <reportString>Returning to water.</reportString>
 	  <casualInterruptible>false</casualInterruptible>
 	</JobDef>
 
 	<JobDef>
 	  <defName>WaterWalker_Die</defName>
-	  <driverClass>BiomesCore.WaterWalker.JobDriver_Die</driverClass>
+	  <driverClass>BiomesCore.JobDriver_Die</driverClass>
 	  <reportString>Perishing.</reportString>
 	  <casualInterruptible>false</casualInterruptible>
 	</JobDef>

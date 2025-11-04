@@ -20,6 +20,8 @@ namespace BiomesCore.ModSettings
 		/// compatibility if at some point we decide to move the powergen fungus or implement a similar building.
 		/// </summary>
 		public int PowerGenFungusMultiplier = 100;
+		// default on
+		public bool deepWaterStandable = true;
 	}
 
 	/// <summary>
@@ -51,6 +53,7 @@ namespace BiomesCore.ModSettings
 
 			Scribe_Values.Look(ref Values.PowerGenFungusMultiplier, nameof(Values.PowerGenFungusMultiplier),
 				defaultValue: 100);
+			Scribe_Values.Look(ref Values.deepWaterStandable, nameof(Values.deepWaterStandable), true);
 		}
 	}
 }

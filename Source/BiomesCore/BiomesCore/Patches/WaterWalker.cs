@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using BiomesCore.ModSettings;
 using HarmonyLib;
 using RimWorld;
 using Verse;
 using Verse.AI;
-using System.Linq;
-using System.Reflection;
 
-namespace BiomesCore.WaterWalker
+namespace BiomesCore
 {
     public class WaterWalkerExtension : DefModExtension { }
 
-    [StaticConstructorOnStartup]
+	[StaticConstructorOnStartup]
     public static class WaterWalkerPatcher
     {
         static WaterWalkerPatcher()
-        {
-            var harmony = new Harmony("draegon.waterwalker");
+		{
+			ApplySettings();
+			var harmony = new Harmony("draegon.waterwalker");
 
             harmony.Patch(AccessTools.Method(typeof(RimWorld.JobGiver_GetRest), "TryGiveJob"),
                 postfix: new HarmonyMethod(typeof(JobGiver_GetRest_TryGiveJob_Patch), nameof(JobGiver_GetRest_TryGiveJob_Patch.Postfix)));
@@ -29,9 +31,33 @@ namespace BiomesCore.WaterWalker
 
             harmony.Patch(AccessTools.Method(typeof(Reachability), "CanReach", new[] { typeof(IntVec3), typeof(LocalTargetInfo), typeof(PathEndMode), typeof(TraverseParms) }),
                 prefix: new HarmonyMethod(typeof(Reachability_CanReach_Patch), nameof(Reachability_CanReach_Patch.Prefix)));
-        }
+		}
 
-        internal static void TryReplaceWithWaterSleepJobIfNeeded(ref Job __result, Pawn pawn)
+		private static readonly string[] deepTerrainNames = new[] { "WaterDeep", "WaterOceanDeep" };
+
+		// Call this whenever the setting changes (or at startup)
+		public static void ApplySettings()
+		{
+			bool makeStandable = Settings.Values.deepWaterStandable;
+
+			foreach (var defName in deepTerrainNames)
+			{
+				try
+				{
+					TerrainDef terr = DefDatabase<TerrainDef>.GetNamedSilentFail(defName);
+					if (terr == null) continue;
+
+					// Set to Standable when enabled, otherwise to Impassable.
+					terr.passability = makeStandable ? Traversability.Standable : Traversability.Impassable;
+				}
+				catch (Exception ex)
+				{
+					Log.Error($"[WaterWalker] Failed to set passability for terrain '{defName}': {ex}");
+				}
+			}
+		}
+
+		internal static void TryReplaceWithWaterSleepJobIfNeeded(ref Job __result, Pawn pawn)
         {
             if (pawn == null || !pawn.def.HasModExtension<WaterWalkerExtension>()) return;
             Map map = pawn.Map;
