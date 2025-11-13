@@ -53,7 +53,7 @@ namespace BiomesCore.StockGenerators
 		/// <summary>
 		/// Generates this amount of fertilized eggs for any chosen animal that lays eggs.
 		/// </summary>
-		private IntRange fertilizedEggCountRange = IntRange.zero;
+		private IntRange fertilizedEggCountRange = new IntRange(0, 0);
 
 		public override IEnumerable<string> ConfigErrors(TraderKindDef parentDef)
 		{
