@@ -306,4 +306,49 @@
       </statFactors>
     </stuffProps>
   </ThingDef>
+  
+  	<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Sharkskin</defName>
+		<label>sharkskin</label>
+		<description>Sharkskin. Tough, but insulates poorly.</description>
+		<graphicData>
+			<color>(90,110,120)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>5.6</MarketValue>
+			<StuffPower_Armor_Sharp>1.25</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.36</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(90,110,120)</color>
+			<commonality>0.02</commonality>
+			<statFactors>
+				<Beauty>1.4</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+	
+	
+		<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Whaleskin</defName>
+		<label>whaleskin</label>
+		<description>Leather from a whale. Durable in combat, but doesn't provide much insulation.</description>
+		<graphicData>
+			<color>(50,50,70)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>4.0</MarketValue>
+			<StuffPower_Armor_Sharp>1.25</StuffPower_Armor_Sharp>
+			<StuffPower_Insulation_Cold>14</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>14</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(50,50,70)</color>
+			<commonality>0.015</commonality>
+			<statFactors>
+				<Beauty>1.6</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
 </Defs>
