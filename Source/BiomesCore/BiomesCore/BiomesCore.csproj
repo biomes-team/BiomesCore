@@ -69,12 +69,14 @@
     <Compile Include="LordJobs\LordJob_DefendHive.cs" />
     <Compile Include="LordJobs\WanderAroundThing.cs" />
     <Compile Include="LordToils\WanderAroundThing.cs" />
+    <Compile Include="MapGeneration\BiomesMapGenUtil.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_SmallChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_LargeChambers.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_Smoth.cs" />
     <Compile Include="MapGeneration\GenStep_CavernShape_Tubes.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Broken.cs" />
     <Compile Include="MapGeneration\GenStep_Cavern.cs" />
+    <Compile Include="MapGeneration\GenStep_OasisTerrain.cs" />
     <Compile Include="MapGeneration\GenStep_Valley.cs" />
     <Compile Include="MapGeneration\GenStep_Island.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Crescent.cs" />
@@ -87,7 +89,7 @@
     <Compile Include="MapGeneration\GenStep_IslandRocksFromGrid.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Rough.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Smooth.cs" />
-    <Compile Include="MapGeneration\GenStep_Oasis.cs" />
+    <Compile Include="MapGeneration\GenStep_OasisElevation.cs" />
     <Compile Include="MapGeneration\MapGenerationPatch.cs" />
     <Compile Include="MapGeneration\GenStep_CavernRocksFromGrid.cs" />
     <Compile Include="MentalState\MentalState_Hungering.cs" />
@@ -211,7 +213,7 @@
     <Compile Include="WorldMap\BiomeWorkerUtil.cs" />
     <Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.6.4528</Version>
+      <Version>1.6.4633</Version>
     </PackageReference>
     <PackageReference Include="Lib.Harmony" Version="2.3.6" ExcludeAssets="runtime">
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

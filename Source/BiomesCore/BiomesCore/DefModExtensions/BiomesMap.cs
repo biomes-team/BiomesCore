@@ -19,9 +19,24 @@ namespace BiomesCore.DefModExtensions
 		public bool isCavern = false;
 		public List<CavernShape> cavernShapes = new List<CavernShape>();
 
-		public bool isOasis = false;
-		//public bool hasRuins = true;
-		public bool hasScatterables = true;
+		//OASIS
+		public TerrainDef oasisShoreTerrain = TerrainDefOf.SoilRich;
+		public TerrainDef oasisOuterTerrain = TerrainDefOf.Soil;
+        public TerrainDef oasisShallowTerrain = TerrainDefOf.WaterShallow;
+		public TerrainDef oasisDeepTerrain = TerrainDefOf.WaterDeep;
+
+        // 0-50 the center of the oasis will be within x % of the center of the map.
+        // Placement within allowed range is random.
+        // 50 allows the oasis to be centered on map edge. 0 requires the oasis to be centered on map center.
+        public int oasisCtrVarPct = 0;
+
+		// The % of map width that the oasis should take up.
+		// For non-square map sizes, is based on width only.
+		public IntRange oasisSizeMapPct = new IntRange(45, 55);
+
+
+        //public bool hasRuins = true;
+        public bool hasScatterables = true;
 		public float minHillEncroachment = 1;
 		public float maxHillEncroachment = 1;
 		public float minHillEdgeMultiplier = 1;

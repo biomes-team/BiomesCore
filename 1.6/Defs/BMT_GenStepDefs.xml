@@ -12,5 +12,17 @@
 		<order>200</order>
 		<genStep Class="BiomesCore.MapGeneration.GenStep_IslandRocksFromGrid"/>
 	</GenStepDef>
-
+	
+	<GenStepDef>
+		<defName>BMT_GenstepOasisElevation</defName>
+		<order>60</order>
+		<genStep Class="BiomesCore.MapGeneration.GenStep_OasisElevation"/>
+	</GenStepDef>
+	
+	<GenStepDef>
+		<defName>BMT_GenstepOasisTerrain</defName>
+		<order>230</order>
+		<genStep Class="BiomesCore.MapGeneration.GenStep_OasisTerrain"/>
+	</GenStepDef>
+	  
 </Defs>
