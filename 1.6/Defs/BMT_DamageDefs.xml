@@ -46,5 +46,21 @@
 		<combatLogRulesDodge>Maneuver_Stab_MeleeDodge</combatLogRulesDodge>
 	</ManeuverDef>
 
+	<DamageDef ParentName="Scratch">
+		<defName>BMT_ParalyzingVenom</defName>
+		<label>paralyzing venom</label>
+		<additionalHediffs>
+			<li>
+				<hediff>BMT_Paralysis</hediff>
+				<severityPerDamageDealt>0.05</severityPerDamageDealt>
+				<victimSeverityScaling>ToxicResistance</victimSeverityScaling>
+				<inverseStatScaling>true</inverseStatScaling>
+				<victimSeverityScalingByInvBodySize>true</victimSeverityScalingByInvBodySize>
+			</li>
+		</additionalHediffs>
+		<applyAdditionalHediffsIfHuntingForFood>true</applyAdditionalHediffsIfHuntingForFood>
+		<impactSoundType>Toxic</impactSoundType>
+		<damageEffecter>Impact_Toxic</damageEffecter>
+	</DamageDef>
 </Defs>
 
