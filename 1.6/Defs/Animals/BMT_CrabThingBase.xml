@@ -43,11 +43,6 @@
 			<!-- Identifies an animal as a crab. Used for the crab migration incident in Biomes! Islands. -->
 			<li>BMT_TradeTag_Crab</li>
 		</tradeTags>
-		<modExtensions>
-			<li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
-				<movementDef>PF_Movement_Amphibious</movementDef>
-			</li>
-		</modExtensions>
 	</ThingDef>
 
 </Defs>

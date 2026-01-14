@@ -6,16 +6,13 @@
 			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
 		</statBases>
 		<race>
+			<waterSeeker>true</waterSeeker>
+			<waterCellCost>1</waterCellCost>
 			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
 			<herdMigrationAllowed>false</herdMigrationAllowed>
 		</race>
 		<comps>
 		</comps>
-		<modExtensions>
-			<li MayRequire="pathfinding.framework" Class="PathfindingFramework.MovementExtension">
-				<movementDef>PF_Movement_Aquatic</movementDef>
-			</li>
-		</modExtensions>
 	</ThingDef>
 
 	<ThingDef ParentName="BiomesCore_WaterAnimal" Name="BiomesCore_SaltWaterAnimal" Abstract="true">
