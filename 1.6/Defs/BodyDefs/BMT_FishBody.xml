@@ -9,12 +9,12 @@
 			<depth>Outside</depth>
 			<parts>
 				<li>
-					<def>FishTail</def>
+					<def>BMT_FishTail</def>
 					<height>Middle</height>
 					<coverage>0.1</coverage>
 					<parts>
 						<li>
-							<def>BiomesIslands_Fin</def>
+							<def>BMT_Fin</def>
 							<customLabel>tail fin</customLabel>
 							<coverage>0.05</coverage>
 							<height>Middle</height>
@@ -37,13 +37,13 @@
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>BiomesIslands_FishGill</def>
+					<def>BMT_FishGill</def>
 					<customLabel>left gill</customLabel>
 					<coverage>0.02</coverage>
 					<depth>Inside</depth>
 				</li>
 				<li>
-					<def>BiomesIslands_FishGill</def>
+					<def>BMT_FishGill</def>
 					<customLabel>right gill</customLabel>
 					<coverage>0.02</coverage>
 					<depth>Inside</depth>
@@ -108,37 +108,37 @@
 					</parts>
 				</li>
 				<li>
-					<def>BiomesIslands_Fin</def>
+					<def>BMT_Fin</def>
 					<customLabel>left pectoral fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
 				<li>
-					<def>BiomesIslands_Fin</def>
+					<def>BMT_Fin</def>
 					<customLabel>right pectoral fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
 				<li>
-					<def>BiomesIslands_Fin</def>
+					<def>BMT_Fin</def>
 					<customLabel>left pelvic fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
 				<li>
-					<def>BiomesIslands_Fin</def>
+					<def>BMT_Fin</def>
 					<customLabel>right pelvic fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
 				</li>
 				<li>
-					<def>BiomesIslands_Fin</def>
+					<def>BMT_Fin</def>
 					<customLabel>dorsal fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Top</height>
 				</li>
 				<li>
-					<def>BiomesIslands_Fin</def>
+					<def>BMT_Fin</def>
 					<customLabel>anal fin</customLabel>
 					<coverage>0.05</coverage>
 					<height>Bottom</height>
