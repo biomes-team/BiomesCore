@@ -34,7 +34,7 @@
     </ingredient>
     <comps>
       <li Class="CompProperties_Rottable">
-        <daysToRotStart>14</daysToRotStart>
+        <daysToRotStart>5</daysToRotStart>
       </li>
     </comps>
     <tickerType>Rare</tickerType>
