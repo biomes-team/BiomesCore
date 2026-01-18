@@ -31,11 +31,11 @@ namespace BiomesCore.MapGeneration
 
         // set size and center location
             IntVec3 oasisCenter = map.Center;
-            oasisCenter.x += Rand.Range(0, (mapParms.oasisCtrVarPct * map.Size.x) / 100);
-            oasisCenter.y += Rand.Range(0, (mapParms.oasisCtrVarPct * map.Size.y) / 100);
+            oasisCenter.x += (int)Rand.Range(0 - mapParms.oasisCtrVarPct * map.Size.x, (mapParms.oasisCtrVarPct * map.Size.x));
+            oasisCenter.y += (int)Rand.Range(0 - mapParms.oasisCtrVarPct * map.Size.y, (mapParms.oasisCtrVarPct * map.Size.y));
 
             oasisBaseSize = Rand.Range(mapParms.oasisSizeMapPct.min, mapParms.oasisSizeMapPct.max);
-            float oasisSize = (oasisBaseSize / 10) * (map.Size.x / 10);
+            float oasisSize = oasisBaseSize  * map.Size.x;
 
             BiomesMapGenUtil.SetOasisBaseSize(oasisSize);
 

@@ -59,7 +59,7 @@ namespace BiomesCore.MapGeneration
 
             shallowSize = oasisBaseSize * mapParms.oasisShallowPct;
             shoreSize = oasisBaseSize * mapParms.oasisShorePct;
-            surroundingSize = oasisBaseSize * mapParms.oasisSurroundingPct;
+            surroundingSize = oasisBaseSize * mapParms.oasisOuterPct;
             oasisNoise = Math.Min(80f, 8f * mapParms.oasisNoiseRange0_10.RandomInRange);
 
             ModuleBase noiseModule = new Perlin(Rand.Range(0.015f, 0.028f), 2.0, 0.5, 6, Rand.Range(0, 2147483647), QualityMode.Medium);

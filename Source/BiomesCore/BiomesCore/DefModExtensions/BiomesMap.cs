@@ -27,17 +27,17 @@ namespace BiomesCore.DefModExtensions
 
 		public float oasisShallowPct = .5f;
 		public float oasisShorePct = .2f;
-		public float oasisSurroundingPct = .2f;
+		public float oasisOuterPct = .2f;
 		public FloatRange oasisNoiseRange0_10 = new FloatRange(4, 4);
 
         // 0-50 the center of the oasis will be within x % of the center of the map.
         // Placement within allowed range is random.
         // 50 allows the oasis to be centered on map edge. 0 requires the oasis to be centered on map center.
-        public int oasisCtrVarPct = 0;
+        public float oasisCtrVarPct = .15f;
 
 		// The % of map width that the oasis should take up.
 		// For non-square map sizes, is based on width only.
-		public IntRange oasisSizeMapPct = new IntRange(45, 55);
+		public FloatRange oasisSizeMapPct = new FloatRange(.45f, .55f);
 
 
         //public bool hasRuins = true;
