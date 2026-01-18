@@ -41,8 +41,8 @@ namespace BiomesCore.MapGeneration
                 case IslandShape.Smooth:
                     new GenStep_IslandShape_Smooth().Generate(map, parms);
                     break;
-                case IslandShape.Rough:
-                    new GenStep_IslandShape_Rough().Generate(map, parms);
+                case IslandShape.Round:
+                    new GenStep_IslandShape_Round().Generate(map, parms);
                     break;
                 case IslandShape.Crescent:
                     new GenStep_IslandShape_Crescent().Generate(map, parms);
@@ -59,8 +59,13 @@ namespace BiomesCore.MapGeneration
 
                 // rough islands are probably the best default island shape
                 default:
-                    new GenStep_IslandShape_Rough().Generate(map, parms);
+                    new GenStep_IslandShape_Round().Generate(map, parms);
                     break;
+            }
+
+            if (map.Biome.GetModExtension<BiomesMap>().addIslandHills)
+            {
+                new GenStep_IslandElevation().Generate(map, parms);
             }
 
         }

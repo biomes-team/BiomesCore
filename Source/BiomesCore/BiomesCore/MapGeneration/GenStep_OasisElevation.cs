@@ -34,7 +34,7 @@ namespace BiomesCore.MapGeneration
             oasisCenter.x += (int)Rand.Range(0 - mapParms.oasisCtrVarPct * map.Size.x, (mapParms.oasisCtrVarPct * map.Size.x));
             oasisCenter.y += (int)Rand.Range(0 - mapParms.oasisCtrVarPct * map.Size.y, (mapParms.oasisCtrVarPct * map.Size.y));
 
-            oasisBaseSize = Rand.Range(mapParms.oasisSizeMapPct.min, mapParms.oasisSizeMapPct.max);
+            oasisBaseSize = mapParms.oasisSizeMapPct.RandomInRange;
             float oasisSize = oasisBaseSize  * map.Size.x;
 
             BiomesMapGenUtil.SetOasisBaseSize(oasisSize);

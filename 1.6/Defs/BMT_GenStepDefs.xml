@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+<!-- Island -->
+	
+	<GenStepDef>
+		<defName>BMT_GenstepIsland</defName>
+		<order>35</order>
+		<genStep Class="BiomesCore.MapGeneration.Genstep_Island"/>
+	</GenStepDef>
+	
+	<GenStepDef>
+		<defName>BMT_GenstepIslandTerrain</defName>
+		<order>230</order>
+		<genStep Class="BiomesCore.MapGeneration.GenStep_IslandTerrain"/>
+	</GenStepDef>
+	
 	<GenStepDef>
 		<defName>BMT_GenIslandRockChunks</defName>
 		<order>270</order>
@@ -13,6 +27,8 @@
 		<genStep Class="BiomesCore.MapGeneration.GenStep_IslandRocksFromGrid"/>
 	</GenStepDef>
 	
+<!-- Oasis -->
+	  
 	<GenStepDef>
 		<defName>BMT_GenstepOasisElevation</defName>
 		<order>60</order>
@@ -24,5 +40,4 @@
 		<order>230</order>
 		<genStep Class="BiomesCore.MapGeneration.GenStep_OasisTerrain"/>
 	</GenStepDef>
-	  
 </Defs>

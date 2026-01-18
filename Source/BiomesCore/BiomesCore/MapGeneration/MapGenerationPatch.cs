@@ -19,19 +19,16 @@ namespace BiomesCore.MapGeneration
             BiomesMap mapParms = map.Biome.GetModExtension<BiomesMap>();
 
             // generate map shapes
-            if (mapParms.isIsland)
-            {
-                new GenStep_Island().Generate(map, parms);
-            }
-            //else if (mapParms.isOasis)
+            //if (mapParms.isIsland)
             //{
-            //    new GenStep_Oasis().Generate(map, parms);
+            //    new GenStep_Island().Generate(map, parms);
             //}
+
             // generate elevation grid if necessary
-            if (mapParms.addIslandHills)
-            {
-                new GenStep_IslandElevation().Generate(map, parms);
-            }
+            //if (mapParms.addIslandHills)
+            //{
+            //    new GenStep_IslandElevation().Generate(map, parms);
+            //}
 
             // generate elevation shapes
             if (mapParms.isValley)

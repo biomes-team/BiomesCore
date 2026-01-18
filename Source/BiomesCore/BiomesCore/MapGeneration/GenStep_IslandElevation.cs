@@ -1,6 +1,7 @@
 ﻿using BiomesCore.DefModExtensions;
 using RimWorld;
 using RimWorld.Planet;
+using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 using Verse;
 using Verse.Noise;
@@ -20,18 +21,18 @@ namespace BiomesCore.MapGeneration
 
         public override void Generate(Map map, GenStepParams parms)
         {
-            if (!map.Biome.HasModExtension<BiomesMap>())
-            {
-                return;
-            }
-            if (!map.Biome.GetModExtension<BiomesMap>().isIsland)
-            {
-                return;
-            }
-            if (!map.Biome.GetModExtension<BiomesMap>().addIslandHills)
-            {
-                return;
-            }
+            //if (!map.Biome.HasModExtension<BiomesMap>())
+            //{
+            //    return;
+            //}
+            //if (!map.Biome.GetModExtension<BiomesMap>().isIsland)
+            //{
+            //    return;
+            //}
+            //if (!map.Biome.GetModExtension<BiomesMap>().addIslandHills)
+            //{
+            //    return;
+            //}
             SetElevationGrid(map);
         }
 
@@ -46,6 +47,10 @@ namespace BiomesCore.MapGeneration
             //    freq = 1.2f * LoadedModManager.GetMod<MapDesigner_Mod>().GetSettings<MapDesignerSettings>().hillSize;
             //    lacun = LoadedModManager.GetMod<MapDesigner_Mod>().GetSettings<MapDesignerSettings>().hillSmoothness;
             //}
+
+            MapGenFloatGrid islandGrid = BiomesMapGenUtil.GetIslandFloatGrid();
+            float islandSize = BiomesMapGenUtil.GetIslandBaseSize();
+
 
             ModuleBase moduleBase = new Perlin(freq, lacun, 0.5, 6, Rand.Range(0, 2147483647), QualityMode.High);
 
@@ -77,11 +82,32 @@ namespace BiomesCore.MapGeneration
             moduleBase = new Multiply(moduleBase, new Const((double)elevScaling));
             NoiseDebugUI.StoreNoiseRender(moduleBase, "elev world-factored");
             MapGenFloatGrid elevation = MapGenerator.Elevation;
-            MapGenFloatGrid fertility = MapGenerator.Fertility;
+            //MapGenFloatGrid fertility = MapGenerator.Fertility;
+            float curDist = 0f;
+            float multiplier = 1f;
+            islandSize /= 2f;
+            float modifier = 0.2f * islandSize;
 
             foreach (IntVec3 current in map.AllCells)
             {
-                elevation[current] = (1 + islandHillTuning * Mathf.Min(fertility[current], islandHillCenter)) * moduleBase.GetValue(current) - 0.5f;
+                //elevation[current] = (1 + islandHillTuning * Mathf.Min(fertility[current], islandHillCenter)) * moduleBase.GetValue(current) - 0.5f;
+                curDist = islandGrid[current];
+                if (curDist < islandSize - modifier)
+                {
+                    multiplier = 2f;
+                }
+                else if (curDist > islandSize + modifier)
+                {
+                    multiplier = 0f;
+                }
+                else
+                {
+                    float distanceTo = curDist - (islandSize - modifier);
+                    distanceTo = distanceTo / (modifier * 2);
+                    multiplier = 2f - distanceTo;
+                }
+
+                elevation[current] = (1f + islandHillTuning) * multiplier * moduleBase.GetValue(current) - 0.5f;
             }
         }
 

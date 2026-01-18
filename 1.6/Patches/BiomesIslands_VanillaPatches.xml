@@ -2,13 +2,13 @@
 <Patch>
 
 	<!-- add gensteps -->
-	<Operation Class="PatchOperationAdd">
-		<xpath>Defs/MapGeneratorDef[@Name="MapCommonBase"]/genSteps</xpath>
-		<value>
-			<li>BMT_GenIslandRockChunks</li>
-			<li>BMT_GenIslandRocksFromGrid</li>
-		</value>
-	</Operation>
+	<!-- <Operation Class="PatchOperationAdd"> -->
+		<!-- <xpath>Defs/MapGeneratorDef[@Name="MapCommonBase"]/genSteps</xpath> -->
+		<!-- <value> -->
+			<!-- <li>BMT_GenIslandRockChunks</li> -->
+			<!-- <li>BMT_GenIslandRocksFromGrid</li> -->
+		<!-- </value> -->
+	<!-- </Operation> -->
 
 
 </Patch>

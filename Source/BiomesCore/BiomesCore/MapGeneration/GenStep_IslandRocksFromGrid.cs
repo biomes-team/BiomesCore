@@ -26,18 +26,18 @@ namespace BiomesCore.MapGeneration
         public override void Generate(Map map, GenStepParams parms)
         {
 
-            if (!map.Biome.HasModExtension<BiomesMap>())
-            {
-                return;
-            }
-            if (!map.Biome.GetModExtension<BiomesMap>().isIsland)
-            {
-                return;
-            }
-            if (!map.Biome.GetModExtension<BiomesMap>().addIslandHills)
-            {
-                return;
-            }
+            //if (!map.Biome.HasModExtension<BiomesMap>())
+            //{
+            //    return;
+            //}
+            //if (!map.Biome.GetModExtension<BiomesMap>().isIsland)
+            //{
+            //    return;
+            //}
+            //if (!map.Biome.GetModExtension<BiomesMap>().addIslandHills)
+            //{
+            //    return;
+            //}
             Log.Message("[Biomes Core] Generating island hills...");
             map.regionAndRoomUpdater.Enabled = false;
             float roofThreshhold = 0.7f;

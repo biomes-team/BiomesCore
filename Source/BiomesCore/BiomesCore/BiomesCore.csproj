@@ -76,6 +76,7 @@
     <Compile Include="MapGeneration\GenStep_CavernShape_Tubes.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Broken.cs" />
     <Compile Include="MapGeneration\GenStep_Cavern.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandTerrain.cs" />
     <Compile Include="MapGeneration\GenStep_OasisTerrain.cs" />
     <Compile Include="MapGeneration\GenStep_Valley.cs" />
     <Compile Include="MapGeneration\GenStep_Island.cs" />
@@ -87,7 +88,7 @@
     <Compile Include="MapGeneration\GenStep_IslandShape_Pair.cs" />
     <Compile Include="MapGeneration\GenStep_IslandRockChunks.cs" />
     <Compile Include="MapGeneration\GenStep_IslandRocksFromGrid.cs" />
-    <Compile Include="MapGeneration\GenStep_IslandShape_Rough.cs" />
+    <Compile Include="MapGeneration\GenStep_IslandShape_Round.cs" />
     <Compile Include="MapGeneration\GenStep_IslandShape_Smooth.cs" />
     <Compile Include="MapGeneration\GenStep_OasisElevation.cs" />
     <Compile Include="MapGeneration\MapGenerationPatch.cs" />
