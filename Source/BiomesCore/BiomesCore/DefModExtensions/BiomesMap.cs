@@ -19,11 +19,16 @@ namespace BiomesCore.DefModExtensions
 		public bool isCavern = false;
 		public List<CavernShape> cavernShapes = new List<CavernShape>();
 
-		//OASIS
-		public TerrainDef oasisShoreTerrain = TerrainDefOf.SoilRich;
-		public TerrainDef oasisOuterTerrain = TerrainDefOf.Soil;
+        //OASIS
+        public TerrainDef oasisOuterTerrain = TerrainDefOf.Soil;
+        public TerrainDef oasisShoreTerrain = TerrainDefOf.SoilRich;
         public TerrainDef oasisShallowTerrain = TerrainDefOf.WaterShallow;
 		public TerrainDef oasisDeepTerrain = TerrainDefOf.WaterDeep;
+
+		public float oasisShallowPct = .5f;
+		public float oasisShorePct = .2f;
+		public float oasisSurroundingPct = .2f;
+		public FloatRange oasisNoiseRange0_10 = new FloatRange(4, 4);
 
         // 0-50 the center of the oasis will be within x % of the center of the map.
         // Placement within allowed range is random.

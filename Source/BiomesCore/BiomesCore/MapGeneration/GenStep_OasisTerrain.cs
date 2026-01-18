@@ -22,11 +22,14 @@ namespace BiomesCore.MapGeneration
         private TerrainDef shoreTerrain;
         private TerrainDef shallowTerrain;
         private TerrainDef deepTerarin;
-
+        private float shallowSize;
+        private float shoreSize;
+        private float surroundingSize;
+        private float oasisBaseSize;
+        private float oasisNoise;
 
         public override void Generate(Map map, GenStepParams parms)
         {
-            Log.Message("[Biomes! Core] Generating an oasis - terrain");
             BiomesMap mapParms = new BiomesMap();
 
             if (map.Biome.HasModExtension<BiomesMap>())
@@ -34,32 +37,45 @@ namespace BiomesCore.MapGeneration
                 mapParms = map.Biome.GetModExtension<BiomesMap>();
             }
 
-            outerTerrain = mapParms.oasisOuterTerrain;
-            shoreTerrain = mapParms.oasisShoreTerrain;
-            shallowTerrain = mapParms.oasisShallowTerrain;
-            deepTerarin = mapParms.oasisDeepTerrain;
-
+            if (mapParms.oasisOuterTerrain != null)
+            {
+                outerTerrain = mapParms.oasisOuterTerrain;
+            }
+            if (mapParms.oasisShoreTerrain != null)
+            {
+                shoreTerrain = mapParms.oasisShoreTerrain;
+            }
+            if (mapParms.oasisShallowTerrain!= null)
+            {
+                shallowTerrain = mapParms.oasisShallowTerrain;
+            }
+            if (mapParms.oasisDeepTerrain != null)
+            {
+                deepTerarin = mapParms.oasisDeepTerrain;
+            }
 
             IntVec3 oasisCenter = BiomesMapGenUtil.GetOasisCenter();
-            float oasisBaseSize = BiomesMapGenUtil.GetOasisBaseSize();
+            oasisBaseSize = BiomesMapGenUtil.GetOasisBaseSize() / 2;    // everything else will measure distance from center
 
-            ModuleBase moduleBase = new Perlin(Rand.Range(0.015f, 0.028f), 2.0, 0.5, 6, Rand.Range(0, 2147483647), QualityMode.Medium);
+            shallowSize = oasisBaseSize * mapParms.oasisShallowPct;
+            shoreSize = oasisBaseSize * mapParms.oasisShorePct;
+            surroundingSize = oasisBaseSize * mapParms.oasisSurroundingPct;
+            oasisNoise = Math.Min(80f, 8f * mapParms.oasisNoiseRange0_10.RandomInRange);
 
-            MapGenFloatGrid oasisNoise = new MapGenFloatGrid(map);
+            ModuleBase noiseModule = new Perlin(Rand.Range(0.015f, 0.028f), 2.0, 0.5, 6, Rand.Range(0, 2147483647), QualityMode.Medium);
+            
+            MapGenFloatGrid oasisGrid = new MapGenFloatGrid(map);
 
-            MapGenFloatGrid fertility = MapGenerator.Fertility;
-            //float oasisSize = (oasisBaseSize / 10) * (map.Size.x / 10);
-            float oasisSize = oasisBaseSize;
-
-            float perlin;
+            //float perlin;
+            float distance;
 
             foreach (IntVec3 current in map.AllCells)
             {
-                float distance = (float)BiomesMapGenUtil.DistanceBetweenPoints(oasisCenter, current);
-
-                perlin = (moduleBase.GetValue(current) + 1) * 10;
-                oasisNoise[current] = 1 + ((oasisSize) * perlin) / distance;
-                SetOasisTerrain(current, oasisNoise[current], map);
+                distance = (float)BiomesMapGenUtil.DistanceBetweenPoints(oasisCenter, current);
+                oasisGrid[current] = distance + oasisNoise * noiseModule.GetValue(current);
+                //perlin = (noiseModule.GetValue(current) + 1) * 10;
+                //oasisNoise[current] = 1 + ((oasisBaseSize) * perlin) / distance;
+                SetOasisTerrain(current, oasisGrid[current], map);
             }
         }
 
@@ -67,26 +83,32 @@ namespace BiomesCore.MapGeneration
         {
             // threshholds are all pretty arbitrary
             TerrainDef terrain = TerrainDefOf.Sand;
-            if(value > 60)
+            if (value < oasisBaseSize - shallowSize)
             {
                 terrain = deepTerarin;
             }
-            else if (value > 35)
+            else if (value < oasisBaseSize)
             {
                 terrain = shallowTerrain;
             }
-            else if (value > 26)
+            else if (value < oasisBaseSize + shoreSize)
             {
                 terrain = shoreTerrain;
             }
-            else if (value > 20)
+            else if (value < oasisBaseSize + shoreSize + surroundingSize)
             {
                 terrain = outerTerrain;
             }
+           
 
-            if (value > 20)
+            if (value < oasisBaseSize + shoreSize + surroundingSize)
             {
-                map.terrainGrid.SetTerrain(cell, terrain);
+                { 
+                    if (terrain != null)
+                    {
+                        map.terrainGrid.SetTerrain(cell, terrain);
+                    }
+                }
             }
         }
 
