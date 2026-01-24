@@ -34,6 +34,19 @@ namespace BiomesCore.MapGeneration
                 }
             }
 
+            // Set island size and center. To be used in the various island gensteps.
+            BiomesMap mapParms = map.Biome.GetModExtension<BiomesMap>();
+            float islandBaseSize = mapParms.islandSizeMapPct.RandomInRange * map.Size.x;
+            float islandNoise = Math.Min(80f, 8f * mapParms.islandNoiseRange0_10.RandomInRange);
+
+            IntVec3 islandCenter = map.Center;
+            islandCenter.x += (int)Rand.Range(0 - mapParms.islandCtrVarPct * map.Size.x, (mapParms.islandCtrVarPct * map.Size.x));
+            islandCenter.y += (int)Rand.Range(0 - mapParms.islandCtrVarPct * map.Size.y, (mapParms.islandCtrVarPct * map.Size.y));
+
+            BiomesMapGenUtil.SetIslandCenter(islandCenter);
+            BiomesMapGenUtil.SetIslandBaseSize(islandBaseSize);
+
+
             //pick and run a random allowable shape
             IslandShape shape = allowedShapes.RandomElement();
             switch (shape)

@@ -12,6 +12,7 @@
 			<ComfyTemperatureMax>60</ComfyTemperatureMax>
 			<Wildness>0.85</Wildness>
 		</statBases>
+		<uiIconScale>1.0</uiIconScale>
 		<race>
 			<herdAnimal>true</herdAnimal>
 			<baseBodySize>0.7</baseBodySize>
