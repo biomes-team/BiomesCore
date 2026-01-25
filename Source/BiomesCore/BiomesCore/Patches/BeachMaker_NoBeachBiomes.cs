@@ -5,22 +5,20 @@ using BiomesCore.DefModExtensions;
 
 namespace BiomesCore.Patches
 {
+    [HarmonyPatch(typeof(RimWorld.TileMutatorWorker_Coast), "GeneratePostTerrain")]
+    static class BeachPatch
+    {
+        static bool Prefix(Map map)
+        {
 
-    // from RF-Archipelagos
-    // Now works through mutators?
-    //[HarmonyPatch(typeof(BeachMaker), nameof(BeachMaker.Init))]
-    //internal static class BeachMaker_NoBeachBiomes
-    //{
-    //    internal static bool Prefix(Map map)
-    //    {
-    //        if (map.Biome.HasModExtension<BiomesMap>())
-    //        {
-    //            if (!map.Biome.GetModExtension<BiomesMap>().allowBeach)
-    //            {
-    //                return false;
-    //            }
-    //        }
-    //        return true;
-    //    }
-    //}
+            if (map.Biome.HasModExtension<BiomesMap>())
+            {
+                if (!map.Biome.GetModExtension<BiomesMap>().allowBeach)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
 }
