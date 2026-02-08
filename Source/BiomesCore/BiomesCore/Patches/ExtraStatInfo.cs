@@ -94,7 +94,7 @@ namespace BiomesCore.Patches
                 }
                 catch (Exception arg)
                 {
-					Log.Error("Failed add extra stat info for: " + animalDef.defName + ". This error has nothing to do with Biomes! Core, as it is caused by broken pawnkinds from another mod. Reason: " + arg);
+					Log.Warning("Failed add extra stat info for: " + animalDef.defName + ". This error has nothing to do with Biomes! Core, as it is caused by broken pawnkinds from another mod/patch. Reason: " + arg);
                 }
             }
 
