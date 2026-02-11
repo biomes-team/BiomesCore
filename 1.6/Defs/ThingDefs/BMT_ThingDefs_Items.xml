@@ -351,4 +351,101 @@
 			</statFactors>
 		</stuffProps>
 	</ThingDef>
+	
+	
+		<!--================== Fish Food ==================-->
+	<ThingDef ParentName="OrganicProductBase">
+		<defName>BMT_FishFood</defName>
+		<label>fish food</label>
+		<description>Fish food made from mixed meat and plant sources. Less efficient than kibble, but won't deteriorate in water. Humans can eat it, but they really, really don't like it.</description>
+		<thingCategories>
+			<li>Foods</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Item/Resource/Kibble</texPath>
+			<color>(230,150,60)</color>
+		</graphicData>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<statBases>
+			<MarketValue>1.1</MarketValue>
+			<Mass>0.015</Mass>
+			<Nutrition>0.05</Nutrition>
+			<FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
+			<DeteriorationRate>0</DeteriorationRate>
+		</statBases>
+		<ingestible>
+			<foodType>Kibble</foodType>
+			<preferability>RawBad</preferability>
+			<tasteThought>AteKibble</tasteThought>
+			<optimalityOffsetHumanlikes>-30</optimalityOffsetHumanlikes>
+			<optimalityOffsetFeedingAnimals>15</optimalityOffsetFeedingAnimals>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<ingestSound>RawVegetable_Eat</ingestSound>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Ingredients"/>
+		</comps>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>BMT_MakeFishFood</defName>
+		<label>make fish food</label>
+		<description>Make fish food by combining raw meat and plants.</description>
+		<jobString>Making fish food.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>MeatRaw</li>
+						<li>AnimalProductRaw</li>
+					</categories>
+				</filter>
+				<count>1.2</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>PlantFoodRaw</li>
+					</categories>
+					<thingDefs>
+						<li>Hay</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<recipeUsers>
+			<li>ButcherSpot</li>
+			<li>TableButcher</li>
+		</recipeUsers>
+		<products>
+			<BMT_FishFood>45</BMT_FishFood>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+			<thingDefs>
+				<li>Hay</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>Foods</li>
+			</categories>
+			<disallowedCategories>
+				<li>EggsFertilized</li>
+			</disallowedCategories>
+			<disallowedThingDefs>
+				<li>InsectJelly</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
 </Defs>

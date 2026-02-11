@@ -3,7 +3,7 @@
 
 	<ThingDef ParentName="BigBirdThingBase">
 		<defName>BiomesIslands_Flamingo</defName>
-		<label>flamingo</label>
+		<label>rose flamingo</label>
 		<description>Wading birds that get their color from the krill they eat by filtering food out of the water with their beaks. They thrive anywhere with warm, shallow water.</description>
 		<statBases>
 			<MoveSpeed>5.0</MoveSpeed>
@@ -103,7 +103,7 @@
 
 	<PawnKindDef ParentName="BigBirdKindBase">
 		<defName>BiomesIslands_Flamingo</defName>
-		<label>flamingo</label>
+		<label>rose flamingo</label>
 		<race>BiomesIslands_Flamingo</race>
 		<ecoSystemWeight>0.45</ecoSystemWeight>
 		<wildGroupSize>
@@ -159,7 +159,7 @@
 
 	<ThingDef ParentName="EggFertBase">
 		<defName>BiomesIslands_EggFlamingoFertilized</defName>
-		<label>flamingo egg (fert.)</label>
+		<label>rose flamingo egg (fert.)</label>
 		<description>A fertilized flamingo egg. If all goes well, it should hatch into a baby flamingo. It can be eaten raw, but it's much better cooked.</description>
 		<graphicData>
 			<color>(255,230,220)</color>
@@ -178,7 +178,7 @@
 
 	<ThingDef ParentName="EggUnfertBase">
 		<defName>BiomesIslands_EggFlamingoUnfertilized</defName>
-		<label>flamingo egg (unfert.)</label>
+		<label>rose flamingo egg (unfert.)</label>
 		<description>An unfertilized flamingo egg. It can be eaten raw, but it's much better cooked.</description>
 		<graphicData>
 			<color>(255,230,220)</color>
