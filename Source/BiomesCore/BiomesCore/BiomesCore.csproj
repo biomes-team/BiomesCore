@@ -50,7 +50,7 @@
     <Compile Include="DefModExtensions\StuffQualityOffset.cs" />
     <Compile Include="DefOfs\BiomesCoreDefOf.cs" />
     <Compile Include="DefOfs\StatCategoryDefOf.cs" />
-    <Compile Include="Defs\NewGeneDef.cs" />
+    <Compile Include="Defs\BMT_GeneDef.cs" />
     <Compile Include="Defs\AvoidTerrainOnGameStart.cs" />
     <Compile Include="HashExtension.cs" />
     <Compile Include="HediffComponents\HediffCompClearHediffPeriodic.cs" />
