@@ -91,7 +91,7 @@ namespace BiomesCore.Defs
             {
                 return GeneralBackground;
             }
-            CachedTexture cachedTexture = GeneralBackground;
+            CachedTexture cachedTexture = null;
             if (gene.biostatArc == 0)
             {
                 switch (geneType)
