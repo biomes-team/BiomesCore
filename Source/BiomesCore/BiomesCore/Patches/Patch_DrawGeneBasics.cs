@@ -2,6 +2,7 @@ using BiomesCore.DefModExtensions;
 using BiomesCore.Defs;
 using HarmonyLib;
 using RimWorld;
+using System;
 using UnityEngine;
 using Verse;
 
@@ -12,12 +13,22 @@ namespace BiomesCore.Patches
 	public static class Patch_DrawGeneBasics
     {
 
+        public static bool enableCustomBackground = true;
+
 		[HarmonyPrefix]
 		public static bool Prefix(GeneDef gene, Rect geneRect, GeneType geneType, bool doBackground, bool clickable, bool overridden)
         {
-            if (gene is BMT_GeneDef newGeneDef)
+            if (enableCustomBackground && gene is BMT_GeneDef newGeneDef)
             {
-                DrawGeneBasics(newGeneDef, geneRect, geneType, doBackground, clickable, overridden);
+                try
+                {
+                    DrawGeneBasics(newGeneDef, geneRect, geneType, doBackground, clickable, overridden);
+                }
+                catch (Exception arg)
+                {
+                    Log.Error("Failed render custom background for gene: " + gene.defName + ". Resetting BMT backgrounds to vanilla. Reason: " + arg);
+                    enableCustomBackground = false;
+				}
                 return false;
             }
             return true;
