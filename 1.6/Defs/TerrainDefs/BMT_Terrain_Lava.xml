@@ -25,7 +25,7 @@
 		<pathCost>300</pathCost>
 		<passability>Impassable</passability>
 		<fertility>0</fertility>
-		<driesTo>BMT_Terrain_Tachylite</driesTo>
+		<driesTo>BMT_Terrain_MagmaStone</driesTo>
 		<filthAcceptanceMask>
 			<li>None</li>
 		</filthAcceptanceMask>
@@ -64,8 +64,48 @@
 	</TerrainDef>
 
 	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>BMT_Terrain_MagmaStone</defName>
+		<label>magma stone</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
+		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath> -->
+		<!-- Vanilla Pollution Stone -->
+		<pollutionOverlayTexturePath>Terrain/Surfaces/RoughStonePollutionOverlay</pollutionOverlayTexturePath>
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainFadeRoughLinearAdd</pollutionShaderType>
+		<pollutionColor>(1, 1, 1, 0.43)</pollutionColor>
+		<pollutionOverlayScale>(0.66, 0.66)</pollutionOverlayScale>
+		<!-- Vanilla Pollution Stone -->
+		<edgeType>Fade</edgeType>
+		<renderPrecedence>335</renderPrecedence>
+		<pathCost>16</pathCost>
+		<extraNonDraftedPerceivedPathCost>180</extraNonDraftedPerceivedPathCost>
+		<extraDraftedPerceivedPathCost>18</extraDraftedPerceivedPathCost>
+		<statBases>
+			<Beauty>2</Beauty>
+			<BeautyOutdoors>2</BeautyOutdoors>
+			<Cleanliness>0</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<fertility>0</fertility>
+		<takeFootprints>false</takeFootprints>
+		<tags>
+			<li>Glass</li>
+		</tags>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Glass</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
+	</TerrainDef>
+	
+		<TerrainDef ParentName="NaturalTerrainBase">
 		<defName>BMT_Terrain_Tachylite</defName>
-		<label>tachylite</label>
+		<label>magma stone</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
 		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath> -->
 		<!-- Vanilla Pollution Stone -->
