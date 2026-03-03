@@ -144,7 +144,7 @@
 		<label>tough chitin</label>
 		<description>Chitin of a giant insect. It's quite durable.</description>
 		<graphicData>
-			<color>(61,48,100)</color>
+			<color>(63,114,123)</color>
 		</graphicData>
 		<statBases>
 			<MarketValue>5.0</MarketValue>
@@ -280,7 +280,7 @@
 			<StuffPower_Armor_Heat>6</StuffPower_Armor_Heat>
 			<StuffPower_Insulation_Cold>20</StuffPower_Insulation_Cold>
 			<StuffPower_Insulation_Heat>50</StuffPower_Insulation_Heat>
-			<BC_StuffPower_FlammabilityOffset>-0.15</BC_StuffPower_FlammabilityOffset>
+			<BC_StuffPower_FlammabilityOffset>-0.75</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<stuffProps>
 			<color>(142,142,142)</color>
