@@ -166,7 +166,7 @@
 		<description>A fertilized maxolotl egg. If all goes well, it should hatch into a maxolotl. It can be eaten raw, but it's much better cooked.</description>
 		<graphicData>
 			<texPath>BiomesCore_Things/Items/Eggs/SalamanderEggs</texPath>
-			<drawSize>2</drawSize>
+			<drawSize>1</drawSize>
 		</graphicData>
 		<statBases>
 			<Mass>0.50</Mass>
@@ -186,7 +186,7 @@
 		<description>An unfertilized maxolotl egg. It can be eaten raw, but it's much better cooked.</description>
 		<graphicData>
 			<texPath>BiomesCore_Things/Items/Eggs/SalamanderEggs</texPath>
-			<drawSize>2</drawSize>
+			<drawSize>1</drawSize>
 		</graphicData>
 		<statBases>
 			<Mass>0.50</Mass>
