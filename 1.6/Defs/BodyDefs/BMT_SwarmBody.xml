@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+    <BodyDef>
+        <defName>BMT_SwarmBody</defName>
+        <label>swarm center</label>
+        <corePart>
+            <def>BMT_SwarmCore</def>
+            <height>Middle</height>
+            <depth>Outside</depth>
+            <groups>
+                <li>Torso</li>
+            </groups>
+            <parts>
+                <li>
+                    <def>BMT_SwarmOuter</def>
+                    <coverage>0.999</coverage>
+                    <depth>Outside</depth>
+                    <groups>
+                        <li>Torso</li>
+                    </groups>
+                    <parts>
+						<li>
+							<def>BMT_Stinger</def>
+							<coverage>0.15</coverage>
+							<groups>
+								<li>BMT_StingerGroup</li>							
+							</groups>
+						</li>					
+                    </parts>
+                </li>
+            </parts>
+        </corePart>
+    </BodyDef>
+
+</Defs>

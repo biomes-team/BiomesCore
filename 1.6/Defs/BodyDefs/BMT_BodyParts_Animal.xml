@@ -144,4 +144,30 @@
 		<bleedRate>0</bleedRate>
 	</BodyPartDef>
 
+    <BodyPartDef>
+        <defName>BMT_SwarmCore</defName>
+        <label>central swarm</label>
+        <hitPoints>50</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <frostbiteVulnerability>0.01</frostbiteVulnerability>
+        <tags>
+            <li>MovingLimbCore</li>
+            <li>ManipulationLimbCore</li>
+        </tags>
+        <bleedRate>0</bleedRate>
+        <solid>true</solid>
+    </BodyPartDef>
+
+    <BodyPartDef>
+        <defName>BMT_SwarmOuter</defName>
+        <label>outer swarm</label>
+        <hitPoints>25</hitPoints>
+        <permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
+        <skinCovered>false</skinCovered>
+        <frostbiteVulnerability>0.01</frostbiteVulnerability>
+        <bleedRate>0</bleedRate>
+        <solid>true</solid>
+    </BodyPartDef>
+	
 </Defs>
