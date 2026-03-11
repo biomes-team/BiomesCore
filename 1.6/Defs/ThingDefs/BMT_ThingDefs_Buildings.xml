@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>BMT_DiggingSpot</defName>
+    <label>digging spot</label>
+    <description>A place for gathering material from diggable terrain. (Currently just sand)</description>
+    <thingClass>Building_WorkTable</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Production/CraftingSpot</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <altitudeLayer>FloorEmplacement</altitudeLayer>
+    <statBases>
+      <WorkToBuild>0</WorkToBuild>
+      <WorkTableWorkSpeedFactor>0.5</WorkTableWorkSpeedFactor>
+    </statBases>
+    <scatterableOnMapGen>false</scatterableOnMapGen>
+    <useHitPoints>false</useHitPoints>
+    <size>(1,1)</size>
+    <designationCategory>Production</designationCategory>
+    <uiOrder>2000</uiOrder>
+    <passability>Standable</passability>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+    <surfaceType>Item</surfaceType>
+    <recipes>
+      <li>SmashCorpseMechanoid</li>
+    </recipes>
+    <inspectorTabs>
+      <li>ITab_Bills</li>
+    </inspectorTabs>
+    <building>
+      <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+      <sowTag>SupportPlantsOnly</sowTag>
+      <canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
+      <ai_chillDestination>false</ai_chillDestination>
+      <wakeDormantPawnsOnConstruction>false</wakeDormantPawnsOnConstruction>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+    </building>
+    <comps>
+      <li Class="CompProperties_AffectedByFacilities">
+        <linkableFacilities>
+          <li>ToolCabinet</li>
+        </linkableFacilities>
+      </li>
+      <li Class="CompProperties_ReportWorkSpeed">
+        <workSpeedStat>WorkTableWorkSpeedFactor</workSpeedStat>
+      </li>
+    </comps>
+    <designationHotKey>Misc1</designationHotKey>
+    <placeWorkers>
+      <li>PlaceWorker_ShowFacilitiesConnections</li>
+      <li>PlaceWorker_ReportWorkSpeedPenalties</li>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+	<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>BMT_MagmaPump</defName>
+    <label>magma pump</label>
+    <description>Very slowly cools nearby lava and magma by drawing the heat from it, converting it to usable stone. Does not affect deep lava or magma.</description>
+    <graphicData>
+      <texPath>BiomesCore_Things/MagmaPump/MagmaPump</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <shadowData>
+        <volume>(0.58, 0.35, 0.25)</volume>
+        <offset>(0,0,-0.1)</offset>
+      </shadowData>
+      <damageData>
+        <rect>(0.2,0.2,0.6,0.6)</rect>
+      </damageData>
+    </graphicData>
+    <comps>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+      <li Class="CompProperties_TerrainPumpDry">
+        <soundWorking>MoisturePump_Ambience</soundWorking>
+        <radius>6.9</radius>
+        <daysToRadius>60</daysToRadius>
+      </li>
+    </comps>
+    <tickerType>Rare</tickerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <statBases>
+      <MaxHitPoints>50</MaxHitPoints>
+      <WorkToBuild>1500</WorkToBuild>
+      <Flammability>0</Flammability>
+      <Beauty>-8</Beauty>
+    </statBases>
+    <fillPercent>0.15</fillPercent>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <specialDisplayRadius>6.9</specialDisplayRadius>
+    <pathCost>30</pathCost>
+    <passability>PassThroughOnly</passability>
+    <designationCategory>Misc</designationCategory>
+    <rotatable>false</rotatable>
+    <researchPrerequisites>
+      <li>MoisturePump</li>
+    </researchPrerequisites>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+  </ThingDef>
+  
+ 		<ThingDef ParentName="BuildingBase">
+		<defName>BMT_LavaGenerator</defName>
+		<label>lava generator</label>
+		<description>Produces electricity from the intense heat of lava and magma. It pipes must be placed within the molten rock to function. If lava generators are placed too close together, the turbulence they generate will interfere and reduce power generation.</description>
+		<thingClass>Building</thingClass>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<graphicData>
+			<texPath>BiomesCore_Things/LavaGen/LavaGen</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(4,4)</drawSize>
+			<shadowData>
+				<volume>(2.6,1,2.16)</volume>
+				<offset>(-0.20,0,0)</offset>
+			</shadowData>
+			<damageData>
+				<rectN>(0.1,1.2,4.75,3.25)</rectN>
+				<rectE>(1.25,0.2,3.5,4.7)</rectE>
+				<rectS>(0.2,1.2,4.7,3.25)</rectS>
+				<rectW>(1.25,0.2,3.5,4.7)</rectW>
+			</damageData>
+		</graphicData>
+		<size>(3,4)</size>
+		<castEdgeShadows>false</castEdgeShadows>
+		<staticSunShadowHeight>0</staticSunShadowHeight>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>Impassable</passability>
+		<blockWind>true</blockWind>
+		<scatterableOnMapGen>false</scatterableOnMapGen>
+		<fillPercent>1</fillPercent>
+		<blockLight>true</blockLight>
+		<canOverlapZones>false</canOverlapZones>
+		<statBases>
+			<MaxHitPoints>1000</MaxHitPoints>
+			<WorkToBuild>4000</WorkToBuild>
+			<Flammability>0.0</Flammability>
+			<Beauty>-20</Beauty>
+		</statBases>
+		<tickerType>Normal</tickerType>
+		<costList>
+			<Steel>300</Steel>
+			<Plasteel>100</Plasteel>
+			<ComponentIndustrial>8</ComponentIndustrial>
+		</costList>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>BiomesCore.CompPowerPlantLava</compClass>
+				<basePowerConsumption>-2000</basePowerConsumption>
+				<transmitsPower>true</transmitsPower>
+				<soundAmbientProducingPower></soundAmbientProducingPower>
+			</li>
+			<li Class="CompProperties_Breakdownable"/>
+		</comps>
+		<rotatable>true</rotatable>
+		<terrainAffordanceNeeded></terrainAffordanceNeeded>
+		<designationCategory>Power</designationCategory>
+		<uiOrder>2100</uiOrder>
+		<placeWorkers>
+			<li>BiomesCore.PlaceWorker_LavaGenerator</li>
+		</placeWorkers>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<destroySound>BuildingDestroyed_Metal_Big</destroySound>
+		</building>
+		<researchPrerequisites>
+			<li>GeothermalPower</li>
+		</researchPrerequisites>
+		<constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+	</ThingDef> 
+	
+</Defs>

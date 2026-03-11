@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>BMT_GlacialIce</defName>
+		<label>glacial ice</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/GlacialIce</texturePath>
+		<!-- <pollutedTexturePath>BMT_Caverns/Terrains/GlacialIce</pollutedTexturePath> -->
+		<!-- Vanilla Pollution Stone -->
+		<pollutionOverlayTexturePath>Terrain/Surfaces/RoughStonePollutionOverlay</pollutionOverlayTexturePath>
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainFadeRoughLinearAdd</pollutionShaderType>
+		<pollutionColor>(1, 1, 1, 0.43)</pollutionColor>
+		<pollutionOverlayScale>(0.66, 0.66)</pollutionOverlayScale>
+		<!-- Vanilla Pollution Stone -->
+		<isPaintable>false</isPaintable>
+		<edgeType>FadeRough</edgeType>
+			<renderPrecedence>350</renderPrecedence>
+			<pathCost>14</pathCost>
+		<statBases>
+		  <Beauty>-3</Beauty>
+		  <BeautyOutdoors>0</BeautyOutdoors>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Water</generatedFilth>
+		<fertility>0</fertility>
+		<filthAcceptanceMask>
+			<li>None</li>
+		</filthAcceptanceMask>
+		<takeFootprints>false</takeFootprints>
+	</TerrainDef>
+	
+	<TerrainDef ParentName="FloorBase">
+		<defName>BMT_GlacialIceBuildable</defName>
+		<label>glacial ice</label>
+		<texturePath>BiomesCore_Terrain/Surfaces/GlacialIce</texturePath>
+		<!-- <pollutedTexturePath>BMT_Caverns/Terrains/GlacialIce</pollutedTexturePath> -->
+		<!-- Vanilla Pollution Stone -->
+		<pollutionOverlayTexturePath>Terrain/Surfaces/RoughStonePollutionOverlay</pollutionOverlayTexturePath>
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainFadeRoughLinearAdd</pollutionShaderType>
+		<pollutionColor>(1, 1, 1, 0.43)</pollutionColor>
+		<pollutionOverlayScale>(0.66, 0.66)</pollutionOverlayScale>
+		<!-- Vanilla Pollution Stone -->
+		<isPaintable>false</isPaintable>
+		<edgeType>FadeRough</edgeType>
+			<renderPrecedence>350</renderPrecedence>
+			<pathCost>14</pathCost>
+		<statBases>
+			<WorkToBuild>1100</WorkToBuild>
+			<Beauty>1</Beauty>
+			<BeautyOutdoors>1</BeautyOutdoors>
+			<CleaningTimeFactor>0.75</CleaningTimeFactor>
+			<Cleanliness>0</Cleanliness>
+		</statBases>
+		<costList>
+			<BMT_IceBlock>5</BMT_IceBlock>
+		</costList>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+		</affordances>
+		<generatedFilth>Filth_Water</generatedFilth>
+		<fertility>0</fertility>
+		<filthAcceptanceMask>
+			<li>None</li>
+		</filthAcceptanceMask>
+		<takeFootprints>false</takeFootprints>
+		<constructionSkillPrerequisite>1</constructionSkillPrerequisite>
+	</TerrainDef>
+</Defs>
