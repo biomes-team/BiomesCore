@@ -24,6 +24,7 @@
 			<li>Medium</li>
 			<li>Heavy</li>
 			<li>Diggable</li>
+			<li>BMT_GlacialIce</li>
 		</affordances>
 		<generatedFilth>Filth_Water</generatedFilth>
 		<fertility>0</fertility>

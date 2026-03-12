@@ -342,4 +342,15 @@
 	<!-- </li> -->
 	<!-- </operations> -->
 	<!-- </Operation> -->
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TerrainDef[defName="Sand"]/affordances</xpath>
+		<value><li>BMT_Sand</li></value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TerrainDef[defName="Ice"]/affordances</xpath>
+		<value><li>BMT_Ice</li></value>
+	</Operation>
+	
 </Patch>

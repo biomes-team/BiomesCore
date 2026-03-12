@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef>
+    <defName>BMT_DiggingSand</defName>
+    <label>dig up sand</label>
+    <description>Dig up chunks of sand.</description>
+    <workerCounterClass>RecipeWorkerCounter_MakeStoneBlocks</workerCounterClass>
+	<workAmount>220</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0</workSkillLearnFactor>
+		<products>
+			<BMT_ChunkSand>1</BMT_ChunkSand>
+		</products>
+    <recipeUsers>
+      <li>BMT_SandDiggingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+
+  <RecipeDef>
+    <defName>BMT_DiggingIce</defName>
+    <label>dig up ice</label>
+    <description>Dig up chunks of ice.</description>
+    <workerCounterClass>RecipeWorkerCounter_MakeStoneBlocks</workerCounterClass>
+	<workAmount>220</workAmount>
+    <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+    <effectWorking>CutStone</effectWorking>
+    <soundWorking>Recipe_MakeStoneBlocks</soundWorking>
+    <workSkill>Crafting</workSkill>
+    <workSkillLearnFactor>0</workSkillLearnFactor>
+		<products>
+			<BMT_ChunkSand>1</BMT_ChunkSand>
+		</products>
+    <recipeUsers>
+      <li>BMT_IceDiggingSpot</li>
+    </recipeUsers>
+  </RecipeDef>
+</Defs>
