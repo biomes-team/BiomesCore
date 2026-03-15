@@ -20,11 +20,12 @@ namespace BiomesCore.MapGeneration
 			map.regionAndRoomUpdater.Enabled = false;
 
 			MapGenFloatGrid elevation = MapGenerator.Elevation;
+			MapGenFloatGrid caves = MapGenerator.Caves;
 
 			foreach (IntVec3 current in map.AllCells)
 			{
 				float num2 = elevation[current];
-				if (num2 > RoofElevationThreshold)
+				if (num2 > RoofElevationThreshold && caves[current] <= 0.0)
 				{
 					ThingDef rockDef = GenStep_RocksFromGrid.RockDefAt(current);
 					GenSpawn.Spawn(rockDef, current, map);
