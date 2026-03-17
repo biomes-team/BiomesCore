@@ -95,7 +95,7 @@ namespace BMT
 			var controlDef = def.GetModExtension<Biomes_PlantControl>();
 			if (controlDef != null)
 			{
-				optimalTemperature = controlDef.optimalTemperature;
+				//optimalTemperature = controlDef.optimalTemperature;
 				needsRest = controlDef.needsRest;
 				growingHours = controlDef.growingHours;
 			}

@@ -22,7 +22,7 @@ namespace BiomesCore.DefModExtensions
 		/// Define a temperature range in which the plant will grow in optimal conditions. The plant must have a
 		/// thingClass of <thingClass>BMT.BiomesPlant</thingClass>.
 		/// </summary>
-		public FloatRange optimalTemperature = new FloatRange(6.0F, 42.0F);
+		//public FloatRange optimalTemperature = new FloatRange(6.0F, 42.0F);
 
 		// The following attributes should be cleaned up in the future; mods and code are not using them anymore.
 		public bool allowInCave = false;
