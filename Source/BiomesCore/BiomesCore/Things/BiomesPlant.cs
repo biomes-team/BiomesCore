@@ -21,7 +21,7 @@ namespace BMT
 	{
 		private CustomGraphicsPlantDef customGraphicsDef;
 
-		private FloatRange? optimalTemperature;
+		//private FloatRange? optimalTemperature;
 
 		private bool? needsRest;
 
@@ -159,10 +159,10 @@ namespace BMT
 		/// True if the plant has a Biomes_PlantControl.optimalTemperature and the current temperature is optimal.
 		/// </summary>
 		/// <returns>True if the plant is using the extension and if it should be growing now.</returns>
-		private bool ExtendedGrowthSeasonNow()
-		{
-			return optimalTemperature != null && optimalTemperature.Value.Includes(Position.GetTemperature(Map));
-		}
+		//private bool ExtendedGrowthSeasonNow()
+		//{
+		//	return optimalTemperature != null && optimalTemperature.Value.Includes(Position.GetTemperature(Map));
+		//}
 
 		/// <summary>
 		/// Returns true if the plant is in growth season, regardless of if it is using the vanilla check or the extended
@@ -171,7 +171,7 @@ namespace BMT
 		/// <returns>True if the plant should be growing now.</returns>
 		private bool GrowthSeasonNow()
 		{
-			return ExtendedGrowthSeasonNow() || PlantUtility.GrowthSeasonNow(Map, def);
+			return PlantUtility.GrowthSeasonNow(Map, def);
 		}
 
 		/// <summary>
@@ -185,15 +185,15 @@ namespace BMT
 		/// <summary>
 		/// Prevent plants from becoming leafless and/or dying while within their extended temperature range.
 		/// </summary>
-		protected override float LeaflessTemperatureThresh
-		{
-			get
-			{
-				var vanillaValue = base.LeaflessTemperatureThresh;
-				if (optimalTemperature == null || vanillaValue < optimalTemperature.Value.min) return vanillaValue;
-				return optimalTemperature.Value.min - Rand.RangeSeeded(0, 8f, this.thingIDNumber ^ 838051265);
-			}
-		}
+		//protected override float LeaflessTemperatureThresh
+		//{
+		//	get
+		//	{
+		//		var vanillaValue = base.LeaflessTemperatureThresh;
+		//		if (optimalTemperature == null || vanillaValue < optimalTemperature.Value.min) return vanillaValue;
+		//		return optimalTemperature.Value.min - Rand.RangeSeeded(0, 8f, this.thingIDNumber ^ 838051265);
+		//	}
+		//}
 
 		public override void TickLong()
 		{
@@ -205,7 +205,7 @@ namespace BMT
 
 			// Check if Plant.TickLong would not execute its growth code but the BiomesPlant needs it due to having an
 			// optimal temperature range coming from the extension.
-			if (PlantUtility.GrowthSeasonNow(Map, def) || !ExtendedGrowthSeasonNow())
+			if (PlantUtility.GrowthSeasonNow(Map, def))
 			{
 				return;
 			}
@@ -228,7 +228,7 @@ namespace BMT
 		{
 			string inspectString = base.GetInspectString();
 
-			if (!PlantUtility.GrowthSeasonNow(Map, def) && ExtendedGrowthSeasonNow())
+			if (!PlantUtility.GrowthSeasonNow(Map, def))
 			{
 				// Remove the now incorrect string in base.
 				inspectString = inspectString.Replace("OutOfIdealTemperatureRangeNotGrowing".Translate(), "");
