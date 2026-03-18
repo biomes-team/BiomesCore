@@ -11,21 +11,22 @@ using Verse;
 namespace BiomesCore.Patches
 {
 
-	[HarmonyPatch(typeof(Zone_Growing), "GrowingQuadrumsDescription")]
-	internal static class Zone_Growing_GrowingQuadrumsDescription
-	{
-		internal static bool Prefix(PlanetTile tile, ref string __result)
-		{
-			var modExtension = Find.WorldGrid[tile].PrimaryBiome.GetModExtension<BiomesMap>();
-			if (modExtension is {alwaysGrowthSeason: true})
-			{
-				__result = "GrowYearRound".Translate();
-				return false;
-			}
+	// From 1.6 vanilla support custom temp. for plants
+	//[HarmonyPatch(typeof(Zone_Growing), "GrowingQuadrumsDescription")]
+	//internal static class Zone_Growing_GrowingQuadrumsDescription
+	//{
+	//	internal static bool Prefix(PlanetTile tile, ref string __result)
+	//	{
+	//		var modExtension = Find.WorldGrid[tile].PrimaryBiome.GetModExtension<BiomesMap>();
+	//		if (modExtension is {alwaysGrowthSeason: true})
+	//		{
+	//			__result = "GrowYearRound".Translate();
+	//			return false;
+	//		}
 
-			return true;
-		}
-	}
+	//		return true;
+	//	}
+	//}
 
 	//[HarmonyPatch(typeof(Plant), "GrowthRateFactor_Temperature", MethodType.Getter)]
 	//internal static class Plant_GrowthRateFactor_Temperature

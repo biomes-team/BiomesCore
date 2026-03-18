@@ -6,6 +6,7 @@ using Verse;
 
 namespace BiomesCore.Patches.Plants
 {
+	// From 1.6 vanilla support custom temp. for plants
 	//[HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.GrowthSeasonNow), typeof(IntVec3), typeof(Map), typeof(ThingDef))]
 	//public static class PlantUtility_GrowthSeasonNow_Patch
 	//{
