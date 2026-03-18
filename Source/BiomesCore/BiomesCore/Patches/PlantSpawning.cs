@@ -10,151 +10,35 @@ namespace BiomesCore.Patches
     [HarmonyPatch(typeof(PlantUtility), nameof(PlantUtility.CanEverPlantAt), typeof(ThingDef), typeof(IntVec3), typeof(Map), typeof(bool), typeof(bool))]
 	internal static class PlantUtility_CanEverPlantAt
 	{
-		//internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
-		//{
-		//	if (plantDef.IsVanillaDef() || !c.InBounds(map))
-		//	{
-		//		return true;
-		//	}
-
-		//	TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-		//	Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
-		//	//this section governs plants that should not use the BMT plant spawning system.
-		//	if (plantExt == null)
-		//	{
-		//		/*
-		//		if (map.Biome.HasModExtension<BiomesMap>())
-		//		{
-		//			BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
-		//			if (biome.isCavern)
-		//			{
-		//				__result = false;
-		//				return false;
-		//			}
-		//		}
-		//		*/
-		//		if (terrain.HasTag("Water"))
-		//		{
-		//			__result = false;
-		//			return false;
-		//		}
-
-		//	}
-
-		//	List<Thing> list = map.thingGrid.ThingsListAt(c);
-		//	foreach (Thing thing in list) //governs plant that grow on buildings, such as planters or hydroponics systems. These should bypass our other checks.
-		//	{
-		//		if (thing?.def.building != null)
-		//		{
-		//			if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
-		//			{
-		//				__result = plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
-		//				return plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
-		//			}
-		//		}
-		//	}
-
-		//	Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
-		//	if (terrainExt != null && plantExt != null)
-		//	{
-		//		/*
-		//		 no longer needed because of <applyToCaverns> biome tag which overrides the vanilla cave plant spawning system
-		//		 with the normal <wildPlants> from the biome
-
-		//		BiomeDef biome = map.LocalBiome(c);
-		//		if (biome.HasModExtension<BiomesMap>())
-		//		{
-		//			BiomesMap biomesMap = biome.GetModExtension<BiomesMap>();
-		//			if (biomesMap.isCavern)
-		//			{
-		//				if (!biome.AllWildPlants.Contains(plantDef))
-		//				{
-		//					__result = false;
-		//					return false;
-		//				}
-		//			}
-		//		}
-
-
-
-
-		//		if (plantExt.wallGrower)
-  //              {
-
-  //              }
-
-		//		if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
-		//		{
-		//			if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
-		//			{
-		//				__result = false;
-		//				return false;
-		//			}
-		//			if (map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInCave)
-		//			{
-		//				__result = false;
-		//				return false;
-		//			}
-		//		}
-  //              else if (!plantExt.allowUnroofed) //code to prevent cave plants from spawning outside
-  //              {
-		//			__result = false;
-		//			return false;
-		//		}*/
-
-		//		// terrain tags
-		//		if (!plantExt.terrainTags.NullOrEmpty())
-		//		{
-		//			if (terrainExt.terrainTags.NullOrEmpty())
-		//			{
-		//				__result = false;
-		//				return false;
-		//			}
-
-		//			foreach (string tag in terrainExt.terrainTags)
-		//			{
-		//				if (!plantExt.terrainTags.Contains(tag))
-		//				{
-		//					__result = false;
-		//					return false;
-		//				}
-		//			}
-		//		}
-		//		else // prevent water spawns if no terrain tags
-		//		{
-		//			if (terrain.HasTag("Water") || terrain.IsWater)
-		//			{
-		//				__result = false;
-		//				return false;
-		//			}
-		//		}
-		//	}
-		//	else if (terrainExt == null && terrain.HasTag("Water"))
-		//	{
-		//		__result = false;
-		//		return false;
-		//	}
-
-		//	// Prevent modded plants from spawning on unsupported terrains.
-		//	if (plantExt != null && !plantExt.terrainTags.NullOrEmpty() && (terrainExt == null || terrainExt.terrainTags.NullOrEmpty()))
-		//	{
-		//		__result = false;
-		//		return false;
-		//	}
-
-		//	return true;
-		//}
-		internal static void Postfix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
+		internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
 		{
-			if (plantDef.IsVanillaDef())
+			if (!c.InBounds(map) || plantDef.plant.completelyIgnoreFertility)
 			{
-				return;
+				return true;
 			}
+
+			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
 			Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
-			// Ignore defs without extension
-			if (plantExt == null || plantExt.terrainTags.NullOrEmpty())
+			//this section governs plants that should not use the BMT plant spawning system.
+			if (plantExt == null)
 			{
-				return;
+				/*
+				if (map.Biome.HasModExtension<BiomesMap>())
+				{
+					BiomesMap biome = map.Biome.GetModExtension<BiomesMap>();
+					if (biome.isCavern)
+					{
+						__result = false;
+						return false;
+					}
+				}
+				*/
+				if (terrain.HasTag("Water"))
+				{
+					__result = false;
+					return false;
+				}
+
 			}
 
 			List<Thing> list = map.thingGrid.ThingsListAt(c);
@@ -162,32 +46,148 @@ namespace BiomesCore.Patches
 			{
 				if (thing?.def.building != null)
 				{
-					//if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
-					//{
-					//	__result = plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
-					//}
-					return;
-				}
-			}
-			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-			Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
-			if (terrainExt != null)
-			{
-				if (terrain.fertility <= 0f)
-				{
-					plantDef.plant.completelyIgnoreFertility = true;
-				}
-				foreach (string tag in terrainExt.terrainTags)
-				{
-					if (plantExt.terrainTags.Contains(tag))
+					if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
 					{
-						__result = true;
-						return;
+						__result = plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
+						return plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
 					}
 				}
-				__result = false;
 			}
+
+			Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
+			if (terrainExt != null && plantExt != null)
+			{
+				/*
+				 no longer needed because of <applyToCaverns> biome tag which overrides the vanilla cave plant spawning system
+				 with the normal <wildPlants> from the biome
+
+				BiomeDef biome = map.LocalBiome(c);
+				if (biome.HasModExtension<BiomesMap>())
+				{
+					BiomesMap biomesMap = biome.GetModExtension<BiomesMap>();
+					if (biomesMap.isCavern)
+					{
+						if (!biome.AllWildPlants.Contains(plantDef))
+						{
+							__result = false;
+							return false;
+						}
+					}
+				}
+
+
+
+
+				if (plantExt.wallGrower)
+                {
+
+                }
+
+				if (map.roofGrid.RoofAt(c) != null) //checks for cave cells.
+				{
+					if (!map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInBuilding)
+					{
+						__result = false;
+						return false;
+					}
+					if (map.roofGrid.RoofAt(c).isNatural && !plantExt.allowInCave)
+					{
+						__result = false;
+						return false;
+					}
+				}
+                else if (!plantExt.allowUnroofed) //code to prevent cave plants from spawning outside
+                {
+					__result = false;
+					return false;
+				}*/
+
+				// terrain tags
+				if (!plantExt.terrainTags.NullOrEmpty())
+				{
+					if (terrainExt.terrainTags.NullOrEmpty())
+					{
+						__result = false;
+						return false;
+					}
+
+					foreach (string tag in terrainExt.terrainTags)
+					{
+						if (!plantExt.terrainTags.Contains(tag))
+						{
+							__result = false;
+							return false;
+						}
+					}
+				}
+				else // prevent water spawns if no terrain tags
+				{
+					if (terrain.HasTag("Water") || terrain.IsWater)
+					{
+						__result = false;
+						return false;
+					}
+				}
+			}
+			else if (terrainExt == null && terrain.HasTag("Water"))
+			{
+				__result = false;
+				return false;
+			}
+
+			// Prevent modded plants from spawning on unsupported terrains.
+			if (plantExt != null && !plantExt.terrainTags.NullOrEmpty() && (terrainExt == null || terrainExt.terrainTags.NullOrEmpty()))
+			{
+				__result = false;
+				return false;
+			}
+
+			return true;
 		}
+		//internal static void Postfix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
+		//{
+		//	if (plantDef.IsVanillaDef())
+		//	{
+		//		return;
+		//	}
+		//	Biomes_PlantControl plantExt = plantDef.GetModExtension<Biomes_PlantControl>();
+		//	// Ignore defs without extension
+		//	if (plantExt == null || plantExt.terrainTags.NullOrEmpty())
+		//	{
+		//		return;
+		//	}
+
+		//	List<Thing> list = map.thingGrid.ThingsListAt(c);
+		//	foreach (Thing thing in list) //governs plant that grow on buildings, such as planters or hydroponics systems. These should bypass our other checks.
+		//	{
+		//		if (thing?.def.building != null)
+		//		{
+		//			//if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
+		//			//{
+		//			//	__result = plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
+		//			//}
+		//			return;
+		//		}
+		//	}
+		//	TerrainDef terrain = map.terrainGrid.TerrainAt(c);
+		//	Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
+		//	if (terrainExt != null)
+		//	{
+		//		if (terrain.fertility <= 0f)
+		//		{
+		//			plantDef.plant.completelyIgnoreFertility = true;
+		//		}
+		//		foreach (string tag in terrainExt.terrainTags)
+		//		{
+		//			if (plantExt.terrainTags.Contains(tag))
+		//			{
+		//				__result = true;
+		//				return;
+		//			}
+		//		}
+		//		__result = false;
+		//	}
+		//}
 	}
 
 	[HarmonyPatch(typeof(WildPlantSpawner), "CalculatePlantsWhichCanGrowAt")]
