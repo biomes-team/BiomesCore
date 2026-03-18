@@ -12,7 +12,7 @@ namespace BiomesCore.Patches
 	{
 		internal static bool Prefix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
 		{
-			if (!c.InBounds(map))
+			if (plantDef.IsVanillaDef() || !c.InBounds(map))
 			{
 				return true;
 			}

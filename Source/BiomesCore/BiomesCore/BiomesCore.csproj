@@ -212,6 +212,7 @@
     <Compile Include="ThingComponents\Spawner_Comp.cs" />
     <Compile Include="ThingComponents\Spawner_CompProperties.cs" />
     <Compile Include="Things\BiomesPlant.cs" />
+    <Compile Include="Utility\Utility.cs" />
     <Compile Include="WorldMap\BiomeWorkerUtil.cs" />
     <Compile Include="WorldMap\WorldLayer_BiomeOverlays.cs" />
     <PackageReference Include="Krafs.Rimworld.Ref">
