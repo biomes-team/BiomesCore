@@ -146,7 +146,7 @@ namespace BiomesCore.Patches
 		//}
 		internal static void Postfix(ref bool __result, ThingDef plantDef, IntVec3 c, Map map)
 		{
-			if (plantDef.IsVanillaDef() || __result)
+			if (plantDef.IsVanillaDef())
 			{
 				return;
 			}
@@ -156,21 +156,20 @@ namespace BiomesCore.Patches
 			{
 				return;
 			}
+
+			List<Thing> list = map.thingGrid.ThingsListAt(c);
+			foreach (Thing thing in list) //governs plant that grow on buildings, such as planters or hydroponics systems. These should bypass our other checks.
+			{
+				if (thing?.def.building != null)
+				{
+					//if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
+					//{
+					//	__result = plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
+					//}
+					return;
+				}
+			}
 			TerrainDef terrain = map.terrainGrid.TerrainAt(c);
-
-			//List<Thing> list = map.thingGrid.ThingsListAt(c);
-			//foreach (Thing thing in list) //governs plant that grow on buildings, such as planters or hydroponics systems. These should bypass our other checks.
-			//{
-			//	if (thing?.def.building != null)
-			//	{
-			//		if (plantDef.plant.sowTags.Contains(thing.def.building.sowTag))
-			//		{
-			//			__result = plantDef.plant.sowTags.Contains(thing.def.building.sowTag);
-			//			return;
-			//		}
-			//	}
-			//}
-
 			Biomes_PlantControl terrainExt = terrain.GetModExtension<Biomes_PlantControl>();
 			if (terrainExt != null)
 			{
@@ -186,6 +185,7 @@ namespace BiomesCore.Patches
 						return;
 					}
 				}
+				__result = false;
 			}
 		}
 	}
