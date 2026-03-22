@@ -181,7 +181,7 @@
 			<BC_StuffPower_FlammabilityOffset>-0.1</BC_StuffPower_FlammabilityOffset>
 		</statBases>
 		<stuffProps>
-			<color>(100,68,36)</color>
+			<color>(186,162,63)</color>
 			<statFactors>
 				<Beauty>2.6</Beauty>
 			</statFactors>
