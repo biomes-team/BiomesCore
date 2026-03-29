@@ -3,6 +3,7 @@
 	<TerrainDef ParentName="NaturalTerrainBase">
 		<defName>BMT_GlacialIce</defName>
 		<label>glacial ice</label>
+		<description>A smooth terrain of unmelting ice, as cold as the depths of a glacier.</description>
 		<texturePath>BiomesCore_Terrain/Surfaces/GlacialIce</texturePath>
 		<!-- <pollutedTexturePath>BMT_Caverns/Terrains/GlacialIce</pollutedTexturePath> -->
 		<!-- Vanilla Pollution Stone -->
@@ -37,6 +38,7 @@
 	<TerrainDef ParentName="FloorBase">
 		<defName>BMT_GlacialIceBuildable</defName>
 		<label>glacial ice</label>
+		<description>A smooth terrain of unmelting ice, as cold as the depths of a glacier, built from blocks of carved ice.</description>
 		<texturePath>BiomesCore_Terrain/Surfaces/GlacialIce</texturePath>
 		<!-- <pollutedTexturePath>BMT_Caverns/Terrains/GlacialIce</pollutedTexturePath> -->
 		<!-- Vanilla Pollution Stone -->
