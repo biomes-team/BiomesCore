@@ -18,14 +18,18 @@
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
 			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
 		</li>
-		<li>
-			<packageId>BiomesTeam.CoreFramework</packageId>
-			<displayName>BMT Framework</displayName>
-			<!-- To-Do: Added steam link -->
-			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
-			<downloadUrl>https://github.com/biomes-team/BiomesFramework/releases</downloadUrl>
-		</li>
 	</modDependencies>
+	<modDependenciesByVersion>
+		<v1.6>
+			<li>
+				<packageId>BiomesTeam.CoreFramework</packageId>
+				<displayName>BMT Framework</displayName>
+				<!-- To-Do: Added steam link -->
+				<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+				<downloadUrl>https://github.com/biomes-team/BiomesFramework/releases</downloadUrl>
+			</li>
+		</v1.6>
+	</modDependenciesByVersion>
 	<loadAfter>
 		<li>brrainz.harmony</li>
 		<li>Ludeon.RimWorld</li>
