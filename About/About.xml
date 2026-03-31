@@ -21,6 +21,7 @@
 		<li>
 			<packageId>BiomesTeam.CoreFramework</packageId>
 			<displayName>BMT Framework</displayName>
+			<!-- To-Do: Added steam link -->
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
 			<downloadUrl>https://github.com/biomes-team/BiomesFramework/releases</downloadUrl>
 		</li>
