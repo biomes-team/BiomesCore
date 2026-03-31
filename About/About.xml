@@ -18,6 +18,12 @@
 			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
 			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
 		</li>
+		<li>
+			<packageId>BiomesTeam.CoreFramework</packageId>
+			<displayName>BMT Framework</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/biomes-team/BiomesFramework/releases</downloadUrl>
+		</li>
 	</modDependencies>
 	<loadAfter>
 		<li>brrainz.harmony</li>
@@ -28,6 +34,7 @@
 		<li>Ludeon.RimWorld.Anomaly</li>
 		<li>Ludeon.Rimworld.Odyssey</li>
 		<li>pathfinding.framework</li>
+		<li>BiomesTeam.CoreFramework</li>
 	</loadAfter>
 	<description>
 The core module for the Biomes! mods. Necessary for all of the Biomes! modules.
