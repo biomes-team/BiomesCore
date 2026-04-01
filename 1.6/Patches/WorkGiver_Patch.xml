@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/WorkGiverDef[defName="DoBillsUseCraftingSpot"]/fixedBillGiverDefs</xpath>
+		<value>
+			<li>BMT_SandDiggingSpot</li>
+			<li>BMT_IceDiggingSpot</li>
+		</value>
+	</Operation>
+
+</Patch>

@@ -32,7 +32,7 @@
     <workSkill>Crafting</workSkill>
     <workSkillLearnFactor>0</workSkillLearnFactor>
 		<products>
-			<BMT_ChunkSand>1</BMT_ChunkSand>
+			<BMT_ChunkIce>1</BMT_ChunkIce>
 		</products>
     <recipeUsers>
       <li>BMT_IceDiggingSpot</li>
