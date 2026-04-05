@@ -349,6 +349,7 @@
 		<blockLight>true</blockLight>
 		<filthLeaving>Filth_Water</filthLeaving>
 		<building>
+			<isAirtight>true</isAirtight>
 			<isResourceRock>false</isResourceRock>
 			<isNaturalRock>false</isNaturalRock>
 			<claimable>false</claimable>
@@ -419,6 +420,7 @@
 		<canOverlapZones>false</canOverlapZones>
 		<fertility>0</fertility>
 		<building>
+			<isAirtight>true</isAirtight>
 			<paintable>true</paintable>
 			<isInert>true</isInert>
 			<isPlaceOverableWall>true</isPlaceOverableWall>
