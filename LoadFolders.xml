@@ -44,5 +44,6 @@
 		<li IfModActive="ReGrowth.BOTR.Wastelands">1.6/Mods/ReGrowthWastelands</li>
 		<li IfModActive="VanillaExpanded.VFEArchitect">1.6/Mods/VanillaFurnitureExpandedArchitect</li>
 		<li IfModActive="VanillaExpanded.VPlantsEMore">1.6/Mods/VanillaPlantsExpandedMore</li>
+		<li IfModNotActive="BiomesTeam.CoreFramework">1.6/Legacy</li>
 	</v1.6>
 </loadFolders>
