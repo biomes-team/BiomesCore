@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<TerrainDef ParentName="NaturalTerrainBase">
+		<defName>BMT_VolcanicAsh</defName>
+		<label>volcanic ash</label>
+		<texturePath>BMT_Caverns/Terrains/VolcanicAsh</texturePath>
+		<!-- <pollutedTexturePath>BMT_Caverns/Terrains/VolcanicAsh</pollutedTexturePath> -->
+		<!-- Vanilla Pollution Stone -->
+		<pollutionOverlayTexturePath>Terrain/Surfaces/RoughStonePollutionOverlay</pollutionOverlayTexturePath>
+		<pollutionShaderType MayRequire="Ludeon.RimWorld.Biotech">TerrainFadeRoughLinearAdd</pollutionShaderType>
+		<pollutionColor>(1, 1, 1, 0.43)</pollutionColor>
+		<pollutionOverlayScale>(0.66, 0.66)</pollutionOverlayScale>
+		<!-- Vanilla Pollution Stone -->
+		<edgeType>Fade</edgeType>
+		<renderPrecedence>335</renderPrecedence>
+		<pathCost>16</pathCost>
+		<statBases>
+			<Beauty>-3</Beauty>
+			<BeautyOutdoors>0</BeautyOutdoors>
+			<Cleanliness>-1</Cleanliness>
+		</statBases>
+		<affordances>
+			<li>Light</li>
+			<li>Medium</li>
+			<li>Heavy</li>
+			<li>GrowSoil</li>
+			<li>Diggable</li>
+		</affordances>
+		<generatedFilth>Filth_Ash</generatedFilth>
+		<fertility>1.1</fertility>
+		<takeFootprints>true</takeFootprints>
+		<tools>
+			<li>
+				<label>ash</label>
+				<capacities>
+					<li>KickMaterialInEyes</li>
+				</capacities>
+				<hediff>DirtInEyes</hediff>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+		</tools>
+		<tags>
+			<li>Soil</li>
+			<li>Ash</li>
+		</tags>
+		<modExtensions>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Ash</li>
+				</terrainTags>
+			</li>
+		</modExtensions>
+	</TerrainDef>
+</Defs>
