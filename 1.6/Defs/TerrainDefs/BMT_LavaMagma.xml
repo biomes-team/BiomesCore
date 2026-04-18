@@ -25,7 +25,7 @@
 		<pathCost>300</pathCost>
 		<passability>Impassable</passability>
 		<fertility>0</fertility>
-		<driesTo>BMT_Terrain_MagmaStone</driesTo>
+		<driesTo>BMT_MagmaStone</driesTo>
 		<filthAcceptanceMask>
 			<li>None</li>
 		</filthAcceptanceMask>
