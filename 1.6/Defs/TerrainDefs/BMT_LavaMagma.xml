@@ -52,7 +52,7 @@
 	</TerrainDef>
 
 	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
-		<defName>BiomeCore_Lava</defName>
+		<defName>BMT_Lava</defName>
 		<label>lava</label>
 		<!-- <texturePath>BiomesCore_Terrain/Surfaces/Lava</texturePath> -->
 		<!-- or -->
@@ -61,7 +61,7 @@
 	</TerrainDef>
 
 	<TerrainDef ParentName="BMT_Terrain_Lava_Base">
-		<defName>BiomeCore_Magma</defName>
+		<defName>BMT_Magma</defName>
 		<label>magma</label>
 		<!-- <texturePath>BiomesCore_Terrain/Surfaces/Magma</texturePath> -->
 		<!-- or -->
@@ -70,7 +70,7 @@
 	</TerrainDef>
 
 	<TerrainDef ParentName="NaturalTerrainBase">
-		<defName>BMT_Terrain_MagmaStone</defName>
+		<defName>BMT_MagmaStone</defName>
 		<label>magma stone</label>
 		<texturePath>BiomesCore_Terrain/Surfaces/MagmaStone</texturePath>
 		<!-- <pollutedTexturePath>BiomesCore_Terrain/Surfaces/MagmaStone</pollutedTexturePath> -->
