@@ -338,4 +338,9 @@
 		<value><li>BMT_Ice</li></value>
 	</Operation>
 	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TerrainDef[defName="MarshyTerrain"]/tags</xpath>
+		<value><li>MarshySoil</li></value>
+	</Operation>
+	
 </Patch>
