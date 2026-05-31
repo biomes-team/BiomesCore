@@ -5,7 +5,7 @@
     <defName>BMT_DiggingSand</defName>
     <label>dig up sand</label>
     <description>Dig up chunks of sand.</description>
-    <workerCounterClass>RecipeWorkerCounter_MakeStoneBlocks</workerCounterClass>
+    <!-- <workerCounterClass>RecipeWorkerCounter_MakeStoneBlocks</workerCounterClass> -->
 	<workAmount>220</workAmount>
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>CutStone</effectWorking>
@@ -24,7 +24,7 @@
     <defName>BMT_DiggingIce</defName>
     <label>dig up ice</label>
     <description>Dig up chunks of ice.</description>
-    <workerCounterClass>RecipeWorkerCounter_MakeStoneBlocks</workerCounterClass>
+    <!-- <workerCounterClass>RecipeWorkerCounter_MakeStoneBlocks</workerCounterClass> -->
 	<workAmount>220</workAmount>
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>CutStone</effectWorking>
