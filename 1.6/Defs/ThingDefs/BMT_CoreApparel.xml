@@ -5,7 +5,7 @@
 
   <!-- ==================================== Hermetic Armor =====================================-->
 
-  <ThingDef Name="ApparelArmorPowerBase" ParentName="ArmorMachineableBase" Abstract="True">
+  <ThingDef Name="BMT_ApparelArmorPowerBase" ParentName="ArmorMachineableBase" Abstract="True">
     <techLevel>Spacer</techLevel>
     <recipeMaker>
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
@@ -106,7 +106,7 @@
     </thingSetMakerTags>
   </ThingDef>
 
-  <ThingDef ParentName="ApparelArmorPowerBase">
+  <ThingDef ParentName="BMT_ApparelArmorPowerBase">
     <defName>BMT_HermeticArmor</defName>
     <label>hermetic armor</label>
     <description>A suit of medium powered armor, built for maximum protection at the cost of mobility. Durable plating and hazmat-quality air filtration make for heavy but highly protective armor. Neuro-memetic assistors prevent the suit's massive weight from immobilizing the wearer entirely, but the suit is still quite cumbersome.\n\nArmor like this is used by imperial and corporate squads in environments otherwise unbreathable, whether it be from toxins, being underwater, or lacking air entirely. It also comes with special utilities that filter the blood of toxins.</description>
@@ -143,7 +143,7 @@
 
 <!--Hermetic Helmet-->
 
-  <ThingDef Name="ApparelArmorHelmetPowerBase" ParentName="ArmorHelmetMakeableBase" Abstract="True">
+  <ThingDef Name="BMT_ApparelArmorHelmetPowerBase" ParentName="ArmorHelmetMakeableBase" Abstract="True">
     <techLevel>Spacer</techLevel>
     <recipeMaker>
       <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
@@ -232,7 +232,7 @@
     </thingSetMakerTags>
   </ThingDef>
 
-  <ThingDef ParentName="ApparelArmorHelmetPowerBase">
+  <ThingDef ParentName="BMT_ApparelArmorHelmetPowerBase">
     <defName>BMT_HermeticHelmet</defName>
     <label>hermetic helmet</label>
     <description>A hermetic armor helmet, with a built-in status computer and layered plasteel-weave plates.\n\nArmor like this is often used by groups needing to survive in inhospitable environments.</description>
