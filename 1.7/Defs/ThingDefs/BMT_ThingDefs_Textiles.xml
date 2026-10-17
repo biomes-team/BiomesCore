@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<!-- ================== Leather ================== -->
+	<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Leather_Gastropoda</defName>
+		<label>gastropodskin</label>
+		<description>The tanned skin of a gastropod, like a slug or snail. Gastropodskin feels crumbly and mushy at the same time.</description>
+		<statBases>
+			<MarketValue>1.9</MarketValue>
+			<Flammability>0.2</Flammability>
+			<StuffPower_Armor_Sharp>0.64</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.81</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>10</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.05</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<graphicData>
+			<color>(153,150,117)</color>
+		</graphicData>
+		<stuffProps>
+			<color>(153,150,117)</color>
+			<commonality>0.025</commonality>
+			<statFactors>
+				<MaxHitPoints>0.8</MaxHitPoints>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Leather_Amphibian</defName>
+		<label>amphibianskin</label>
+		<description>The tanned skin of an amphibian, like a frog or salamander. Amphibianskin feels moist and soft at the same time.</description>
+		<statBases>
+			<MarketValue>4</MarketValue>
+			<Flammability>0.25</Flammability>
+			<StuffPower_Armor_Sharp>0.75</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.15</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>12</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.2</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<graphicData>
+			<color>(255,237,237)</color>
+		</graphicData>
+		<stuffProps>
+			<color>(255,237,237)</color>
+			<commonality>0.030</commonality>
+			<statFactors>
+				<MaxHitPoints>0.9</MaxHitPoints>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Leather_Magma</defName>
+		<label>flame-proof leather</label>
+		<description>The tanned skin of a fireproof creature. It feels hardy and tough but doesn't protect against cold well.</description>
+		<statBases>
+			<MarketValue>7</MarketValue>
+			<Flammability>0.0</Flammability>
+			<StuffPower_Armor_Sharp>0.75</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.15</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>2</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>5</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>50</StuffPower_Insulation_Heat>
+			<BC_StuffPower_FlammabilityOffset>-0.8</BC_StuffPower_FlammabilityOffset>
+		</statBases>
+		<graphicData>
+			<color>(128,128,128)</color>
+		</graphicData>
+		<stuffProps>
+			<color>(128,128,128)</color>
+			<commonality>0.020</commonality>
+			<statFactors>
+				<Flammability>0.0</Flammability>
+				<MaxHitPoints>0.6</MaxHitPoints>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+	<ThingDef ParentName="LeatherBase">
+		<defName>BMT_ToughLeather</defName>
+		<label>tough leather</label>
+		<description>Tanned, dried, scraped skin. It is exceptionally durable in combat, but provides little protection from weather.</description>
+		<graphicData>
+			<color>(150,150,150)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>4.2</MarketValue>
+			<StuffPower_Armor_Sharp>1.29</StuffPower_Armor_Sharp>
+			<StuffPower_Insulation_Cold>14</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>14</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(150,150,150)</color>
+			<commonality>0.025</commonality>
+			<statFactors>
+				<MaxHitPoints>1.5</MaxHitPoints>
+				<Beauty>2.4</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+	
+		<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Pinnipedskin</defName>
+		<label>pinnipedskin</label>
+		<description>The tanned skin of a pinniped, such as a seal or walrus. It protects well against  the cold and blunt damage.</description>
+		<statBases>
+			<MarketValue>2.2</MarketValue>
+			<Flammability>0.1</Flammability>
+			<StuffPower_Armor_Sharp>0.44</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.81</StuffPower_Armor_Blunt>
+			<StuffPower_Armor_Heat>1</StuffPower_Armor_Heat>
+			<StuffPower_Insulation_Cold>15</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>8</StuffPower_Insulation_Heat>
+		</statBases>
+		<graphicData>
+			<color>(132,112,106)</color>
+		</graphicData>
+		<stuffProps>
+			<color>(132,112,106)</color>
+			<commonality>0.025</commonality>
+			<statFactors>
+				<MaxHitPoints>0.8</MaxHitPoints>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+
+  <ThingDef ParentName="LeatherBase">
+    <defName>BMT_Fishskin</defName>
+    <label>fishskin</label>
+    <description>Leather from a fish. It doesn't protect very well.</description>
+    <graphicData>
+      <color>(160,190,170)</color>
+    </graphicData>
+    <statBases>
+      <MarketValue>2.1</MarketValue>
+      <StuffPower_Armor_Sharp>0.55</StuffPower_Armor_Sharp>
+      <StuffPower_Insulation_Cold>6</StuffPower_Insulation_Cold>
+      <StuffPower_Insulation_Heat>12</StuffPower_Insulation_Heat>
+    </statBases>
+    <stuffProps>
+      <color>(160,190,170)</color>
+      <commonality>0.06</commonality>
+	  <statFactors>
+        <Beauty>1.0</Beauty>
+      </statFactors>
+    </stuffProps>
+  </ThingDef>
+  
+  	<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Sharkskin</defName>
+		<label>sharkskin</label>
+		<description>Sharkskin. Tough, but insulates poorly.</description>
+		<graphicData>
+			<color>(90,110,120)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>5.6</MarketValue>
+			<StuffPower_Armor_Sharp>1.25</StuffPower_Armor_Sharp>
+			<StuffPower_Armor_Blunt>0.36</StuffPower_Armor_Blunt>
+			<StuffPower_Insulation_Heat>10</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(90,110,120)</color>
+			<commonality>0.02</commonality>
+			<statFactors>
+				<Beauty>1.4</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+	
+	
+		<ThingDef ParentName="LeatherBase">
+		<defName>BMT_Whaleskin</defName>
+		<label>whaleskin</label>
+		<description>Leather from a whale. Durable in combat, but doesn't provide much insulation.</description>
+		<graphicData>
+			<color>(50,50,70)</color>
+		</graphicData>
+		<statBases>
+			<MarketValue>4.0</MarketValue>
+			<StuffPower_Armor_Sharp>1.25</StuffPower_Armor_Sharp>
+			<StuffPower_Insulation_Cold>14</StuffPower_Insulation_Cold>
+			<StuffPower_Insulation_Heat>14</StuffPower_Insulation_Heat>
+		</statBases>
+		<stuffProps>
+			<color>(50,50,70)</color>
+			<commonality>0.015</commonality>
+			<statFactors>
+				<Beauty>1.6</Beauty>
+			</statFactors>
+		</stuffProps>
+	</ThingDef>
+	
+	
+		<!--================== Fish Food ==================-->
+	<ThingDef ParentName="OrganicProductBase">
+		<defName>BMT_FishFood</defName>
+		<label>fish food</label>
+		<description>Fish food made from mixed meat and plant sources. Less efficient than kibble, but won't deteriorate in water. Humans can eat it, but they really, really don't like it.</description>
+		<thingCategories>
+			<li>Foods</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Things/Item/Resource/Kibble</texPath>
+			<color>(230,150,60)</color>
+		</graphicData>
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<statBases>
+			<MarketValue>1.1</MarketValue>
+			<Mass>0.015</Mass>
+			<Nutrition>0.05</Nutrition>
+			<FoodPoisonChanceFixedHuman>0.02</FoodPoisonChanceFixedHuman>
+			<DeteriorationRate>0</DeteriorationRate>
+		</statBases>
+		<ingestible>
+			<foodType>Kibble</foodType>
+			<preferability>RawBad</preferability>
+			<tasteThought>AteKibble</tasteThought>
+			<optimalityOffsetHumanlikes>-30</optimalityOffsetHumanlikes>
+			<optimalityOffsetFeedingAnimals>15</optimalityOffsetFeedingAnimals>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<ingestSound>RawVegetable_Eat</ingestSound>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Ingredients"/>
+		</comps>
+	</ThingDef>
+
+	<RecipeDef>
+		<defName>BMT_MakeFishFood</defName>
+		<label>make fish food</label>
+		<description>Make fish food by combining raw meat and plants.</description>
+		<jobString>Making fish food.</jobString>
+		<workAmount>500</workAmount>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>MeatRaw</li>
+						<li>AnimalProductRaw</li>
+					</categories>
+				</filter>
+				<count>1.2</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>PlantFoodRaw</li>
+					</categories>
+					<thingDefs>
+						<li>Hay</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<recipeUsers>
+			<li>ButcherSpot</li>
+			<li>TableButcher</li>
+		</recipeUsers>
+		<products>
+			<BMT_FishFood>45</BMT_FishFood>
+		</products>
+		<fixedIngredientFilter>
+			<categories>
+				<li>FoodRaw</li>
+			</categories>
+			<thingDefs>
+				<li>Hay</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<defaultIngredientFilter>
+			<categories>
+				<li>Foods</li>
+			</categories>
+			<disallowedCategories>
+				<li>EggsFertilized</li>
+			</disallowedCategories>
+			<disallowedThingDefs>
+				<li>InsectJelly</li>
+			</disallowedThingDefs>
+		</defaultIngredientFilter>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+</Defs>

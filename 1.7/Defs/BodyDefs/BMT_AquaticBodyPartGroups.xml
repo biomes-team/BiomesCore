@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<BodyPartDef>
+		<defName>BMT_FishTail</defName>
+		<label>tail</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BMT_FishGill</defName>
+		<label>gill</label>
+		<hitPoints>15</hitPoints>
+		<permanentInjuryChanceFactor>0.08</permanentInjuryChanceFactor>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>BreathingPathway</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BMT_Fin</defName>
+		<label>fin</label>
+		<hitPoints>30</hitPoints>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartDef>
+		<defName>BMT_OrcaphibianLeg</defName>
+		<label>leg</label>
+		<hitPoints>30</hitPoints>
+		<skinCovered>true</skinCovered>
+		<tags>
+			<li>MovingLimbCore</li>
+		</tags>
+	</BodyPartDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_FrontLeftFin</defName>
+		<label>front left fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_FrontRightFin</defName>
+		<label>front right fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_RearLeftFin</defName>
+		<label>rear left fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+	<BodyPartGroupDef>
+		<defName>BMT_RearRightFin</defName>
+		<label>rear right fin</label>
+		<labelShort>fin</labelShort>
+	</BodyPartGroupDef>
+
+</Defs>

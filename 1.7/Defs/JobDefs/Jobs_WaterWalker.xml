@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<JobDef>
+	  <defName>WaterWalker_Unbeach</defName>
+	  <driverClass>BiomesCore.JobDriver_Unbeach</driverClass>
+	  <reportString>Returning to water.</reportString>
+	  <casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+	<JobDef>
+	  <defName>WaterWalker_Die</defName>
+	  <driverClass>BiomesCore.JobDriver_Die</driverClass>
+	  <reportString>Perishing.</reportString>
+	  <casualInterruptible>false</casualInterruptible>
+	</JobDef>
+
+</Defs>

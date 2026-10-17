@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<TraderKindDef>
+		<defName>BMT_Caravan_Herder</defName>
+		<label>herder</label>
+		<commonality>0.75</commonality>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>750~1200</countRange>
+			</li>
+			<!-- Selling -->
+			<li Class="BiomesCore.StockGenerators.Herder">
+				<kindCountRange>2</kindCountRange>
+				<totalPriceRange>800~1400</totalPriceRange>
+				<tradeTags>
+					<li>AnimalFarm</li>
+				</tradeTags>
+				<wildnessRange>0~0.7</wildnessRange>
+				<leatherPriceRange>110~230</leatherPriceRange>
+				<animalProductPriceRange>150~280</animalProductPriceRange>
+				<fertilizedEggCountRange>1~2</fertilizedEggCountRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Pemmican</thingDef>
+				<countRange>200~250</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>5~10</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Bedroll</thingDef>
+				<countRange>1~2</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Hay</thingDef>
+				<totalPriceRange>250~450</totalPriceRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Kibble</thingDef>
+				<totalPriceRange>400~700</totalPriceRange>
+			</li>
+			<!-- Buying -->
+			<li Class="StockGenerator_Animals">
+				<tradeTagsBuy>
+					<li>AnimalPet</li>
+					<li>AnimalExotic</li>
+				</tradeTagsBuy>
+			</li>
+			<!-- To simplify BiomesCore.StockGenerators.Herder, Chemfuel is hardcoded as a purchasable animal product. -->
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Chemfuel</thingDef>
+			</li>
+			<li Class="StockGenerator_BuyExpensiveSimple"/>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>Art</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>MusicalInstrument</tag>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+	<TraderKindDef>
+		<defName>BMT_Caravan_Hunter</defName>
+		<label>hunter</label>
+		<commonality>0.5</commonality>
+		<stockGenerators>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Silver</thingDef>
+				<countRange>750~1200</countRange>
+			</li>
+			<!-- Selling -->
+			<li Class="StockGenerator_Animals">
+				<tradeTagsSell>
+					<li>AnimalFighter</li>
+				</tradeTagsSell>
+				<tradeTagsBuy>
+					<li>AnimalUncommon</li>
+					<li>AnimalExotic</li>
+				</tradeTagsBuy>
+				<kindCountRange>2</kindCountRange>
+				<countRange>2~4</countRange>
+			</li>
+			<li Class="BiomesCore.StockGenerators.HighQualityItems">
+				<thingDefs>
+					<li>Bow_Recurve</li>
+					<li>Gun_BoltActionRifle</li>
+					<li MayRequire="VanillaExpanded.VWE">VWE_Bow_Compound</li>
+					<li MayRequire="VanillaExpanded.VWENL">VWE_Gun_DartGun</li>
+				</thingDefs>
+				<countRange>1~2</countRange>
+				<minQuality>Good</minQuality>
+				<maxQuality>Legendary</maxQuality>
+			</li>
+			<li Class="BiomesCore.StockGenerators.ButcheredPrey">
+				<kindCountRange>400~500</kindCountRange>
+				<countRange>1</countRange>
+				<wildnessRange>0.3~0.8</wildnessRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Pemmican</thingDef>
+				<countRange>200~250</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>MedicineHerbal</thingDef>
+				<countRange>5~10</countRange>
+			</li>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Bedroll</thingDef>
+				<countRange>1~2</countRange>
+			</li>
+			<!-- Buying -->
+			<li Class="StockGenerator_BuyExpensiveSimple"/>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>Art</tag>
+			</li>
+			<li Class="StockGenerator_BuyTradeTag">
+				<tag>MusicalInstrument</tag>
+			</li>
+		</stockGenerators>
+	</TraderKindDef>
+</Defs>

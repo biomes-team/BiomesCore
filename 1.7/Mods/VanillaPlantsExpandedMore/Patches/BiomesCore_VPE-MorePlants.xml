@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="VCE_Taro"]|
+			Defs/ThingDef[defName="VCE_Watercress"]|
+			Defs/ThingDef[defName="VCE_Lotus"]|
+			Defs/ThingDef[defName="VCE_WaterChestnut"]
+		</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Fresh</li>
+					<li>Shallow</li>
+					<li>ChestDeep</li>
+					<li>Boggy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Simple Algae - 'VPE More Plants' Addon</li>
+		</mods>
+		<match Class="PatchOperationAddModExtension">
+			<xpath>Defs/ThingDef[defName="AC_AlgaeCrop"]</xpath>
+			<value>
+				<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+					<terrainTags>
+						<li>Water</li>
+						<li>Fresh</li>
+						<li>Shallow</li>
+						<li>ChestDeep</li>
+						<li>Boggy</li>
+					</terrainTags>
+				</li>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>
+

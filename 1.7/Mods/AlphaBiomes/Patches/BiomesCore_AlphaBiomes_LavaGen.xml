@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/TerrainDef[defName="AB_LiquidLava"]/affordances</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs/TerrainDef[defName="AB_LiquidLava"]</xpath>
+			<value>
+				<affordances/>
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TerrainDef[defName="AB_LiquidLava"]/affordances</xpath>
+		<value>
+			<li>BMT_TerrainAffordance_Lava</li>
+		</value>
+	</Operation>
+
+</Patch>

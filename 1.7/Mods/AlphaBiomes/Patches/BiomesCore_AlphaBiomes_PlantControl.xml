@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Add terrain tags to control spawning of BMT plants -->
+	<!-- tags are:
+	Boggy
+	ChestDeep
+	Deep
+	Fresh
+	Icy
+	Loose
+	Muddy
+	Rocky
+	Salty
+	Sandy
+	Shallow
+	Soil
+	Water
+
+	Hot
+	Lava
+	
+	Toxic
+
+	Slimy
+	Metallic
+	Eyey
+	Tarry
+	-->
+
+
+	<!-- Feralisk Infested Jungle -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_DenseMud"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Muddy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_DenseGrass"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_WebbedMarshyTerrain"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Muddy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Forsaken Crags -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_ForsakenSand"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Sandy</li>
+					<li>Loose</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_FineForsakenSand"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Sandy</li>
+					<li>Loose</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_ForsakenRock"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Rocky</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_DarkMud"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Muddy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Gallatross Graveyard -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_CrackedMud"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Muddy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_RichCrackedMud"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Muddy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_FineSand"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Sandy</li>
+					<li>Loose</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Gelatinous Superorganism -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_Slime"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Slimy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_RichSlime"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Slimy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_SlimeGrass"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Slimy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_SlimyMud"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Muddy</li>
+					<li>Slimy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_LiquidSlime"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Slimy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Idyllic Meadows -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_GrassyFlowerySoil"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_FertileGrassyFlowerySoil"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Mechanoid Intrusion -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_MetalFloor1"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Metallic</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_MetalFloor2"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Metallic</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_MetalFloor3"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Metallic</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_SoilOnCrackedMetal"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Metallic</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_Piping"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Metallic</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Miasmic Mangrove -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_FertileMud"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Muddy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_FertileMarsh"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Shallow</li>
+					<li>Boggy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Mycotic Jungle -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_MycoticSoil"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_MycoticSoilRich"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_MycoticGrass"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Ocular Forest -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_AlienSand"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Sandy</li>
+					<li>Loose</li>
+					<li>Eyey</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_RichAlienSand"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Sandy</li>
+					<li>Loose</li>
+					<li>Eyey</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_AlienSandFine"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Sandy</li>
+					<li>Loose</li>
+					<li>Eyey</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_RedWaterShallow"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Eyey</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="GU_MossyRed"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Eyey</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Propane Lakes -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_PackedSnow"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li></li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_PackedIce"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Icy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_SolidPropane"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Icy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_SnowOverRocks"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Icy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_PropaneLake"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Icy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Pyroclastic Conflagration -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_BlackPebbles"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+					<li>Rocky</li>
+					<li>Loose</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_Obsidian"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Rocky</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_SolidifiedLava"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Rocky</li>
+					<li>Hot</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_HardenedGrass"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_HardenedGrassFertile"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_LiquidLava"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Lava</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Tar Pits -->
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_LushGrass"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_GrassySand"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Sandy</li>
+					<li>Loose</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_ParchedEarth"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Soil</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_TarMud"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Muddy</li>
+					<li>Tarry</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_ArtificialTar"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Tarry</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/TerrainDef[defName="AB_Tar"]</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Tarry</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+	<!-- Plants -->
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName="AB_MangroveTree"]/modExtensions|
+			Defs/ThingDef[defName="AB_ParasiticMangrove"]/modExtensions|
+			Defs/ThingDef[defName="AB_MangrovePalm"]/modExtensions
+		</xpath>
+	</Operation>
+	<Operation Class="PatchOperationAddModExtension">
+		<xpath>Defs/ThingDef[defName="AB_MangroveTree"]|
+			Defs/ThingDef[defName="AB_ParasiticMangrove"]|
+			Defs/ThingDef[defName="AB_MangrovePalm"]
+		</xpath>
+		<value>
+			<li Class="BiomesCore.DefModExtensions.Biomes_PlantControl">
+				<terrainTags>
+					<li>Water</li>
+					<li>Shallow</li>
+					<li>Boggy</li>
+				</terrainTags>
+			</li>
+		</value>
+	</Operation>
+
+</Patch>

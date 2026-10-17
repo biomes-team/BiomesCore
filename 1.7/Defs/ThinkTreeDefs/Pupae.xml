@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThinkTreeDef>
+		<defName>BMT_PupaeThinkTree</defName>
+		<thinkRoot Class="ThinkNode_Priority">
+			<subNodes>
+				<!-- Keep lying down if we have to -->
+				<li Class="ThinkNode_ConditionalMustKeepLyingDown">
+					<subNodes>
+						<!-- Keep lying down -->
+						<li Class="JobGiver_KeepLyingDown"/>
+					</subNodes>
+				</li>
+				<li Class="ThinkNode_Subtree">
+					<treeDef>Downed</treeDef>
+				</li>
+				<li Class="ThinkNode_Subtree">
+					<treeDef>BurningResponse</treeDef>
+				</li>
+				<li Class="ThinkNode_Subtree">
+					<treeDef>MentalStateCritical</treeDef>
+				</li>
+				<!-- Lay eggs you need to -->
+				<li Class="JobGiver_LayEgg"/>
+				<!-- Tame animal -->
+				<li Class="ThinkNode_ConditionalOfPlayerFaction">
+					<subNodes>
+						<li Class="ThinkNode_Tagger"/>
+					</subNodes>
+				</li>
+				<!-- Nuzzle randoms -->
+				<li Class="ThinkNode_ChancePerHour_Nuzzle">
+					<subNodes>
+						<li Class="ThinkNode_Tagger">
+							<tagToGive>Misc</tagToGive>
+							<subNodes>
+								<li Class="JobGiver_Nuzzle"/>
+							</subNodes>
+						</li>
+					</subNodes>
+				</li>
+				<!-- Insertion hook for modders -->
+				<li Class="ThinkNode_SubtreesByTag">
+					<insertTag>Animal_PreWander</insertTag>
+				</li>
+				<!--li Class="JobGiver_IdleError"/-->
+			</subNodes>
+		</thinkRoot>
+	</ThinkTreeDef>
+</Defs>

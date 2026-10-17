@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThinkTreeDef[defName="MentalStateNonCritical"]/thinkRoot/subNodes</xpath>
+		<value>
+			<li Class="ThinkNode_ConditionalMentalStateClass">
+				<stateClass>BiomesCore.MentalState.MentalState_Hungering</stateClass>
+				<subNodes>
+					<li Class="ThinkNode_Priority">
+						<subNodes>
+							<li Class="BiomesCore.Jobs.JobGiver_Hungering"/>
+							<li Class="JobGiver_WanderAnywhere">
+								<maxDanger>Deadly</maxDanger>
+							</li>
+						</subNodes>
+					</li>
+				</subNodes>
+			</li>
+		</value>
+	</Operation>
+</Patch>

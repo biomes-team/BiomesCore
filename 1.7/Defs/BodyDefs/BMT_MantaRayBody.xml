@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<BodyDef>
+		<defName>BMT_MantaBody</defName>
+		<label>manta</label>
+		<corePart>
+			<def>Body</def>
+			<height>Middle</height>
+			<depth>Outside</depth>
+			<parts>
+				<li>
+					<def>Tail</def>
+					<height>Bottom</height>
+					<coverage>0.05</coverage>
+				</li>
+				<li>
+					<def>Spine</def>
+					<coverage>0.08</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>Stomach</def>
+					<coverage>0.05</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>Heart</def>
+					<coverage>0.02</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>BMT_FishGill</def>
+					<customLabel>left gill</customLabel>
+					<coverage>0.02</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>BMT_FishGill</def>
+					<customLabel>right gill</customLabel>
+					<coverage>0.02</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>Kidney</def>
+					<customLabel>left kidney</customLabel>
+					<coverage>0.02</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>Kidney</def>
+					<customLabel>right kidney</customLabel>
+					<coverage>0.02</coverage>
+					<depth>Inside</depth>
+				</li>
+				<li>
+					<def>Liver</def>
+					<coverage>0.04</coverage>
+					<depth>Inside</depth>
+				</li>
+
+				<li>
+					<def>BMT_Fin</def>
+					<customLabel>left fin</customLabel>
+					<coverage>0.22</coverage>
+					<depth>Outside</depth>
+				</li>
+				<li>
+					<def>BMT_Fin</def>
+					<customLabel>right fin</customLabel>
+					<coverage>0.22</coverage>
+					<depth>Outside</depth>
+				</li>
+
+				<li>
+					<def>Head</def>
+					<coverage>0.20</coverage>
+					<groups>
+						<li>HeadAttackTool</li>
+					</groups>
+					<parts>
+						<li>
+							<def>Skull</def>
+							<coverage>0.40</coverage>
+							<depth>Inside</depth>
+							<parts>
+								<li>
+									<def>Brain</def>
+									<coverage>0.35</coverage>
+									<depth>Inside</depth>
+								</li>
+							</parts>
+						</li>
+						<li>
+							<def>Eye</def>
+							<customLabel>left eye</customLabel>
+							<coverage>0.05</coverage>
+						</li>
+						<li>
+							<def>Eye</def>
+							<customLabel>right eye</customLabel>
+							<coverage>0.05</coverage>
+						</li>
+						<li>
+							<def>Nose</def>
+							<coverage>0.10</coverage>
+						</li>
+						<li>
+							<def>AnimalJaw</def>
+							<coverage>0.15</coverage>
+							<groups>
+								<li>Teeth</li>
+							</groups>
+						</li>
+					</parts>
+				</li>
+			</parts>
+		</corePart>
+	</BodyDef>
+</Defs>

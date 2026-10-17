@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+
+	<VanillaPlantsExpandedMorePlants.AquaticGrowZoneTerrainsDef>
+		<defName>BMT_AquaticGrowZoneTerrains</defName>
+		<allowedTerrains>
+			<li>BiomesCore_WaterShallowLagoon</li>
+		</allowedTerrains>
+	</VanillaPlantsExpandedMorePlants.AquaticGrowZoneTerrainsDef>
+
+</Defs>

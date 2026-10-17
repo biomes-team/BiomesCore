@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TerrainAffordanceDef>
+    <defName>BMT_Sand</defName>
+    <label>sand</label>
+    <order>1200</order>
+    <visualizeOnAffordanceOverlay>true</visualizeOnAffordanceOverlay>
+    <affordanceOverlayColor>(119,189,239)</affordanceOverlayColor>
+  </TerrainAffordanceDef>
+  
+
+  
+    <TerrainAffordanceDef>
+    <defName>BMT_Ice</defName>
+    <label>ice</label>
+    <order>1200</order>
+    <visualizeOnAffordanceOverlay>true</visualizeOnAffordanceOverlay>
+    <affordanceOverlayColor>(119,189,239)</affordanceOverlayColor>
+  </TerrainAffordanceDef>
+  
+    <TerrainAffordanceDef>
+    <defName>BMT_GlacialIce</defName>
+    <label>glacial ice</label>
+    <order>1200</order>
+    <visualizeOnAffordanceOverlay>true</visualizeOnAffordanceOverlay>
+    <affordanceOverlayColor>(119,189,239)</affordanceOverlayColor>
+  </TerrainAffordanceDef>
+  
+</Defs>

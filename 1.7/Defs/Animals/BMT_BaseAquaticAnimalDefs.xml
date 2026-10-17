@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<ThingDef ParentName="AnimalThingBase" Name="BiomesCore_WaterAnimal" Abstract="true">
+		<statBases>
+			<MoveSpeed>6</MoveSpeed>
+			<ComfyTemperatureMin>-10</ComfyTemperatureMin>
+		</statBases>
+		<race>
+			<waterSeeker>true</waterSeeker>
+			<waterCellCost>1</waterCellCost>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
+			<herdMigrationAllowed>false</herdMigrationAllowed>
+		</race>
+		<comps>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_WaterAnimal" Name="BiomesCore_SaltWaterAnimal" Abstract="true">
+		<race>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
+		</race>
+	</ThingDef>
+
+	<ThingDef ParentName="BiomesCore_WaterAnimal" Name="BiomesCore_FreshWaterAnimal" Abstract="true">
+		<race>
+			<nameGenerator>Biomes_NamerAquatic</nameGenerator>
+		</race>
+	</ThingDef>
+</Defs>
