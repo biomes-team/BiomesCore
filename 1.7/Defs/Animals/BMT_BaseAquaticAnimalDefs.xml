@@ -12,6 +12,10 @@
 			<herdMigrationAllowed>false</herdMigrationAllowed>
 		</race>
 		<comps>
+			<li Class="BiomesCore.CompProperties_BottomFeeder">
+				<excludePredators>true</excludePredators>
+				<feedingTerrainTag>Water</feedingTerrainTag>
+			</li>
 		</comps>
 	</ThingDef>
 

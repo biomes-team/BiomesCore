@@ -30,6 +30,15 @@
 				<downloadUrl>https://github.com/biomes-team/BiomesFramework/releases</downloadUrl>
 			</li>
 		</v1.6>
+		<v1.7>
+			<li>
+				<packageId>BiomesTeam.CoreFramework</packageId>
+				<displayName>BMT Framework</displayName>
+				<!-- To-Do: Added steam link -->
+				<steamWorkshopUrl>steam://url/CommunityFilePage/3709492514</steamWorkshopUrl>
+				<downloadUrl>https://github.com/biomes-team/BiomesFramework/releases</downloadUrl>
+			</li>
+		</v1.7>
 	</modDependenciesByVersion>
 	<loadAfter>
 		<li>brrainz.harmony</li>
